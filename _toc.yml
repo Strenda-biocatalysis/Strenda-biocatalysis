@@ -1,0 +1,13 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: schemas/experiment-type
+- file: schemas/vessel-type
+- file: schemas/biocatalyst
+- file: schemas/reactants
+- file: schemas/reaction-conditions
+- file: schemas/sampling
+- file: schemas/others
