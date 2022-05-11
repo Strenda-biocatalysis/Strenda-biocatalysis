@@ -6,7 +6,7 @@ The first step of the experiment description is the experiment type. The experim
 - Fed-batch experiments
 - Continuous experiments.
 
-<img src="assets/experiment-type.png"/>
+<img src="assets/exp-type.svg"/>
 
 
 
