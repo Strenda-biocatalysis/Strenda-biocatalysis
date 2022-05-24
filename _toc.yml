@@ -4,6 +4,7 @@
 format: jb-book
 root: intro
 chapters:
+- file: schemas/what_and_why
 - file: schemas/experiment-type
 - file: schemas/vessel-type
 - file: schemas/biocatalyst
