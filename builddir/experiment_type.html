@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>experiment_type module &#8212; Strenda-biocatalysis  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="reactants module" href="reactants.html" />
+    <link rel="prev" title="biocatalyst module" href="biocatalyst.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-experiment_type">
+<span id="experiment-type-module"></span><h1>experiment_type module<a class="headerlink" href="#module-experiment_type" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="experiment_type.BatchExperiment">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">experiment_type.</span></span><span class="sig-name descname"><span class="pre">BatchExperiment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total_volume</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">working_volume</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#experiment_type.BatchExperiment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Batch experiments contain all the reactants at the start of the experiment, do not get fed by substrates or other reactants and end after the experiment has been performed</p>
+<p>important attributes to describe batch experiments:</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="experiment_type.BatchExperiment.total_volume">
+<span class="sig-name descname"><span class="pre">total_volume</span></span><a class="headerlink" href="#experiment_type.BatchExperiment.total_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reaction volume</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="experiment_type.BatchExperiment.reactor_type">
+<span class="sig-name descname"><span class="pre">reactor_type</span></span><a class="headerlink" href="#experiment_type.BatchExperiment.reactor_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reaction vessel type</p>
+</dd></dl>
+
+<hr></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="experiment_type.ContinuousExperiment">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">experiment_type.</span></span><span class="sig-name descname"><span class="pre">ContinuousExperiment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total_volume</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">working_volume</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#experiment_type.ContinuousExperiment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Batch experiments contain all the reactants at the start of the experiment, do not get fed by substrates or other reactants and end after the experiment has been performed</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="experiment_type.ContinuousExperiment.Reactor_type">
+<span class="sig-name descname"><span class="pre">Reactor_type</span></span><a class="headerlink" href="#experiment_type.ContinuousExperiment.Reactor_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reaction vessel type</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="experiment_type.ContinuousExperiment.initial_volume">
+<span class="sig-name descname"><span class="pre">initial_volume</span></span><a class="headerlink" href="#experiment_type.ContinuousExperiment.initial_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starting volume</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="experiment_type.ContinuousExperiment.final_volume">
+<span class="sig-name descname"><span class="pre">final_volume</span></span><a class="headerlink" href="#experiment_type.ContinuousExperiment.final_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Volume at the end of the reaction</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="experiment_type.ContinuousExperiment.resistance_time">
+<span class="sig-name descname"><span class="pre">resistance_time</span></span><a class="headerlink" href="#experiment_type.ContinuousExperiment.resistance_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>ime one reactant stays in the system</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Strenda-biocatalysis</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="strenda.html">Strenda-biocatalysis</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">models</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="biocatalyst.html">biocatalyst module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">experiment_type module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reactants.html">reactants module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reaction_conditions.html">reaction_conditions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vessels.html">vessels module</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">models</a><ul>
+      <li>Previous: <a href="biocatalyst.html" title="previous chapter">biocatalyst module</a></li>
+      <li>Next: <a href="reactants.html" title="next chapter">reactants module</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Stephan Malzacher.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/experiment_type.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

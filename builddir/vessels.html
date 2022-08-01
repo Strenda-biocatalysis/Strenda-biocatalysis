@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vessels module &#8212; Strenda-biocatalysis  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="reaction_conditions module" href="reaction_conditions.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-vessels">
+<span id="vessels-module"></span><h1>vessels module<a class="headerlink" href="#module-vessels" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="vessels.StirredTankReactor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vessels.</span></span><span class="sig-name descname"><span class="pre">StirredTankReactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">volume</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bootom_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">working_volume</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vessels.StirredTankReactor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Stirred tank reactors are</p>
+<img alt="_images/str.png" src="_images/str.png" />
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vessels.StirredTankReactor.volume">
+<span class="sig-name descname"><span class="pre">volume</span></span><a class="headerlink" href="#vessels.StirredTankReactor.volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>maximal filling volume of the reactor</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vessels.StirredTankReactor.height">
+<span class="sig-name descname"><span class="pre">height</span></span><a class="headerlink" href="#vessels.StirredTankReactor.height" title="Permalink to this definition">¶</a></dt>
+<dd><p>height of the reactor</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vessels.StirredTankReactor.width">
+<span class="sig-name descname"><span class="pre">width</span></span><a class="headerlink" href="#vessels.StirredTankReactor.width" title="Permalink to this definition">¶</a></dt>
+<dd><p>width of the reactor</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vessels.StirredTankReactor.bottom_type">
+<span class="sig-name descname"><span class="pre">bottom_type</span></span><a class="headerlink" href="#vessels.StirredTankReactor.bottom_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>has the reactor a flat bottom, a round bottom?</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vessels.StirredTankReactor.working_volume">
+<span class="sig-name descname"><span class="pre">working_volume</span></span><a class="headerlink" href="#vessels.StirredTankReactor.working_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>what was the working volume</p>
+</dd></dl>
+
+<p>There are many attributes still missing</p>
+<hr></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="vessels.Vial">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vessels.</span></span><span class="sig-name descname"><span class="pre">Vial</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dimension</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stirring</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vessels.Vial" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>vials are commoly used for small reaction volumes and simple reaction setups</p>
+<img alt="_images/vial.png" src="_images/vial.png" />
+<p><strong>The following attributes are needed to describe a vial reactor</strong></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vessels.Vial.dimension_and_volume">
+<span class="sig-name descname"><span class="pre">dimension_and_volume</span></span><a class="headerlink" href="#vessels.Vial.dimension_and_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>volume of the vessel</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vessels.Vial.stirring_and_mixing">
+<span class="sig-name descname"><span class="pre">stirring_and_mixing</span></span><a class="headerlink" href="#vessels.Vial.stirring_and_mixing" title="Permalink to this definition">¶</a></dt>
+<dd><p>how fast was the shaking</p>
+</dd></dl>
+
+<hr></dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Strenda-biocatalysis</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="strenda.html">Strenda-biocatalysis</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">models</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="biocatalyst.html">biocatalyst module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="experiment_type.html">experiment_type module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reactants.html">reactants module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reaction_conditions.html">reaction_conditions module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">vessels module</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">models</a><ul>
+      <li>Previous: <a href="reaction_conditions.html" title="previous chapter">reaction_conditions module</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Stephan Malzacher.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/vessels.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
