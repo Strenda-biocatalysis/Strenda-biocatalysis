@@ -12,3 +12,6 @@ Do fugiat mollit sit duis deserunt dolor ex. Quis do occaecat dolor consectetur 
 - __ecnumber__
   - Type: string
   - Description: Code used to determine the family of a protein.
+- __hello__
+  - Type: string
+  - Description: Hallooo
