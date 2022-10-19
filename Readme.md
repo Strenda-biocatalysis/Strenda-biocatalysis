@@ -8,7 +8,7 @@ On this website, you will find the specifications and the backbone of the modula
 
 - use [this]() tool to define your metadata set
 
-## Processes
+## Biocatalyst
 
 [Processes](https://github.com/StephanM87/Strenda-biocatalysis/blob/interpreter/ModelExamples/Processes/Readme.md)
 
