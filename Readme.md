@@ -4,8 +4,8 @@ Strenda biocatalysis is aiming to define which Attributes should be used to desc
 
 ## Processes
 
-[Processes]("https://github.com/StephanM87/Strenda-biocatalysis/blob/interpreter/ModelExamples/Processes/Readme.md)
+[Processes](https://github.com/StephanM87/Strenda-biocatalysis/blob/interpreter/ModelExamples/Processes/Readme.md)
 
 ## Vessels
 
-[Vessels]("https://github.com/StephanM87/Strenda-biocatalysis/blob/interpreter/ModelExamples/Vessels/Readme.md")
+[Vessels](https://github.com/StephanM87/Strenda-biocatalysis/blob/interpreter/ModelExamples/Vessels/Readme.md)
