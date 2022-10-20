@@ -2,7 +2,7 @@
 
 The first question to answer is which operation mode is used in the experiment. 
 
-[Landing Page](Strenda-biocatalysis/Readme.md)
+[Landing Page](../../Readme.md)
 
 ### Batch
 
