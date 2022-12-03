@@ -18,8 +18,10 @@ On this website, you will find the specifications and the backbone of the modula
 
 ## Reactants
 
-[Reactants](./ModelExamples/Reactants/Readme.md)
+[Reactants](ModelExamples/Reactants/Readme.md)
 
 ## Reaction conditions
+
+[ReactionConditions](ModelExamples/Reaction conditions/Readme.md)
 
 ## Sampling
