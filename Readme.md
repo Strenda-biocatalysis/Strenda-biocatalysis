@@ -14,7 +14,7 @@ On this website, you will find the specifications and the backbone of the modula
 
 ## Vessels
 
-[Vessels](https://github.com/StephanM87/Strenda-biocatalysis/blob/interpreter/ModelExamples/Vessels/Readme.md)
+[Vessels](ModelExamples/Vessels_and_Volumes/Reamdme.md)
 
 ## Reactants
 
@@ -22,6 +22,6 @@ On this website, you will find the specifications and the backbone of the modula
 
 ## Reaction conditions
 
-[ReactionConditions](ModelExamples/Reaction conditions/Readme.md)
+[ReactionConditions](ModelExamples/Reaction_conditions/Readme.md)
 
 ## Sampling
