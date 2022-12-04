@@ -8,6 +8,15 @@ On this website, you will find the specifications and the backbone of the modula
 
 - use [this]() tool to define your metadata set
 
+
+
+
+## OperationMode
+
+The operation mode is the first step in the experimental planning, it describes the mode in which the experiment was perform (e.g. batch, fedbatch, continuous)
+
+[OperationModel](ModelExamples/OperationMode/Readme.md)
+
 ## Biocatalyst
 
 [Processes](https://github.com/StephanM87/Strenda-biocatalysis/blob/interpreter/ModelExamples/Processes/Readme.md)
