@@ -34,3 +34,8 @@ The operation mode is the first step in the experimental planning, it describes 
 [ReactionConditions](ModelExamples/Reaction_conditions/Readme.md)
 
 ## Sampling
+
+
+# Contact us
+
+Stephan Malzacher (s.malzacher@fz-juelich.de)

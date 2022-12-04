@@ -2,6 +2,9 @@
 
 This document contains all information required to describe enzymes in a biocatalytic procedure
 
+
+<details> <Summary>Biocatalyst purchased</Summary>
+
 ### Biocatalyst_purchased
 
 basic info about the biocatalyst
@@ -45,6 +48,9 @@ basic info about the biocatalyst
   - Type: string
   - Description: formulation of the biocatlyst, eg powder, solution etc.
 
+</details>
+
+<details> <Summary>Biocatalyst self produced</Summary>
 
 ### BiocatalystselfProduced
 
@@ -95,8 +101,9 @@ basic info about the self producted biocatalyst
   - Type: string
   - Description: method used for purification of the enyme
 
+</details>
 
-
+<details> <Summary>soluble biocatalyst</Summary>
 
 ### SolubleBiocatalyst [_BiocatalystselfProduced_]
 
@@ -118,6 +125,9 @@ soluble biocatlyst
   - Type: string
   - Description: formulation of the biocatlyst, eg powder, solution etc.
 
+</details>
+
+<details> <Summary>immobilised biocatalyst</Summary>
 
 ### ImmobilisedBiocatalyst [_BiocatalystselfProduced_]
 
@@ -138,6 +148,9 @@ soluble biocatlyst
   - Type: string
   - Description: method how the concentration was measured
 
+</details>
+
+<details> <Summary>crude cell extract</Summary>
 
 ### CrudeCellExtract [_BiocatalystselfProduced_]
 
@@ -153,6 +166,9 @@ soluble biocatlyst
   - Type: string
   - Description: method how the concentration was measured
 
+</details>
+
+<details> <Summary>whole cell biocatalyst</Summary>
 
 ### WholeCellBiocatalyst [_BiocatalystselfProduced_]
 
@@ -164,6 +180,9 @@ soluble biocatlyst
   - Type: string
   - Description: formulation of the catalyst (wet cells, lyoohillised?)
 
+</details>
+
+<details> <Summary>storage conditions</Summary>
 
 ### StorageConditions [_BiocatalystselfProduced_]
 
@@ -182,3 +201,5 @@ soluble biocatlyst
 - __thawing_process__
   - Type: string
   - Description: how was the catalst frozen, any special deviced
+
+</details>
