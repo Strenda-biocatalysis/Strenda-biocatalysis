@@ -1,15 +1,15 @@
-# Welcome to Strenda biocatalysis guidelines
+# Welcome to STRENDA biocatalysis guidelines
 
-Strenda biocatalysis is aiming to define which Attributes should be used to describe an experiment in biocatalysis. Since biocatalysis is a dicipline with many different applications, it is not possible to hand out one catalogue to describe all experiments. On the contrary, it should be the catalog that adapts to the experiments. Therefore, strenda-biocatalysis is build as modular system
+STRENDA biocatalysis is aiming to define which ATTRIBUTES should be used to describe an experiment in biocatalysis. Since biocatalysis is a dicipline with many different operational modes, it is not possible to hand out one catalogue to describe all possible experimental setups. On the contrary, we need a catalogue that adapts to the experimental procedures to help experimenters in their everyday work and give software developers a basis for data modelling. Therefore, STRENDA biocatalysis is build in a adaptive modular way.
 
-On this website, you will find the specifications and the backbone of the modular system 
+On this website, you will find the ATTRIBUTES organised in six main CATEGORIES.
 
-## How to use strenda biocatalysis
+## How to use STRENDA biocatalysis
 
-- use [this]() tool to define your metadata set
+- use [this]() tool to define your METADATA set
 
 
-# Here, you can find our categories and attributes
+# Here, you can find our CATEGORIES and ATTRIBUTES
 
 ## OperationMode
 
