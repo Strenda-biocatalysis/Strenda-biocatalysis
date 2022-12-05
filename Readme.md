@@ -11,11 +11,11 @@ On this website, you will find the ATTRIBUTES organised in six main CATEGORIES.
 
 # Here, you can find our CATEGORIES and ATTRIBUTES
 
-## OperationMode
+## Operation mode
 
-The operation mode is the first step in the experimental planning, it describes the mode in which the experiment was perform (e.g. batch, fedbatch, continuous)
+The operation mode is the first step in the experimental planning, it describes the mode in which the experiment was perform (e.g. batch, fed-batch, continuous)
 
-[OperationModel](ModelExamples/OperationMode/Readme.md)
+[Operation mode](ModelExamples/OperationMode/Readme.md)
 
 ## Biocatalyst
 
@@ -31,7 +31,7 @@ The operation mode is the first step in the experimental planning, it describes 
 
 ## Reaction conditions
 
-[ReactionConditions](ModelExamples/Reaction_conditions/Readme.md)
+[Reaction conditions](ModelExamples/Reaction_conditions/Readme.md)
 
 ## Sampling
 
