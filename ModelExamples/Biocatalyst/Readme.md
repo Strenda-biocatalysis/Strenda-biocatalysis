@@ -1,6 +1,6 @@
 # Biocatalyst
 
-This document contains all information required to describe enzymes in a biocatalytic procedure
+This document contains all information required to describe enzymes in a biocatalytic procedures
 
 
 <details> <Summary>Biocatalyst purchased</Summary>
