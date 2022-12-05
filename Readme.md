@@ -19,7 +19,7 @@ The operation mode is the first step in the experimental planning, it describes 
 
 ## Biocatalyst
 
-[Processes](https://github.com/StephanM87/Strenda-biocatalysis/blob/interpreter/ModelExamples/Processes/Readme.md)
+[Biocatalyst](https://github.com/StephanM87/Strenda-biocatalysis/blob/interpreter/ModelExamples/Processes/Readme.md)
 
 ## Vessels
 
