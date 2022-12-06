@@ -6,7 +6,7 @@ On this website, you will find the ATTRIBUTES organised in six main CATEGORIES.
 
 ## How to use STRENDA biocatalysis
 
-- use [this]() tool to define your METADATA set
+- use [this]() tool to define your ATRRIBUTES set
 
 
 # Here, you can find our CATEGORIES and ATTRIBUTES
