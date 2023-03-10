@@ -17,13 +17,13 @@ The operation mode is the first step in the experimental planning, it describes 
 
 [Operation mode](ModelExamples/OperationMode/Readme.md)
 
-## Biocatalyst
+## (Bio)catalyst
 
-[Biocatalyst](https://github.com/StephanM87/Strenda-biocatalysis/blob/interpreter/ModelExamples/Processes/Readme.md)
+[(Bio)catalyst](ModelExamples/Biocatalyst/Readme.md)
 
-## Vessels
+## Vessel type and mixing (hydrodynamics)
 
-[Vessels](ModelExamples/Vessels_and_Volumes/Reamdme.md)
+[Vessel type and mixing (hydrodynamics)](ModelExamples/Vessels_and_Volumes/Reamdme.md)
 
 ## Reactants
 

@@ -1,6 +1,8 @@
-# Biocatalyst
+# 1. Biocatalyst
 
-This document contains all information required to unambiguously identify the catalyst and its formulation.
+This document contains all information required to unambiguously identify the catalyst and its formulation. 
+
+At first, it needs to e identified if the enzyme or biocatalyst was obtained by purchasing it from a company or other researchers, or if it was produced by yourself. In every case different metadata are required to describe the enzyme.
 
 
 <details> <Summary>Biocatalyst purchased</Summary>
@@ -103,6 +105,13 @@ basic info about the self producted biocatalyst
 
 </details>
 
+
+# 2. Formulation and immobilisation
+
+With a enzyme purchased or self-produced it needs to be specified, how it was used in the reaction. We have identified two categories in which a biocatalyst can be applied to a reaction: immobilised, or non immobilised.
+
+## Non immobilised biocatalysts
+
 <details> <Summary>soluble biocatalyst</Summary>
 
 ### SolubleBiocatalyst [_BiocatalystselfProduced_]
@@ -125,33 +134,13 @@ soluble biocatlyst
   - Type: string
   - Description: formulation of the biocatlyst, eg powder, solution etc.
 
-</details>
-
-<details> <Summary>immobilised biocatalyst</Summary>
-
-### ImmobilisedBiocatalyst [_BiocatalystselfProduced_]
-
-
 - __purification_procedure__
   - Type: string
-  - Description: Method for purifying the enzyme
-
-- __immobilisation_procedure__
-  - Type: string
-  - Description: Procedure for immpbilising the enzyme
-
-- __concentration__
-  - Type: float
-  - Description: concentration of the enzyme on the immobilised phase
-
-- __concentration_determination_method__
-  - Type: string
-  - Description: method how the concentration was measured
+  - Description: Method used to purifiy the biocatalyst
 
 </details>
 
 <details> <Summary>crude cell extract</Summary>
-
 ### CrudeCellExtract [_BiocatalystselfProduced_]
 
 - __cell_disruption_process__
@@ -181,6 +170,68 @@ soluble biocatlyst
   - Description: formulation of the catalyst (wet cells, lyoohillised?)
 
 </details>
+
+<details> <Summary>Supernatant</Summary>
+
+### Supernatant [_BiocatalystselfProduced_]
+
+- __production_organism__
+  - Type: string
+  - Description: Which organism was producing and secreting the biocatalyst?
+
+- __separation_method__
+  - Type: string
+  - Description: The method of how the supernatant was separated from the cells
+
+</details>
+
+<details> <Summary>Cell-free-production</Summary>
+
+### Cell free production [_BiocatalystselfProduced_]
+
+????
+
+</details>
+
+
+
+## Immobilised biocatalysts
+
+<details> <Summary>immobilised biocatalyst</Summary>
+
+### ImmobilisedBiocatalyst [_BiocatalystselfProduced_]
+
+
+- __purification_procedure__
+  - Type: string
+  - Description: Method for purifying the enzyme
+
+- __immobilisation_procedure__
+  - Type: string
+  - Description: Procedure for immpbilising the enzyme
+
+- __concentration__
+  - Type: float
+  - Description: concentration of the enzyme on the immobilised phase
+
+- __concentration_determination_method__
+  - Type: string
+  - Description: method how the concentration was measured
+
+</details>
+
+<details> <Summary>Immobilisation procedure</Summary>
+
+### Immobilisation_procedure [_BiocatalystselfProduced_]
+
+???
+
+</details>
+
+# 3. Storage conditions
+
+The last question to be answered for decribing the biocatalyst is how it has been stored until it was used in the reaction.
+
 
 <details> <Summary>storage conditions</Summary>
 
