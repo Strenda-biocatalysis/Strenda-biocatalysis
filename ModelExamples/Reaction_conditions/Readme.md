@@ -36,6 +36,10 @@ Information about the phases in the multiphase system
   - Type: posfloat
   - Description: Number of phases present in the system, if there is an aqueous and a gas phase present, the number is 2 
 
+- __phase_definition__
+  - Type: phase_description
+  - Description: Definition of the respective phase added to the system 
+
 </details>
 
 ## Phase description
@@ -52,7 +56,7 @@ Here, metadata are present, describing the individual phases of the multiphase s
 
 - __amount_of_liquid__
   - Type: posfloat
-  - Description: Which liquid amont is added to the reaction
+  - Description: Which liquid amount is added to the reaction
 
 - __unit_of_liquid__
   - Type: string
@@ -81,12 +85,6 @@ Definition of the solid phase used in the reaction
 </details>
 
 
-- __type_of_phase__
-  - Type: phase
-  - Description: individual description of every phase present in the system 
-
-</details>
-
 <details> <Summary>Gas phase</Summary>
 
 ### Solid phase
@@ -106,6 +104,8 @@ Definition of the solid phase used in the reaction
   - Description: unit of the gas, added to the reaction, for example as partial pressure
 
 </details>
+
+<hr />
 
 ## 2. Temperature
 
@@ -163,7 +163,7 @@ basic information about the solvent used
 
 ### Event based temperature shift
 
-Description of the temperature, when an event causes the change in temperature
+Description of the temperature, when an event causes the temperature change
 
 - __temperature_unit__
   - Type: string

@@ -140,7 +140,7 @@ soluble biocatlyst
 
 </details>
 
-<details> <Summary>crude cell extract</Summary>
+<details> <Summary>Crude cell extract</Summary>
 ### CrudeCellExtract [_BiocatalystselfProduced_]
 
 - __cell_disruption_process__
@@ -157,7 +157,7 @@ soluble biocatlyst
 
 </details>
 
-<details> <Summary>whole cell biocatalyst</Summary>
+<details> <Summary>Whole cell biocatalyst</Summary>
 
 ### WholeCellBiocatalyst [_BiocatalystselfProduced_]
 
