@@ -1,3 +1,5 @@
+[Landing Page](/Readme.md)
+
 # Reaction conditions
 
 <details><Summary>Introductory remarks</Summary>
@@ -21,11 +23,11 @@ basic information about the solvent used
   - Description: The solvent used in the reaction system, for example a buffered aqueous solution or an organic solvent
 
 - __reaction_conditions_temperature__
-  - Type: temperature 
+  - Type: [temperature](#temperature-conditions) 
   - Description: Definition of the temperature based reaction conditions
 
 - __reaction_conditions_pH__
-  - Type: pH
+  - Type: [pH](#ph-conditions)
   - Description: Definition of the pH dependent reaction conditions
 
 </details>
@@ -33,8 +35,6 @@ basic information about the solvent used
 <hr>
 
 ## Multiphase systems
-
-## System description
 
 <details> <Summary>Multiphase system description</Summary>
 
@@ -150,9 +150,6 @@ basic information about the solvent used
 
 <details> <Summary>Temperature shift</Summary>
 
-
-<!--> Definition of temperatures <-->
-
 ### TemperatureShift
 
 <a id="temperature-shift"></a>
@@ -215,7 +212,7 @@ Description of the temperature, when an event causes the temperature change
 </details>
 
 <!--> Definition of the pH <-->
-## 2. pH 
+## pH conditions
 
 <details> <Summary>pH constant</Summary>
 

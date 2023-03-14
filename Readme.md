@@ -20,10 +20,10 @@ The operation mode is the first step in the experimental planning, it describes 
 ## (Bio)catalyst
 
 [(Bio)catalyst](ModelExamples/Biocatalyst/Readme.md)
-
+s
 ## Vessel type and mixing (hydrodynamics)
 
-[Vessel type and mixing (hydrodynamics)](ModelExamples/Vessels_and_Volumes/Reamdme.md)
+[Vessel type and mixing (hydrodynamics)](ModelExamples/Vessels_and_Volumes/Readme.md)
 
 ## Reactants
 
@@ -34,6 +34,8 @@ The operation mode is the first step in the experimental planning, it describes 
 [Reaction conditions](ModelExamples/Reaction_conditions/Readme.md)
 
 ## Sampling
+
+[Sampling](ModelExamples/Sampling/Readme.md)
 
 
 # Contact us

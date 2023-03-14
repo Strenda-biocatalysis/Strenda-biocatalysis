@@ -1,8 +1,8 @@
+[Landing Page](/Readme.md)
+
 # Experiment type
 
 The first question to answer is which operation mode is used in the experiment. 
-
-[Landing Page](Readme.md)
 
 ### Batch
 

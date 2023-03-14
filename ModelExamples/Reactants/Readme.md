@@ -1,5 +1,4 @@
-
-[back to main](/Readme.md)
+[Landing Page](/Readme.md)
 # Reactants
 
 This document contains all information about the attributes required to describe reactants

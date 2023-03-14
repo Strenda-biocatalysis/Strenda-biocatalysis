@@ -1,4 +1,6 @@
-# 1. Biocatalyst
+[Landing Page](/Readme.md)
+
+# Biocatalyst
 
 This document contains all information required to unambiguously identify the catalyst and its formulation. 
 
@@ -106,7 +108,7 @@ basic info about the self producted biocatalyst
 </details>
 
 
-# 2. Formulation and immobilisation
+# Formulation and immobilisation
 
 With a enzyme purchased or self-produced it needs to be specified, how it was used in the reaction. We have identified two categories in which a biocatalyst can be applied to a reaction: immobilised, or non immobilised.
 
