@@ -6,9 +6,9 @@ The reaction conditions were identified by the STRENDA-biocatalysis team as the 
 
 </details>
 
-# Monoliquid systems
+<hr/>
 
-## 1. Solvent description
+## Monoliquid systems
 
 <details> <Summary>Solvent description</Summary>
 
@@ -16,13 +16,23 @@ The reaction conditions were identified by the STRENDA-biocatalysis team as the 
 
 basic information about the solvent used
 
-- __name*__
+- __description__
   - Type: string
-  - Description: The solvent used in the reaction system, for example a buffered aqueous solution or an organic solvent 
+  - Description: The solvent used in the reaction system, for example a buffered aqueous solution or an organic solvent
+
+- __reaction_conditions_temperature__
+  - Type: temperature 
+  - Description: Definition of the temperature based reaction conditions
+
+- __reaction_conditions_pH__
+  - Type: pH
+  - Description: Definition of the pH dependent reaction conditions
 
 </details>
 
-# Multiphase systems
+<hr>
+
+## Multiphase systems
 
 ## System description
 
@@ -36,11 +46,21 @@ Information about the phases in the multiphase system
   - Type: posfloat
   - Description: Number of phases present in the system, if there is an aqueous and a gas phase present, the number is 2 
 
-- __phase_definition__
+- __phase_definition__ 
   - Type: phase_description
-  - Description: Definition of the respective phase added to the system 
+  - Description: Definition of the respective phase added to the system
+
+- __reaction_conditions_temperature__
+  - Type: temperature 
+  - Description: Definition of the temperature based reaction conditions
+
+- __reaction_conditions_pH__
+  - Type: pH
+  - Description: Definition of the pH dependent reaction conditions
 
 </details>
+
+<hr/>
 
 ## Phase description
 
@@ -107,13 +127,13 @@ Definition of the solid phase used in the reaction
 
 <hr />
 
-## 2. Temperature
+## Temperature conditions
 
 With the type of liquid described, the next question is how does the temperature behave along the reaction, it can stay constant, shift for example due to the chemical reaction catalysed or change e.g. due to the addition of a substrate. 
 
 <details> <Summary>Temperature constant</Summary>
 
-### Temperature constant
+### TemperatureConstant
 
 basic information about the solvent used
 
@@ -130,7 +150,10 @@ basic information about the solvent used
 
 <details> <Summary>Temperature shift</Summary>
 
-### Temperature shift
+
+<!--> Definition of temperatures <-->
+
+### TemperatureShift
 
 <a id="temperature-shift"></a>
 
@@ -161,7 +184,7 @@ basic information about the solvent used
 
 <details> <Summary>Event based temperature shift</Summary>
 
-### Event based temperature shift
+### EventBasedTemperatureShift
 
 Description of the temperature, when an event causes the temperature change
 
@@ -188,6 +211,81 @@ Description of the temperature, when an event causes the temperature change
 - __time_at_XY__
   - Type: posfloat
   - Description: The time point of a respective temperature at a time _XY_
+
+</details>
+
+<!--> Definition of the pH <-->
+## 2. pH 
+
+<details> <Summary>pH constant</Summary>
+
+### pHConstant
+
+<a id="pH-shift"></a>
+
+
+basic information about the solvent used
+
+- __pH_value__
+  - Type: posfloat
+  - Description: The value of the pH 
+
+- __detected_in__
+  - Type: string
+  - Description: Solution in which the pH was measured (e.g. buffer, finished reaction solution)
+
+</details>
+
+
+<details> <Summary>pH shift over time</Summary>
+
+### pHTimeDependentShift
+
+<a id="pH-shift-time"></a>
+
+
+basic information about the solvent used
+
+- __pH_start__
+  - Type: posfloat
+  - Description: The initial pH value
+
+- __pH_end__
+  - Type: string
+  - Description: Solution in which the pH was measured (e.g. buffer, finished reaction solution)
+
+- __pH_at_XY__
+  - Type: string
+  - Description: Solution in which the pH was measured (e.g. buffer, finished reaction solution)
+
+</details>
+
+
+<details> <Summary>pH shift event based</Summary>
+
+### pHEventDependentShift
+
+<a id="pH-shift-event"></a>
+
+
+basic information about the solvent used
+
+- __pH_beginning__
+  - Type: posfloat
+  - Description: The initial pH value
+
+
+- __pH_before_Event__
+  - Type: posfloat
+  - Description: The pH which is present before a certain event has occured
+
+- __pH_after_Event__
+  - Type: posfloat
+  - Description: The pH which is present after a certain event has occured
+
+- __event_description__
+  - Type: string
+  - Description: Description of the event causing the pH-shift
 
 </details>
 
