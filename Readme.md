@@ -33,13 +33,19 @@ The operation mode is the first step in the experimental planning, it describes 
 
 [Reactants](ModelExamples/Reactants/Readme.md)
 
+[<img src="assets\Hexagons-reactants.png" width=100>](ModelExamples/Reactants/Readme.md)
+
 ## Reaction conditions
 
 [Reaction conditions](ModelExamples/Reaction_conditions/Readme.md)
 
+[<img src="assets\Hexagons-conditions.png" width=100>](ModelExamples/Reaction_conditions/Readme.md)
+
 ## Sampling
 
 [Sampling](ModelExamples/Sampling/Readme.md)
+
+[<img src="assets\Hexagons-sampling.png" width=100>](ModelExamples/Reaction_conditions/Readme.md)
 
 
 # Contact us
