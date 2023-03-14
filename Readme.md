@@ -19,11 +19,15 @@ The operation mode is the first step in the experimental planning, it describes 
 
 ## (Bio)catalyst
 
+[<img src="assets\Hexagon-enzyme.png" width=100>](ModelExamples/Biocatalyst/Readme.md)
+
 [(Bio)catalyst](ModelExamples/Biocatalyst/Readme.md)
-s
+
 ## Vessel type and mixing (hydrodynamics)
 
 [Vessel type and mixing (hydrodynamics)](ModelExamples/Vessels_and_Volumes/Readme.md)
+
+[<img src="assets\Hexagons-vessel.png" width=100>](ModelExamples/Vessels_and_Volumes/Readme.md)
 
 ## Reactants
 

@@ -4,7 +4,7 @@
 
 <details><Summary>Introductory remarks</Summary>
 
-The reaction conditions were identified by the STRENDA-biocatalysis team as the most complex metadata category to describe. Biocatalysis is a highly divers field with many different reaction conditions. Experiments are perfomed in aqueous reaction solutions, organic solvents, micro aqueous reaction solutions, gassed reaction solutions and many more. Nevertheless, we managed to categorise the reaction conditions in two major categories: __monoliquid and multiphase systems__.
+The reaction conditions were identified by the STRENDA-biocatalysis team as the most complex metadata category to describe. Biocatalysis is a highly divers field with many different reaction setups. Experiments are perfomed in aqueous reaction solutions, organic solvents, micro aqueous reaction solutions, gassed reaction solutions and many more. Nevertheless, we managed to categorise the reaction conditions in two major categories: __monoliquid and multiphase systems__.
 
 </details>
 

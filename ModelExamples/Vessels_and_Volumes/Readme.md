@@ -27,7 +27,7 @@ These attributes describe all reactions happening in vials.
 
 - __closure__
   - Type: string
-  - Description: Is the reaction vessel open or closed, s it closed by a lid?
+  - Description: Is the reaction vessel open or closed?
 
 - __shape_and_dimensions__
   - Type: string
@@ -72,11 +72,11 @@ These attributes describe all reactions happening in vials.
 
 - __gas_supply_rate__
   - Type: posfloat
-  - Description: With which speed is the gas added to the reactor
+  - Description: With which ?speed? is the gas added to the reactor
 
 - __gas_supply_rate_unit__
   - Type: string
-  - Description: What is the unit of the added gas ml/min?
+  - Description: What is the unit of the added gas (e.g. ml/min)?
 
 
 - __gas_supply__
