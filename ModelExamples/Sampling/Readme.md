@@ -12,13 +12,13 @@ Information about the sampling process, used during the experiment
   - Type: posfloat
   - Description: What volume was taken from the reaction per sample?
 
-- __volume_per_sample__
+- __volume_per_sample_unit__
   - Type: string
   - Description: Unit of the sample volume
 
 - __mixing_during_sampling__
   - Type: string 
-  - Description: Was the reaction solution mixed during the sampling procedure
+  - Description: Was the reaction solution mixed during the sampling procedure?
 
 - __vessel_opened_for_sampling__
   - Type: string
