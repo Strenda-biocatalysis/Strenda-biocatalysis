@@ -4,7 +4,7 @@
 
 <details><Summary>Introductory remarks</Summary>
 
-The reaction conditions were identified by the STRENDA-biocatalysis team as the most complex metadata category to describe. Biocatalysis is a highly divers field with many different reaction setups. Experiments are perfomed in aqueous reaction solutions, organic solvents, micro aqueous reaction solutions, gassed reaction solutions and many more. Nevertheless, we managed to categorise the reaction conditions in two major categories: __monoliquid and multiphase systems__.
+The reaction conditions were identified by the STRENDA-biocatalysis team as the most complex CATEGORY to describe. Biocatalysis is a highly divers field with many different reaction setups. Experiments are perfomed in aqueous reaction solutions, organic solvents, micro aqueous reaction solutions, gassed reaction solutions and many more. Nevertheless, we managed to categorise the reaction conditions in two major categories: __monoliquid and multiphase systems__.
 
 </details>
 
@@ -48,15 +48,15 @@ Information about the phases in the multiphase system
 
 - __phase_definition__ 
   - Type: phase_description
-  - Description: Definition of the respective phase added to the system
+  - Description: Definition of the respective phase which was added to the system
 
 - __reaction_conditions_temperature__
   - Type: temperature 
-  - Description: Definition of the temperature based reaction conditions
+  - Description: Definition of the temperature
 
 - __reaction_conditions_pH__
   - Type: pH
-  - Description: Definition of the pH dependent reaction conditions
+  - Description: Definition of the pH 
 
 </details>
 
@@ -80,7 +80,7 @@ Here, metadata are present, describing the individual phases of the multiphase s
 
 - __unit_of_liquid__
   - Type: string
-  - Description: unit of the added liquid, in case of aqueous liquids, millilitre are often used as unit, in case of organic solvents, mass is applied to refer to the solvent
+  - Description: Unit of the added liquid, in case of aqueous liquids, millilitre are often used as unit, in case of organic solvents, mass is applied to refer to the solvent
 
 - __pH__
   - Type: pH description
