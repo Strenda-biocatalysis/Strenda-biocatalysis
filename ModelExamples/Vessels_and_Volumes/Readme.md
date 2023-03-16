@@ -154,7 +154,7 @@ Describes the shaked mixing of a reaction vessel
 
 - __speed_unit__
   - Type: string
-  - Description: Unit of the shaking, for example rounds per minute (rpm)
+  - Description: Unit of the shaking speed, for example rounds per minute (rpm)
 
 - __position__
   - Type: string
@@ -171,7 +171,7 @@ Description of a by stirring mechanically mixed system
 
 - __stirring_type__
   - Type: string
-  - Description: What kind of impelling was applied? A magnetic stirrer? A Stirrer blade?
+  - Description: What kind of impelling was applied? A magnetic stirrer? A stirrer blade?
 
 - __number_of_stirrers__
   - Type: posfloat
@@ -211,7 +211,7 @@ Description of a by stirring mechanically mixed system
 
 - __height_of_stirrer_above_vessel_base_unit__
   - Type: string
-  - Description: Speed of the height_of_stirrer_above_vessel_base_unit
+  - Description: Speed of the height of stirrer above vessel base unit
 
 - __power_per_volume__
   - Type: posfloat
@@ -232,19 +232,19 @@ Describes the shaked mixing of a reaction vessel
 
 - __volume_of_liquid_solid_phase???__
   - Type: string
-  - Description: What kind of shaking was applied to mix the reaction, was it a horizontal or vertically shaken system?
+  - Description: ???
 
 - __residence_time__
   - Type: posfloat
-  - Description: How big is the deflection of the horizontally shaken system?
+  - Description: What is the residence time of the reaction solution in the reactor?
 
 - __reynolds_number__
   - Type: string
-  - Description: Unit of the deflection
+  - Description: What is the reynolds number?
 
 - __passive_mixing__
   - Type: String
-  - Description: What is the morphology of the coils
+  - Description: What is the morphology of the coils??
 
 - __active_T_or_Y_mixer__
   - Type: String
