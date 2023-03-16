@@ -17,13 +17,13 @@ These attributes describe all reactions happening in vials.
 
 - __type__
   - Type: string
-  - Description: Description of the reaction vessel, is it a glass vial, an microcentrifuge tube or a multiwell plate?
+  - Description: Description of the reaction vessel, is it a glass vial, a microcentrifuge tube, a multiwell plate ...
 - __volume__
   - Type: posfloat
   - Description: Volume of the reaction vessel
 - __material__
   - Type: string
-  - Description: Material the reaction vessel is made of, e.g. glass, polypropylene etc.
+  - Description: Material of reaction vessel is made of, e.g. glass, polypropylene etc.
 
 - __closure__
   - Type: string
