@@ -4,12 +4,12 @@
 
 This document contains all information required to unambiguously identify the catalyst and its formulation. 
 
-At first, it needs to e identified if the enzyme or biocatalyst was obtained by purchasing it from a company or other researchers, or if it was produced by yourself. In every case different metadata are required to describe the enzyme.
+At first, it needs to be identified if the enzyme or biocatalyst was obtained by purchasing it from a company or if it was produced by yourself or a colleague. In every case different metadata are required to describe the enzyme unambiguously.
 
 
 <details> <Summary>Biocatalyst purchased</Summary>
 
-### Biocatalyst_purchased
+### BiocatalystPurchased
 
 basic info about the biocatalyst
 
@@ -54,9 +54,9 @@ basic info about the biocatalyst
 
 </details>
 
-<details> <Summary>Biocatalyst self produced</Summary>
+<details> <Summary>Biocatalyst self-produced</Summary>
 
-### BiocatalystselfProduced
+### BiocatalystSelfProduced
 
 basic info about the self producted biocatalyst
 
@@ -66,15 +66,15 @@ basic info about the self producted biocatalyst
 
 - __ecnumber__
   - Type: string
-  - Description: Code used to determine the family of a protein.
+  - Description: Code used to determine the family of a protein
 
 - __chemical_reaction__
   - Type: string
-  - Description: reactio catalysed by the enzyme
+  - Description: reaction catalysed by the enzyme
 
 - __sequence__
   - Type: string
-  - Description: Amono acid sequence of the enzyme
+  - Description: Amino acid sequence of the enzyme
 
 - __origin_organism__
   - Type: string
@@ -86,7 +86,7 @@ basic info about the self producted biocatalyst
 
 - __postranslational_modification__
   - Type: string
-  - Description: Code used to determine the family of a protein.
+  - Description: Code used to determine the family of a protein
 
 - __supplier__
   - Type: string
@@ -98,7 +98,7 @@ basic info about the self producted biocatalyst
 
 - __formulation__
   - Type: string
-  - Description: formulation of the biocatlyst, eg powder, solution etc.
+  - Description: formulation of the biocatalyst, eg powder, solution etc.
 
 
 - __purification_method__
@@ -114,7 +114,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 
 ## Non immobilised biocatalysts
 
-<details> <Summary>soluble biocatalyst</Summary>
+<details> <Summary>Soluble biocatalyst</Summary>
 
 ### SolubleBiocatalyst [_BiocatalystselfProduced_]
 
@@ -122,7 +122,7 @@ soluble biocatlyst
 
 - __concentration*__
   - Type: posfloat
-  - Description: Concentration of the biocatalyst.
+  - Description: Concentration of the biocatalyst
 
 - __activity__:
   - Type: float
@@ -130,11 +130,11 @@ soluble biocatlyst
 
 - __concentration_det_method*__
   - Type: string
-  - Description: Method on how the concentration has been determined.
+  - Description: Method on how the concentration has been determined
 
 - __formulation__
   - Type: string
-  - Description: formulation of the biocatlyst, eg powder, solution etc.
+  - Description: Formulation of the biocatalyst, eg powder, solution etc.
 
 - __purification_procedure__
   - Type: string
@@ -151,11 +151,11 @@ soluble biocatlyst
 
 - __concentration__
   - Type: float
-  - Description: concentration of the enzyme on the immobilised phase
+  - Description: Concentration of the enzyme on the immobilised phase
 
 - __concentration_determination_method__
   - Type: string
-  - Description: method how the concentration was measured
+  - Description: Method how the concentration was measured
 
 </details>
 
@@ -165,11 +165,11 @@ soluble biocatlyst
 
 - __harvesting_method__
   - Type: string
-  - Description: How were the cells harvested?
+  - Description: How were the cells harvested
 
 - __formulation__
   - Type: string
-  - Description: formulation of the catalyst (wet cells, lyoohillised?)
+  - Description: formulation of the catalyst (wet cells, lyophillised?)
 
 </details>
 
@@ -210,15 +210,15 @@ soluble biocatlyst
 
 - __immobilisation_procedure__
   - Type: string
-  - Description: Procedure for immpbilising the enzyme
+  - Description: Procedure for immobilising the enzyme
 
 - __concentration__
   - Type: float
-  - Description: concentration of the enzyme on the immobilised phase
+  - Description: Concentration of the enzyme on the immobilised phase
 
 - __concentration_determination_method__
   - Type: string
-  - Description: method how the concentration was measured
+  - Description: Method how the concentration was measured
 
 </details>
 
@@ -241,18 +241,18 @@ The last question to be answered for decribing the biocatalyst is how it has bee
 
 - __temperature__
   - Type: float
-  - Description: storage tmeperature (-20°C, -80°C)
+  - Description: Storage temperature (-20°C, -80°C)
 
 - __storage_start__
   - Type: date
-  - Description: when was the catalysed stored
+  - Description: When did storage start?
 
 - __removing/rethawing__
   - Type: sting
-  - Description: was the catalyst removed from storage or rethawed?
+  - Description: How was the catalyst removed from storage or rethawed?
 
 - __thawing_process__
   - Type: string
-  - Description: how was the catalst frozen, any special deviced
+  - Description: How was the catalyst frozen, any special devices or additives?
 
 </details>
