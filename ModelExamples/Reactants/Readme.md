@@ -10,7 +10,7 @@ basic info about the reactant
 
 - __name__
   - Type: string
-  - Description: name of the reactant
+  - Description: Name of the reactant
 
 - __smiles__
   - Type: string
@@ -44,7 +44,7 @@ basic info about the reactant
 
 - __storage_start__
   - Type: date
-  - Description: When was the reactant stored
+  - Description: When was the reactant stored?
 
 - __removing/rethawing__
   - Type: sting
@@ -52,4 +52,4 @@ basic info about the reactant
 
 - __thawing_process__
   - Type: string
-  - Description: How was the reactant frozen, any special deviced
+  - Description: How was the reactant frozen, any special device?
