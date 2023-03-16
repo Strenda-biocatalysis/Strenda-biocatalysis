@@ -2,11 +2,11 @@
 
 # Reaction conditions
 
-<details><Summary>Introductory remarks</Summary>
 
-The reaction conditions were identified by the STRENDA-biocatalysis team as the most complex CATEGORY to describe. Biocatalysis is a highly divers field with many different reaction setups. Experiments are perfomed in aqueous reaction solutions, organic solvents, micro aqueous reaction solutions, gassed reaction solutions and many more. Nevertheless, we managed to categorise the reaction conditions in two major categories: __monoliquid and multiphase systems__.
 
-</details>
+The reaction conditions were identified by the STRENDA-biocatalysis team as a very complex CATEGORY to describe. Biocatalysis is a highly divers field with many different reaction setups. Experiments are perfomed in aqueous reaction solutions, organic solvents, micro aqueous reaction solutions, gassed reaction solutions and many more. Nevertheless, we managed to categorise the reaction conditions in two major categories: __monoliquid and multiphase systems__.
+
+
 
 <hr/>
 
@@ -20,7 +20,7 @@ basic information about the solvent used
 
 - __description__
   - Type: string
-  - Description: The solvent used in the reaction system, for example a buffered aqueous solution or an organic solvent
+  - Description: The solvent used in the reaction system, e.g. a buffered aqueous solution or an organic solvent
 
 - __reaction_conditions_temperature__
   - Type: [temperature](#temperature-conditions) 
@@ -76,7 +76,7 @@ Here, metadata are present, describing the individual phases of the multiphase s
 
 - __amount_of_liquid__
   - Type: posfloat
-  - Description: Which liquid amount is added to the reaction
+  - Description: Which liquid amount is added to the reaction?
 
 - __unit_of_liquid__
   - Type: string
@@ -101,7 +101,7 @@ Definition of the solid phase used in the reaction
 
 - __mass__
   - Type: posfloat
-  - Description: mass of the solid used in the reaction solution
+  - Description: Mass of the solid used in the reaction solution
 </details>
 
 
@@ -117,11 +117,11 @@ Definition of the solid phase used in the reaction
 
 - __amount__
   - Type: posfloat
-  - Description: mass of the solid used in the reaction solution
+  - Description: Mass of the solid used in the reaction solution
 
 - __unit__
   - Type: string
-  - Description: unit of the gas, added to the reaction, for example as partial pressure
+  - Description: Unit of the gas, added to the reaction, as partial pressure
 
 </details>
 
@@ -193,7 +193,7 @@ Description of the temperature, when an event causes the temperature change
   - Type: posfloat
   - Description: The initial temperature of the reaction in the beginning
 
-- __temperature_at_Event__
+- __temperature_at_event__
   - Type: posfloat
   - Description: The temperature which is present after a certain event has occured
 
@@ -211,7 +211,6 @@ Description of the temperature, when an event causes the temperature change
 
 </details>
 
-<!--> Definition of the pH <-->
 ## pH conditions
 
 <details> <Summary>pH constant</Summary>
@@ -221,7 +220,7 @@ Description of the temperature, when an event causes the temperature change
 <a id="pH-shift"></a>
 
 
-basic information about the solvent used
+Information about the pH value in the system, if the pH is constant over the course of the reaction
 
 - __pH_value__
   - Type: posfloat
@@ -229,7 +228,7 @@ basic information about the solvent used
 
 - __detected_in__
   - Type: string
-  - Description: Solution in which the pH was measured (e.g. buffer, finished reaction solution)
+  - Description: Solution in which the pH was measured (e.g. in buffer before addition to reaction, at start of the reaction)
 
 </details>
 
@@ -241,7 +240,7 @@ basic information about the solvent used
 <a id="pH-shift-time"></a>
 
 
-basic information about the solvent used
+Information about the pH value in the system, if there is a time dependent pH shift
 
 - __pH_start__
   - Type: posfloat
@@ -249,11 +248,11 @@ basic information about the solvent used
 
 - __pH_end__
   - Type: string
-  - Description: Solution in which the pH was measured (e.g. buffer, finished reaction solution)
+  - Description: The final pH value
 
 - __pH_at_XY__
   - Type: string
-  - Description: Solution in which the pH was measured (e.g. buffer, finished reaction solution)
+  - Description: The pH value at a certain point in time
 
 </details>
 
@@ -265,7 +264,7 @@ basic information about the solvent used
 <a id="pH-shift-event"></a>
 
 
-basic information about the solvent used
+Information about the pH value in the system, if there is an event dependent pH shift
 
 - __pH_beginning__
   - Type: posfloat
