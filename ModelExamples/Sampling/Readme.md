@@ -18,7 +18,7 @@ Information about the sampling process, used during the experiment
 
 - __mixing_during_sampling__
   - Type: string 
-  - Description: Was the reaction mixture mixed during the sampling procedure
+  - Description: Was the reaction solution mixed during the sampling procedure
 
 - __vessel_opened_for_sampling__
   - Type: string
