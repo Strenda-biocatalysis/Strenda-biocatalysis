@@ -45,7 +45,7 @@ The operation mode is the first step in the experimental planning, it describes 
 
 [Sampling](ModelExamples/Sampling/Readme.md)
 
-[<img src="assets\Hexagons-sampling.png" width=100>](ModelExamples/Reaction_conditions/Readme.md)
+[<img src="assets\Hexagons-sampling.png" width=100>](ModelExamples/Sampling/Readme.md)
 
 
 # Contact us
