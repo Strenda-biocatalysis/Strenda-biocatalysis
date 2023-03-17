@@ -107,7 +107,7 @@ Definition of the solid phase used in the reaction
 
 <details> <Summary>Gas phase</Summary>
 
-### Solid phase
+### Gas phase
 
 Definition of the solid phase used in the reaction
 
