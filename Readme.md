@@ -17,6 +17,8 @@ The operation mode is the first step in the experimental planning, it describes 
 
 [Operation mode](ModelExamples/OperationMode/Readme.md)
 
+[<img src="assets\Hexagons-operation-mode.png" width=100>](ModelExamples/Biocatalyst/Readme.md)
+
 ## (Bio)catalyst
 
 [<img src="assets\Hexagon-enzyme.png" width=100>](ModelExamples/Biocatalyst/Readme.md)
