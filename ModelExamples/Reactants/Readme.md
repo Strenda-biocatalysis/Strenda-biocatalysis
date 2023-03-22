@@ -46,6 +46,10 @@ basic info about the reactant
   - Type: date
   - Description: When was the reactant stored?
 
+- __additives__
+  - Type: string
+  - Description: Were additives added, for example glycerol?
+
 - __removing/rethawing__
   - Type: sting
   - Description: Was the reactant removed from storage or rethawed?

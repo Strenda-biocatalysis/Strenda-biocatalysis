@@ -247,6 +247,10 @@ The last question to be answered for decribing the biocatalyst is how it has bee
   - Type: date
   - Description: When did storage start?
 
+- __additives__
+  - Type: string
+  - Description: Were additives added, for example glycerol?
+
 - __removing/rethawing__
   - Type: sting
   - Description: How was the catalyst removed from storage or rethawed?
