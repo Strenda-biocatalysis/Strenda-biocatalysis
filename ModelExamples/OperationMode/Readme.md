@@ -21,6 +21,11 @@ Process in which all reactants, enzymes and cosubstrates are added in the beginn
 - __reactor_type__
     - name: string
 
+### CombinatorialMode
+
+- __reactor_type__
+    - name: string
+
 
 
 
