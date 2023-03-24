@@ -48,6 +48,10 @@ basic info about the biocatalyst
   - Type: float
   - Description: purity of the enzyme
 
+- __purity_specification__
+  - Type: string
+  - Description: description of how the purity of the biocatalyst was determined. In case of purchased enzymes, this information is often available in the product specification sheet.
+
 - __formulation__
   - Type: string
   - Description: formulation of the biocatlyst, eg powder, solution etc.
@@ -95,6 +99,10 @@ basic info about the self producted biocatalyst
 - __purity__
   - Type: float
   - Description: purity of the enzyme
+
+- __purity_specification__
+  - Type: string
+  - Description: description of how the purity of the biocatalyst was determined
 
 - __formulation__
   - Type: string
