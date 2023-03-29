@@ -48,7 +48,7 @@ If the sampling procedure is more complex than just the plain procedure of takin
 <details> <Summary>Sampling from heterogeneous reaction solutions</Summary>
 
 
-### Sampling_procedure_from_heterogeneous_reaction_mixtures
+### SamplingProcedureFromHeterogeneousReactionMixtures
 
 - __phase__
   - Type: string
@@ -64,7 +64,7 @@ If the sampling procedure is more complex than just the plain procedure of takin
 
 <details> <Summary>Sample preprocessing</Summary>
 
-### Sample_preprocessing
+### TreatmentToStopReaction
 
 Information about the sampling process, if a pre-processing did take place
 
