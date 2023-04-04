@@ -6,9 +6,10 @@
 <img src="Sampling procedure.png" width=250>
 
 
-### Default sampling
+<details> <Summary>Sampling from homogeneous reaction mixtures</Summary>
 
-<details> <Summary>Default sampling</Summary>
+### SamplingFromHomogeneousAqueousReactionMixtures
+
 
 Information about the sampling process, used during the experiment. In some experiments no sampling is taking place at all, for example if an experiment is monitored via a photospectrometer in a 96-well plate over time. In this case, of course, no sampling was done during the experiment
 
@@ -19,6 +20,62 @@ Information about the sampling process, used during the experiment. In some expe
 - __volume_per_sample_unit__
   - Type: string
   - Description: Unit of the sample volume
+
+- __reaction_stop__
+  - Type: TreatmentToStopReaction
+  - Description: Process how the reaction was stopped
+
+</details>
+
+
+<details> <Summary>Sampling from homogeneous organic reaction mixtures</Summary>
+
+### SamplingFromHomogeneousOrganicReactionMixtures
+
+
+Information about the sampling process, used during the experiment. In some experiments no sampling is taking place at all, for example if an experiment is monitored via a photospectrometer in a 96-well plate over time. In this case, of course, no sampling was done during the experiment
+
+- __volume_per_sample__
+  - Type: posfloat
+  - Description: What volume was taken from the reaction per sample?
+
+- __volume_per_sample_unit__
+  - Type: string
+  - Description: Unit of the sample volume
+
+- __vessel_opened_for_sampling__
+  - Type: string
+  - Description: Was the vessel opened for the sampling procedure?
+
+- __gas_phase__
+  - Type: string
+  - Description: What is the gas phase above the reaction solution?
+
+- __reaction_stop__
+  - Type: TreatmentToStopReaction
+  - Description: Process how the reaction was stopped
+
+
+</details>
+
+<details> <Summary>Sampling from heterogeneous reaction mixtures</Summary>
+
+### SamplingFromHeterogeneousReactionMixtures
+
+
+Information about the sampling process, used during the experiment. In some experiments no sampling is taking place at all, for example if an experiment is monitored via a photospectrometer in a 96-well plate over time. In this case, of course, no sampling was done during the experiment
+
+- __volume_per_sample__
+  - Type: posfloat
+  - Description: What volume was taken from the reaction per sample?
+
+- __volume_per_sample_unit__
+  - Type: string
+  - Description: Unit of the sample volume
+
+- __sample_taken_from_phase__
+  - Type: String
+  - Description: Phase from which the sample was taken from
 
 - __mixing_during_sampling__
   - Type: string 
@@ -32,9 +89,13 @@ Information about the sampling process, used during the experiment. In some expe
   - Type: string
   - Description: What is the gas phase above the reaction solution?
 
-- __time__
-  - Type: time
-  - Description: Time at which the sample was taken
+- __reaction_stop__
+  - Type: TreatmentToStopReaction
+  - Description: Process how the reaction was stopped
+
+
+
+
 
 </details>
 
@@ -62,7 +123,7 @@ If the sampling procedure is more complex than just the plain procedure of takin
 
 ## Sample processing
 
-<details> <Summary>Sample preprocessing</Summary>
+<details> <Summary>Treatment to stop reaction</Summary>
 
 ### TreatmentToStopReaction
 
