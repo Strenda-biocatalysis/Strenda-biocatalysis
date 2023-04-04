@@ -6,9 +6,8 @@
 
 The reaction conditions were identified by the STRENDA-biocatalysis team as a very complex CATEGORY to describe. Biocatalysis is a highly divers field with many different reaction setups. Experiments are perfomed in aqueous reaction solutions, organic solvents, micro aqueous reaction solutions, gassed reaction solutions and many more. Nevertheless, we managed to categorise the reaction conditions in two major categories: __monoliquid and multiphase systems__.
 
+# Well mixed reaction solutions
 
-
-<hr/>
 
 ## Monoliquid systems
 
@@ -285,6 +284,139 @@ Information about the pH value in the system, if there is an event dependent pH 
 
 </details>
 
+
+# Reaction conditions in flow reactors
+
+## Monoliquid systems
+
+<details> <Summary>Solvent description</Summary>
+
+### Solvent
+
+basic information about the solvent used
+
+- __description__
+  - Type: string
+  - Description: The solvent used in the reaction system, e.g. a buffered aqueous solution or an organic solvent
+
+- __reaction_conditions_temperature__
+  - Type: [temperature](#temperature-conditions) 
+  - Description: Definition of the temperature based reaction conditions
+
+- __reaction_conditions_pH__
+  - Type: [pH](#ph-conditions)
+  - Description: Definition of the pH dependent reaction conditions
+
+</details>
+
+<hr>
+
+## Multiphase systems
+
+<details> <Summary>Multiphase system description</Summary>
+
+### Phases
+
+Information about the phases in the multiphase system
+
+- __number_of_phases__
+  - Type: posfloat
+  - Description: Number of phases present in the system, if there is an aqueous and a gas phase present, the number is 2 
+
+- __phase_definition__ 
+  - Type: phase_description
+  - Description: Definition of the respective phase which was added to the system
+
+- __reaction_conditions_temperature__
+  - Type: temperature 
+  - Description: Definition of the temperature
+
+- __reaction_conditions_pH__
+  - Type: pH
+  - Description: Definition of the pH 
+
+</details>
+
+
+## Temperature conditions
+
+<details> <Summary>Temperature constant</Summary>
+
+### TemperatureConstant
+
+basic information about the solvent used
+
+- __temperature__
+  - Type: posfloat
+  - Description: The temperature during the reaction
+
+- __temperature_unit__
+  - Type: string
+  - Description: The unit of the temperature, for example °C or K
+
+
+</details>
+
+
+<details> <Summary>pH dynamic</Summary>
+
+### DynamicTemperature
+
+basic information about the solvent used
+
+- __temperature_at_distance__
+  - Type: posfloat
+  - Description: The temperature during the reaction
+
+- __temperature_unit__
+  - Type: string
+  - Description: The unit of the temperature, for example °C or K
+
+- __distance__
+  - Type: posfloat
+  - Description: The distance at which the temperature was measured
+
+- __distance_unit__
+  - Type: posfloat
+  - Description: The unit of the distance
+
+
+</details>
+
+## pH conditions
+
+<details> <Summary>pH constant</Summary>
+
+### pHConstant
+
+basic information about the solvent used
+
+- __pH__
+  - Type: posfloat
+  - Description: The pH during the reaction
+
+</details>
+
+
+<details> <Summary>Dynamic pH</Summary>
+
+### DynmaicpH
+
+basic information about the solvent used
+
+- __pH_at_distance__
+  - Type: posfloat
+  - Description: The temperature during the reaction
+
+- __distance__
+  - Type: posfloat
+  - Description: The distance at which the temperature was measured
+
+- __distance_unit__
+  - Type: posfloat
+  - Description: The unit of the distance
+
+</details>
 
 
 
