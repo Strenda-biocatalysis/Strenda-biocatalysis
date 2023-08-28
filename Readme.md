@@ -1,6 +1,6 @@
 # Welcome to STRENDA biocatalysis guidelines
 
-STRENDA biocatalysis is aiming to define which ATTRIBUTES should be used to describe an experiment in biocatalysis. Since biocatalysis is a discipline with many different operational modes, it is very overwhelming to hand out one document to describe all possible experimental setups. On the contrary, we need a catalog that adapts to the experimental procedures to help experimenters in their everyday work and give software developers a basis for data modeling. For this reason, we subdivided the whole catalogue into six main CATEGORIES and built it in an adaptive modular way.
+STRENDA biocatalysis is aiming to define which ATTRIBUTES should be used to describe an experiment in biocatalysis. Since biocatalysis is a discipline with many different operational modes, it is very overwhelming to hand out one document to describe all possible experimental setups. On the contrary, we need a catalog that adapts to the experimental procedures to help experimenters in their everyday work and give software developers a basis for data modeling. For this reason, we subdivided the whole catalog into six main CATEGORIES and built it in an adaptive modular way.
 
 Therefore, on this website, you find the ATTRIBUTES (metadata) organised in these six main CATEGORIES which are visualised as icons below. Please click on the icons to open the next level and review the ATTRIBUTES. 
 
