@@ -13,7 +13,7 @@ Therefore, on this website, you find the ATTRIBUTES (metadata) organised in thes
 
 ## Operation mode
 
-The operation mode is the first step in the experimental planning, it describes the mode in which the experiment was perform (e.g. batch, fed-batch, continuous)
+The operation mode is the first step in the experimental planning, it describes the mode in which the experiment was performed (e.g. batch, fed-batch, continuous)
 
 [Operation mode](ModelExamples/OperationMode/Readme.md)
 
