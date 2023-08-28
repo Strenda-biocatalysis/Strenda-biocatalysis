@@ -358,7 +358,7 @@ basic information about the solvent used
 </details>
 
 
-<details> <Summary>pH dynamic</Summary>
+<details> <Summary>Dynamic temperature</Summary>
 
 ### DynamicTemperature
 
