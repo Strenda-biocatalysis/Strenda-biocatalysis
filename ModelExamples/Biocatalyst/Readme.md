@@ -238,7 +238,7 @@ soluble biocatlyst
 
 </details>
 
-# 3. Storage conditions
+# Storage conditions
 
 The last question to be answered for decribing the biocatalyst is how it has been stored until it was used in the reaction.
 
