@@ -20,6 +20,14 @@ basic information about the solvent used
   - Type: string
   - Description: The solvent used in the reaction system, e.g. a buffered aqueous solution or an organic solvent
 
+- __ionic_strength__
+  - Type: posfloat
+  - Description: Ionic strength calculated according to the dissolved ions in the solvent
+ 
+- __further_additives__
+  - Type: string
+  - Description: Further additive like cosolvents used to increase solubility of reactants, e.g. DMSO   
+
 </details>
 
 <hr>
@@ -42,11 +50,13 @@ Information about the phases in the multiphase system
 
 ## Phase description
 
+Metadata for describing the individual phases of the multiphase system.
+
 <details> <Summary>Liquid phase</Summary>
 
 ### Liquid phase
 
-Here, metadata are present, describing the individual phases of the multiphase system. If more then one liquid phase exist the metadata has to be recorded according to the number of liquid phases. 
+ If more then one liquid phase exist the metadata has to be recorded according to the number of liquid phases. 
 
 - __type_of_liquid__
   - Type: string
@@ -73,9 +83,15 @@ Definition of the solid phase used in the reaction
   - Type: string
   - Description: Description of the phase used in the reaction system 
 
-- __mass__
+- __amount_of_solid__
   - Type: posfloat
   - Description: Mass of the solid used in the reaction solution
+ 
+- __unit_of_solid__
+  - Type: string
+  - Description: Unit of the added solid. Grams, milligrams or microgram are often used as a unit.
+
+
 </details>
 
 
@@ -83,19 +99,19 @@ Definition of the solid phase used in the reaction
 
 ### Gas phase
 
-Definition of the solid phase used in the reaction
+Definition of the gas phase used in the reaction
 
 - __type_of_gas__
   - Type: string
   - Description: Description of the gas used in the system
 
-- __amount__
+- __amount_of_gas__
   - Type: posfloat
-  - Description: Mass of the solid used in the reaction solution
+  - Description: Concentration of the gas in the gas phase. 
 
-- __unit__
+- __unit_of_gas__
   - Type: string
-  - Description: Unit of the gas, added to the reaction, as partial pressure
+  - Description: Unit of the gas. Common units are volume percentage (Vol %), volume fraction (Vol/Vol), mole percentage (Mol %) or molar fraction (Mol/Mol).
 
 </details>
 
