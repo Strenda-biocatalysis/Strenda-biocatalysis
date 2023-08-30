@@ -1,12 +1,10 @@
 [Landing Page](/Readme.md)
 # Reactants
 
-This document contains all information about the attributes required to describe reactants
+Each additive of a reaction must be defined like substrate, cosubstrate, cofator, etc. Exlcuded are only biocatalyst (Biocatalyst) and the solvents (Reaction conditions).
 
 
 ### Reactant
-
-basic info about the reactant
 
 - __name__
   - Type: string
