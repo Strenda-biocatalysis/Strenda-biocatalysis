@@ -1,7 +1,7 @@
 [Landing Page](/Readme.md)
 # Reactants
 
-Each additive of a reaction must be defined like substrate, cosubstrate, cofator, etc. Exlcuded are only [biocatalyst](#biocatalyst) and the [solvents](#reaction_conditions).
+Each additive of a reaction must be defined like substrate, cosubstrate, cofator, etc. Exlcuded are only [biocatalyst](#ModelExamples/Biocatalyst/Readme.md) and the [solvents](#ModelExamples/Reaction_conditions/Readme.md).
 
 ### Reactant
 
