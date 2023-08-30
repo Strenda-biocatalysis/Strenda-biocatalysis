@@ -36,10 +36,6 @@ Information about the phases in the multiphase system
   - Type: posfloat
   - Description: Number of phases present in the system, if there is an aqueous and a gas phase present, the number is 2 
 
-- __phase_definition__ 
-  - Type: phase_description
-  - Description: Definition of the respective phase which was added to the system
-
 </details>
 
 <hr/>
@@ -50,7 +46,7 @@ Information about the phases in the multiphase system
 
 ### Liquid phase
 
-Here, metadata are present, describing the individual phases of the multiphase system
+Here, metadata are present, describing the individual phases of the multiphase system. If more then one liquid phase exist the metadata has to be recorded according to the number of liquid phases. 
 
 - __type_of_liquid__
   - Type: string
