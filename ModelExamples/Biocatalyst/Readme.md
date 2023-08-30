@@ -31,6 +31,10 @@ basic info about the biocatalyst
 - __origin_organism__
   - Type: string
   - Description: Organism from which the enzyme was extracted or identfied
+ 
+- __supplier__
+  - Type: string
+  - Company from which the enzyme was purchased
 
 - __production_organism__
   - Type: string
@@ -87,10 +91,6 @@ basic info about the self producted biocatalyst
 - __postranslational_modification__
   - Type: string
   - Description: Code used to determine the family of a protein
-
-- __supplier__
-  - Type: string
-  - Company from which the enzyme was purchased
 
 - __purity__
   - Type: float
