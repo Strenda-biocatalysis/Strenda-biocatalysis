@@ -43,11 +43,11 @@ To be defined for each reactant.
 
 - __storage_start__
   - Type: date
-  - Description: When was the reactant stored?
+  - Description: Start of storage
 
 - __additives__
   - Type: string
-  - Description: Were additives added, for example glycerol?
+  - Description: Were additives added, for example argon?
 
 - __removing/rethawing__
   - Type: sting
