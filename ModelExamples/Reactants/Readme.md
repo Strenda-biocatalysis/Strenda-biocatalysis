@@ -3,8 +3,9 @@
 
 Each additive of a reaction must be defined like substrate, cosubstrate, cofator, etc. Exlcuded are only biocatalyst (Biocatalyst) and the solvents (Reaction conditions).
 
-
 ### Reactant
+
+To be defined for each reactant.
 
 - __name__
   - Type: string
