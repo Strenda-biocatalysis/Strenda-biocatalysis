@@ -40,10 +40,6 @@ basic info about the biocatalyst
   - Type: string
   - Description: Code used to determine the family of a protein.
 
-- __supplier__
-  - Type: string
-  - Company from which the enzyme was purchased
-
 - __purity__
   - Type: float
   - Description: purity of the enzyme
