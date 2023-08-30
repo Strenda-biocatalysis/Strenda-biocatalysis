@@ -60,10 +60,6 @@ Here, metadata are present, describing the individual phases of the multiphase s
   - Type: string
   - Description: Unit of the added liquid, in case of aqueous liquids, millilitre are often used as unit, in case of organic solvents, mass is applied to refer to the solvent
 
-- __pH__
-  - Type: pH description
-  - Description: Definition of the pH in the respective phase (__if applicable__)
-
 </details>
 
 
