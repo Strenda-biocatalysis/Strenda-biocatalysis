@@ -54,7 +54,7 @@ Metadata for describing the individual phases of the multiphase system.
 
 <details> <Summary>Liquid phase</Summary>
 
-### Liquid phase
+### LiquidPhase
 
  If more then one liquid phase exist the metadata has to be recorded according to the number of liquid phases. 
 
@@ -75,7 +75,7 @@ Metadata for describing the individual phases of the multiphase system.
 
 <details> <Summary>Solid phase</Summary>
 
-### Solid phase
+### SolidPhase
 
 Definition of the solid phase used in the reaction
 
@@ -97,7 +97,7 @@ Definition of the solid phase used in the reaction
 
 <details> <Summary>Gas phase</Summary>
 
-### Gas phase
+### GasPhase
 
 Definition of the gas phase used in the reaction
 
@@ -265,11 +265,11 @@ Information about the pH value in the system, if there is an event dependent pH 
   - Description: The initial pH value
 
 
-- __pH_before_Event__
+- __pH_before_event__
   - Type: posfloat
   - Description: The pH which is present before a certain event has occured
 
-- __pH_after_Event__
+- __pH_after_event__
   - Type: posfloat
   - Description: The pH which is present after a certain event has occured
 
@@ -294,13 +294,13 @@ basic information about the solvent used
   - Type: string
   - Description: The solvent used in the reaction system, e.g. a buffered aqueous solution or an organic solvent
 
-- __reaction_conditions_temperature__
-  - Type: [temperature](#temperature-conditions) 
-  - Description: Definition of the temperature based reaction conditions
-
-- __reaction_conditions_pH__
-  - Type: [pH](#ph-conditions)
-  - Description: Definition of the pH dependent reaction conditions
+- __ionic_strength__
+  - Type: posfloat
+  - Description: Ionic strength calculated according to the dissolved ions in the solvent (__if_applicable__)
+ 
+- __further_additives__
+  - Type: string
+  - Description: Further additive like cosolvents used to increase solubility of reactants, e.g. DMSO   
 
 </details>
 
