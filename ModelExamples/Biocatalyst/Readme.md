@@ -120,7 +120,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 
 <details> <Summary>Soluble biocatalyst</Summary>
 
-### SolubleBiocatalyst [_BiocatalystselfProduced_]
+### SolubleBiocatalyst [_BiocatalystSelfProduced_]
 
 soluble biocatlyst
 
@@ -132,7 +132,7 @@ soluble biocatlyst
   - Type: float
   - Description: Acitivity of the enzyme in U/mg or U/mL
 
-- __concentration_det_method*__
+- __concentration_determination_method*__
   - Type: string
   - Description: Method on how the concentration has been determined
 
@@ -148,7 +148,7 @@ soluble biocatlyst
 
 <details> <Summary>Crude cell extract</Summary>
   
-### CrudeCellExtract [_BiocatalystselfProduced_]
+### CrudeCellExtract [_BiocatalystSelfProduced_]
 
 - __cell_disruption_process__
   - Type: string
@@ -156,7 +156,7 @@ soluble biocatlyst
 
 - __concentration__
   - Type: float
-  - Description: Concentration of the enzyme on the immobilised phase
+  - Description: Concentration of the biocatalyst
 
 - __concentration_determination_method__
   - Type: string
@@ -166,7 +166,7 @@ soluble biocatlyst
 
 <details> <Summary>Whole cell biocatalyst</Summary>
 
-### WholeCellBiocatalyst [_BiocatalystselfProduced_]
+### WholeCellBiocatalyst [_BiocatalystSelfProduced_]
 
 - __harvesting_method__
   - Type: string
@@ -180,7 +180,7 @@ soluble biocatlyst
 
 <details> <Summary>Supernatant</Summary>
 
-### Supernatant [_BiocatalystselfProduced_]
+### Supernatant [_BiocatalystSelfProduced_]
 
 - __production_organism__
   - Type: string
@@ -194,7 +194,7 @@ soluble biocatlyst
 
 <details> <Summary>Cell-free-production</Summary>
 
-### Cell free production [_BiocatalystselfProduced_]
+### CellFreeProduction [_BiocatalystSelfProduced_]
 
 ????
 
@@ -206,7 +206,7 @@ soluble biocatlyst
 
 <details> <Summary>immobilised biocatalyst</Summary>
 
-### ImmobilisedBiocatalyst [_BiocatalystselfProduced_]
+### ImmobilisedBiocatalyst [_BiocatalystSelfProduced_]
 
 
 - __purification_procedure__
@@ -229,7 +229,7 @@ soluble biocatlyst
 
 <details> <Summary>Immobilisation procedure</Summary>
 
-### Immobilisation_procedure [_BiocatalystselfProduced_]
+### ImmobilisationProcedure [_BiocatalystselfProduced_]
 
 ???
 
@@ -242,7 +242,7 @@ The last question to be answered for decribing the biocatalyst is how it has bee
 
 <details> <Summary>storage conditions</Summary>
 
-### StorageConditions [_BiocatalystselfProduced_]
+### StorageConditions [_BiocatalystSelfProduced_]
 
 - __temperature__
   - Type: float
