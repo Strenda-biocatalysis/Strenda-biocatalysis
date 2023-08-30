@@ -147,6 +147,7 @@ soluble biocatlyst
 </details>
 
 <details> <Summary>Crude cell extract</Summary>
+  
 ### CrudeCellExtract [_BiocatalystselfProduced_]
 
 - __cell_disruption_process__
