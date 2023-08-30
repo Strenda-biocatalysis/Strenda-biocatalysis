@@ -22,7 +22,7 @@ basic information about the solvent used
 
 - __ionic_strength__
   - Type: posfloat
-  - Description: Ionic strength calculated according to the dissolved ions in the solvent
+  - Description: Ionic strength calculated according to the dissolved ions in the solvent (__if_applicable__)
  
 - __further_additives__
   - Type: string
@@ -125,7 +125,7 @@ With the type of liquid described, the next question is how does the temperature
 
 ### TemperatureConstant
 
-basic information about the solvent used
+Basic information about the temperature 
 
 - __temperature__
   - Type: posfloat
@@ -155,9 +155,9 @@ basic information about the solvent used
   - Type: posfloat
   - Description: The initial temperature of the reaction in the beginning
 
-- __temperature_beginning__
+- __temperature_end__
   - Type: posfloat
-  - Description: The initial temperature at the end of the reaction
+  - Description: The temperature at the end of the reaction
 
 - __temperature_at_XY__
   - Type: posfloat
@@ -189,7 +189,7 @@ Description of the temperature, when an event causes the temperature change
 
 - __event_description__
   - Type: string
-  - Description: The event which caused the temperature changve
+  - Description: The event which caused the temperature change
 
 - __time_at_XY__
   - Type: posfloat
@@ -218,7 +218,11 @@ Information about the pH value in the system, if the pH is constant over the cou
 
 - __detected_in__
   - Type: string
-  - Description: Solution in which the pH was measured (e.g. in buffer before addition to reaction, at start of the reaction)
+  - Description: Solution in which the pH was measured (e.g. in buffer before addition to reaction)
+ 
+- __detected_when__
+  - Type: string
+  - Description: Timepoint at which the pH was measured (e.g. at before, during or after the reaction)
 
 </details>
 
