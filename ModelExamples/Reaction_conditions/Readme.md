@@ -3,8 +3,7 @@
 # Reaction conditions
 
 
-
-The reaction conditions were identified by the STRENDA-biocatalysis team as a very complex CATEGORY to describe. Biocatalysis is a highly divers field with many different reaction setups. Experiments are perfomed in aqueous reaction solutions, organic solvents, micro aqueous reaction solutions, gassed reaction solutions and many more. Nevertheless, we managed to categorise the reaction conditions in two major categories: __monoliquid and multiphase systems__.
+This is a very complex CATEGORY to describe. Reactions can be performed in aqueous reaction solutions, organic solvents, micro aqueous reaction solutions, gassed reaction solutions and many more. We decided to categorise the reaction conditions in two major categories: __monoliquid and multiphase systems__. For the multiphase systems each phase has to be descripted before mixing.
 
 # Well mixed reaction solutions
 
