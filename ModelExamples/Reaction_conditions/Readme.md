@@ -20,14 +20,6 @@ basic information about the solvent used
   - Type: string
   - Description: The solvent used in the reaction system, e.g. a buffered aqueous solution or an organic solvent
 
-- __reaction_conditions_temperature__
-  - Type: [temperature](#temperature-conditions) 
-  - Description: Definition of the temperature based reaction conditions
-
-- __reaction_conditions_pH__
-  - Type: [pH](#ph-conditions)
-  - Description: Definition of the pH dependent reaction conditions
-
 </details>
 
 <hr>
@@ -47,14 +39,6 @@ Information about the phases in the multiphase system
 - __phase_definition__ 
   - Type: phase_description
   - Description: Definition of the respective phase which was added to the system
-
-- __reaction_conditions_temperature__
-  - Type: temperature 
-  - Description: Definition of the temperature
-
-- __reaction_conditions_pH__
-  - Type: pH
-  - Description: Definition of the pH 
 
 </details>
 
