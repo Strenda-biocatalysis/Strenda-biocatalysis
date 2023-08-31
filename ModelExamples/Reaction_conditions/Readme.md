@@ -201,6 +201,8 @@ Description of the temperature, when an event causes the temperature change.
 
 </details>
 
+<hr>
+
 ## pH conditions
 
 <details> <Summary>pH constant</Summary>
@@ -279,6 +281,7 @@ Information about the pH value in the system, if there is an event dependent pH 
 
 </details>
 
+<hr>
 
 # Reaction conditions in flow reactors
 
@@ -439,6 +442,8 @@ If there is a temperature gradient or different temperatures are measured in the
 
 </details>
 
+<hr>
+
 ## pH conditions
 
 <details> <Summary>pH constant</Summary>
@@ -482,7 +487,7 @@ If there is a pH gradient or different pHs are measured in the system or over ti
 
 </details>
 
-
+<hr>
 
 
 
