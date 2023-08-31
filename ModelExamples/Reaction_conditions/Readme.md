@@ -421,7 +421,7 @@ The temperature, if constant, must be clearly defined.
 
 ### DynamicTemperature
 
-If there is a temperature gradient or different temperatures are measured in the system or over, these must be described as well as possible.
+If there is a temperature gradient or different temperatures are measured in the system or over time, these must be described as well as possible.
 
 - __temperature_at_distance__
   - Type: posfloat
