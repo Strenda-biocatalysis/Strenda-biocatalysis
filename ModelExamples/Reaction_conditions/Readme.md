@@ -145,7 +145,7 @@ The temperature, if constant, must be clearly defined.
 <a id="temperature-shift"></a>
 
 
-If the temperature changes over time, this must be documented precisely.
+If the temperature changes with the course of the reaction, this must be documented precisely.
 
 - __temperature_unit__
   - Type: string
@@ -318,19 +318,80 @@ Information about the phases in the multiphase system.
   - Type: posfloat
   - Description: Number of phases present in the system, if there is an aqueous and a gas phase present, the number is 2 
 
-- __phase_definition__ 
-  - Type: phase_description
-  - Description: Definition of the respective phase which was added to the system
+</details>
 
-- __reaction_conditions_temperature__
-  - Type: temperature 
-  - Description: Definition of the temperature
 
-- __reaction_conditions_pH__
-  - Type: pH
-  - Description: Definition of the pH 
+<hr>
+
+
+## Phase description
+
+Metadata for describing the individual phases of the multiphase system.
+
+<details> <Summary>Liquid phase</Summary>
+
+### LiquidPhase
+
+ If more then one liquid phase exist the metadata has to be recorded according to the number of liquid phases. 
+
+- __type_of_liquid__
+  - Type: string
+  - Description: Description of the phase used in the reaction system 
+
+- __amount_of_liquid__
+  - Type: posfloat
+  - Description: Which liquid amount is added to the reaction?
+
+- __unit_of_liquid__
+  - Type: string
+  - Description: Unit of the added liquid, in case of aqueous liquids, millilitre are often used as unit, in case of organic solvents, mass is applied to refer to the solvent
 
 </details>
+
+
+<details> <Summary>Solid phase</Summary>
+
+### SolidPhase
+
+Definition of the solid phase used in the reaction.
+
+- __type_of_solid__
+  - Type: string
+  - Description: Description of the phase used in the reaction system 
+
+- __amount_of_solid__
+  - Type: posfloat
+  - Description: Mass of the solid used in the reaction solution
+ 
+- __unit_of_solid__
+  - Type: string
+  - Description: Unit of the added solid. Grams, milligrams or microgram are often used as a unit.
+
+
+</details>
+
+
+<details> <Summary>Gas phase</Summary>
+
+### GasPhase
+
+Definition of the gas phase used in the reaction.
+
+- __type_of_gas__
+  - Type: string
+  - Description: Description of the gas used in the system
+
+- __amount_of_gas__
+  - Type: posfloat
+  - Description: Concentration of the gas in the gas phase. 
+
+- __unit_of_gas__
+  - Type: string
+  - Description: Unit of the gas. Common units are volume percentage (Vol %), volume fraction (Vol/Vol), mole percentage (Mol %) or molar fraction (Mol/Mol).
+
+</details>
+
+<hr />
 
 
 ## Temperature conditions
@@ -357,7 +418,7 @@ The temperature, if constant, must be clearly defined.
 
 ### DynamicTemperature
 
-If there is a temperature gradient or different temperatures are measured in the system, these must be described as well as possible.
+If there is a temperature gradient or different temperatures are measured in the system or over, these must be described as well as possible.
 
 - __temperature_at_distance__
   - Type: posfloat
@@ -386,9 +447,17 @@ If there is a temperature gradient or different temperatures are measured in the
 
 Information about the pH value in the system, if the pH is constant over the course of the reaction.
 
-- __pH__
+- __pH_value__
   - Type: posfloat
-  - Description: The pH during the reaction
+  - Description: The value of the pH 
+
+- __detected_in__
+  - Type: string
+  - Description: Solution in which the pH was measured (e.g. in buffer before addition to reaction)
+ 
+- __detected_when__
+  - Type: string
+  - Description: Timepoint at which the pH was measured (e.g. at before, during or after the reaction)
 
 </details>
 
@@ -397,15 +466,15 @@ Information about the pH value in the system, if the pH is constant over the cou
 
 ### DynmaicpH
 
-If there is a pH gradient or different pHs are measured in the system, these must be described as well as possible.
+If there is a pH gradient or different pHs are measured in the system or over time, these must be described as well as possible.
 
 - __pH_at_distance__
   - Type: posfloat
-  - Description: The temperature during the reaction
+  - Description: The pH during the reaction
 
 - __distance__
   - Type: posfloat
-  - Description: The distance at which the temperature was measured
+  - Description: The distance at which the pH was measured
 
 - __distance_unit__
   - Type: posfloat
