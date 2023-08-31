@@ -35,7 +35,11 @@ To be defined for each reactant.
   - Type: string
   - Description: Formulation of the reactant (powder, liquid)
 
+<hr>
+
 ### StorageConditions
+
+Description of how the reactants were stored.
 
 - __temperature__
   - Type: float
@@ -56,3 +60,5 @@ To be defined for each reactant.
 - __thawing_process__
   - Type: string
   - Description: How was the reactant frozen, any special device?
+ 
+<hr>
