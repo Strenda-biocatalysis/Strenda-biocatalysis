@@ -111,6 +111,7 @@ basic info about the self producted biocatalyst
 
 </details>
 
+<hr>
 
 # Formulation and immobilisation
 
@@ -213,10 +214,6 @@ soluble biocatlyst
   - Type: string
   - Description: Method for purifying the enzyme
 
-- __immobilisation_procedure__
-  - Type: string
-  - Description: Procedure for immobilising the enzyme
-
 - __concentration__
   - Type: float
   - Description: Concentration of the enzyme on the immobilised phase
@@ -229,11 +226,27 @@ soluble biocatlyst
 
 <details> <Summary>Immobilisation procedure</Summary>
 
-### ImmobilisationProcedure [_BiocatalystselfProduced_]
+### ImmobilisationProcedure [_BiocatalystSelfProduced_]
 
-???
+- __immobilisation_method__
+  - Type: string
+  - Description: Method for immobilising the enzyme. Common methods are e.g. adsorption, embedding in matrices, crosslinking, coimmobilization with carrier materials, etc.
+ 
+- __carrier_material__
+  - Type: string
+  - Despription: If you a support material was used, the name of the support material must be specified. This could be e.g. a gel, a membrane or a particle. (__if_applicable__)
+
+- __carrier_material_concentration__
+  - Type: string
+  - Despription: Concentration of the used carrier material. (__if_applicable__)
+
+- __immobilisation_yield__
+  - Type: string
+  - Despription: Definition of how efficiently the enzyme was immobilized.  
 
 </details>
+
+<hr>
 
 # Storage conditions
 
@@ -265,3 +278,5 @@ The last question to be answered for decribing the biocatalyst is how it has bee
   - Description: How was the catalyst frozen, any special devices or additives?
 
 </details>
+
+<hr>
