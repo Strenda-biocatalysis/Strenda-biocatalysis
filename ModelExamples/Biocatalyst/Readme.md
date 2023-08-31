@@ -104,7 +104,6 @@ basic info about the self producted biocatalyst
   - Type: string
   - Description: formulation of the biocatalyst, eg powder, solution etc.
 
-
 - __purification_method__
   - Type: string
   - Description: method used for purification of the enyme
@@ -197,7 +196,17 @@ soluble biocatlyst
 
 ### CellFreeProduction [_BiocatalystSelfProduced_]
 
-????
+- __source_of_cellfree_extract__
+  - Type: string
+  - Description: Specification of the organism or cell type from which the cell-free extract is derived. This could be bacterial, plant, animal, or another source.
+ 
+- __extract_preparation__
+  - Type: string
+  - Description: Evaluation of the steps taken to prepare the cell-free extract, including cell disruption, cell lysis, processing, and separation of cellular components.  
+
+- __enzym_production_process__
+  - Type: string
+  - Description: Defining the process of the enzymatic reaction within the cell-free extract. This might involve adding substrates, cofactors, or other necessary components. 
 
 </details>
 
