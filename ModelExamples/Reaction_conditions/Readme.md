@@ -14,7 +14,7 @@ This is a very complex CATEGORY to describe. Reactions can be performed in aqueo
 
 ### Solvent
 
-basic information about the solvent used
+Information on the characterization of the liquid phase.
 
 - __description__
   - Type: string
@@ -38,7 +38,7 @@ basic information about the solvent used
 
 ### Phases
 
-Information about the phases in the multiphase system
+Information about how many phases are present in the multiphase system.
 
 - __number_of_phases__
   - Type: posfloat
@@ -77,7 +77,7 @@ Metadata for describing the individual phases of the multiphase system.
 
 ### SolidPhase
 
-Definition of the solid phase used in the reaction
+Definition of the solid phase used in the reaction.
 
 - __type_of_solid__
   - Type: string
@@ -99,7 +99,7 @@ Definition of the solid phase used in the reaction
 
 ### GasPhase
 
-Definition of the gas phase used in the reaction
+Definition of the gas phase used in the reaction.
 
 - __type_of_gas__
   - Type: string
@@ -125,7 +125,7 @@ With the type of liquid described, the next question is how does the temperature
 
 ### TemperatureConstant
 
-Basic information about the temperature 
+The temperature, if constant, must be clearly defined.
 
 - __temperature__
   - Type: posfloat
@@ -145,7 +145,7 @@ Basic information about the temperature
 <a id="temperature-shift"></a>
 
 
-basic information about the solvent used
+If the temperature changes over time, this must be documented precisely.
 
 - __temperature_unit__
   - Type: string
@@ -173,7 +173,7 @@ basic information about the solvent used
 
 ### EventBasedTemperatureShift
 
-Description of the temperature, when an event causes the temperature change
+Description of the temperature, when an event causes the temperature change.
 
 - __temperature_unit__
   - Type: string
@@ -210,7 +210,7 @@ Description of the temperature, when an event causes the temperature change
 <a id="pH-shift"></a>
 
 
-Information about the pH value in the system, if the pH is constant over the course of the reaction
+Information about the pH value in the system, if the pH is constant over the course of the reaction.
 
 - __pH_value__
   - Type: posfloat
@@ -234,7 +234,7 @@ Information about the pH value in the system, if the pH is constant over the cou
 <a id="pH-shift-time"></a>
 
 
-Information about the pH value in the system, if there is a time dependent pH shift
+Information about the pH value in the system, if there is a time dependent pH shift.
 
 - __pH_start__
   - Type: posfloat
@@ -258,7 +258,7 @@ Information about the pH value in the system, if there is a time dependent pH sh
 <a id="pH-shift-event"></a>
 
 
-Information about the pH value in the system, if there is an event dependent pH shift
+Information about the pH value in the system, if there is an event dependent pH shift.
 
 - __pH_beginning__
   - Type: posfloat
@@ -288,7 +288,7 @@ Information about the pH value in the system, if there is an event dependent pH 
 
 ### Solvent
 
-basic information about the solvent used
+Information on the characterization of the liquid phase.
 
 - __description__
   - Type: string
@@ -312,7 +312,7 @@ basic information about the solvent used
 
 ### Phases
 
-Information about the phases in the multiphase system
+Information about the phases in the multiphase system.
 
 - __number_of_phases__
   - Type: posfloat
@@ -339,7 +339,7 @@ Information about the phases in the multiphase system
 
 ### TemperatureConstant
 
-basic information about the solvent used
+The temperature, if constant, must be clearly defined.
 
 - __temperature__
   - Type: posfloat
@@ -357,7 +357,7 @@ basic information about the solvent used
 
 ### DynamicTemperature
 
-basic information about the solvent used
+If there is a temperature gradient or different temperatures are measured in the system, these must be described as well as possible.
 
 - __temperature_at_distance__
   - Type: posfloat
@@ -384,7 +384,7 @@ basic information about the solvent used
 
 ### pHConstant
 
-basic information about the solvent used
+Information about the pH value in the system, if the pH is constant over the course of the reaction.
 
 - __pH__
   - Type: posfloat
@@ -397,7 +397,7 @@ basic information about the solvent used
 
 ### DynmaicpH
 
-basic information about the solvent used
+If there is a pH gradient or different pHs are measured in the system, these must be described as well as possible.
 
 - __pH_at_distance__
   - Type: posfloat
