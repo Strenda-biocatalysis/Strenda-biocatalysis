@@ -11,7 +11,7 @@ At first, it needs to be identified if the enzyme or biocatalyst was obtained by
 
 ### BiocatalystPurchased
 
-basic info about the biocatalyst
+Important information for characterizing the biocatalyst and determining its origin.
 
 - __name*__
   - Type: string
@@ -62,7 +62,7 @@ basic info about the biocatalyst
 
 ### BiocatalystSelfProduced
 
-basic info about the self producted biocatalyst
+Important information to characterize the biocatalyst and to describe it clearly.
 
 - __name*__
   - Type: string
@@ -121,8 +121,6 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 <details> <Summary>Soluble biocatalyst</Summary>
 
 ### SolubleBiocatalyst [_BiocatalystSelfProduced_]
-
-soluble biocatlyst
 
 - __concentration*__
   - Type: posfloat
