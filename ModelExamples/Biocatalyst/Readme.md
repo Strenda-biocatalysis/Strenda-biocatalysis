@@ -212,7 +212,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 
 ## Immobilised biocatalysts
 
-<details> <Summary>immobilised biocatalyst</Summary>
+<details> <Summary>Immobilised biocatalyst</Summary>
 
 ### ImmobilisedBiocatalyst [_BiocatalystSelfProduced_]
 
@@ -260,7 +260,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 The last question to be answered for decribing the biocatalyst is how it has been stored until it was used in the reaction.
 
 
-<details> <Summary>storage conditions</Summary>
+<details> <Summary>Storage conditions</Summary>
 
 ### StorageConditions [_BiocatalystSelfProduced_]
 
