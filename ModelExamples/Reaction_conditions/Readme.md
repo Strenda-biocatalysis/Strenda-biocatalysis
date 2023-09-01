@@ -378,7 +378,7 @@ Definition of the solid phase used in the reaction.
 
 ### GasPhase
 
-Definition of the gas phase used in the reaction.
+Definition of the gas phase used in the reaction. If a gas mixture is involved, this must be taken into account.
 
 - __type_of_gas__
   - Type: string
