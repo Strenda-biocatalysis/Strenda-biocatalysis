@@ -2,10 +2,11 @@
 
 # Biocatalyst
 
-This document contains all information required to unambiguously identify the catalyst and its formulation. 
+This category contains all information required to unambiguously identify the catalyst, its formulation and storage. 
 
-At first, it needs to be identified if the enzyme or biocatalyst was obtained by purchasing it from a company or if it was produced by yourself or a colleague. In every case different metadata are required to describe the enzyme unambiguously.
+## Identifiction of the biocatalyst
 
+Here, it needs to be identified if the enzyme or biocatalyst was obtained by purchasing it from a company or if it was self-produced. In each case different metadata are required to describe the applied enzyme unambiguously.
 
 <details> <Summary>Biocatalyst purchased</Summary>
 
@@ -201,10 +202,6 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 - __extract_preparation__
   - Type: string
   - Description: Evaluation of the steps taken to prepare the cell-free extract, including cell disruption, cell lysis, processing, and separation of cellular components.  
-
-- __enzym_production_process__
-  - Type: string
-  - Description: Defining the process of the enzymatic reaction within the cell-free extract. This might involve adding substrates, cofactors, or other necessary components. 
 
 </details>
 
