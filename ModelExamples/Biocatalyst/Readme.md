@@ -254,8 +254,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 
 # Storage conditions
 
-The last question to be answered for decribing the biocatalyst is how it has been stored until it was used in the reaction.
-
+Describing the biocatalyst involves specifying its storage conditions before use in the reaction.
 
 <details> <Summary>Storage conditions</Summary>
 
