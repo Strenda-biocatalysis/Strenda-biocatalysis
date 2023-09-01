@@ -2,7 +2,7 @@
 
 # Experiment type
 
-The first question to answer is which operation mode is used in the experiment. 
+It is crucial to determine the selected operation mode for an experiment.
 
 ### Batch
 
