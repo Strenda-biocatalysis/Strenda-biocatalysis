@@ -31,7 +31,7 @@ A process in which new reactants, enzymes and/or cosubstrates are continuously a
 
 ---
 
-### Combinatorial Mode
+### CombinatorialMode
 
 An application involving combinatorial processes.
 
