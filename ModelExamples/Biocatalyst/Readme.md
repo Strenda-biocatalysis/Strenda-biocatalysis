@@ -115,7 +115,7 @@ Important information to characterize the biocatalyst and to describe it clearly
 
 # Formulation and immobilisation
 
-With a enzyme purchased or self-produced it needs to be specified, how it was used in the reaction. We have identified two categories in which a biocatalyst can be applied to a reaction: immobilised, or non immobilised.
+With a enzyme purchased or self-produced it needs to be specified, how it was used in the reaction. Two categories have been identified for applying a biocatalyst to a reaction: immobilized and non immobilised.
 
 ## Non immobilised biocatalysts
 
