@@ -10,6 +10,8 @@ This is a very complex CATEGORY to describe. Reactions can be performed in aqueo
 
 ## Monoliquid systems
 
+A single-phase system in which only one liquid phase is present. All components are fully miscible, and there is no visible separation or boundary between different liquid phases.
+
 <details> <Summary>Solvent description</Summary>
 
 ### Solvent
@@ -33,6 +35,8 @@ Information on the characterization of the liquid phase.
 <hr>
 
 ## Multiphase systems
+
+Two or more distinct phases coexist within the same physical space. The phases are often separated by interfaces or boundaries. Multiphase systems can include combinations of gases, liquids, and solids.
 
 <details> <Summary>Multiphase system description</Summary>
 
@@ -287,6 +291,8 @@ Information about the pH value in the system, if there is an event dependent pH 
 
 ## Monoliquid systems
 
+A single-phase system in which only one liquid phase is present. All components are fully miscible, and there is no visible separation or boundary between different liquid phases.
+
 <details> <Summary>Solvent description</Summary>
 
 ### Solvent
@@ -310,6 +316,8 @@ Information on the characterization of the liquid phase.
 <hr>
 
 ## Multiphase systems
+
+Two or more distinct phases coexist within the same physical space. The phases are often separated by interfaces or boundaries. Multiphase systems can include combinations of gases, liquids, and solids.
 
 <details> <Summary>Multiphase system description</Summary>
 
