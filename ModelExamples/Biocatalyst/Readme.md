@@ -4,7 +4,7 @@
 
 This category contains all information required to unambiguously identify the catalyst, its formulation and storage. 
 
-## Identifiction of the biocatalyst
+## Source of the biocatalyst
 
 Here, it needs to be identified if the enzyme or biocatalyst was obtained by purchasing it from a company or if it was self-produced. In each case different metadata are required to describe the applied enzyme unambiguously.
 
