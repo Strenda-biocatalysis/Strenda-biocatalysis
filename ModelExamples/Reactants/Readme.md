@@ -49,7 +49,7 @@ Description of how the reactants were stored.
   - Type: float
   - Description: The temperature at which the reactant is stored.
  
- - __temperature_unit__
+- __temperature_unit__
   - Type: string
   - Description: The unit of temperature can be specified as K, °C, or °F, for example.
 
