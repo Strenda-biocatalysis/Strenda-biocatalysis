@@ -4,9 +4,13 @@
 
 It is crucial to determine the selected operation mode for an experiment.
 
+<img src="https://github.com/StephanM87/Strenda-biocatalysis/assets/106530250/5e3d4d79-ee59-4c8c-8597-99cd78f276b1" width="550">
+
+<hr>
+
 ### Batch
 
-A process in which all reactants, enzymes and cosubstrates are added in the beginning of the process, with no further additions during the process.
+In a batch operation, the entire process occurs in a single closed vessel or batch reactor. All reactants are loaded at the beginning, and the reaction progresses without the addition of additional reactants or removal of products during the course of the reaction.
 
 - __reactor_type__
     - name: string
@@ -15,7 +19,7 @@ A process in which all reactants, enzymes and cosubstrates are added in the begi
 
 ### Fed-Batch
 
-A process in which an addition of new reactants, enzymes and/or cosubstrates occurs in the reactor over time or continuously in a defined time frame.
+In this mode, reactants are added incrementally during the reaction.
 
 - __reactor_type__
     - name: string
@@ -24,7 +28,7 @@ A process in which an addition of new reactants, enzymes and/or cosubstrates occ
 
 ### Continuous
 
-A process in which new reactants, enzymes and/or cosubstrates are continuously added.
+In continuous operation, reactants are continuously fed into the reactor, and products are simultaneously removed from it.
 
 - __reactor_type__
     - name: string
@@ -33,7 +37,7 @@ A process in which new reactants, enzymes and/or cosubstrates are continuously a
 
 ### CombinatorialMode
 
-An application involving combinatorial processes.
+A combinatorial mode does not clearly fit into any of the aforementioned subcategories and thus represents a blend of operation modes.
 
 - __reactor_type__
     - name: string
