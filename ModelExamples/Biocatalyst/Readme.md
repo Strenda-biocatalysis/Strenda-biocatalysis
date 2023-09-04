@@ -128,9 +128,9 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 
 <details> <Summary>Soluble biocatalyst</Summary>
 
-### SolubleBiocatalyst [_BiocatalystSelfProduced_]
+### SolubleBiocatalyst
 
-- __concentration*__
+- __concentration__
   - Type: posfloat
   - Description: Concentration of the biocatalyst
 
@@ -138,7 +138,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
   - Type: float
   - Description: Acitivity of the enzyme in U/mg or U/mL
 
-- __concentration_determination_method*__
+- __concentration_determination_method__
   - Type: string
   - Description: Method on how the concentration has been determined
 
@@ -154,7 +154,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 
 <details> <Summary>Crude cell extract</Summary>
   
-### CrudeCellExtract [_BiocatalystSelfProduced_]
+### CrudeCellExtract
 
 - __cell_disruption_process__
   - Type: string
@@ -172,7 +172,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 
 <details> <Summary>Whole cell biocatalyst</Summary>
 
-### WholeCellBiocatalyst [_BiocatalystSelfProduced_]
+### WholeCellBiocatalyst
 
 - __harvesting_method__
   - Type: string
@@ -186,7 +186,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 
 <details> <Summary>Supernatant</Summary>
 
-### Supernatant [_BiocatalystSelfProduced_]
+### Supernatant
 
 - __production_organism__
   - Type: string
@@ -200,7 +200,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 
 <details> <Summary>Cell-free-production</Summary>
 
-### CellFreeProduction [_BiocatalystSelfProduced_]
+### CellFreeProduction
 
 - __source_of_cellfree_extract__
   - Type: string
@@ -218,7 +218,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 
 <details> <Summary>Immobilised biocatalyst</Summary>
 
-### ImmobilisedBiocatalyst [_BiocatalystSelfProduced_]
+### ImmobilisedBiocatalyst
 
 
 - __purification_procedure__
@@ -237,7 +237,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 
 <details> <Summary>Immobilisation procedure</Summary>
 
-### ImmobilisationProcedure [_BiocatalystSelfProduced_]
+### ImmobilisationProcedure
 
 - __immobilisation_method__
   - Type: string
@@ -265,7 +265,7 @@ Describing the biocatalyst involves specifying its storage conditions before use
 
 <details> <Summary>Storage conditions</Summary>
 
-### StorageConditions [_BiocatalystSelfProduced_]
+### StorageConditions 
 
 - __temperature__
   - Type: float
