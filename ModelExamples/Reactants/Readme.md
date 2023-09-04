@@ -15,17 +15,17 @@ To be defined for each reactant.
   - Type: string
   - Description: Smiles code of the reactant
 
-- __database_url__
+- __persistent_identifier_PID__
   - Type: string
-  - Description: Url or identifier (DOI) of the reactant
+  - Description: One or more identifiers that refer to the compound, such as CAS number, PubChem code, InChI code, etc.
 
 - __concentration__
   - Type: float
   - Description: Name of the reactant
 
-- __origin__
+- __supplier__
   - Type: string
-  - Description: Supplier of the reactant
+  - Description: Information about the source of the compound, usually a commercial supplier with perhaps product code, but could be preparation in a research lab.
 
 - __purity__
   - Type: float
