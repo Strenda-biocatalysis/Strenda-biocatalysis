@@ -14,48 +14,49 @@ It's important to determine whether the enzyme or biocatalyst was purchased from
 
 Important information for characterizing the biocatalyst and determining its origin.
 
-- __name*__
+- __name__
   - Type: string
-  - Description: Name of the biocatalyst
+  - Description: The name of the biocatalyst can be either generic based on its function and the type of reaction it catalyzes, for example, 'Lipase' or more specific by describing the genus and species, such as           'Bacillus amyloliquefaciens alpha-amylase'.
+
 - __ecnumber__
   - Type: string
-  - Description: Code used to determine the family of a protein.
+  - Description: Numerical classification system that categorizes enzymes based on their biochemical function and reaction mechanism, such as EC 3.1.4.12.
 
 - __chemical_reaction__
   - Type: string
-  - Description: reactio catalysed by the enzyme
+  - Description: The chemical reaction catalyzed by the biocatalyst.
 
 - __sequence__
   - Type: string
-  - Description: Amono acid sequence of the enzyme
+  - Description: The amino acid sequence of the biocatalyst.
 
 - __origin_organism__
   - Type: string
-  - Description: Organism from which the enzyme was extracted or identfied
- 
+  - Description: The specific species or source from which the enzyme is derived or isolated. It includes information about the genus and species of the organism.
+
 - __supplier__
   - Type: string
-  - Company from which the enzyme was purchased
+  - Description: Information about the supplier from which the enzyme was purchased.
 
 - __production_organism__
   - Type: string
-  - Description: Organism in which the enzyme was produced
+  - Description: Information about the organism in which the biocatalyst was produced is crucial in the context of heterologous gene expression.
 
-- __postranslational_modification__
+- __posttranslational_modification__
   - Type: string
-  - Description: Code used to determine the family of a protein.
+  - Description: Information about any chemical modifications or alterations that occur to the biocatalyst's protein structure after translation. This may include: Phosphorylation, glycosylation, acetylation,               methylation, ubiquitination and other modifications.
 
 - __purity__
   - Type: float
-  - Description: purity of the enzyme
+  - Description: Purity of enzymes typically expressed in percentage (%). It is usually stated as the percentage of the pure enzyme or active component relative to the total amount of the substance.
 
 - __purity_specification__
   - Type: string
-  - Description: description of how the purity of the biocatalyst was determined. In case of purchased enzymes, this information is often available in the product specification sheet.
+  - Description: Description of how the purity of the biocatalyst was determined. In case of purchased enzymes, this information is often available in the product specification sheet.
 
 - __formulation__
   - Type: string
-  - Description: formulation of the biocatlyst, eg powder, solution etc.
+  - Description: Depending on the formulation, the biocatalyst may be in a liquid form within a solvent or as a solid powder. It defines the physical state in which the biocatalyst is used.
 
 </details>
 
