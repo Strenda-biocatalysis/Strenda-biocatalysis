@@ -1,6 +1,6 @@
 [Landing Page](/Readme.md)
 
-# Experiment type
+# Operation Mode
 
 It is crucial to determine the selected operation mode for an experiment.
 
