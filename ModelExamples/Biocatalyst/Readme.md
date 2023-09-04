@@ -6,7 +6,7 @@ This category contains all information required to unambiguously identify the ca
 
 ## Source of the biocatalyst
 
-Here, it needs to be identified if the enzyme or biocatalyst was obtained by purchasing it from a company or if it was self-produced. In each case different metadata are required to describe the applied enzyme unambiguously.
+It's important to determine whether the enzyme or biocatalyst was purchased from a company or self-produced. Different information is needed in each case to describe the enzyme used accurately.
 
 <details> <Summary>Biocatalyst purchased</Summary>
 
