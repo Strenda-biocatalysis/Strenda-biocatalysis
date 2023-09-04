@@ -5,23 +5,23 @@ Each additive of a reaction must be defined like substrate, cosubstrate, coenzym
 
 ### Reactant
 
-To be defined for each reactant.
+Each reactant present in the planned reaction must be defined.
 
 - __name__
   - Type: string
-  - Description: Name of the reactant
+  - Description: The name of the reactant can be either the trivial or trade name, the systematic designation according to IUPAC nomenclature, or any other means of identifying the substance.
 
-- __smiles__
+- __smarts__
   - Type: string
-  - Description: Smiles code of the reactant
+  - Description: SMARTS (SMiles ARbitrary Target Specification) is an extension of the SMILES chemical notation. It's a specialized code used to describe and search for specific chemical patterns or substructures within     molecular structures.
 
 - __persistent_identifier_PID__
   - Type: string
   - Description: One or more identifiers that refer to the compound, such as CAS number, PubChem code, InChI code, etc.
 
 - __concentration__
-  - Type: float
-  - Description: Name of the reactant
+  - Type: posfloat
+  - Description: The concentration of the reactant is expressed in M (Molar), mmol/L (millimoles per liter), or µmol/L (micromoles per liter).
 
 - __supplier__
   - Type: string
@@ -29,11 +29,11 @@ To be defined for each reactant.
 
 - __purity__
   - Type: float
-  - Description: Purity of the reactant
+  - Description: Purity of a substance typically expressed in percentage (%). It is commonly defined as the percentage of the pure or desired compound relative to the total mass or volume of the substance.
 
 - __formulation__
   - Type: string
-  - Description: Formulation of the reactant (powder, liquid)
+  - Description: The formulation encompass the nature of the reactant, whether it is in powder, liquid, gaseous form, or any other form, as well as the specific conditions under which it is presented.
 
 <hr>
 
@@ -43,22 +43,28 @@ Description of how the reactants were stored.
 
 - __temperature__
   - Type: float
-  - Description: Storage tmeperature (-20°C, -80°C)
+  - Description: The temperature at which the reactant is stored (-20°C, -80°C).
 
 - __storage_start__
   - Type: date
-  - Description: Start of storage
+  - Description: The date since the reactant has been stored.
 
 - __additives__
   - Type: string
-  - Description: Were additives added, for example argon?
+  - Description: Additives for the storage of reactants can include antioxidants, stabilizers, drying agent, or even inert gases (argon, nitrogen), among others.
 
 - __removing/rethawing__
   - Type: sting
-  - Description: Was the reactant removed from storage or rethawed?
+  - Description: For specific applications, it may be crucial to track how often the reactant has been removed from storage and, if applicable, thawed.
 
 - __thawing_process__
   - Type: string
-  - Description: How was the reactant frozen, any special device?
+  - Description: If the reactant needs to be frozen, it is also important to know how this was carried out.
+
+<hr>
+ 
+- __special_treatment__
+  - Type: string
+  - Description: If there are any other specific characteristics or aspects related to the reactant that are important for reproducibility and do not fall under the aforementioned subcategories, they should be described     and explained here.
  
 <hr>
