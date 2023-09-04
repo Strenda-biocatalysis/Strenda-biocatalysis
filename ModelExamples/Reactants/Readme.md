@@ -21,7 +21,11 @@ Each reactant present in the planned reaction must be defined.
 
 - __concentration__
   - Type: posfloat
-  - Description: The concentration of the reactant is expressed in M (Molar), mmol/L (millimoles per liter), or µmol/L (micromoles per liter).
+  - Description: The concentration of the reactant.
+
+- __concentration_unit__
+  - Type: string
+  - Description: The concentration of the reactant is typically expressed in M (Molar), mmol/L (millimoles per liter), or µmol/L (micromoles per liter).
 
 - __supplier__
   - Type: string
@@ -43,7 +47,11 @@ Description of how the reactants were stored.
 
 - __temperature__
   - Type: float
-  - Description: The temperature at which the reactant is stored (-20°C, -80°C).
+  - Description: The temperature at which the reactant is stored.
+ 
+ - __temperature_unit__
+  - Type: string
+  - Description: The unit of temperature can be specified as K, °C, or °F, for example.
 
 - __storage_start__
   - Type: date
