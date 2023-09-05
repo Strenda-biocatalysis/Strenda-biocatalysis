@@ -32,7 +32,7 @@ Important information for characterizing the biocatalyst and determining its ori
 
 - __origin_organism__
   - Type: string
-  - Description: The specific species or source from which the enzyme is derived or isolated. It includes information about the genus and species of the organism.
+  - Description: The specific species or source from which the enzyme is derived or isolated. It includes information about the genus and species of the organism. However, the cell type from which the biocatalyst is        derived could be bacterial, as well as plant, animal, or other sources.
 
 - __supplier__
   - Type: string
@@ -232,13 +232,27 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 
 ### Supernatant
 
-- __production_organism__
-  - Type: string
-  - Description: Which organism was producing and secreting the biocatalyst?
-
 - __separation_method__
   - Type: string
-  - Description: The method of how the supernatant was separated from the cells
+  - Description: There are various methods to separate the supernatant from the cells, common methods include centrifugation, filtration, sedimentation, flow cytometry, etc.
+
+- __concentration__
+  - Type: posfloat
+  - Description: The concentration of the biocatalyst.
+ 
+- __concentration_unit__
+  - Type: string
+  - Description: The concentration of the biocatalyst is typically expressed in M (Molar), mmol/L (millimoles per liter), or µmol/L (micromoles per liter).
+
+- __concentration_determination_method__
+  - Type: string
+  - Description: It is important to specify the type of concentration determination. Various methods for determining the concentration of enzymes can be distinguished, including the Bradford method, Lowry method, UV        absorption, activity assays, ELISA, etc.
+ 
+ <hr>
+
+- __special_treament__
+  - Type: string
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and do not fall under the aforementioned subcategories,     they should be described and explained here.
 
 </details>
 
@@ -248,14 +262,28 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 
 - __source_of_cellfree_extract__
   - Type: string
-  - Description: Specification of the organism or cell type from which the cell-free extract is derived. This could be bacterial, plant, animal, or another source.
+  - Description: Specification of the organism or cell type from which the cell-free extract is derived. This could be bacterial, plant, animal, or another sources.
  
-- __extract_preparation__
+- __concentration__
+  - Type: posfloat
+  - Description: The concentration of the biocatalyst.
+ 
+- __concentration_unit__
   - Type: string
-  - Description: Evaluation of the steps taken to prepare the cell-free extract, including cell disruption, cell lysis, processing, and separation of cellular components.  
+  - Description: The concentration of the biocatalyst is typically expressed in M (Molar), mmol/L (millimoles per liter), or µmol/L (micromoles per liter).
+
+- __concentration_determination_method__
+  - Type: string
+  - Description: It is important to specify the type of concentration determination. Various methods for determining the concentration of enzymes can be distinguished, including the Bradford method, Lowry method, UV        absorption, activity assays, ELISA, etc.  
+ 
+<hr>
+
+- __special_treament__
+  - Type: string
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and do not fall under the aforementioned subcategories,     they should be described and explained here.
+
 
 </details>
-
 
 
 ## Immobilised biocatalysts
