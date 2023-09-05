@@ -292,18 +292,27 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 
 ### ImmobilisedBiocatalyst
 
-
-- __purification_procedure__
+- __purification_method__
   - Type: string
-  - Description: Method for purifying the enzyme
+  - Description: TThe purification methods can vary depending on whether it involves whole cells or free enzymes. In the case of whole cells, methods such as centrifugation, filtration, or flow cytometry can be             employed. In the case of free enzymes, methods like cell lysis, filtration, chromatography, and precipitation, among others, may be used.
 
 - __concentration__
-  - Type: float
-  - Description: Concentration of the enzyme on the immobilised phase
+  - Type: posfloat
+  - Description: The concentration of the biocatalyst or the whole cells on the immobilised phase.
+ 
+- __concentration_unit__
+  - Type: string
+  - Description: For immobilized enzymes, the concentration can be expressed in units such as mg/mL (milligrams of enzyme per milliliter) or g/L (grams of enzyme per liter). When it comes to immobilized cells, units        such as cells/mL (cells per milliliter) or cells/g (cells per gram) of the carrier material or immobilizing matrix can be used.
 
 - __concentration_determination_method__
   - Type: string
-  - Description: Method how the concentration was measured
+  - Description: Various methods are available to determine the concentration of immobilized enzymes or cells. For immobilized enzymes, methods such as protein measurement or enzymatic activity assays can be used. For      immobilized cells, methods like flow cytometry or biomass measurement are applicable.
+
+<hr>
+
+- __special_treament__
+  - Type: string
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and do not fall under the aforementioned subcategories,     they should be described and explained here.
 
 </details>
 
@@ -319,13 +328,12 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
   - Type: string
   - Despription: If you a support material was used, the name of the support material must be specified. This could be e.g. a gel, a membrane or a particle. (__if_applicable__)
 
-- __carrier_material_concentration__
-  - Type: string
-  - Despription: Concentration of the used carrier material. (__if_applicable__)
+<hr>
 
-- __immobilisation_yield__
+- __special_treament__
   - Type: string
-  - Despription: Definition of how efficiently the enzyme was immobilized.  
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and do not fall under the aforementioned subcategories,     they should be described and explained here.
+
 
 </details>
 
