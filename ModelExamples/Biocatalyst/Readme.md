@@ -56,7 +56,7 @@ Important information for characterizing the biocatalyst and determining its ori
 
 - __formulation__
   - Type: string
-  - Description: Depending on the formulation, the biocatalyst may be in a liquid form within a solvent or as a solid powder. It defines the physical state in which the biocatalyst is used.
+  - Description: Depending on the formulation, the biocatalyst may be in a liquid form within a solvent or as a solid powder. It defines the physical state in which the biocatalyst is used. Additional information           regarding the application or formulation in the experiment should be entered in the next subcategory.
 
 </details>
 
@@ -108,7 +108,7 @@ Important information to characterize the biocatalyst and to describe it clearly
 
 - __formulation__
   - Type: string
-  - Description: Depending on the formulation, the biocatalyst may be in a liquid form within a solvent or as a solid powder. It defines the physical state in which the biocatalyst is used.
+  - Description: Depending on the formulation, the biocatalyst may be in a liquid form within a solvent or as a solid powder. It defines the physical state in which the biocatalyst is used. Additional information           regarding the application or formulation in the experiment should be entered in the next subcategory.
 
 <hr>
 
@@ -174,7 +174,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 
 - __cell_disruption_process__
   - Type: string
-  - Description: Method how the cells were disrupted
+  - Description: Cell disruption methods include various techniques such as mechanical disruption (e.g., ultrasound), chemical disruption (e.g., detergents), thermal disruption, etc.
 
 - __concentration__
   - Type: posfloat
@@ -187,6 +187,12 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 - __concentration_determination_method__
   - Type: string
   - Description: It is important to specify the type of concentration determination. Various methods for determining the concentration of enzymes can be distinguished, including the Bradford method, Lowry method, UV        absorption, activity assays, ELISA, etc.
+ 
+ <hr>
+
+- __special_treament__
+  - Type: string
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and do not fall under the aforementioned subcategories,     they should be described and explained here.
 
 </details>
 
@@ -196,11 +202,29 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 
 - __harvesting_method__
   - Type: string
-  - Description: How were the cells harvested
+  - Description: In biotechnological processes, there are various methods for harvesting cells, including centrifugation, filtration, precipitation, etc.
+ 
+- __concentration__
+  - Type: posfloat
+  - Description: Typically, in the case of whole-cell catalysts, the cell concentration or cell mass is used as a measure of the quantity of cells used.
+ 
+- __concentration_unit__
+  - Type: string
+  - Description: When the cells are lyophilized, the quantity of lyophilized cells can be specified in grams or kilograms. If wet cells are used, the cell concentration can be indicated in cells per milliliter              (cells/mL) or cells per gram (cells/g) of wet cell weight.
 
+- __concentration_determination_method__
+  - Type: string
+  - Description: It is important to specify the type of concentration determination. Various methods for determining the concentration of enzymes can be distinguished, including flow cytometry or the measurement of the     dry weight of biomass, etc.
+ 
 - __formulation__
   - Type: string
-  - Description: formulation of the catalyst (wet cells, lyophillised?)
+  - Description: When applying a whole cell biocatalyst, there are various options. For example, the cells can be cultivated and then lyophilized or used directly as wet cells.
+
+ <hr>
+
+- __special_treament__
+  - Type: string
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and do not fall under the aforementioned subcategories,     they should be described and explained here.
 
 </details>
 
