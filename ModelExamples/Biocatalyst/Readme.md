@@ -123,7 +123,7 @@ Important information to characterize the biocatalyst and to describe it clearly
 
 # Formulation and immobilisation
 
-With a enzyme purchased or self-produced it needs to be specified, how it was used in the reaction. Two categories have been identified for applying a biocatalyst to a reaction: immobilized and non immobilised.
+With a enzyme purchased or self-produced it needs to be specified, how it was used in the reaction. Two categories have been identified for applying a biocatalyst to a reaction: non immobilized and immobilised.
 
 ## Non immobilised biocatalysts
 
@@ -154,10 +154,6 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 - __formulation__
   - Type: string
   - Description: Depending on the formulation, the biocatalyst may be in a liquid form within a solvent or as a solid powder. It defines the physical state in which the biocatalyst is applied in the reaction.
-
-- __purification_method__
-  - Type: string
-  - Description: The choice of purification methods is diverse and can impact the enzyme, with possible methods including chromatographic techniques, precipitation, HPLC, ultrafiltration, dialysis, salt fractionation,      etc.
  
 <hr>
 
