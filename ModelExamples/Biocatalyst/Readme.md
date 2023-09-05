@@ -104,7 +104,7 @@ Important information to characterize the biocatalyst and to describe it clearly
 
 - __purification_method__
   - Type: string
-  - Description: Information about the specific purification method or techniques of the enzyme used in detail.
+  - Description: The choice of purification methods is diverse and can impact the enzyme, with possible methods including chromatographic techniques, precipitation, HPLC, ultrafiltration, dialysis, salt fractionation,      etc.
 
 - __formulation__
   - Type: string
@@ -115,6 +115,7 @@ Important information to characterize the biocatalyst and to describe it clearly
 - __special_treatment__
   - Type: string
   - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and do not fall under the aforementioned subcategories,     they should be described and explained here.
+
 
 </details>
 
@@ -132,24 +133,39 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 
 - __concentration__
   - Type: posfloat
-  - Description: Concentration of the biocatalyst
-
-- __activity__:
-  - Type: float
-  - Description: Acitivity of the enzyme in U/mg or U/mL
+  - Description: The concentration of the biocatalyst.
+ 
+- __concentration_unit__
+  - Type: string
+  - Description: The concentration of the biocatalyst is typically expressed in M (Molar), mmol/L (millimoles per liter), or µmol/L (micromoles per liter).
 
 - __concentration_determination_method__
   - Type: string
-  - Description: Method on how the concentration has been determined
+  - Description: It is important to specify the type of concentration determination. Various methods for determining the concentration of enzymes can be distinguished, including the Bradford method, Lowry method, UV        absorption, activity assays, ELISA, etc.
+
+- __activity__:
+  - Type: float
+  - Description: The activity of the biocatalyst can be expressed either as volumetric activity, which considers the total activity of the enzyme in the solution, or as specific activity, which takes into account the       enzyme's purity and indicates the activity of an enzyme per unit of enzyme protein or enzyme mass.
+
+- __activity_unit__
+  - Type: string
+  - Description: In the case of specific activity, the enzyme's activity is expressed in U/mg (Units per milligram), while in the case of volumetric activity, it's expressed in U/mL (Units per milliliter).
 
 - __formulation__
   - Type: string
-  - Description: Formulation of the biocatalyst, eg powder, solution etc.
+  - Description: Depending on the formulation, the biocatalyst may be in a liquid form within a solvent or as a solid powder. It defines the physical state in which the biocatalyst is applied in the reaction.
 
-- __purification_procedure__
+- __purification_method__
   - Type: string
-  - Description: Method used to purifiy the biocatalyst
+  - Description: The choice of purification methods is diverse and can impact the enzyme, with possible methods including chromatographic techniques, precipitation, HPLC, ultrafiltration, dialysis, salt fractionation,      etc.
+ 
+<hr>
 
+- __special_treament__
+  - Type: string
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and do not fall under the aforementioned subcategories,     they should be described and explained here.
+
+  
 </details>
 
 <details> <Summary>Crude cell extract</Summary>
