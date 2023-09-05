@@ -121,7 +121,7 @@ Important information to characterize the biocatalyst and to describe it clearly
 
 <hr>
 
-# Formulation and immobilisation
+# Immobilisation and formulation
 
 With a enzyme purchased or self-produced it needs to be specified, how it was used in the reaction. Two categories have been identified for applying a biocatalyst to a reaction: non immobilized and immobilised.
 
