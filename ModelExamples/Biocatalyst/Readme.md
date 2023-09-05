@@ -100,7 +100,7 @@ Important information to characterize the biocatalyst and to describe it clearly
 
 - __purity_specification__
   - Type: string
-  - Description: Description of how the purity of the biocatalyst was determined.
+  - Description: The choice of method for the purity determination depends on the type of enzyme and the available resources and may include gel electrophoresis, HPLC, ELISA, Western blotting, etc.
 
 - __purification_method__
   - Type: string
@@ -151,6 +151,10 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
   - Type: string
   - Description: In the case of specific activity, the enzyme's activity is expressed in U/mg (Units per milligram), while in the case of volumetric activity, it's expressed in U/mL (Units per milliliter).
 
+- __activity_determination_method__
+  - Type: string
+  - Description: Enzyme activity can be measured in various ways, including spectrophotometrically, colorimetrically, fluorometrically, using biosensors, etc.
+
 - __formulation__
   - Type: string
   - Description: Depending on the formulation, the biocatalyst may be in a liquid form within a solvent or as a solid powder. It defines the physical state in which the biocatalyst is applied in the reaction.
@@ -173,12 +177,16 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
   - Description: Method how the cells were disrupted
 
 - __concentration__
-  - Type: float
-  - Description: Concentration of the biocatalyst
+  - Type: posfloat
+  - Description: The concentration of the biocatalyst.
+ 
+- __concentration_unit__
+  - Type: string
+  - Description: The concentration of the biocatalyst is typically expressed in M (Molar), mmol/L (millimoles per liter), or µmol/L (micromoles per liter).
 
 - __concentration_determination_method__
   - Type: string
-  - Description: Method how the concentration was measured
+  - Description: It is important to specify the type of concentration determination. Various methods for determining the concentration of enzymes can be distinguished, including the Bradford method, Lowry method, UV        absorption, activity assays, ELISA, etc.
 
 </details>
 
