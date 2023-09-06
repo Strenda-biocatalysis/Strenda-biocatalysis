@@ -195,23 +195,15 @@ Description of the temperature, when an event causes the temperature change.
 
 - __temperature_beginning__
   - Type: posfloat
-  - Description: The initial temperature of the reaction in the beginning
+  - Description: The initial temperature, prior to the start of the reaction, should be specified.
 
 - __temperature_at_event__
   - Type: posfloat
-  - Description: The temperature which is present after a certain event has occured
+  - Description: The temperature that is present after a specific event has occurred.
 
 - __event_description__
   - Type: string
-  - Description: The event which caused the temperature change
-
-- __time_at_XY__
-  - Type: posfloat
-  - Description: The time point of a respective temperature at a time _XY_
-
-- __time_at_XY__
-  - Type: posfloat
-  - Description: The time point of a respective temperature at a time _XY_
+  - Description: Information regarding the event that caused the temperature change.
 
 </details>
 
