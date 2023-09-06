@@ -14,9 +14,9 @@ A single-phase system in which only one liquid phase is present. All components 
 
 ### MonoliquidSystemDescription
 
-Information on the characterisation of the liquid phase.
+To describe a monoliquid system, precise information about the solvent used and the applied system must be provided.
 
-- __description__
+- __solvent_description__
   - Type: string
   - Description: The solvent used in the reaction system, e.g. a buffered aqueous solution or an organic solvent.
 
@@ -26,7 +26,13 @@ Information on the characterisation of the liquid phase.
  
 - __further_additives__
   - Type: string
-  - Description: Further additive like cosolvents used to increase solubility of reactants, e.g. DMSO.  
+  - Description: Further additive like cosolvents used to increase solubility of reactants, e.g. DMSO.
+
+<hr>
+ 
+- __special_treament__
+  - Type: string
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the monoliquid system that are important for reproducibility and are not described by the aforementioned          metadata, they should be explained here.
 
 </details>
 
@@ -40,11 +46,17 @@ Two or more distinct phases coexist within the same physical space. The phases a
 
 ### MultiphaseSystemDescription
 
-Information about how many phases are present in the multiphase system.
+To describe a multiphase system, precise information about the phases used and the applied system must be provided.
 
 - __phases_number__
   - Type: posfloat
   - Description: Number of phases present in the system, if there is an aqueous and a gas phase present, the number is 2.
+
+<hr>
+ 
+- __special_treament__
+  - Type: string
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the multiphase system that are important for reproducibility and are not described by the aforementioned           metadata, they should be explained here.
 
 </details>
 
@@ -52,7 +64,7 @@ Information about how many phases are present in the multiphase system.
 
 ## Phase description
 
-Metadata for describing the individual phases of the multiphase system. Each phase has to be descripted before mixing.
+Metadata for describing the individual phases of the multiphase system in more detail. Each phase has to be descripted before mixing.
 
 <details> <Summary>Liquid phase</Summary>
 
@@ -294,9 +306,9 @@ A single-phase system in which only one liquid phase is present. All components 
 
 ### MonoliqudSystemDescription
 
-Information on the characterization of the liquid phase.
+To describe a monoliquid system, precise information about the solvent used and the applied system must be provided.
 
-- __description__
+- __solvent_description__
   - Type: string
   - Description: The solvent used in the reaction system, e.g. a buffered aqueous solution or an organic solvent.
 
@@ -316,6 +328,13 @@ Information on the characterization of the liquid phase.
   - Type: string
   - Description: Common units for describing flow rate include L/min (liters per minute), mL/h (milliliters per hour), m³/h (cubic meters per hour), or other volume units per unit of time.   
 
+<hr>
+ 
+- __special_treament__
+  - Type: string
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the monoliquid system that are important for reproducibility and are not described by the aforementioned           metadata, they should be explained here.
+
+
 </details>
 
 <hr>
@@ -328,7 +347,7 @@ Two or more distinct phases coexist within the same physical space. The phases a
 
 ### MultiphaseSystemDescription
 
-Information about the phases in the multiphase system.
+To describe a multiphase system, precise information about the phases used and the applied system must be provided.
 
 - __phases_number__
   - Type: posfloat
@@ -342,6 +361,13 @@ Information about the phases in the multiphase system.
   - Type: string
   - Description: Common units for describing flow rate include L/min (liters per minute), mL/h (milliliters per hour), m³/h (cubic meters per hour), or other volume units per unit of time.   
 
+<hr>
+ 
+- __special_treament__
+  - Type: string
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the monoliquid system that are important for reproducibility and are not described by the aforementioned           metadata, they should be explained here.
+
+
 </details>
 
 
@@ -350,7 +376,8 @@ Information about the phases in the multiphase system.
 
 ## Phase description
 
-Metadata for describing the individual phases of the multiphase system.
+Metadata for describing the individual phases of the multiphase system in more detail. Each phase has to be descripted before mixing.
+
 
 <details> <Summary>Liquid phase</Summary>
 
