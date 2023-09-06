@@ -32,7 +32,7 @@ To describe a monoliquid system, precise information about the solvent used and 
  
 - __special_treament__
   - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the monoliquid system that are important for reproducibility and are not described by the aforementioned          metadata, they should be explained here.
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the monoliquid system that are important for reproducibility and are not described by the aforementioned           metadata, they should be explained here.
 
 </details>
 
@@ -74,15 +74,15 @@ Metadata for describing the individual phases of the multiphase system in more d
 
 - __liquid_type__
   - Type: string
-  - Description: Description of the phase used in the reaction system. 
+  - Description: Information about the type of liquid used, whether it's an organic solvent,a buffer solution or something else.
 
 - __liquid_amount__
   - Type: posfloat
-  - Description: Which liquid amount is added to the reaction?
+  - Description: Amount of the liquid added to the reaction.
 
 - __liquid_unit__
   - Type: string
-  - Description: Unit of the added liquid, in case of aqueous liquids, millilitre are often used as unit, in case of organic solvents, mass is applied to refer to the solvent
+  - Description: In case of aqueous liquids, millilitre are often used as unit, in case of organic solvents, mass is applied to refer to the solvent.
 
 </details>
 
@@ -95,16 +95,15 @@ Definition of the solid phase used in the reaction.
 
 - __solid_type__
   - Type: string
-  - Description: Description of the phase used in the reaction system 
+  - Description: Information about the type of solid used, whether it's support materials, solid catalysts, ion exchange resins, or other solids.
 
 - __solid_amount__
   - Type: posfloat
-  - Description: Mass of the solid used in the reaction solution
+  - Description: Mass of the solid used in the reaction solution.
  
 - __solid_unit__
   - Type: string
-  - Description: Unit of the added solid. Grams, milligrams or microgram are often used as a unit.
-
+  - Description: In the case of solids, common units like grams, milligrams, or micrograms can be used.
 
 </details>
 
@@ -117,7 +116,7 @@ Definition of the gas phase used in the reaction. If a gas mixture is involved, 
 
 - __gas_type__
   - Type: string
-  - Description: Description of the gas used in the system
+  - Description: Information about the type of gas used, whether it's nitrogen dioxide, argon, oxygen or other gases.
 
 - __gas_amount__
   - Type: posfloat
@@ -125,7 +124,7 @@ Definition of the gas phase used in the reaction. If a gas mixture is involved, 
 
 - __gas_unit__
   - Type: string
-  - Description: Unit of the gas. Common units are volume percentage (Vol %), volume fraction (Vol/Vol), mole percentage (Mol %) or molar fraction (Mol/Mol).
+  - Description: In the case of gases, common units are volume percentage (Vol %), volume fraction (Vol/Vol), mole percentage (Mol %) or molar fraction (Mol/Mol).
 
 </details>
 
@@ -387,15 +386,15 @@ Metadata for describing the individual phases of the multiphase system in more d
 
 - __liquid_type__
   - Type: string
-  - Description: Description of the phase used in the reaction system.
+  - Description: Information about the type of liquid used, whether it's an organic solvent,a buffer solution or something else.
 
 - __liquid_amount__
   - Type: posfloat
-  - Description: Which liquid amount is added to the reaction?
+  - Description: Amount of the liquid added to the reaction.
 
 - __liquid_unit__
   - Type: string
-  - Description: Unit of the added liquid, in case of aqueous liquids, millilitre are often used as unit, in case of organic solvents, mass is applied to refer to the solvent.
+  - Description: In case of aqueous liquids, millilitre are often used as unit, in case of organic solvents, mass is applied to refer to the solvent.
 
 </details>
 
@@ -408,7 +407,7 @@ Definition of the solid phase used in the reaction.
 
 - __solid_type__
   - Type: string
-  - Description: Description of the phase used in the reaction system. 
+  - Description: Information about the type of solid used, whether it's support materials, solid catalysts, ion exchange resins, or other solids.
 
 - __solid_amount__
   - Type: posfloat
@@ -416,7 +415,7 @@ Definition of the solid phase used in the reaction.
  
 - __solid_unit__
   - Type: string
-  - Description: Unit of the added solid. Grams, milligrams or microgram are often used as a unit.
+  - Description: In the case of solids, common units like grams, milligrams, or micrograms can be used.
 
 
 </details>
@@ -430,7 +429,7 @@ Definition of the gas phase used in the reaction. If a gas mixture is involved, 
 
 - __gas_type__
   - Type: string
-  - Description: Description of the gas used in the system.
+  - Description: Information about the type of gas used, whether it's nitrogen dioxide, argon, oxygen or other gases.
 
 - __gas_amount__
   - Type: posfloat
@@ -438,7 +437,8 @@ Definition of the gas phase used in the reaction. If a gas mixture is involved, 
 
 - __gas_unit__
   - Type: string
-  - Description: Unit of the gas. Common units are volume percentage (Vol %), volume fraction (Vol/Vol), mole percentage (Mol %) or molar fraction (Mol/Mol).
+  - Description: In the case of gases, common units are volume percentage (Vol %), volume fraction (Vol/Vol), mole percentage (Mol %) or molar fraction (Mol/Mol).
+
 
 </details>
 
