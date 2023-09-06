@@ -148,6 +148,12 @@ The temperature, if constant, must be clearly defined.
   - Type: string
   - Description: The temperature can be specified in units such as K, °C, or °F.
 
+<hr>
+
+- __special_treament__
+  - Type: string
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the temperature that are important for reproducibility and are not described by the aforementioned                 metadata, they should be explained here. 
+
 
 </details>
 
@@ -167,7 +173,7 @@ If the temperature changes with the course of the reaction, this must be documen
 
 - __temperature_end__
   - Type: posfloat
-  - Description: TThe final temperature after completion of the reaction should be specified.
+  - Description: The final temperature after completion of the reaction should be specified.
 
 - __temperature_at_XY__
   - Type: posfloat
@@ -180,6 +186,12 @@ If the temperature changes with the course of the reaction, this must be documen
 - __time_unit__
   - Type: string
   - Description: Common units for specifying time can be s (seconds) or min (minutes).
+
+<hr>
+
+- __special_treament__
+  - Type: string
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the temperature that are important for reproducibility and are not described by the aforementioned                 metadata, they should be explained here. 
 
 </details>
 
@@ -204,6 +216,13 @@ Description of the temperature, when an event causes the temperature change.
 - __event_description__
   - Type: string
   - Description: Information regarding the event that caused the temperature change.
+
+<hr>
+
+- __special_treament__
+  - Type: string
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the temperature that are important for reproducibility and are not described by the aforementioned                 metadata, they should be explained here. 
+
 
 </details>
 
@@ -248,13 +267,13 @@ Information about the pH value in the system, if the pH is constant over the cou
 
 Information about the pH value in the system, if there is a time dependent pH shift.
 
-- __pH_start__
+- __pH_beginning__
   - Type: posfloat
-  - Description: The initial value of the pH.
+  - Description: The initial pH, prior to the start of the reaction, should be specified.
 
 - __pH_end__
-  - Type: string
-  - Description: The final value of the pH.
+  - Type: posfloat
+  - Description: The final pH after completion of the reaction should be specified.
 
 - __pH_at_XY__
   - Type: posfloat
@@ -268,6 +287,12 @@ Information about the pH value in the system, if there is a time dependent pH sh
   - Type: string
   - Description: Common units for specifying time can be s (seconds) or min (minutes).
 
+<hr>
+
+- __special_treament__
+  - Type: string
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the pH value that are important for reproducibility and are not described by the aforementioned                    metadata, they should be explained here. 
+
 </details>
 
 
@@ -279,15 +304,22 @@ Information about the pH value in the system, if there is an event dependent pH 
 
 - __pH_beginning__
   - Type: posfloat
-  - Description: The initial temperature, prior to the start of the reaction, should be specified.
+  - Description: The initial pH, prior to the start of the reaction, should be specified.
 
 - __pH_after_event__
   - Type: posfloat
-  - Description: The pH which is present after a certain event has occured
+  - Description: The pH that is present after a specific event has occurred.
 
 - __event_description__
   - Type: string
   - Description: Information regarding the event that caused the pH change.
+
+<hr>
+
+- __special_treament__
+  - Type: string
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the pH value that are important for reproducibility and are not described by the aforementioned                    metadata, they should be explained here. 
+
 
 </details>
 
