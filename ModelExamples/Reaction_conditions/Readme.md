@@ -197,7 +197,7 @@ Description of the temperature, when an event causes the temperature change.
   - Type: posfloat
   - Description: The initial temperature, prior to the start of the reaction, should be specified.
 
-- __temperature_at_event__
+- __temperature_after_event__
   - Type: posfloat
   - Description: The temperature that is present after a specific event has occurred.
 
@@ -215,22 +215,29 @@ Description of the temperature, when an event causes the temperature change.
 
 ### pHConstant
 
-<a id="pH-shift"></a>
-
-
 Information about the pH value in the system, if the pH is constant over the course of the reaction.
 
 - __pH_value__
   - Type: posfloat
-  - Description: The value of the pH 
+  - Description: The value of the pH. 
 
 - __detected_in__
   - Type: string
-  - Description: Solution in which the pH was measured (e.g. in buffer before addition to reaction)
+  - Description: Solution in which the pH was measured (e.g. in buffer before addition to reaction).
  
 - __detected_when__
   - Type: string
-  - Description: Timepoint at which the pH was measured (e.g. at before, during or after the reaction)
+  - Description: Timepoint at which the pH was measured (e.g. before, during or after the reaction).
+ 
+- __detected_how__
+  - Type: string
+  - Description: The pH value of a reaction can be determined in various ways, such as using a pH meter, pH paper, titration, electrochemical sensors, or other methods.
+
+<hr>
+
+- __special_treament__
+  - Type: string
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the pH value that are important for reproducibility and are not described by the aforementioned                    metadata, they should be explained here. 
 
 </details>
 
@@ -239,22 +246,27 @@ Information about the pH value in the system, if the pH is constant over the cou
 
 ### pHTimeDependentShift
 
-<a id="pH-shift-time"></a>
-
-
 Information about the pH value in the system, if there is a time dependent pH shift.
 
 - __pH_start__
   - Type: posfloat
-  - Description: The initial pH value
+  - Description: The initial value of the pH.
 
 - __pH_end__
   - Type: string
-  - Description: The final pH value
+  - Description: The final value of the pH.
 
 - __pH_at_XY__
+  - Type: posfloat
+  - Description: The pH can also be measured at a variably chosen time point _XY_ during the reaction.
+
+- __time_at_XY__
+  - Type: posfloat
+  - Description: Specification of the exact time point _XY_ at which the pH was measured.
+ 
+- __time_unit__
   - Type: string
-  - Description: The pH value at a certain point in time
+  - Description: Common units for specifying time can be s (seconds) or min (minutes).
 
 </details>
 
@@ -263,18 +275,11 @@ Information about the pH value in the system, if there is a time dependent pH sh
 
 ### pHEventDependentShift
 
-<a id="pH-shift-event"></a>
-
-
 Information about the pH value in the system, if there is an event dependent pH shift.
 
 - __pH_beginning__
   - Type: posfloat
-  - Description: The initial pH value
-
-- __pH_before_event__
-  - Type: posfloat
-  - Description: The pH which is present before a certain event has occured
+  - Description: The initial temperature, prior to the start of the reaction, should be specified.
 
 - __pH_after_event__
   - Type: posfloat
@@ -282,7 +287,7 @@ Information about the pH value in the system, if there is an event dependent pH 
 
 - __event_description__
   - Type: string
-  - Description: Description of the event causing the pH-shift
+  - Description: Information regarding the event that caused the pH change.
 
 </details>
 
