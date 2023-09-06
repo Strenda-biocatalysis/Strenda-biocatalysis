@@ -10,9 +10,9 @@ The reaction conditions constitute a highly complex and extensive category. Reac
 
 A single-phase system in which only one liquid phase is present. All components are fully miscible, and there is no visible separation or boundary between different liquid phases.
 
-<details> <Summary>Solvent description</Summary>
+<details> <Summary>Monoliquid system description</Summary>
 
-### SolventDescription
+### MonoliquidSystemDescription
 
 Information on the characterisation of the liquid phase.
 
@@ -38,7 +38,7 @@ Two or more distinct phases coexist within the same physical space. The phases a
 
 <details> <Summary>Multiphase system description</Summary>
 
-### MultiphaseSsystemDescription
+### MultiphaseSystemDescription
 
 Information about how many phases are present in the multiphase system.
 
@@ -290,9 +290,9 @@ Information about the pH value in the system, if there is an event dependent pH 
 
 A single-phase system in which only one liquid phase is present. All components are fully miscible, and there is no visible separation or boundary between different liquid phases.
 
-<details> <Summary>Solvent description</Summary>
+<details> <Summary>Monoliquid system description</Summary>
 
-### SolventDescription
+### MonoliqudSystemDescription
 
 Information on the characterization of the liquid phase.
 
@@ -332,7 +332,15 @@ Information about the phases in the multiphase system.
 
 - __phases_number__
   - Type: posfloat
-  - Description: Number of phases present in the system, if there is an aqueous and a gas phase present, the number is 2. 
+  - Description: Number of phases present in the system, if there is an aqueous and a gas phase present, the number is 2.
+ 
+- __Flow_rate__
+  - Type: float
+  - Description: The flow rate must be specified to determine how fast a liquid or gas is flowing through a reactor or system.
+ 
+- __Flow_rate_unit__
+  - Type: string
+  - Description: Common units for describing flow rate include L/min (liters per minute), mL/h (milliliters per hour), m³/h (cubic meters per hour), or other volume units per unit of time.   
 
 </details>
 
