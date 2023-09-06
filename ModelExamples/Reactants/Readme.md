@@ -73,6 +73,7 @@ Description of how the reactants were stored.
  
 - __special_treatment__
   - Type: string
-  - Description: If there are any other specific characteristics or aspects related to the reactant that are important for reproducibility and do not fall under the aforementioned subcategories, they should be described     and explained here.
+  - Description: If there are any other specific characteristics or aspects related to the reactant that are important for reproducibility and are not described by the aforementioned metadata, they should be explained       here.
+
  
 <hr>
