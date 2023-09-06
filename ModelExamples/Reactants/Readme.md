@@ -51,7 +51,7 @@ Description of how the reactants were stored.
  
 - __temperature_unit__
   - Type: string
-  - Description: The unit of temperature can be specified as K, °C, or °F, for example.
+  - Description: The temperature can be specified in units such as K, °C, or °F.
 
 - __storage_start__
   - Type: date
