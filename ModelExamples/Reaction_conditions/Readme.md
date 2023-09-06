@@ -149,37 +149,37 @@ The temperature, if constant, must be clearly defined.
   - Description: The temperature can be specified in units such as K, °C, or °F.
 
 
-
 </details>
 
 <details> <Summary>Temperature shift</Summary>
 
 ### TemperatureShift
 
-<a id="temperature-shift"></a>
-
-
 If the temperature changes with the course of the reaction, this must be documented precisely.
 
 - __temperature_unit__
   - Type: string
-  - Description: The unit of the temperature, for example °C or K
+  - Description: The temperature can be specified in units such as K, °C, or °F.
 
 - __temperature_beginning__
   - Type: posfloat
-  - Description: The initial temperature of the reaction in the beginning
+  - Description: The initial temperature, prior to the start of the reaction, should be specified.
 
 - __temperature_end__
   - Type: posfloat
-  - Description: The temperature at the end of the reaction
+  - Description: TThe final temperature after completion of the reaction should be specified.
 
 - __temperature_at_XY__
   - Type: posfloat
-  - Description: The temperature at a variable time point _XY_
+  - Description: The temperature can also be measured at a variably chosen time point _XY_ during the reaction.
 
 - __time_at_XY__
   - Type: posfloat
-  - Description: The time point of a respective temperature at a time _XY_
+  - Description: Specification of the exact time point _XY_ at which the temperature was measured.
+ 
+- __time_unit__
+  - Type: string
+  - Description: Common units for specifying time can be s (seconds) or min (minutes).
 
 </details>
 
@@ -191,7 +191,7 @@ Description of the temperature, when an event causes the temperature change.
 
 - __temperature_unit__
   - Type: string
-  - Description: The unit of the temperature, for example °C or K
+  - Description: The temperature can be specified in units such as K, °C, or °F.
 
 - __temperature_beginning__
   - Type: posfloat
@@ -460,7 +460,7 @@ The temperature, if constant, must be clearly defined.
 
 - __temperature_unit__
   - Type: string
-  - Description: The unit of the temperature, for example °C or K.
+  - Description: The temperature can be specified in units such as K, °C, or °F.
 
 
 </details>
@@ -478,7 +478,7 @@ If there is a temperature gradient or different temperatures are measured in the
 
 - __temperature_unit__
   - Type: string
-  - Description: The unit of the temperature, for example °C or K
+  - Description: The temperature can be specified in units such as K, °C, or °F.
 
 - __distance__
   - Type: posfloat
