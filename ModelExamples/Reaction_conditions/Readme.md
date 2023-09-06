@@ -12,21 +12,21 @@ A single-phase system in which only one liquid phase is present. All components 
 
 <details> <Summary>Solvent description</Summary>
 
-### Solvent
+### SolventDescription
 
-Information on the characterization of the liquid phase.
+Information on the characterisation of the liquid phase.
 
 - __description__
   - Type: string
-  - Description: The solvent used in the reaction system, e.g. a buffered aqueous solution or an organic solvent
+  - Description: The solvent used in the reaction system, e.g. a buffered aqueous solution or an organic solvent.
 
 - __ionic_strength__
   - Type: posfloat
-  - Description: Ionic strength calculated according to the dissolved ions in the solvent (__if_applicable__)
+  - Description: Ionic strength calculated according to the dissolved ions in the solvent. (__if_applicable__)
  
 - __further_additives__
   - Type: string
-  - Description: Further additive like cosolvents used to increase solubility of reactants, e.g. DMSO   
+  - Description: Further additive like cosolvents used to increase solubility of reactants, e.g. DMSO.  
 
 </details>
 
@@ -38,13 +38,13 @@ Two or more distinct phases coexist within the same physical space. The phases a
 
 <details> <Summary>Multiphase system description</Summary>
 
-### Phases
+### MultiphaseSsystemDescription
 
 Information about how many phases are present in the multiphase system.
 
-- __number_of_phases__
+- __phases_number__
   - Type: posfloat
-  - Description: Number of phases present in the system, if there is an aqueous and a gas phase present, the number is 2 
+  - Description: Number of phases present in the system, if there is an aqueous and a gas phase present, the number is 2.
 
 </details>
 
@@ -60,15 +60,15 @@ Metadata for describing the individual phases of the multiphase system. Each pha
 
  If more then one liquid phase exist the metadata has to be recorded according to the number of liquid phases. 
 
-- __type_of_liquid__
+- __liquid_type__
   - Type: string
-  - Description: Description of the phase used in the reaction system 
+  - Description: Description of the phase used in the reaction system. 
 
-- __amount_of_liquid__
+- __liquid_amount__
   - Type: posfloat
   - Description: Which liquid amount is added to the reaction?
 
-- __unit_of_liquid__
+- __liquid_unit__
   - Type: string
   - Description: Unit of the added liquid, in case of aqueous liquids, millilitre are often used as unit, in case of organic solvents, mass is applied to refer to the solvent
 
@@ -81,15 +81,15 @@ Metadata for describing the individual phases of the multiphase system. Each pha
 
 Definition of the solid phase used in the reaction.
 
-- __type_of_solid__
+- __solid_type__
   - Type: string
   - Description: Description of the phase used in the reaction system 
 
-- __amount_of_solid__
+- __solid_amount__
   - Type: posfloat
   - Description: Mass of the solid used in the reaction solution
  
-- __unit_of_solid__
+- __solid_unit__
   - Type: string
   - Description: Unit of the added solid. Grams, milligrams or microgram are often used as a unit.
 
@@ -103,15 +103,15 @@ Definition of the solid phase used in the reaction.
 
 Definition of the gas phase used in the reaction. If a gas mixture is involved, this must be taken into account.
 
-- __type_of_gas__
+- __gas_type__
   - Type: string
   - Description: Description of the gas used in the system
 
-- __amount_of_gas__
+- __gas_amount__
   - Type: posfloat
   - Description: Concentration of the gas in the gas phase. 
 
-- __unit_of_gas__
+- __gas_unit__
   - Type: string
   - Description: Unit of the gas. Common units are volume percentage (Vol %), volume fraction (Vol/Vol), mole percentage (Mol %) or molar fraction (Mol/Mol).
 
@@ -268,7 +268,6 @@ Information about the pH value in the system, if there is an event dependent pH 
   - Type: posfloat
   - Description: The initial pH value
 
-
 - __pH_before_event__
   - Type: posfloat
   - Description: The pH which is present before a certain event has occured
@@ -293,21 +292,29 @@ A single-phase system in which only one liquid phase is present. All components 
 
 <details> <Summary>Solvent description</Summary>
 
-### Solvent
+### SolventDescription
 
 Information on the characterization of the liquid phase.
 
 - __description__
   - Type: string
-  - Description: The solvent used in the reaction system, e.g. a buffered aqueous solution or an organic solvent
+  - Description: The solvent used in the reaction system, e.g. a buffered aqueous solution or an organic solvent.
 
 - __ionic_strength__
   - Type: posfloat
-  - Description: Ionic strength calculated according to the dissolved ions in the solvent (__if_applicable__)
+  - Description: Ionic strength calculated according to the dissolved ions in the solvent. (__if_applicable__)
  
 - __further_additives__
   - Type: string
-  - Description: Further additive like cosolvents used to increase solubility of reactants, e.g. DMSO   
+  - Description: Further additive like cosolvents used to increase solubility of reactants, e.g. DMSO.
+ 
+- __Flow_rate__
+  - Type: float
+  - Description: The flow rate must be specified to determine how fast a liquid or gas is flowing through a reactor or system.
+ 
+- __Flow_rate_unit__
+  - Type: string
+  - Description: Common units for describing flow rate include L/min (liters per minute), mL/h (milliliters per hour), m³/h (cubic meters per hour), or other volume units per unit of time.   
 
 </details>
 
@@ -319,13 +326,13 @@ Two or more distinct phases coexist within the same physical space. The phases a
 
 <details> <Summary>Multiphase system description</Summary>
 
-### Phases
+### MultiphaseSystemDescription
 
 Information about the phases in the multiphase system.
 
-- __number_of_phases__
+- __phases_number__
   - Type: posfloat
-  - Description: Number of phases present in the system, if there is an aqueous and a gas phase present, the number is 2 
+  - Description: Number of phases present in the system, if there is an aqueous and a gas phase present, the number is 2. 
 
 </details>
 
@@ -343,17 +350,17 @@ Metadata for describing the individual phases of the multiphase system.
 
  If more then one liquid phase exist the metadata has to be recorded according to the number of liquid phases. 
 
-- __type_of_liquid__
+- __liquid_type__
   - Type: string
-  - Description: Description of the phase used in the reaction system 
+  - Description: Description of the phase used in the reaction system.
 
-- __amount_of_liquid__
+- __liquid_amount__
   - Type: posfloat
   - Description: Which liquid amount is added to the reaction?
 
-- __unit_of_liquid__
+- __liquid_unit__
   - Type: string
-  - Description: Unit of the added liquid, in case of aqueous liquids, millilitre are often used as unit, in case of organic solvents, mass is applied to refer to the solvent
+  - Description: Unit of the added liquid, in case of aqueous liquids, millilitre are often used as unit, in case of organic solvents, mass is applied to refer to the solvent.
 
 </details>
 
@@ -364,15 +371,15 @@ Metadata for describing the individual phases of the multiphase system.
 
 Definition of the solid phase used in the reaction.
 
-- __type_of_solid__
+- __solid_type__
   - Type: string
-  - Description: Description of the phase used in the reaction system 
+  - Description: Description of the phase used in the reaction system. 
 
-- __amount_of_solid__
+- __solid_amount__
   - Type: posfloat
-  - Description: Mass of the solid used in the reaction solution
+  - Description: Mass of the solid used in the reaction solution.
  
-- __unit_of_solid__
+- __solid_unit__
   - Type: string
   - Description: Unit of the added solid. Grams, milligrams or microgram are often used as a unit.
 
@@ -386,15 +393,15 @@ Definition of the solid phase used in the reaction.
 
 Definition of the gas phase used in the reaction. If a gas mixture is involved, this must be taken into account.
 
-- __type_of_gas__
+- __gas_type__
   - Type: string
-  - Description: Description of the gas used in the system
+  - Description: Description of the gas used in the system.
 
-- __amount_of_gas__
+- __gas_amount__
   - Type: posfloat
   - Description: Concentration of the gas in the gas phase. 
 
-- __unit_of_gas__
+- __gas_unit__
   - Type: string
   - Description: Unit of the gas. Common units are volume percentage (Vol %), volume fraction (Vol/Vol), mole percentage (Mol %) or molar fraction (Mol/Mol).
 
@@ -413,11 +420,11 @@ The temperature, if constant, must be clearly defined.
 
 - __temperature__
   - Type: posfloat
-  - Description: The temperature during the reaction
+  - Description: The temperature during the reaction.
 
 - __temperature_unit__
   - Type: string
-  - Description: The unit of the temperature, for example °C or K
+  - Description: The unit of the temperature, for example °C or K.
 
 
 </details>
@@ -431,7 +438,7 @@ If there is a temperature gradient or different temperatures are measured in the
 
 - __temperature_at_distance__
   - Type: posfloat
-  - Description: The temperature during the reaction
+  - Description: The temperature during the reaction.
 
 - __temperature_unit__
   - Type: string
@@ -439,12 +446,11 @@ If there is a temperature gradient or different temperatures are measured in the
 
 - __distance__
   - Type: posfloat
-  - Description: The distance at which the temperature was measured
+  - Description: The distance at which the temperature was measured.
 
 - __distance_unit__
   - Type: posfloat
-  - Description: The unit of the distance
-
+  - Description: The unit of the distance.
 
 </details>
 
@@ -460,15 +466,15 @@ Information about the pH value in the system, if the pH is constant over the cou
 
 - __pH_value__
   - Type: posfloat
-  - Description: The value of the pH 
+  - Description: The value of the pH. 
 
 - __detected_in__
   - Type: string
-  - Description: Solution in which the pH was measured (e.g. in buffer before addition to reaction)
+  - Description: Solution in which the pH was measured (e.g. in buffer before addition to reaction).
  
 - __detected_when__
   - Type: string
-  - Description: Timepoint at which the pH was measured (e.g. at before, during or after the reaction)
+  - Description: Timepoint at which the pH was measured (e.g. at before, during or after the reaction).
 
 </details>
 
@@ -481,15 +487,15 @@ If there is a pH gradient or different pHs are measured in the system or over ti
 
 - __pH_at_distance__
   - Type: posfloat
-  - Description: The pH during the reaction
+  - Description: The pH during the reaction.
 
 - __distance__
   - Type: posfloat
-  - Description: The distance at which the pH was measured
+  - Description: The distance at which the pH was measured.
 
 - __distance_unit__
   - Type: posfloat
-  - Description: The unit of the distance
+  - Description: The unit of the distance.
 
 </details>
 
