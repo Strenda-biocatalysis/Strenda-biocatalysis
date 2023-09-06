@@ -132,7 +132,7 @@ Definition of the gas phase used in the reaction. If a gas mixture is involved, 
 
 ## Temperature conditions
 
-With the type of liquid described, the next question is how does the temperature behave along the reaction, it can stay constant, shift for example due to the chemical reaction catalysed or change e.g. due to the addition of a substrate. 
+Another crucial aspect is the temperature profile throughout the reaction. The temperature can stay constant, shift for example due to the chemical reaction catalysed or change e.g. due to the addition of a substrate. 
 
 <details> <Summary>Temperature constant</Summary>
 
@@ -142,11 +142,12 @@ The temperature, if constant, must be clearly defined.
 
 - __temperature__
   - Type: posfloat
-  - Description: The temperature during the reaction
+  - Description: The temperature during the reaction.
 
 - __temperature_unit__
   - Type: string
-  - Description: The unit of the temperature, for example °C or K
+  - Description: The temperature can be specified in units such as K, °C, or °F.
+
 
 
 </details>
