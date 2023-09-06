@@ -116,8 +116,7 @@ Important information to characterize the biocatalyst and to describe it clearly
 
 - __special_treatment__
   - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and do not fall under the aforementioned subcategories,     they should be described and explained here.
-
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
 
 </details>
 
@@ -165,8 +164,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 
 - __special_treament__
   - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and do not fall under the aforementioned subcategories,     they should be described and explained here.
-
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
   
 </details>
 
@@ -194,7 +192,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 
 - __special_treament__
   - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and do not fall under the aforementioned subcategories,     they should be described and explained here.
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
 
 </details>
 
@@ -226,7 +224,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 
 - __special_treament__
   - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and do not fall under the aforementioned subcategories,     they should be described and explained here.
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
 
 </details>
 
@@ -254,7 +252,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 
 - __special_treament__
   - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and do not fall under the aforementioned subcategories,     they should be described and explained here.
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
 
 </details>
 
@@ -282,8 +280,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 
 - __special_treament__
   - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and do not fall under the aforementioned subcategories,     they should be described and explained here.
-
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
 
 </details>
 
@@ -296,7 +293,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 
 - __purification_method__
   - Type: string
-  - Description: TThe purification methods can vary depending on whether it involves whole cells or free enzymes. In the case of whole cells, methods such as centrifugation, filtration, or flow cytometry can be             employed. In the case of free enzymes,           methods like cell lysis, filtration, chromatography, and precipitation, among others, may be used.
+  - Description: TThe purification methods can vary depending on whether it involves whole cells or free enzymes. In the case of whole cells, methods such as centrifugation, filtration, or flow cytometry can be             employed. In the case of free enzymes, methods like cell lysis, filtration, chromatography, and precipitation, among others, may be used.
 
 - __concentration__
   - Type: posfloat
@@ -304,17 +301,17 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
  
 - __concentration_unit__
   - Type: string
-  - Description: For immobilized enzymes, the concentration can be expressed in units such as mg/mL (milligrams of enzyme per milliliter) or g/L (grams of enzyme per liter). When it comes to immobilized cells, units        such as cells/mL (cells per milliliter) or       cells/g (cells per gram) of the carrier material or immobilizing matrix can be used.
+  - Description: For immobilized enzymes, the concentration can be expressed in units such as mg/mL (milligrams of enzyme per milliliter) or g/L (grams of enzyme per liter). When it comes to immobilized cells, units        such as cells/mL (cells per milliliter) or cells/g (cells per gram) of the carrier material or immobilizing matrix can be used.
 
 - __concentration_determination_method__
   - Type: string
-  - Description: Various methods are available to determine the concentration of immobilized enzymes or cells. For immobilized enzymes, methods such as protein measurement or enzymatic activity assays can be used. For      immobilized cells, methods like flow             cytometry or biomass measurement are applicable.
+  - Description: Various methods are available to determine the concentration of immobilized enzymes or cells. For immobilized enzymes, methods such as protein measurement or enzymatic activity assays can be used. For      immobilized cells, methods like flow cytometry or biomass measurement are applicable.
 
 <hr>
 
 - __special_treament__
   - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and do not fall under the aforementioned subcategories,     they should be described and explained here.
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
 
 </details>
 
@@ -334,8 +331,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 
 - __special_treament__
   - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and do not fall under the aforementioned subcategories,     they should be described and explained here.
-
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
 
 </details>
 
@@ -377,7 +373,7 @@ Describing the biocatalyst involves specifying its storage conditions before use
  
 - __special_treament__
   - Type: string
-  - Description: If there are any other specific characteristics or aspects related to the biocatalyst that are important for reproducibility and do not fall under the aforementioned subcategories, they should be           described and explained here.
+  - Description: If there are any other specific characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata, they should be             explained here.
 
 
 </details>
