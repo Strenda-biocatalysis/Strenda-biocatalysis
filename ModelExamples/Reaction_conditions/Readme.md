@@ -2,11 +2,9 @@
 
 # Reaction conditions
 
-
-This is a very complex CATEGORY to describe. Reactions can be performed in aqueous reaction solutions, organic solvents, micro aqueous reaction solutions, gassed reaction solutions and many more. We decided to categorise the reaction conditions in two major categories: __monoliquid and multiphase systems__. For the multiphase systems each phase has to be descripted before mixing.
+The reaction conditions constitute a highly complex and extensive category. Reactions can be performed in aqueous reaction solutions, organic solvents, micro aqueous reaction solutions, gassed reaction solutions and many more. The Reaction conditions can be divided into two fundamental main categories: __monoliquid and multiphase systems__.
 
 # Well mixed reaction solutions
-
 
 ## Monoliquid systems
 
@@ -54,7 +52,7 @@ Information about how many phases are present in the multiphase system.
 
 ## Phase description
 
-Metadata for describing the individual phases of the multiphase system.
+Metadata for describing the individual phases of the multiphase system. Each phase has to be descripted before mixing.
 
 <details> <Summary>Liquid phase</Summary>
 
@@ -287,7 +285,7 @@ Information about the pH value in the system, if there is an event dependent pH 
 
 <hr>
 
-# Reaction conditions in flow reactors
+# Flow/Continuous/Tubular reactor
 
 ## Monoliquid systems
 
