@@ -394,7 +394,7 @@ To describe a multiphase system, precise information about the phases used and t
  
 - __special_treament__
   - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the monoliquid system that are important for reproducibility and are not described by the aforementioned           metadata, they should be explained here.
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the multiphase system that are important for reproducibility and are not described by the aforementioned           metadata, they should be explained here.
 
 
 </details>
@@ -491,6 +491,12 @@ The temperature, if constant, must be clearly defined.
   - Type: string
   - Description: The temperature can be specified in units such as K, °C, or °F.
 
+<hr>
+
+- __special_treament__
+  - Type: string
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the temperature that are important for reproducibility and are not described by the aforementioned                 metadata, they should be explained here. 
+
 
 </details>
 
@@ -501,21 +507,36 @@ The temperature, if constant, must be clearly defined.
 
 If there is a temperature gradient or different temperatures are measured in the system or over time, these must be described as well as possible.
 
-- __temperature_at_distance__
+- __temperature_beginning__
   - Type: posfloat
-  - Description: The temperature during the reaction.
+  - Description: The initial temperature from which the temperature gradient begins.
+
+- __temperature_end__
+  - Type: posfloat
+  - Description: The target temperature reached after the temperature gradient is applied.
 
 - __temperature_unit__
   - Type: string
   - Description: The temperature can be specified in units such as K, °C, or °F.
 
-- __distance__
+- __gradient_length__
   - Type: posfloat
-  - Description: The distance at which the temperature was measured.
+  - Description: The distance or time span over which the temperature gradient is applied.
 
-- __distance_unit__
-  - Type: posfloat
-  - Description: The unit of the distance.
+- __gradient_length_unit__
+  - Type: string
+  - Description: The gradient length can be specified either as the physical distance (e.g. in meters) or as the time span (e.g. in minutes).
+
+- __measurement_points__
+  - Type: string
+  - Description: Information about the locations or time points where temperature measurements are taken to monitor the gradient. This can be important to ensure that the gradient behaves as intended.
+
+<hr>
+
+- __special_treament__
+  - Type: string
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the temperature profile that are important for reproducibility and are not described by the aforementioned         metadata, they should be explained here. 
+
 
 </details>
 
@@ -541,6 +562,12 @@ Information about the pH value in the system, if the pH is constant over the cou
   - Type: string
   - Description: Timepoint at which the pH was measured (e.g. at before, during or after the reaction).
 
+<hr>
+
+- __special_treament__
+  - Type: string
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the pH value that are important for reproducibility and are not described by the aforementioned                    metadata, they should be explained here. 
+
 </details>
 
 
@@ -561,6 +588,12 @@ If there is a pH gradient or different pHs are measured in the system or over ti
 - __distance_unit__
   - Type: posfloat
   - Description: The unit of the distance.
+
+<hr>
+
+- __special_treament__
+  - Type: string
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the pH value that are important for reproducibility and are not described by the aforementioned                    metadata, they should be explained here. 
 
 </details>
 
