@@ -142,9 +142,9 @@ These attributes describe all reactions happening in vials.
 
 </details>
 
-<details> <Summary>Flow reactor</Summary>
+<details> <Summary>Tubular flow/continuous reactor</Summary>
 
-### TubularFlow/ContinuousReactor
+### TubularFlowContinuousReactor
 
 Description of flow reactors for, for example plug flow reactors
 
