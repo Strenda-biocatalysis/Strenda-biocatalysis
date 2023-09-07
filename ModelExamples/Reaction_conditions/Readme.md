@@ -263,7 +263,7 @@ Information about the pH value in the system, if the pH is constant over the cou
 
 <details> <Summary>pH shift over time</Summary>
 
-### pHTimeDependentShift
+### pHShiftOverTime
 
 Information about the pH value in the system, if there is a time dependent pH shift.
 
@@ -296,9 +296,9 @@ Information about the pH value in the system, if there is a time dependent pH sh
 </details>
 
 
-<details> <Summary>pH shift event based</Summary>
+<details> <Summary>Event based pH shift</Summary>
 
-### pHEventDependentShift
+### EventBasedpHShift
 
 Information about the pH value in the system, if there is an event dependent pH shift.
 
