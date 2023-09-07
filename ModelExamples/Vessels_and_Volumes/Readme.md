@@ -90,55 +90,63 @@ It's crucial to provide detailed information about the plate type, material, wel
 
 
 
-<details> <Summary>Stirred tank reactor</Summary>
+<details> <Summary>Stirred Tank Reactor</Summary>
 
 
 ### StirredTankReactor
 
-These attributes describe all reactions happening in vials.
+Stirred Tank Reactors (STRs) are frequently employed as versatile and controlled vessels, allowing for precise regulation of key parameters like temperature, pH, and agitation speed. All relevant specifications or attributes need to be described.
 
 
 - __type__
   - Type: string
-  - Description: Description of the reactor
-- __volume__
-  - Type: posfloat
-  - Description: Volume of the reaction vessel
-
-- __volume_unit__
-  - Type: string
-  - Description: Volume unit of the reaction vessel
-
-- __geometry__
-  - Type: string
-  - Description: What is the geometry of the reactor, in particular of interest is the ratio of height to width
-
-- __bottom_type__
-  - Type: string
-  - Description: How is the bottom of the reactor shaped, is it a round bottom or a flat bottom?
+  - Description: There are several types of Stirred Tank Reactors, differing in design and intended use. A detailed description is required.
 
 - __material__
   - Type: string
   - Description: Material the reactor is made of, e.g. glass, polypropylene etc.
 
-- __gas_consumption__
-  - Type: What kind of gas is added to the reactor for gassing purposes? Is it air, oxygen, hydrogen?
-
-- __gas_supply_rate__
+- __volume__
   - Type: posfloat
-  - Description: With which ?speed? is the gas added to the reactor
+  - Description: Indicate the total volume capacity of the Stirred Tank Reactor.
 
-- __gas_supply_rate_unit__
+- __volume_unit__
   - Type: string
-  - Description: What is the unit of the added gas (e.g. ml/min)?
+  - Description: The unit of the volume is typically expressed in L (liters).
+
+- __geometry__
+  - Type: string
+  - Description: What is the geometry of the reactor, in particular of interest is the ratio of height to width.
+
+- __bottom_type__
+  - Type: string
+  - Description: Shape of the bottom of the reactor, e.g. a round bottom or a flat bottom.
+
+- __gas_consumption__
+  - Type: string
+  - Description: Common gases that are supplied to the reactor include, e.g., air, oxygen, hydrogen, etc.
 
 - __gas_supply__
   - Type: string
-  - Description: What is used to add the gas to the reaction vessel? A tube, an aeration basket?
+  - Description: Gas can be supplied to a Stirred Tank Reactor in various ways, such as through sparging using a tube or an aeration basket, bubbling, or direct injection into the reactor vessel.
 
-- __temperature_exchange_unit__
+- __gas_supply_rate__
+  - Type: posfloat
+  - Description: Specification of the gas supply rate.
+
+- __gas_supply_rate_unit__
   - Type: string
-  - Description: How is the temperature controlled in the reactor, by a double walled reactor or a heating jacket?
+  - Description: The units for the gas supply rate in a Stirred Tank Reactor can be L/min (liters per minute), m³/h (cubic meters per hour), or other volume units per unit of time.
+  - 
+- __temperature_control__
+  - Type: string
+  - Description: The temperature in a Stirred Tank Reactor can be controlled through various methods, typically using external heat sources or cooling systems such as heating jackets, cooling coils, or external             temperature control units.
+
+<hr>
+
+- __special_treament__
+  - Type: string
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the Stirred Tank Reactor or its preparation for the reaction that are important for reproducibility and are not     described by the aforementioned metadata, they should be explained here.
 
 </details>
 
