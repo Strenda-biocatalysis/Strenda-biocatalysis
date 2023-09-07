@@ -116,7 +116,7 @@ Stirred Tank Reactors (STRs) are frequently employed as versatile and controlled
 
 - __geometry__
   - Type: string
-  - Description: What is the geometry of the reactor, in particular of interest is the ratio of height to width.
+  - Description: The geometry of the reactor, in particular of interest is the ratio of height to width.
 
 - __bottom_type__
   - Type: string
@@ -154,36 +154,43 @@ Stirred Tank Reactors (STRs) are frequently employed as versatile and controlled
 
 ### TubularFlowContinuousReactor
 
-Description of flow reactors for, for example plug flow reactors
+When conducting enzymatic reactions in tubular flow or continuous reactors, it is essential to provide detailed information about the reactor setup, e.g. plug flow reactor, and operating conditions to ensure reproducibility and transparency in reporting the experimental process.
 
 
-- __volume_reactor__
+- __volume__
   - Type: posfloat
-  - Description: The volume of the flow reactor
+  - Description: Indicate the total volume capacity of the tubular flow/continuous reactor.
 
 - __volume_unit__
   - Type: string
-  - Description: The volume unit of the flow reactor
+  - Description: The unit of the volume is typically expressed in L (liters).
 
 - __geometry__
   - Type: string
-  - Description: The exact geometry of the flow reactor
+  - Description: The exact geometry of the tubular flow/continuous reactor.
 
 - __reactor_type__
   - Type: string
-  - Description: What kind of reactor is applied in the experiment, is it a packed bed reactor, or a plug flow reactor?
+  - Description: There are several types of tubular flow/continuous reactors, e.g. packed bed reactor, or a plug flow reactor, differing in design and intended use. A detailed description is required.
 
 - __material__
   - Type: string
-  - Description: Material the reactor is made of, e.g. glass, polypropylene etc.
+  - Description: Material the reactor is made of, e.g. glass, stainless steel or other materials.
 
 - __tubing__
   - Type: string
-  - Description: Which tubing is connected to the reactor, transporting the reaction solution?
+  - Description: When using tubing in a tubular flow/continuous reactor, various pieces of information can be provided, such as tubing material, diameter, length, connections, etc.
 
 - __localisation_of_the_catalyst__
   - Type: string
-  - Description: Where is the catalyst localised in the flow reactor?
+  - Description: Specify the exact location of the catalyst in the tubular flow/continuous reactor.
+
+<hr>
+
+- __special_treament__
+  - Type: string
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the tubular flow/continuous reactor or its preparation for the reaction that are important for reproducibility     and are not described by the aforementioned metadata, they should be explained here.
+
 
 </details>
 
