@@ -560,7 +560,11 @@ Information about the pH value in the system, if the pH is constant over the cou
  
 - __detected_when__
   - Type: string
-  - Description: Timepoint at which the pH was measured (e.g. at before, during or after the reaction).
+  - Description: Timepoint at which the pH was measured (e.g. before, during or after the reaction).
+
+- __detected_how__
+  - Type: string
+  - Description: The pH value of a reaction can be determined in various ways, such as using a pH meter, pH paper, titration, electrochemical sensors, or other methods.
 
 <hr>
 
@@ -577,17 +581,26 @@ Information about the pH value in the system, if the pH is constant over the cou
 
 If there is a pH gradient or different pHs are measured in the system or over time, these must be described as well as possible.
 
-- __pH_at_distance__
+- __pH_beginning__
   - Type: posfloat
-  - Description: The pH during the reaction.
+  - Description: The initial pH from which the pH gradient begins.
 
-- __distance__
+- __pH_end__
   - Type: posfloat
-  - Description: The distance at which the pH was measured.
+  - Description: The target pH reached after the pH gradient is applied.
 
-- __distance_unit__
+- __gradient_length__
   - Type: posfloat
-  - Description: The unit of the distance.
+  - Description: The distance or time span over which the pH gradient is applied.
+
+- __gradient_length_unit__
+  - Type: string
+  - Description: The gradient length can be specified either as the physical distance (e.g. in meters) or as the time span (e.g. in minutes).
+
+- __measurement_points__
+  - Type: string
+  - Description: Information about the locations or time points where pH measurements are taken to monitor the gradient. This can be important to ensure that the gradient behaves as intended.
+
 
 <hr>
 
