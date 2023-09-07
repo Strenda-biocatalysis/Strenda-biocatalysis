@@ -137,7 +137,7 @@ Stirred Tank Reactors (STRs) are frequently employed as versatile and controlled
 - __gas_supply_rate_unit__
   - Type: string
   - Description: The units for the gas supply rate in a Stirred Tank Reactor can be L/min (liters per minute), m³/h (cubic meters per hour), or other volume units per unit of time.
-  - 
+
 - __temperature_control__
   - Type: string
   - Description: The temperature in a Stirred Tank Reactor can be controlled through various methods, typically using external heat sources or cooling systems such as heating jackets, cooling coils, or external             temperature control units.
@@ -146,7 +146,7 @@ Stirred Tank Reactors (STRs) are frequently employed as versatile and controlled
 
 - __special_treament__
   - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the Stirred Tank Reactor or its preparation for the reaction that are important for reproducibility and are not     described by the aforementioned metadata, they should be explained here.
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the Stirred Tank Reactor or its preparation for the reaction that are important for reproducibility and are        not described by the aforementioned metadata, they should be explained here.
 
 </details>
 
