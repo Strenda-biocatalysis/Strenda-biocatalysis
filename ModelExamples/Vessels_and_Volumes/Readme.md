@@ -45,6 +45,8 @@ Vials are sealable containers available in various sizes and materials, playing 
 
 ### Plate
 
+It's crucial to provide detailed information about the plate type, material, well configuration, and other relevant specifications to ensure reproducibility and accuracy of the experimental setup.
+
 - __plate_type__
   - Type: string
   - Description: The type of plate, such as microtiter plate, deep-well plate, or others.
@@ -73,7 +75,7 @@ Vials are sealable containers available in various sizes and materials, playing 
   - Type: string
   - Description: If the wells were sealed with a sealing film or cover, this should be indicated. (__if_applicable__)
 
- - __sealing_material__
+- __sealing_material__
   - Type: string
   - Description: The material of the sealing film or cover. (__if_applicable__)
 
@@ -82,11 +84,6 @@ Vials are sealable containers available in various sizes and materials, playing 
 - __special_treament__
   - Type: string
   - Description: If there are any other specific methods, procedures, characteristics or aspects related to the plate or its preparation for the reaction that are important for reproducibility and are not                    described by the aforementioned metadata, they should be explained here.
-
-
-
-
-
 
 
 </details>
