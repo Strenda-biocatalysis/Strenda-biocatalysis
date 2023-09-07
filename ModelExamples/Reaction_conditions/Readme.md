@@ -7,7 +7,7 @@ The reaction conditions constitute a highly complex and extensive category. Reac
 <img src="https://github.com/StephanM87/Strenda-biocatalysis/assets/106530250/737c9cd9-e89f-4530-9b49-bc844ed26271" width="550">
 
 
-# Well mixed reaction solutions
+# Well-mixed reaction solutions
 
 ## Monoliquid systems
 
