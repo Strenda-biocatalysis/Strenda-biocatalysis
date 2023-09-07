@@ -2,40 +2,68 @@
 
 # Vessels and volumes
 
+To ensure the reproducibility and accuracy of research results, detailed information about the vessel or reaction container used in experiments is essential. The description and precise specification of this vessel are of importance, as it significantly influences the course and outcome of our enzymatic reactions.
 
 ## Vessel definition
 
-This description contains all information nessecary to describe the reaction vessel. 
+The following section requests detailed descriptions of the reaction vessels used in the experiment.
 
-
-<details> <Summary>Vial or plate</Summary>
+<details> <Summary>Vial</Summary>
 
 ### Vial
 
-These attributes describe all reactions happening in vials.
+Vials are sealable containers available in various sizes and materials, playing a crucial role in sample storage and handling, as well as serving as reaction vessels.
 
 
-- __type__
-  - Type: string
-  - Description: Description of the reaction vessel, is it a glass vial, a microcentrifuge tube, a multiwell plate ...
-- __volume__
+- __vial_size__
   - Type: posfloat
-  - Description: Volume of the reaction vessel
-- __material__
+  - Description: The vial's size, which can be its volume or its dimensions.
+ 
+- __vial_size_unit__
   - Type: string
-  - Description: Material of reaction vessel is made of, e.g. glass, polypropylene etc.
+  - Description: For describing the vial size, you can use mL (milliliters) as the unit when referring to volume or cm (centimeters) when referring to dimensions.
 
-- __closure__
+- __vial_material__
   - Type: string
-  - Description: Is the reaction vessel open or closed?
+  - Description: Specify the material of the vial, such as glass or plastic, as it can influence the reaction.
+
+- __closure_type__
+  - Type: string
+  - Description: Indicate the type of closure or stopper used for the vial, as it affects sealing and the course of the reaction. If no closure or seal was used for the vial, it should be noted as well.
+
+<hr>
+
+- __special_treament__
+  - Type: string
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the vial or its preparation for the reaction that are important for reproducibility and are not                    described by the aforementioned metadata, they should be explained here.
+
+
+
+</details>
+
+<details> <Summary>Plate</Summary>
+
+### Plate
+
+
 
 - __shape_and_dimensions__
   - Type: string
   - Description: The shape of the reaction vessel, does it have a round or flat bottom, is it conical or cylindrical?
 
+
+
+
+
+
+
+
 </details>
 
+
+
 <details> <Summary>Stirred tank reactor</Summary>
+
 
 ### StirredTankReactor
 
@@ -57,7 +85,6 @@ These attributes describe all reactions happening in vials.
   - Type: string
   - Description: What is the geometry of the reactor, in particular of interest is the ratio of height to width
 
-
 - __bottom_type__
   - Type: string
   - Description: How is the bottom of the reactor shaped, is it a round bottom or a flat bottom?
@@ -69,7 +96,6 @@ These attributes describe all reactions happening in vials.
 - __gas_consumption__
   - Type: What kind of gas is added to the reactor for gassing purposes? Is it air, oxygen, hydrogen?
 
-
 - __gas_supply_rate__
   - Type: posfloat
   - Description: With which ?speed? is the gas added to the reactor
@@ -77,7 +103,6 @@ These attributes describe all reactions happening in vials.
 - __gas_supply_rate_unit__
   - Type: string
   - Description: What is the unit of the added gas (e.g. ml/min)?
-
 
 - __gas_supply__
   - Type: string
@@ -91,7 +116,7 @@ These attributes describe all reactions happening in vials.
 
 <details> <Summary>Flow reactor</Summary>
 
-### FlowReactor
+### TubularFlow/ContinuousReactor
 
 Description of flow reactors for, for example plug flow reactors
 
