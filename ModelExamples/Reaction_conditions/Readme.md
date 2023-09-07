@@ -325,7 +325,7 @@ Information about the pH value in the system, if there is an event dependent pH 
 
 <hr>
 
-# Flow/Continuous/Tubular reactor
+# Tubular flow/continuous reactor
 
 ## Monoliquid systems
 
