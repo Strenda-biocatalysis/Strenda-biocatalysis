@@ -45,12 +45,43 @@ Vials are sealable containers available in various sizes and materials, playing 
 
 ### Plate
 
-
-
-- __shape_and_dimensions__
+- __plate_type__
   - Type: string
-  - Description: The shape of the reaction vessel, does it have a round or flat bottom, is it conical or cylindrical?
+  - Description: The type of plate, such as microtiter plate, deep-well plate, or others.
+ 
+- __plate_material__
+  - Type: string
+  - Description: The material from which the plate is made, such as plastic (polystyrene), glass, or metal.
 
+- __number_of_wells__
+  - Type: string
+  - Description: The total number of wells or cavities in the plate.
+
+- __well_shape__
+  - Type: string
+  - Descrption: The shape of the wells, such as round, rectangular, square, etc.
+ 
+- __well_volume__
+  - Type: string
+  - Description: The volume that each well can hold, usually expressed in µL (microliters).
+ 
+- __well_arrangement__
+  - Type: string
+  - Description: The arrangement of the wells in the plate, for example, in rows and columns.
+ 
+- __sealing_method__
+  - Type: string
+  - Description: If the wells were sealed with a sealing film or cover, this should be indicated. (__if_applicable__)
+
+ - __sealing_material__
+  - Type: string
+  - Description: The material of the sealing film or cover. (__if_applicable__)
+
+  <hr>
+
+- __special_treament__
+  - Type: string
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the plate or its preparation for the reaction that are important for reproducibility and are not                    described by the aforementioned metadata, they should be explained here.
 
 
 
