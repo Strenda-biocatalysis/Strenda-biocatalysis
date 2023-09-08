@@ -194,6 +194,7 @@ When conducting enzymatic reactions in tubular flow or continuous reactors, it i
 
 </details>
 
+<hr>
 
 ## Mixing
 
@@ -346,3 +347,5 @@ Detailed information about the mixing method used, whether it involves liquid or
   - Description: If there are any other specific methods, procedures, characteristics or aspects related to the liquid or gas impelled mixing that are important for reproducibility and are not described by the              aforementioned metadata, they hould be explained here.
 
 </details>
+
+<hr>
