@@ -6,9 +6,11 @@
 <img src="Sampling procedure.png" width=250>
 
 
-### Default sampling
+## Sampling
 
 <details> <Summary>Default sampling</Summary>
+
+### Default sampling
 
 Information about the sampling process, used during the experiment. In some experiments no sampling is taking place at all, for example if an experiment is monitored via a photospectrometer in a 96-well plate over time. In this case, of course, no sampling was done during the experiment
 
