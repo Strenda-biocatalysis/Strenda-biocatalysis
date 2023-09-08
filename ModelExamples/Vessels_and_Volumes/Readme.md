@@ -319,7 +319,7 @@ Detailed information about the mixing method used, whether it involves liquid or
   - Type: posfloat
   - Description: The residence time, often denoted as "τ" (tau), refers to the average amount of time a substance or component spends inside a specific system or reactor and is to be specified.
 
- __residence_time_unit__
+- __residence_time_unit__
   - Type: sting
   - Description: The units for residence time can vary depending on the system and the units used for volume and flow rate. Common units include s (seconds), min (minutes), h (hours), or any time-related units.
 
