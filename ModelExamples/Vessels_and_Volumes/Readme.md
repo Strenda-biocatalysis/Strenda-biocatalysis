@@ -296,6 +296,13 @@ When utilizing mechanically impelled mixing in enzymatic reactions, it is essent
   - Type: string
   - Description: The units commonly used for expressing the stirring power are W/L (watts per liter) or kW/m³ (kilowatts per cubic meter).
 
+<hr>
+
+- __special_treament__
+  - Type: string
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the mechanically impelled mixing (stirring) that are important for reproducibility and are not described by        the aforementioned metadata, they hould be explained here.
+
+
   </details>
 
   <details> <Summary>Liquid or gas impelled mixing</Summary>
