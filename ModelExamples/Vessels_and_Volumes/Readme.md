@@ -197,36 +197,38 @@ When conducting enzymatic reactions in tubular flow or continuous reactors, it i
 
 ## Mixing
 
+Include all relevant information about mixing, as it plays a crucial role in ensuring homogeneous and consistent reaction conditions throughout the process.
+
 <details> <Summary>Shaking</Summary>
 
 ### Shaking
 
-Describes the shaked mixing of a reaction vessel
+Shaking is an essential method for ensuring uniform mixing and, consequently, recording relevant metadata is crucial for maintaining consistent reaction conditions.
 
 
 - __shaking_type__
   - Type: string
-  - Description: What kind of shaking was applied to mix the reaction, was it a horizontal or vertically shaken system?
+  - Description: The type of shaking used to mix the reaction could be e.g. horizontal or vertical shaking.
 
 - __deflection__
   - Type: posfloat
-  - Description: How big is the deflection of the horizontally shaken system?
+  - Description: Information about the extent of deflection of the horizontal shaking system.
 
 - __deflection_unit__
   - Type: string
-  - Description: Unit of the deflection
+  - Description: Units such as mm (millimeters) or μm (micrometers) could be used to describe deflection in relation to the movement of the shaking system.
 
 - __speed__
   - Type: posfloat
-  - Description: How fast was the system shaken?
+  - Description: Specify the speed or frequency at which the shaking was conducted.
 
 - __speed_unit__
   - Type: string
-  - Description: Unit of the shaking speed, for example rounds per minute (rpm)
+  - Description: The shaking speed or frequency could be expressed in units such as rpm (rounds per minute) or Hz (cycles per second).
 
 - __position__
   - Type: string
-  - Description: How was the to be shaken vessel positioned relatively to the deflection
+  - Description: Information regarding the orientation of the vessel in the shaking system relative to deflection.
 
 </details>
 
