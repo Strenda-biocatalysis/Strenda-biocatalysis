@@ -6,7 +6,6 @@ The reaction conditions constitute a highly complex and extensive category. Reac
 
 <img src="https://github.com/StephanM87/Strenda-biocatalysis/assets/106530250/8116078a-308b-4570-b4a1-f9540cfd736a" width="600">
 
-<hr>
 
 # Well-mixed reaction solutions
 
