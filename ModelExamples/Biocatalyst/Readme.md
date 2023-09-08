@@ -18,7 +18,7 @@ Important information for characterizing the biocatalyst and determining its ori
 
 - __name__
   - Type: string
-  - Description: The name of the biocatalyst can be either generic based on its function and the type of reaction it catalyzes, for example, 'Lipase' or more specific by describing the genus and species, such as 'Bacillus amyloliquefaciens alpha-amylase'.
+  - Description: The name of the biocatalyst can be either generic based on its function and the type of reaction it catalyzes, for example, 'Lipase' or more specific by describing the genus and species, such as            'Bacillus amyloliquefaciens alpha-amylase'.
 
 - __ecnumber__
   - Type: string
@@ -94,7 +94,7 @@ Important information to characterize the biocatalyst and to describe it clearly
 
 - __posttranslational_modification__
   - Type: string
-  - Description: Information about any chemical modifications or alterations that occur to the biocatalyst's protein structure after translation. This may include: Phosphorylation, glycosylation, acetylation,               methylation, ubiquitination and other            modifications.
+  - Description: Information about any chemical modifications or alterations that occur to the biocatalyst's protein structure after translation. This may include: Phosphorylation, glycosylation, acetylation,               methylation, ubiquitination and other modifications.
 
 - __purity__
   - Type: float
@@ -146,7 +146,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 
 - __activity__:
   - Type: float
-  - Description: The activity of the biocatalyst can be expressed either as volumetric activity, which considers the total activity of the enzyme in the solution, or as specific activity, which takes into account the       enzyme's purity and indicates the activity       of an enzyme per unit of enzyme protein or enzyme mass.
+  - Description: The activity of the biocatalyst can be expressed either as volumetric activity, which considers the total activity of the enzyme in the solution, or as specific activity, which takes into account the       enzyme's purity and indicates the activity of an enzyme per unit of enzyme protein or enzyme mass.
 
 - __activity_unit__
   - Type: string
@@ -293,7 +293,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 
 - __purification_method__
   - Type: string
-  - Description: TThe purification methods can vary depending on whether it involves whole cells or free enzymes. In the case of whole cells, methods such as centrifugation, filtration, or flow cytometry can be             employed. In the case of free enzymes, methods like cell lysis, filtration, chromatography, and precipitation, among others, may be used.
+  - Description: The purification methods can vary depending on whether it involves whole cells or free enzymes. In the case of whole cells, methods such as centrifugation, filtration, or flow cytometry can be              employed. In the case of free enzymes, methods like cell lysis, filtration, chromatography, and precipitation, among others, may be used.
 
 - __concentration__
   - Type: posfloat
