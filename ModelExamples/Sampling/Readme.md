@@ -2,80 +2,91 @@
 
 # Sampling
 
+The categorization of sampling into the two main categories, __Default_sampling__ and __Specialised_sampling__, enables the capture and documentation of either standard sampling information and/or specialised sampling data, depending on specific needs.
 
 <img src="Sampling procedure.png" width=250>
 
 
-## Sampling
+## Default sampling
 
-<details> <Summary>Default sampling</Summary>
+Default sampling refers to the standard methods and procedures commonly used for sample collection in enzymatic reactions.
 
-### Default sampling
+<details> <Summary>Sampling description</Summary>
+
+### SamplingDescription
 
 Information about the sampling process, used during the experiment. In some experiments no sampling is taking place at all, for example if an experiment is monitored via a photospectrometer in a 96-well plate over time. In this case, of course, no sampling was done during the experiment
 
 - __volume_per_sample__
   - Type: posfloat
-  - Description: What volume was taken from the reaction per sample?
+  - Description: The volume of the collected sample.
 
 - __volume_per_sample_unit__
   - Type: string
-  - Description: Unit of the sample volume
+  - Description: Common units include mL (milliliters), μl (microliters), g (grams), or other volume units, depending on whether the samples are liquid or solid.
 
 - __mixing_during_sampling__
   - Type: string 
-  - Description: Was the reaction solution mixed during the sampling procedure?
+  - Description: Provide information about whether the sample was mixed during sampling, as this can affect the representativeness of the collected sample.
 
 - __vessel_opened_for_sampling__
   - Type: string
-  - Description: Was the vessel opened for the sampling procedure?
+  - Description: Information about whether the reaction vessel was opened for sampling or not.
 
 - __gas_phase__
   - Type: string
-  - Description: What is the gas phase above the reaction solution?
+  - Description: Information about the gas phase above the reaction solution.
 
 - __time__
   - Type: time
-  - Description: Time at which the sample was taken
+  - Description: The time at which the sample was taken.
+
 
 </details>
 
-<details><Summary>Specialised sampling</Summary>
+<hr>
 
 ## Specialised sampling
 
-If the sampling procedure is more complex than just the plain procedure of taking a sample from the reaction vessel.
-
+If the sampling procedure is more complex than just the plain procedure of taking a sample from the reaction vessel, further details need to be provided.
 
 <details> <Summary>Sampling from heterogeneous reaction solutions</Summary>
 
-
-### SamplingProcedureFromHeterogeneousReactionMixtures
+### SamplingFromHeterogeneousReactionSolutions
 
 - __phase__
   - Type: string
-  - Description: From which phase was the sample taken?
+  - Description: Information about which phase the sample was taken from must be provided.
 
 - __biocatalyst_in_phase__
   - Type: string
-  - Description: Is the phase from which the sample was taken, containing the (bio)catalyst?
+  - Description: Information on whether the collected sample may have contaminations in the form of an (bio)catalyst.
+
+<hr>
+
+- __special_treament__
+  - Type: string
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the sampling that are important for reproducibility and are not described by the aforementioned                     metadata, they should be explained here.
 
 </details>
-
-## Sample processing
 
 <details> <Summary>Sample preprocessing</Summary>
 
-### TreatmentToStopReaction
+### SamplePreprocessing
 
-Information about the sampling process, if a pre-processing did take place
+Sample preprocessing involves the necessary steps taken to prepare and treat collected samples before analysis or further experimentation.
 
 - __treatment_procedure__
   - Type: string
-  - Description: How was the sample processed, once it was taken from the reaction vessel?
+  - Description: Details regarding the sample processing steps that were carried out after it was collected from the reaction vessel.
+
+<hr>
+
+- __special_treament__
+  - Type: string
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the sampling that are important for reproducibility and are not described by the aforementioned                     metadata, they should be explained here.
 
 </details>
 
-</details>
-
+<hr>
 
