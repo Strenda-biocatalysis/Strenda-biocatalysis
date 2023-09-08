@@ -309,33 +309,40 @@ When utilizing mechanically impelled mixing in enzymatic reactions, it is essent
 
 ### LiquidOrGasImpelledMixing
 
-Describes the shaked mixing of a reaction vessel
+Detailed information about the mixing method used, whether it involves liquid or gas impelled mixing, is essential for ensuring the reproducibility and understanding of enzymatic reactions.
 
-
-- __volume_of_liquid_solid_phase???__
+- __volume_of_liquid_solid_phase__
   - Type: string
-  - Description: ???
+  - Description: In the context of enzymatic reactions or any chemical processes involving heterogeneous mixtures like a liquid and solid phase, essential parameters for describing the system could involve the              composition of the phases, the percentage or fraction of the total volume occupied by the liquid-solid phase mixture, and further information.
 
 - __residence_time__
   - Type: posfloat
-  - Description: What is the residence time of the reaction solution in the reactor?
+  - Description: The residence time, often denoted as "τ" (tau), refers to the average amount of time a substance or component spends inside a specific system or reactor and is to be specified.
+
+ __residence_time_unit__
+  - Type: sting
+  - Description: The units for residence time can vary depending on the system and the units used for volume and flow rate. Common units include s (seconds), min (minutes), h (hours), or any time-related units.
 
 - __reynolds_number__
   - Type: string
-  - Description: What is the reynolds number?
+  - Description: The Reynolds number (Re) is a dimensionless quantity used in fluid dynamics to predict the flow regime of a fluid within a specific system. It helps determine whether the flow is laminar, turbulent, or     somewhere in between.
 
 - __passive_mixing__
   - Type: String
-  - Description: What is the morphology of the coils??
+  - Description: The design of the coils and the flow patterns created by the geometry of the tubing can lead to passive mixing as the fluid flows through the reactor without the need for external agitation. More           detailed information must be provided to describe the process.
 
 - __active_T_or_Y_mixer__
   - Type: String
-  - Description: Description of the T or Y mixer
+  - Description: Key features for describing an active Y or T mixer can include inlet ports, mixer chamber, outlet port, control, materials amon others.
 
 - __pulsing__
   - Type: String
-  - Description: Description of the pulsing process
+  - Description: The pulsing process involves periodically injecting or introducing specific components, such as reactants or additives, into a reaction system at regular intervals or in a pulsatile manner. More            detailed information must be provided to describe the process.
 
+<hr>
 
+- __special_treament__
+  - Type: string
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the liquid or gas impelled mixing that are important for reproducibility and are not described by the              aforementioned metadata, they hould be explained here.
 
 </details>
