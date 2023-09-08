@@ -242,60 +242,59 @@ Shaking is an essential method for ensuring uniform mixing and, consequently, re
 
 ### MechanicallyImplledmixing
 
-Description of a by stirring mechanically mixed system
-
+When utilizing mechanically impelled mixing in enzymatic reactions, it is essential to provide information about the mixing method and related parameters.
 
 - __stirring_type__
   - Type: string
-  - Description: What kind of impelling was applied? A magnetic stirrer? A stirrer blade?
+  - Description: There are several types of stirring methods used in laboratory and industrial settings, including magnetic stirring, mechanical stirring, overhead stirring and other methods.
 
 - __number_of_stirrers__
   - Type: posfloat
-  - Description: How many stirrers are available in the system?
+  - Description: The number of stirrers available in the system.
 
 - __distance_between_stirrers__
   - Type: posfloat
-  - Description: How much distance is between the stirrers?
+  - Description: Information about the distance, spacing or separation between the stirring rods or impellers within a reaction vessel or container.
 
 - __distance_between_stirrers_unit__
   - Type: string
-  - Description: Unit of the distance between the stirrers
+  - Description: The distance between stirrers can be specified in units such as mm (millimeters), cm (centimeters), or m (meters), depending on the size and scale of the stirring system.
 
 - __stirrer_blade_pitch_angle__
   - Type: posfloat
-  - Description: The Pitch angle of the stirrers (in °)
+  - Description: The pitch angle at which the blades or paddles of a stirring mechanism are positioned relative to the plane of rotation. It's typically expressed in ° (degrees).
 
 - __number_of_stirrer_blades__
   - Type: posfloat
-  - Description: How many stirrer blades are on the stirrer?
+  - Description: The number of blades on each stirrer.
 
 - __stirrer_geometry__
   - Type: string
-  - Description: Description of the stirrer morphology
+  - Description: There are various morphologies or geometries, such as radial impellers, axial impellers, helical ribbon impellers, paddle impellers, and more, depending on its design and intended purpose.
 
 - __speed__
   - Type: posfloat
-  - Description: Stirring speed used in the experiment
+  - Description: Specify the speed or frequency at which the stirring was conducted.
 
 - __speed_unit__
   - Type: string
-  - Description: Unit of the stirring speed
+  - Description: The unit for stirring speed can be expressed in RPM (revolutions per minute), Hz (Hertz), or rad/s (radians per second), depending on the measurement instruments and scientific conventions used.
 
 - __height_of_stirrer_above_vessel_base__
   - Type: posfloat
-  - Description: How much space is between the stirrer and the base of the vessel?
+  - Description: The vertical distance between the bottom of the vessel or container (where the reaction takes place) and the lowest point of the stirring element or stirrer, which is usually located just above the         vessel base. 
 
 - __height_of_stirrer_above_vessel_base_unit__
   - Type: string
-  - Description: Speed of the height of stirrer above vessel base unit
+  - Description: Common units for defining the vertical distance between the bottom of the vessel and the lowest point of the stirrer include: mm (millimeters), cm (centimeters) and m (meters).
 
 - __power_per_volume__
   - Type: posfloat
-  - Description: Stirring power added to the system due to the mixing
+  - Description: The amount of stirring power or energy input into a system per unit volume.
 
 - __power_per_volume_unit__
   - Type: string
-  - Description: Stirring power unit
+  - Description: The units commonly used for expressing the stirring power are W/L (watts per liter) or kW/m³ (kilowatts per cubic meter).
 
   </details>
 
