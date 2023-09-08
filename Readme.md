@@ -1,15 +1,15 @@
 # Welcome to STRENDA biocatalysis guidelines
 
-STRENDA biocatalysis is aiming to define which ATTRIBUTES should be used to describe an experiment in biocatalysis. Since biocatalysis is a discipline with many different operational modes, it is very overwhelming to hand out one document to describe all possible experimental setups. On the contrary, we need a catalog that adapts to the experimental procedures to help experimenters in their everyday work and give software developers a basis for data modeling. For this reason, we subdivided the whole catalog into six main CATEGORIES and built it in an adaptive modular way.
+STRENDA biocatalysis is aiming to define which ATTRIBUTES should be used to describe an experiment in biocatalysis. Since biocatalysis is a discipline with many different operational modes, it is very overwhelming to hand out one document to describe all possible experimental setups. On the contrary, we need a catalog that adapts to the experimental procedures to help experimenters in their everyday work and give software developers a basis for data modeling. For this reason, we subdivided the whole catalog into six main CATEGORIES and built it in an adaptive modular way. This version of the catalog primarily focuses on metadata related to transformation. Additional aspects such as product purification, analytics, and other experimental processes may not be fully captured and covered yet.
 
-Therefore, on this website, you find the ATTRIBUTES (metadata) organised in these six main CATEGORIES which are visualised as icons below. Please click on the icons to open the next level and review the ATTRIBUTES. 
+On this website, the ATTRIBUTES (metadata) are organised in these six main CATEGORIES which are visualised as icons below. Please click on the icons to open the next level and review the ATTRIBUTES. 
 
 ## How to use STRENDA biocatalysis
 
 - use [this]() tool to define your ATTRIBUTES set
 
 
-# Here, you can find our CATEGORIES and ATTRIBUTES
+# CATEGORIES and ATTRIBUTES
 
 ## Operation mode
 
