@@ -2,7 +2,7 @@
 
 # Sampling
 
-The categorization of sampling into the two main categories, __Default_sampling__ and __Specialised_sampling__, enables the capture and documentation of either standard sampling information and/or specialised sampling data, depending on specific needs.
+The categorization of sampling into the two main categories, __default_sampling__ and __specialised_sampling__, enables the capture and documentation of either standard sampling information and/or specialised sampling data, depending on specific needs.
 
 <img src="Sampling procedure.png" width=250>
 
