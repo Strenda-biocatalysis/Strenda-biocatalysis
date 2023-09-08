@@ -230,6 +230,12 @@ Shaking is an essential method for ensuring uniform mixing and, consequently, re
   - Type: string
   - Description: Information regarding the orientation of the vessel in the shaking system relative to deflection.
 
+<hr>
+
+- __special_treament__
+  - Type: string
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the shaking that are important for reproducibility and are not described by the aforementioned metadata, they      should be explained here.
+
 </details>
 
 <details> <Summary>Mechanically impelled mixing (stirring)</Summary>
