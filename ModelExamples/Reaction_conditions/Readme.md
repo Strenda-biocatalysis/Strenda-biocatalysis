@@ -249,11 +249,19 @@ Information about the pH value in the system, if the pH is constant over the cou
  
 - __detected_when__
   - Type: string
-  - Description: Timepoint at which the pH was measured (e.g. before, during or after the reaction).
+  - Description: Timepoint at which the pH was measured. It includes whether it was measured before, during, or after the reaction and whether all components of the reaction solution were already present or if some         were added after the measurement.
  
 - __detected_how__
   - Type: string
   - Description: The pH value of a reaction can be determined in various ways, such as using a pH meter, pH paper, titration, electrochemical sensors, or other methods.
+
+- __temperature__
+  - Type: posfloat
+  - Description: The temperature at the time of pH measurement.
+
+- __temperature_unit__
+  - Type: string
+  - Description: The temperature can be specified in units such as K, °C, or °F.
 
 <hr>
 
@@ -563,12 +571,20 @@ Information about the pH value in the system, if the pH is constant over the cou
  
 - __detected_when__
   - Type: string
-  - Description: Timepoint at which the pH was measured (e.g. before, during or after the reaction).
-
+  - Description: Timepoint at which the pH was measured. It includes whether it was measured before, during, or after the reaction and whether all components of the reaction solution were already present or if some         were added after the measurement.
+ 
 - __detected_how__
   - Type: string
   - Description: The pH value of a reaction can be determined in various ways, such as using a pH meter, pH paper, titration, electrochemical sensors, or other methods.
 
+- __temperature__
+  - Type: posfloat
+  - Description: The temperature at the time of pH measurement.
+
+- __temperature_unit__
+  - Type: string
+  - Description: The temperature can be specified in units such as K, °C, or °F.
+ 
 <hr>
 
 - __special_treament__
