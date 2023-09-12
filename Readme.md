@@ -31,9 +31,9 @@ The operation mode is the first step in the experimental planning, it describes 
 
 [<img src="assets\Hexagon-enzyme.png" width=100>](ModelExamples/Biocatalyst/Readme.md)
 
-## Reactants
+## Components
 
-[Reactants](ModelExamples/Reactants/Readme.md)
+[Components](ModelExamples/Reactants/Readme.md)
 
 [<img src="assets\Hexagons-reactants.png" width=100>](ModelExamples/Reactants/Readme.md)
 
