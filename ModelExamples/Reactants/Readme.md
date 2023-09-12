@@ -2,7 +2,7 @@
 
 # Components
 
-Each additive of a reaction must be defined like substrate, cosubstrate, coenzyme, salts, ions, etc. The [biocatalyst](https://github.com/StephanM87/Strenda-biocatalysis/blob/main/ModelExamples/Biocatalyst/Readme.md) and the detailed description of the [phases or solvent](https://github.com/StephanM87/Strenda-biocatalysis/tree/main/ModelExamples/Reaction_conditions) are not listed under the reaction components.
+Each additive of a reaction must be defined like substrate, cosubstrate, coenzyme, salts, ions, etc. The [biocatalyst](https://github.com/StephanM87/Strenda-biocatalysis/blob/main/ModelExamples/Biocatalyst/Readme.md) and the detailed description of the [phases](https://github.com/StephanM87/Strenda-biocatalysis/tree/main/ModelExamples/Reaction_conditions) are not listed under the reaction components.
 
 ### Components
 
