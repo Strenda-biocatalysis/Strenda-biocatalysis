@@ -259,6 +259,10 @@ Information about the pH value in the system, if the pH is constant over the cou
   - Type: string
   - Description: The temperature can be specified in units such as K, °C, or °F.
 
+- __calibration_pH_electrode__
+  - Type: string
+  - Description: Usually, a pH electrode is calibrated in dilute aqueous solution using standard buffers at 20-25 °C. If the conditions in the reaction mixture differ from this, it should be specified.                      (__if_applicable__)
+
 <hr>
 
 - __special_treament__
@@ -310,6 +314,10 @@ Information about the pH value in the system, if there is a time dependent pH sh
   - Type: string
   - Description: The temperature can be specified in units such as K, °C, or °F.
 
+- __calibration_pH_electrode__
+  - Type: string
+  - Description: Usually, a pH electrode is calibrated in dilute aqueous solution using standard buffers at 20-25 °C. If the conditions in the reaction mixture differ from this, it should be specified.                      (__if_applicable__)
+
 <hr>
 
 - __special_treament__
@@ -352,6 +360,10 @@ Information about the pH value in the system, if there is an event dependent pH 
 - __temperature_unit__
   - Type: string
   - Description: The temperature can be specified in units such as K, °C, or °F.
+
+- __calibration_pH_electrode__
+  - Type: string
+  - Description: Usually, a pH electrode is calibrated in dilute aqueous solution using standard buffers at 20-25 °C. If the conditions in the reaction mixture differ from this, it should be specified.                      (__if_applicable__)
 
 <hr>
 
@@ -608,7 +620,11 @@ Information about the pH value in the system, if the pH is constant over the cou
 - __temperature_unit__
   - Type: string
   - Description: The temperature can be specified in units such as K, °C, or °F.
- 
+
+ - __calibration_pH_electrode__
+  - Type: string
+  - Description: Usually, a pH electrode is calibrated in dilute aqueous solution using standard buffers at 20-25 °C. If the conditions in the reaction mixture differ from this, it should be specified.                      (__if_applicable__)
+
 <hr>
 
 - __special_treament__
@@ -659,6 +675,10 @@ If there is a pH gradient or different pHs are measured in the system or over ti
 - __temperature_unit__
   - Type: string
   - Description: The temperature can be specified in units such as K, °C, or °F.
+
+- __calibration_pH_electrode__
+  - Type: string
+  - Description: Usually, a pH electrode is calibrated in dilute aqueous solution using standard buffers at 20-25 °C. If the conditions in the reaction mixture differ from this, it should be specified.                      (__if_applicable__)
 
 <hr>
 
