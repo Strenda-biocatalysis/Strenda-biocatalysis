@@ -1,11 +1,12 @@
 [Landing Page](/Readme.md)
-# Reactants
 
-Each additive of a reaction must be defined like substrate, cosubstrate, coenzyme, etc. Exlcuded are only [biocatalyst](https://github.com/StephanM87/Strenda-biocatalysis/blob/main/ModelExamples/Biocatalyst/Readme.md) and the [solvents](https://github.com/StephanM87/Strenda-biocatalysis/tree/main/ModelExamples/Reaction_conditions).
+# Components
 
-### Reactant
+Each additive of a reaction must be defined like substrate, cosubstrate, coenzyme, salts, ions, etc. The [biocatalyst](https://github.com/StephanM87/Strenda-biocatalysis/blob/main/ModelExamples/Biocatalyst/Readme.md) and the detailed description of the [phases or solvent](https://github.com/StephanM87/Strenda-biocatalysis/tree/main/ModelExamples/Reaction_conditions) are not listed under the reaction components.
 
-Each reactant present in the planned reaction must be defined.
+### Components
+
+Each component present in the planned reaction must be defined.
 
 - __name__
   - Type: string
