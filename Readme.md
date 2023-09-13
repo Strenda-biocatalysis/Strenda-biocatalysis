@@ -15,15 +15,15 @@ On this website, the ATTRIBUTES (metadata) are organised in these six main CATEG
 
 The operation mode is the first step in the experimental planning, it describes the mode in which the experiment was performed (e.g. batch, fed-batch, continuous)
 
-[Operation mode](ModelExamples/OperationMode/Readme.md)
+[Operation mode](ModelExamples/Operation_Mode/Readme.md)
 
-[<img src="assets\Hexagons-operation-mode.png" width=100>](ModelExamples/OperationMode/Readme.md)
+[<img src="assets\Hexagons-operation-mode.png" width=100>](ModelExamples/Operation_Mode/Readme.md)
 
 ## Vessel type and mixing (hydrodynamics)
 
-[Vessel type and mixing (hydrodynamics)](ModelExamples/Vessels_and_Volumes/Readme.md)
+[Vessel type and mixing (hydrodynamics)](ModelExamples/Vessels_and_Mixing/Readme.md)
 
-[<img src="assets\Hexagons-vessel.png" width=100>](ModelExamples/Vessels_and_Volumes/Readme.md)
+[<img src="assets\Hexagons-vessel.png" width=100>](ModelExamples/Vessels_and_Mixing/Readme.md)
 
 ## (Bio)catalyst
 
@@ -33,9 +33,9 @@ The operation mode is the first step in the experimental planning, it describes 
 
 ## Components
 
-[Components](ModelExamples/Reactants/Readme.md)
+[Components](ModelExamples/Components/Readme.md)
 
-[<img src="assets\Hexagons-reactants.png" width=100>](ModelExamples/Reactants/Readme.md)
+[<img src="assets\Hexagons-reactants.png" width=100>](ModelExamples/Components/Readme.md)
 
 ## Reaction conditions
 
