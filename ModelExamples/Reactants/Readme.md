@@ -42,9 +42,11 @@ Each component present in the planned reaction must be defined.
 
 <hr>
 
-### StorageConditions
+# Storage conditions
 
-Description of how the reactants were stored.
+Describing the components in the reaction mixture involve specifying their storage conditions before use in the reaction.
+
+### StorageConditions
 
 - __temperature__
   - Type: float
@@ -76,5 +78,4 @@ Description of how the reactants were stored.
   - Type: string
   - Description: If there are any other specific characteristics or aspects related to the reactant that are important for reproducibility and are not described by the aforementioned metadata, they should be explained       here.
 
- 
-<hr>
+ <hr>
