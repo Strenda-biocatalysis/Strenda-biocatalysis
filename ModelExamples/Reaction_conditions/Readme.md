@@ -218,7 +218,7 @@ Description of the temperature, when an event causes the temperature change.
 
 - __event_description__
   - Type: string
-  - Description: Information regarding the event that caused the temperature change.
+  - Description: Information regarding the event that caused the temperature change. In the case of a fed-batch reaction protocol, this event can also be the planned adjustment of the temperature to another specific        value based on the current progress of the reaction process. 
 
 <hr>
 
@@ -343,7 +343,7 @@ Information about the pH value in the system, if there is an event dependent pH 
 
 - __event_description__
   - Type: string
-  - Description: Information regarding the event that caused the pH change.
+  - Description: Information regarding the event that caused the pH change. In the case of a fed-batch reaction protocol, this event can also be the planned adjustment of the pH value to another specific value based on     the current progress of the reaction process. 
 
 - __detected_when__
   - Type: string
