@@ -486,31 +486,55 @@ The temperature, if constant, must be clearly defined.
 
 ### DynamicTemperature
 
-If there is a temperature gradient or different temperatures are measured in the system or over time, these must be described as well as possible.
+If there is a temperature gradient or different temperatures are measured in the system, these must be described as well as possible.
 
 - __temperature_beginning__
   - Type: posfloat
-  - Description: The initial temperature from which the temperature gradient begins.
+  - Description: The initial temperature, prior to the start of the reaction, should be specified.
 
-- __temperature_end__
+- __temperature_after_event__
   - Type: posfloat
-  - Description: The target temperature reached after the temperature gradient is applied.
+  - Description: The temperature that is present after a specific event has occurred.
+
+- __event_description__
+  - Type: string
+  - Description: Information regarding the event that caused the temperature change. In the case of a fed-batch reaction protocol, this event can also be the planned adjustment of the temperature to another specific        value based on the current progress of the reaction process. 
+
+- __temperature_at_XY__
+  - Type: posfloat
+  - Description: The temperature can also be measured at a variably chosen time point _XY_ during the reaction.
+
+- __time_at_XY__
+  - Type: posfloat
+  - Description: Specification of the exact time point _XY_ at which the temperature was measured.
+ 
+- __time_unit__
+  - Type: string
+  - Description: Common units for specifying time can be s (seconds) or min (minutes).
 
 - __temperature_unit__
   - Type: string
   - Description: The temperature can be specified in units such as K, °C, or °F.
 
+- __temperature_gradient_beginning__
+  - Type: posfloat
+  - Description: The initial temperature from which the temperature gradient begins. (__if_applicable__)
+
+- __temperature_gradient_end__
+  - Type: posfloat
+  - Description: The target temperature reached after the temperature gradient is applied. (__if_applicable__)
+
 - __gradient_length__
   - Type: posfloat
-  - Description: The distance or time span over which the temperature gradient is applied.
+  - Description: The distance or time span over which the temperature gradient is applied. (__if_applicable__)
 
 - __gradient_length_unit__
   - Type: string
-  - Description: The gradient length can be specified either as the physical distance (e.g. in meters) or as the time span (e.g. in minutes).
+  - Description: The gradient length can be specified either as the physical distance (e.g. in meters) or as the time span (e.g. in minutes). (__if_applicable__)
 
 - __measurement_points__
   - Type: string
-  - Description: Information about the locations or time points where temperature measurements are taken to monitor the gradient. This can be important to ensure that the gradient behaves as intended.
+  - Description: Information about the locations or time points where temperature measurements are taken to monitor the gradient. This can be important to ensure that the gradient behaves as intended.                       (__if_applicable__)
 
 <hr>
 
@@ -568,27 +592,31 @@ Information about the pH value in the system, if the pH is constant over the cou
 
 ### DynmaicpH
 
-If there is a pH gradient or different pHs are measured in the system or over time, these must be described as well as possible.
+If there is a pH gradient or different pHs are measured in the system, these must be described as well as possible.
 
 - __pH_beginning__
   - Type: posfloat
-  - Description: The initial pH from which the pH gradient begins.
+  - Description: The initial pH, prior to the start of the reaction, should be specified.
 
-- __pH_end__
+- __pH_after_event__
   - Type: posfloat
-  - Description: The target pH reached after the pH gradient is applied.
+  - Description: The pH that is present after a specific event has occurred.
 
-- __gradient_length__
+- __event_description__
+  - Type: string
+  - Description: Information regarding the event that caused the pH change. In the case of a fed-batch reaction protocol, this event can also be the planned adjustment of the pH value to another specific value based on     the current progress of the reaction process.
+
+- __pH_at_XY__
   - Type: posfloat
-  - Description: The distance or time span over which the pH gradient is applied.
+  - Description: The pH can also be measured at a variably chosen time point _XY_ during the reaction.
 
-- __gradient_length_unit__
+- __time_at_XY__
+  - Type: posfloat
+  - Description: Specification of the exact time point _XY_ at which the pH was measured.
+ 
+- __time_unit__
   - Type: string
-  - Description: The gradient length can be specified either as the physical distance (e.g. in meters) or as the time span (e.g. in minutes).
-
-- __measurement_points__
-  - Type: string
-  - Description: Information about the locations or time points where pH measurements are taken to monitor the gradient. This can be important to ensure that the gradient behaves as intended.
+  - Description: Common units for specifying time can be s (seconds) or min (minutes).
 
 - __detected_when__
   - Type: string
@@ -610,6 +638,26 @@ If there is a pH gradient or different pHs are measured in the system or over ti
   - Type: string
   - Description: Usually, a pH electrode is calibrated in dilute aqueous solution using standard buffers at 20-25 °C. If the conditions in the reaction mixture differ from this, it should be specified.                      (__if_applicable__)
 
+- __pH_gradient_beginning__
+  - Type: posfloat
+  - Description: The initial pH from which the pH gradient begins. (__if_applicable__)
+
+- __pH_gradient_end__
+  - Type: posfloat
+  - Description: The target pH reached after the pH gradient is applied. (__if_applicable__)
+
+- __gradient_length__
+  - Type: posfloat
+  - Description: The distance or time span over which the pH gradient is applied. (__if_applicable__)
+
+- __gradient_length_unit__
+  - Type: string
+  - Description: The gradient length can be specified either as the physical distance (e.g. in meters) or as the time span (e.g. in minutes). (__if_applicable__)
+
+- __measurement_points__
+  - Type: string
+  - Description: Information about the locations or time points where pH measurements are taken to monitor the gradient. This can be important to ensure that the gradient behaves as intended. (__if_applicable__)
+
 <hr>
 
 - __special_treament__
@@ -619,6 +667,3 @@ If there is a pH gradient or different pHs are measured in the system or over ti
 </details>
 
 <hr>
-
-
-
