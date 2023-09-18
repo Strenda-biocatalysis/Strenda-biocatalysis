@@ -135,7 +135,7 @@ Definition of the gas phase used in the reaction. If a gas mixture is involved, 
 
 ## Temperature conditions
 
-Another crucial aspect is the temperature profile throughout the reaction. The temperature can stay constant, shift for example due to the chemical reaction catalysed or change e.g. due to the addition of a substrate. 
+Another crucial aspect is the temperature profile throughout the reaction. The temperature can stay constant or can change e.g. due to the addition of a substrate. 
 
 <details> <Summary>Temperature constant</Summary>
 
@@ -160,49 +160,11 @@ The temperature, if constant, must be clearly defined.
 
 </details>
 
-<details> <Summary>Temperature shift</Summary>
-
-### TemperatureShift
-
-If the temperature changes with the course of the reaction, this must be documented precisely.
-
-- __temperature_unit__
-  - Type: string
-  - Description: The temperature can be specified in units such as K, °C, or °F.
-
-- __temperature_beginning__
-  - Type: posfloat
-  - Description: The initial temperature, prior to the start of the reaction, should be specified.
-
-- __temperature_end__
-  - Type: posfloat
-  - Description: The final temperature after completion of the reaction should be specified.
-
-- __temperature_at_XY__
-  - Type: posfloat
-  - Description: The temperature can also be measured at a variably chosen time point _XY_ during the reaction.
-
-- __time_at_XY__
-  - Type: posfloat
-  - Description: Specification of the exact time point _XY_ at which the temperature was measured.
- 
-- __time_unit__
-  - Type: string
-  - Description: Common units for specifying time can be s (seconds) or min (minutes).
-
-<hr>
-
-- __special_treament__
-  - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the temperature that are important for reproducibility and are not described by the aforementioned                 metadata, they should be explained here. 
-
-</details>
-
-<details> <Summary>Event based temperature shift</Summary>
+<details> <Summary>Event-based temperature shift</Summary>
 
 ### EventBasedTemperatureShift
 
-Description of the temperature, when an event causes the temperature change.
+If the temperature is changed during the course of the reaction or there is an event-based change, this must be documented precisely.
 
 - __temperature_unit__
   - Type: string
@@ -219,6 +181,18 @@ Description of the temperature, when an event causes the temperature change.
 - __event_description__
   - Type: string
   - Description: Information regarding the event that caused the temperature change. In the case of a fed-batch reaction protocol, this event can also be the planned adjustment of the temperature to another specific        value based on the current progress of the reaction process. 
+
+- __temperature_at_XY__
+  - Type: posfloat
+  - Description: The temperature can also be measured at a variably chosen time point _XY_ during the reaction.
+
+- __time_at_XY__
+  - Type: posfloat
+  - Description: Specification of the exact time point _XY_ at which the temperature was measured.
+ 
+- __time_unit__
+  - Type: string
+  - Description: Common units for specifying time can be s (seconds) or min (minutes).
 
 <hr>
 
@@ -271,20 +245,23 @@ Information about the pH value in the system, if the pH is constant over the cou
 
 </details>
 
+<details> <Summary>Event-based pH shift</Summary>
 
-<details> <Summary>pH shift over time</Summary>
+### EventBasedpHShift
 
-### pHShiftOverTime
-
-Information about the pH value in the system, if there is a time dependent pH shift.
+If the pH is changed during the course of the reaction or there is an event-based change, this must be documented precisely.
 
 - __pH_beginning__
   - Type: posfloat
   - Description: The initial pH, prior to the start of the reaction, should be specified.
 
-- __pH_end__
+- __pH_after_event__
   - Type: posfloat
-  - Description: The final pH after completion of the reaction should be specified.
+  - Description: The pH that is present after a specific event has occurred.
+
+- __event_description__
+  - Type: string
+  - Description: Information regarding the event that caused the pH change. In the case of a fed-batch reaction protocol, this event can also be the planned adjustment of the pH value to another specific value based on     the current progress of the reaction process.
 
 - __pH_at_XY__
   - Type: posfloat
@@ -297,53 +274,6 @@ Information about the pH value in the system, if there is a time dependent pH sh
 - __time_unit__
   - Type: string
   - Description: Common units for specifying time can be s (seconds) or min (minutes).
-
-- __detected_when__
-  - Type: string
-  - Description: Specification whether all components of the reaction solution were already present or if some were added after the measurement at the timepoint of the pH measurement.
-
-- __detected_how__
-  - Type: string
-  - Description: The pH value of a reaction can be determined in various ways, such as using a pH meter, pH paper, titration, electrochemical sensors, or other methods.
-
-- __temperature__
-  - Type: posfloat
-  - Description: The temperature at the time of pH measurement.
-
-- __temperature_unit__
-  - Type: string
-  - Description: The temperature can be specified in units such as K, °C, or °F.
-
-- __calibration_pH_electrode__
-  - Type: string
-  - Description: Usually, a pH electrode is calibrated in dilute aqueous solution using standard buffers at 20-25 °C. If the conditions in the reaction mixture differ from this, it should be specified.                      (__if_applicable__)
-
-<hr>
-
-- __special_treament__
-  - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the pH value that are important for reproducibility and are not described by the aforementioned                    metadata, they should be explained here. 
-
-</details>
-
-
-<details> <Summary>Event based pH shift</Summary>
-
-### EventBasedpHShift
-
-Information about the pH value in the system, if there is an event dependent pH shift.
-
-- __pH_beginning__
-  - Type: posfloat
-  - Description: The initial pH, prior to the start of the reaction, should be specified.
-
-- __pH_after_event__
-  - Type: posfloat
-  - Description: The pH that is present after a specific event has occurred.
-
-- __event_description__
-  - Type: string
-  - Description: Information regarding the event that caused the pH change. In the case of a fed-batch reaction protocol, this event can also be the planned adjustment of the pH value to another specific value based on     the current progress of the reaction process. 
 
 - __detected_when__
   - Type: string
