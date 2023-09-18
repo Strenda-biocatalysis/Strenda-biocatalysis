@@ -4,8 +4,6 @@
 
 Each additive of a reaction must be defined like substrate, cosubstrate, coenzyme, salts, ions, etc. The [biocatalyst](https://github.com/StephanM87/Strenda-biocatalysis/blob/main/ModelExamples/Biocatalyst/Readme.md) and comprehensive description of the [various states or conditions](https://github.com/StephanM87/Strenda-biocatalysis/tree/main/ModelExamples/Reaction_conditions) during the reaction are not included among the listed reaction components.
 
-The biocatalyst and comprehensive descriptions of the various states or conditions during the reaction are not included among the listed reaction components.
-
 ### Components
 
 Each component present in the planned reaction must be defined.
