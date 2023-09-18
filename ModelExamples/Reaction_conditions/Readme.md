@@ -207,6 +207,8 @@ If the temperature is changed during the course of the reaction or there is an e
 
 ## pH conditions
 
+Another critical factor to consider is the pH profile during the reaction. The pH level can remain stable or can be adapted during the course of the reaction, etc.
+
 <details> <Summary>pH constant</Summary>
 
 ### pHConstant
