@@ -321,7 +321,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 
 - __immobilisation_method__
   - Type: string
-  - Description: Method for immobilising the enzyme. Common methods are e.g. adsorption, embedding in matrices, crosslinking, coimmobilization with carrier materials, etc.
+  - Description: Method for immobilising the enzyme. Common methods are e.g. adsorption, embedding in matrices, crosslinking, coimmobilization with carrier materials, etc. For a comprehensive report of the technical        key data of the immobilization process or method, there is literature for further information, e.g. [Ansorge-Schuhmacher _et_ _al._<sup>1</sup>](https://doi.org/10.1007/978-3-662-57619-9_11) 
  
 - __carrier_material__
   - Type: string
@@ -379,3 +379,7 @@ Describing the biocatalyst involves specifying its storage conditions before use
 </details>
 
 <hr>
+
+### Literature
+
+[1] B. Ansorge-Schumacher, M. (2018). Enzymimmobilisierung. In: Jaeger, KE., Liese, A., Syldatk, C. (eds) Einführung in die Enzymtechnologie. Springer Spektrum, Berlin, Heidelberg. https://doi.org/10.1007/978-3-662-57619-9_11
