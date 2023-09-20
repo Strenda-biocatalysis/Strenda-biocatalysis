@@ -244,7 +244,7 @@ Shaking is an essential method for ensuring uniform mixing and, consequently, re
 
 <details> <Summary>Mechanically impelled mixing (stirring)</Summary>
 
-### MechanicallyImplledmixing
+### MechanicallyImpelledmixing
 
 When utilizing mechanically impelled mixing in enzymatic reactions, it is essential to provide information about the mixing method and related parameters.
 
