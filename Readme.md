@@ -8,12 +8,6 @@ This catalog offers researchers and scientists in the field of biocatalysis a st
 
 Feel free to explore the valuable information in this catalog and join in standardizing enzymatic reaction data. Following the STRENDA guidelines and using the latest knowledge in biocatalysis helps us all move forward in this exciting field. On this website, the ATTRIBUTES (metadata) are organised in these six main CATEGORIES which are visualised as icons below. Please click on the icons below to open the next level and review the ATTRIBUTES. If you want more details regarding biocatalysis, you can check out [Bell _et_ _al._<sup>1</sup>](https://doi.org/10.1038/s43586-021-00044-z)
 
-
-## How to use STRENDA biocatalysis
-
-- use [this]() tool to define your ATTRIBUTES set
-
-
 # CATEGORIES and ATTRIBUTES
 
 ## Operation mode
