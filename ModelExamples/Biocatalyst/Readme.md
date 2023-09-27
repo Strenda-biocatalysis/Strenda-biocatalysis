@@ -162,7 +162,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
  
 <hr>
 
-- __special_treament__
+- __special_treatment__
   - Type: string
   - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
   
@@ -190,7 +190,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
  
  <hr>
 
-- __special_treament__
+- __special_treatment__
   - Type: string
   - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
 
@@ -222,7 +222,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 
  <hr>
 
-- __special_treament__
+- __special_treatment__
   - Type: string
   - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
 
@@ -250,7 +250,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
  
  <hr>
 
-- __special_treament__
+- __special_treatment__
   - Type: string
   - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
 
@@ -278,7 +278,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
  
 <hr>
 
-- __special_treament__
+- __special_treatment__
   - Type: string
   - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
 
@@ -309,7 +309,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 
 <hr>
 
-- __special_treament__
+- __special_treatment__
   - Type: string
   - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
 
@@ -329,7 +329,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 
 <hr>
 
-- __special_treament__
+- __special_treatment__
   - Type: string
   - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
 
@@ -371,7 +371,7 @@ Describing the biocatalyst involves specifying its storage conditions before use
 
 <hr>
  
-- __special_treament__
+- __special_treatment__
   - Type: string
   - Description: If there are any other specific characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata, they should be             explained here.
 
