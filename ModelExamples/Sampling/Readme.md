@@ -64,7 +64,7 @@ If the sampling procedure is more complex than just the plain procedure of takin
 
 <hr>
 
-- __special_treament__
+- __special_treatment__
   - Type: string
   - Description: If there are any other specific methods, procedures, characteristics or aspects related to the sampling that are important for reproducibility and are not described by the aforementioned                     metadata, they should be explained here.
 
@@ -82,7 +82,7 @@ Sample preprocessing involves the necessary steps taken to prepare and treat col
 
 <hr>
 
-- __special_treament__
+- __special_treatment__
   - Type: string
   - Description: If there are any other specific methods, procedures, characteristics or aspects related to the sampling that are important for reproducibility and are not described by the aforementioned                     metadata, they should be explained here.
 
