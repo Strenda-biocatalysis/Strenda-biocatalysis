@@ -33,7 +33,7 @@ To describe a monoliquid system, precise information about the solvent used and 
 
 <hr>
  
-- __special_treament__
+- __special_treatment__
   - Type: string
   - Description: If there are any other specific methods, procedures, characteristics or aspects related to the monoliquid system that are important for reproducibility and are not described by the aforementioned           metadata, they should be explained here.
 
@@ -57,7 +57,7 @@ To describe a multiphase system, precise information about the phases used and t
 
 <hr>
  
-- __special_treament__
+- __special_treatment__
   - Type: string
   - Description: If there are any other specific methods, procedures, characteristics or aspects related to the multiphase system that are important for reproducibility and are not described by the aforementioned           metadata, they should be explained here.
 
@@ -153,7 +153,7 @@ The temperature, if constant, must be clearly defined.
 
 <hr>
 
-- __special_treament__
+- __special_treatment__
   - Type: string
   - Description: If there are any other specific methods, procedures, characteristics or aspects related to the temperature that are important for reproducibility and are not described by the aforementioned                 metadata, they should be explained here. 
 
@@ -196,7 +196,7 @@ If the temperature is changed during the course of the reaction or there is an e
 
 <hr>
 
-- __special_treament__
+- __special_treatment__
   - Type: string
   - Description: If there are any other specific methods, procedures, characteristics or aspects related to the temperature that are important for reproducibility and are not described by the aforementioned                 metadata, they should be explained here. 
 
@@ -241,7 +241,7 @@ Information about the pH value in the system, if the pH is constant over the cou
 
 <hr>
 
-- __special_treament__
+- __special_treatment__
   - Type: string
   - Description: If there are any other specific methods, procedures, characteristics or aspects related to the pH value that are important for reproducibility and are not described by the aforementioned                    metadata, they should be explained here. 
 
@@ -299,7 +299,7 @@ If the pH is changed during the course of the reaction or there is an event-base
 
 <hr>
 
-- __special_treament__
+- __special_treatment__
   - Type: string
   - Description: If there are any other specific methods, procedures, characteristics or aspects related to the pH value that are important for reproducibility and are not described by the aforementioned                    metadata, they should be explained here. 
 
@@ -342,7 +342,7 @@ To describe a monoliquid system, precise information about the solvent used and 
 
 <hr>
  
-- __special_treament__
+- __special_treatment__
   - Type: string
   - Description: If there are any other specific methods, procedures, characteristics or aspects related to the monoliquid system that are important for reproducibility and are not described by the aforementioned           metadata, they should be explained here.
 
@@ -375,7 +375,7 @@ To describe a multiphase system, precise information about the phases used and t
 
 <hr>
  
-- __special_treament__
+- __special_treatment__
   - Type: string
   - Description: If there are any other specific methods, procedures, characteristics or aspects related to the multiphase system that are important for reproducibility and are not described by the aforementioned           metadata, they should be explained here.
 
@@ -476,7 +476,7 @@ The temperature, if constant, must be clearly defined.
 
 <hr>
 
-- __special_treament__
+- __special_treatment__
   - Type: string
   - Description: If there are any other specific methods, procedures, characteristics or aspects related to the temperature that are important for reproducibility and are not described by the aforementioned                 metadata, they should be explained here. 
 
@@ -540,7 +540,7 @@ If there is a temperature gradient or different temperatures are measured in the
 
 <hr>
 
-- __special_treament__
+- __special_treatment__
   - Type: string
   - Description: If there are any other specific methods, procedures, characteristics or aspects related to the temperature profile that are important for reproducibility and are not described by the aforementioned         metadata, they should be explained here. 
 
@@ -583,7 +583,7 @@ Information about the pH value in the system, if the pH is constant over the cou
 
 <hr>
 
-- __special_treament__
+- __special_treatment__
   - Type: string
   - Description: If there are any other specific methods, procedures, characteristics or aspects related to the pH value that are important for reproducibility and are not described by the aforementioned                    metadata, they should be explained here. 
 
@@ -662,7 +662,7 @@ If there is a pH gradient or different pHs are measured in the system, these mus
 
 <hr>
 
-- __special_treament__
+- __special_treatment__
   - Type: string
   - Description: If there are any other specific methods, procedures, characteristics or aspects related to the pH value that are important for reproducibility and are not described by the aforementioned                    metadata, they should be explained here. 
 
