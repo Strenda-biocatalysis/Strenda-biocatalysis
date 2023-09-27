@@ -15,9 +15,9 @@ Each component present in the planned reaction must be defined.
   - Type: string
   - Description: The name of the reactant can be either the trivial or trade name, the systematic designation according to IUPAC nomenclature, or any other means of identifying the substance.
 
-- __smarts__
+- __smiles__
   - Type: string
-  - Description: SMARTS (SMiles ARbitrary Target Specification) is an extension of the SMILES chemical notation. It's a specialized code used to describe and search for specific chemical patterns or substructures within     molecular structures.
+  - Description: SMILES (Simplified Molecular Input Line Entry System) is a chemical notation used to represent and describe molecular structures in a simplified and human-readable format.
 
 - __persistent_identifier_PID__
   - Type: string
