@@ -36,7 +36,7 @@ Vials are sealable containers available in various sizes and materials, playing 
 
 <hr>
 
-- __special_treament__
+- __special_treatment__
   - Type: string
   - Description: If there are any other specific methods, procedures, characteristics or aspects related to the vial or its preparation for the reaction that are important for reproducibility and are not                    described by the aforementioned metadata, they should be explained here.
 
@@ -84,7 +84,7 @@ It's crucial to provide detailed information about the plate type, material, wel
 
   <hr>
 
-- __special_treament__
+- __special_treatment__
   - Type: string
   - Description: If there are any other specific methods, procedures, characteristics or aspects related to the plate or its preparation for the reaction that are important for reproducibility and are not                    described by the aforementioned metadata, they should be explained here.
 
@@ -147,7 +147,7 @@ Stirred Tank Reactors (STRs) are frequently employed as versatile and controlled
 
 <hr>
 
-- __special_treament__
+- __special_treatment__
   - Type: string
   - Description: If there are any other specific methods, procedures, characteristics or aspects related to the Stirred Tank Reactor or its preparation for the reaction that are important for reproducibility and are        not described by the aforementioned metadata, they should be explained here.
 
@@ -190,7 +190,7 @@ When conducting enzymatic reactions in tubular flow or continuous reactors, it i
 
 <hr>
 
-- __special_treament__
+- __special_treatment__
   - Type: string
   - Description: If there are any other specific methods, procedures, characteristics or aspects related to the tubular flow/continuous reactor or its preparation for the reaction that are important for reproducibility     and are not described by the aforementioned metadata, they should be explained here.
 
@@ -236,7 +236,7 @@ Shaking is an essential method for ensuring uniform mixing and, consequently, re
 
 <hr>
 
-- __special_treament__
+- __special_treatment__
   - Type: string
   - Description: If there are any other specific methods, procedures, characteristics or aspects related to the shaking that are important for reproducibility and are not described by the aforementioned metadata, they      should be explained here.
 
@@ -302,7 +302,7 @@ When utilizing mechanically impelled mixing in enzymatic reactions, it is essent
 
 <hr>
 
-- __special_treament__
+- __special_treatment__
   - Type: string
   - Description: If there are any other specific methods, procedures, characteristics or aspects related to the mechanically impelled mixing (stirring) that are important for reproducibility and are not described by        the aforementioned metadata, they hould be explained here.
 
@@ -345,7 +345,7 @@ Detailed information about the mixing method used, whether it involves liquid or
 
 <hr>
 
-- __special_treament__
+- __special_treatment__
   - Type: string
   - Description: If there are any other specific methods, procedures, characteristics or aspects related to the liquid or gas impelled mixing that are important for reproducibility and are not described by the              aforementioned metadata, they hould be explained here.
 
