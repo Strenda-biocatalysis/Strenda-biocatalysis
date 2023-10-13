@@ -186,7 +186,7 @@ When conducting enzymatic reactions in tubular flow or continuous reactors, it i
 
 - __localisation_of_the_catalyst__
   - Type: string
-  - Description: Specify the exact location of the catalyst in the tubular flow/continuous reactor.
+  - Description: Specify the exact location of the catalyst in the tubular flow/continuous reactor. The biocatalyst is typically present in the liquid phase or immobilized on a support matrix (such as particles or          membranes).
 
 <hr>
 
