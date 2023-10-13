@@ -216,7 +216,7 @@ Shaking is an essential method for ensuring uniform mixing and, consequently, re
 
 - __deflection__
   - Type: posfloat
-  - Description: Information about the extent of deflection of the horizontal shaking system.
+  - Description: Information about the extent of deflection or bending of the agitator from its original position of the horizontal shaking system.
 
 - __deflection_unit__
   - Type: string
@@ -271,6 +271,14 @@ When utilizing mechanically impelled mixing in enzymatic reactions, it is essent
 - __number_of_stirrer_blades__
   - Type: posfloat
   - Description: The number of blades on each stirrer.
+
+- __stirrer_blade_size__
+  - Type: posfloat
+  - Description: The size of the impeller blades in a stirred tank reactor.
+
+- __stirrer_blade_size_unit__
+  - Type: string
+  - Description: In the case of impellers in a stirred tank reactor, the diameter of the impeller blades is typically specified. This diameter can be measured in millimeters (mm) or centimeters (cm).
 
 - __stirrer_geometry__
   - Type: string
