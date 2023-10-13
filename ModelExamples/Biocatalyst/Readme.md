@@ -325,7 +325,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
  
 - __carrier_material__
   - Type: string
-  - Despription: If you a support material was used, the name of the support material must be specified. This could be e.g. a gel, a membrane or a particle. (__if_applicable__)
+  - Despription: If a support material was used, the name of the support material must be specified. This could be e.g. a gel, a membrane or a particle. (__if_applicable__)
 
 <hr>
 
