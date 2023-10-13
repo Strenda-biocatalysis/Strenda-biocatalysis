@@ -304,7 +304,7 @@ When utilizing mechanically impelled mixing in enzymatic reactions, it is essent
 
 - __special_treatment__
   - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the mechanically impelled mixing (stirring) that are important for reproducibility and are not described by        the aforementioned metadata, they hould be explained here.
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the mechanically impelled mixing (stirring) that are important for reproducibility and are not described by        the aforementioned metadata, they should be explained here.
 
 
   </details>
@@ -347,7 +347,7 @@ Detailed information about the mixing method used, whether it involves liquid or
 
 - __special_treatment__
   - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the liquid or gas impelled mixing that are important for reproducibility and are not described by the              aforementioned metadata, they hould be explained here.
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the liquid or gas impelled mixing that are important for reproducibility and are not described by the              aforementioned metadata, they should be explained here.
 
 </details>
 
