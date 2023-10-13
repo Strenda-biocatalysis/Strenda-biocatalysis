@@ -138,7 +138,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
  
 - __concentration_unit__
   - Type: string
-  - Description: The concentration of the biocatalyst is typically expressed in M (Molar), mmol/L (millimoles per liter), or µmol/L (micromoles per liter).
+  - Description: The concentration of the biocatalyst is typically expressed in g/L (grams per liter).
 
 - __concentration_determination_method__
   - Type: string
@@ -182,7 +182,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
  
 - __concentration_unit__
   - Type: string
-  - Description: The concentration of the biocatalyst is typically expressed in M (Molar), mmol/L (millimoles per liter), or µmol/L (micromoles per liter).
+  - Description: The concentration of the biocatalyst is typically expressed in g/L (grams per liter).
 
 - __concentration_determination_method__
   - Type: string
@@ -242,7 +242,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
  
 - __concentration_unit__
   - Type: string
-  - Description: The concentration of the biocatalyst is typically expressed in M (Molar), mmol/L (millimoles per liter), or µmol/L (micromoles per liter).
+  - Description: The concentration of the biocatalyst is typically expressed in g/L (grams per liter).
 
 - __concentration_determination_method__
   - Type: string
@@ -270,7 +270,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
  
 - __concentration_unit__
   - Type: string
-  - Description: The concentration of the biocatalyst is typically expressed in M (Molar), mmol/L (millimoles per liter), or µmol/L (micromoles per liter).
+  - Description: The concentration of the biocatalyst is typically expressed in g/L (grams per liter).
 
 - __concentration_determination_method__
   - Type: string
