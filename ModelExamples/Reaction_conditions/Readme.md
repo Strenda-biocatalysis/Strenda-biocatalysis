@@ -592,7 +592,7 @@ Information about the pH value in the system, if the pH is constant over the cou
 
 <details> <Summary>Dynamic pH</Summary>
 
-### DynmaicpH
+### DynamicpH
 
 If there is a pH gradient or different pHs are measured in the system, these must be described as well as possible.
 
