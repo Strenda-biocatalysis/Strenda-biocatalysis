@@ -26,6 +26,10 @@ To describe a monoliquid system, precise information about the solvent used and 
 - __ionic_strength__
   - Type: posfloat
   - Description: Ionic strength calculated according to the dissolved ions in the solvent. (__if_applicable__)
+
+- __ionic_strength_unit__
+  - Type: string
+  - Description: The unit of ionic strength is usually expressed in mol/L (moles per liter), or in mmol/L (millimoles per liter). 
  
 - __further_additives__
   - Type: string
