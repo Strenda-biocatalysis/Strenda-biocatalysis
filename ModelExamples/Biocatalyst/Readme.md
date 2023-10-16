@@ -144,7 +144,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
   - Type: string
   - Description: It is important to specify the type of concentration determination. Various methods for determining the concentration of enzymes can be distinguished, including the Bradford method, Lowry method, UV        absorption, activity assays, ELISA, etc.
 
-- __activity__:
+- __activity__
   - Type: float
   - Description: The activity of the biocatalyst can be expressed either as volumetric activity, which considers the total activity of the enzyme in the solution, or as specific activity, which takes into account the       enzyme's purity and indicates the activity of an enzyme per unit of enzyme protein or enzyme mass.
 
