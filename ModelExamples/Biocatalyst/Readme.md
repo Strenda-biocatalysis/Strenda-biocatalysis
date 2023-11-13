@@ -28,9 +28,13 @@ Important information for characterizing the biocatalyst and determining its ori
   - Type: string
   - Description: The chemical reaction catalyzed by the biocatalyst.
 
-- __sequence__
+- __sequence_amino_acid__
   - Type: string
   - Description: The amino acid sequence of the biocatalyst.
+ 
+- __sequence_DNA__
+  - Type: string
+  - Description: The DNA sequence of the biocatalyst.
 
 - __origin_organism__
   - Type: string
@@ -80,9 +84,13 @@ Important information to characterize the biocatalyst and to describe it clearly
   - Type: string
   - Description: The chemical reaction catalyzed by the biocatalyst.
 
-- __sequence__
+- __sequence_amino_acid__
   - Type: string
   - Description: The amino acid sequence of the biocatalyst.
+ 
+- __sequence_DNA__
+  - Type: string
+  - Description: The DNA sequence of the biocatalyst.
 
 - __origin_organism__
   - Type: string
