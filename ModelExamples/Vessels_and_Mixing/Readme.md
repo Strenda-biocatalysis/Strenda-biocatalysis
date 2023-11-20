@@ -1,5 +1,7 @@
 [Landing Page](/Readme.md)
 
+<div align="justify">
+
 # Vessels and mixing
 
 To ensure the reproducibility and accuracy of research results, detailed information about the vessel or reaction container used in experiments is essential. The description and precise specification of this vessel are of importance, as it significantly influences the course and outcome of enzymatic reactions.
@@ -359,3 +361,5 @@ Detailed information about the mixing method used, whether it involves liquid or
 </details>
 
 <hr>
+
+</div>
