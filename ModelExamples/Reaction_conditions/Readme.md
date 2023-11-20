@@ -1,5 +1,7 @@
 [Landing Page](/Readme.md)
 
+<div align="justify">
+
 # Reaction conditions
 
 The reaction conditions constitute a highly complex and extensive category. Reactions can be performed in aqueous reaction solutions, organic solvents, micro aqueous reaction solutions, gassed reaction solutions and many more. The Reaction conditions can be divided into two fundamental main categories: __monoliquid and multiphase systems__.
@@ -673,3 +675,5 @@ If there is a pH gradient or different pHs are measured in the system, these mus
 </details>
 
 <hr>
+
+</div>
