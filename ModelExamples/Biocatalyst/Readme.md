@@ -1,5 +1,7 @@
 [Landing Page](/Readme.md)
 
+<div align="justify">
+
 # Biocatalyst
 
 This category contains all information required to unambiguously identify the catalyst, its formulation and storage. 
@@ -391,3 +393,7 @@ Describing the biocatalyst involves specifying its storage conditions before use
 ### Literature
 
 [1] B. Ansorge-Schumacher, M. (2018). Enzymimmobilisierung. In: Jaeger, KE., Liese, A., Syldatk, C. (eds) Einführung in die Enzymtechnologie. Springer Spektrum, Berlin, Heidelberg. https://doi.org/10.1007/978-3-662-57619-9_11
+
+
+</div>
+
