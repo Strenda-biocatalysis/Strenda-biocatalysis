@@ -4,7 +4,7 @@
 
 # Operation Mode
 
-It is crucial to determine the selected operation mode for an experiment.
+The careful selection of the appropriate operation mode at the beginning of experiment planning is crucial, as it significantly influences reaction conditions, reaction kinetics, and ultimately, product quality. Considering parameters such as substrate concentrations, reaction times, and temperature within the relevant mode allows for optimal reaction control, directly impacting the efficiency and purity of the final product. Furthermore, choosing a scalable mode not only facilitates potential upscaling of the reaction but also streamlines resource management, contributing to overall process efficiency.
 
 <img src="https://github.com/StephanM87/Strenda-biocatalysis/assets/106530250/289e4fb8-6ce2-43a7-a10f-4224258f6c06" width="550">
 
