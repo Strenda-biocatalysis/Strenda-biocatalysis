@@ -1,5 +1,7 @@
 [Landing Page](/Readme.md)
 
+<div align="justify">
+
 # Sampling
 
 The categorisation of sampling into the two main categories, __default sampling__ and __specialised sampling__, enables the capture and documentation of either standard sampling information and/or specialised sampling data, depending on specific needs.
@@ -90,3 +92,4 @@ Sample preprocessing involves the necessary steps taken to prepare and treat col
 
 <hr>
 
+</div>
