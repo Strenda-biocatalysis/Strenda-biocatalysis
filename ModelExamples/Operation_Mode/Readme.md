@@ -1,5 +1,7 @@
 [Landing Page](/Readme.md)
 
+<div align="justify">
+
 # Operation Mode
 
 It is crucial to determine the selected operation mode for an experiment.
@@ -45,4 +47,4 @@ A combinatorial mode does not clearly fit into any of the aforementioned subcate
 ---
 
 
-
+</div>
