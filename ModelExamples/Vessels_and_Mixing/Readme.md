@@ -4,8 +4,7 @@
 
 To ensure the reproducibility and accuracy of research results, detailed information about the vessel or reaction container used in experiments is essential. The description and precise specification of this vessel are of importance, as it significantly influences the course and outcome of enzymatic reactions.
 
-<img src="https://github.com/StephanM87/Strenda-biocatalysis/assets/106530250/22e34b2c-6a86-4246-8854-f4d517797824" width="450">
-
+<img src="https://github.com/StephanM87/Strenda-biocatalysis/assets/106530250/0d057a4e-5eaf-4e0b-9164-541b0855cddd" width="500">
 
 ## Vessel definition
 
