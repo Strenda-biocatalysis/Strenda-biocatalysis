@@ -12,7 +12,7 @@ The careful selection of the appropriate operation mode at the beginning of expe
 
 ### Batch
 
-In a batch operation, the entire process occurs in a single closed vessel or batch reactor. All reactants are loaded at the beginning, and the reaction progresses without the addition of additional reactants or removal of products during the course of the reaction.
+The batch operation mode represents a fundamental approach in biocatalysis, where all reaction components are mixed simultaneously within a closed system, and the reaction proceeds until a predetermined endpoint is reached. This mode is easy to control and well-suited for producing small batches of products.
 
 - __reactor_type__
     - Type: string
@@ -21,7 +21,7 @@ In a batch operation, the entire process occurs in a single closed vessel or bat
 
 ### Fed-Batch
 
-In this mode, reactants are added incrementally during the reaction.
+In the fed-batch operation mode, additional substances or reagents are gradually introduced during the reaction to control reaction conditions or enhance product formation. This mode allows better control of the reaction progress and can increase productivity.
 
 - __reactor_type__
     - Type: string
@@ -30,7 +30,7 @@ In this mode, reactants are added incrementally during the reaction.
 
 ### Continuous
 
-In continuous operation, reactants are continuously fed into the reactor, and products are simultaneously removed from it.
+In the continuous operation mode, the reaction operates continuously with substrates continuously supplied and products continuously removed. This mode enables uniform product formation and is particularly suitable for large-scale production.
 
 - __reactor_type__
     - Type: string
