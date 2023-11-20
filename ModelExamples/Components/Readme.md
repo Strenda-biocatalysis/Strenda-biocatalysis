@@ -1,5 +1,7 @@
 [Landing Page](/Readme.md)
 
+<div align="justify">
+
 # Components
 
 __Each additive__ of a reaction must be defined like substrate, cosubstrate, coenzyme, salts, ions, etc. The [biocatalyst](https://github.com/StephanM87/Strenda-biocatalysis/blob/main/ModelExamples/Biocatalyst/Readme.md) and comprehensive description of the [various states or conditions](https://github.com/StephanM87/Strenda-biocatalysis/tree/main/ModelExamples/Reaction_conditions) during the reaction are not included among the listed reaction components.
@@ -81,3 +83,5 @@ Describing the components in the reaction mixture involve specifying their stora
   - Description: If there are any other specific characteristics or aspects related to the reactant that are important for reproducibility and are not described by the aforementioned metadata, they should be explained       here.
 
  <hr>
+
+</div>
