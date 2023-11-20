@@ -4,8 +4,7 @@
 
 __Each additive__ of a reaction must be defined like substrate, cosubstrate, coenzyme, salts, ions, etc. The [biocatalyst](https://github.com/StephanM87/Strenda-biocatalysis/blob/main/ModelExamples/Biocatalyst/Readme.md) and comprehensive description of the [various states or conditions](https://github.com/StephanM87/Strenda-biocatalysis/tree/main/ModelExamples/Reaction_conditions) during the reaction are not included among the listed reaction components.
 
-<img src="https://github.com/StephanM87/Strenda-biocatalysis/assets/106530250/516ebcfd-5610-4660-8a0c-8cb3d1405c9b" width="375" >
-
+<img src="https://github.com/StephanM87/Strenda-biocatalysis/assets/106530250/455dfa24-9597-48f3-b2b0-e70841c9a67a" width="600">
 
 ### Components
 
