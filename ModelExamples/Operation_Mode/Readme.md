@@ -4,7 +4,7 @@
 
 It is crucial to determine the selected operation mode for an experiment.
 
-<img src="https://github.com/StephanM87/Strenda-biocatalysis/assets/106530250/14c7accd-3ae6-4ade-9515-e7ed16c38ac7" width="550">
+<img src="https://github.com/StephanM87/Strenda-biocatalysis/assets/106530250/289e4fb8-6ce2-43a7-a10f-4224258f6c06" width="550">
 
 <hr>
 
