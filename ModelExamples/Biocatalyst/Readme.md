@@ -20,7 +20,7 @@ Important information for characterizing the biocatalyst and determining its ori
 
 - __name__
   - Type: string
-  - Description: The name of the biocatalyst can be either generic based on its function and the type of reaction it catalyzes, for example, 'Lipase' or more specific by describing the genus and species, such as            'Bacillus amyloliquefaciens alpha-amylase'.
+  - Description: The name of the biocatalyst can be either generic based on its function and the type of reaction it catalyzes, for example, 'Lipase' or more specific by describing the genus and species, such as            '_Bacillus amyloliquefaciens_ alpha-amylase'.
 
 - __ecnumber__
   - Type: string
@@ -44,7 +44,7 @@ Important information for characterizing the biocatalyst and determining its ori
 
 - __supplier__
   - Type: string
-  - Description: Information about the supplier from which the enzyme was purchased.
+  - Description: Information about the supplier from which the enzyme was purchased. If possible, a reference for the purchased biocatalyst should also be provided so that identical batches of the same enzyme can be        reordered.
 
 - __production_organism__
   - Type: string
@@ -156,7 +156,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 
 - __activity__
   - Type: float
-  - Description: The activity of the biocatalyst can be expressed either as volumetric activity, which considers the total activity of the enzyme in the solution, or as specific activity, which takes into account the       enzyme's purity and indicates the activity of an enzyme per unit of enzyme protein or enzyme mass.
+  - Description: The activity of the biocatalyst can be expressed either as volumetric activity, which considers the total activity of the enzyme in the solution, or as specific activity, which takes into account the       enzyme's purity and indicates the activity of an enzyme per unit of enzyme protein or enzyme mass. If the biocatalyst has been purchased, it is advisable to look up more precise information (e.g. via an SOP)            regarding the activities specified by the manufacturer, as these may differ from the values determined by yourself. In addition, the loss of activity of the biocatalyst over the storage period should be taken into      account.
 
 - __activity_unit__
   - Type: string
