@@ -76,7 +76,7 @@ Important information to characterize the biocatalyst and to describe it clearly
 
 - __name__
   - Type: string
-  - Description: The name of the biocatalyst can be either generic based on its function and the type of reaction it catalyzes, for example, 'Lipase' or more specific by describing the genus and species, such as           'Bacillus amyloliquefaciens alpha-amylase'.
+  - Description: The name of the biocatalyst can be either generic based on its function and the type of reaction it catalyzes, for example, 'Lipase' or more specific by describing the genus and species, such as           '_Bacillus amyloliquefaciens_ alpha-amylase'.
 
 - __ecnumber__
   - Type: string
