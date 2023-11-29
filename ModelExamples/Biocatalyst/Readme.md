@@ -93,6 +93,14 @@ Important information to characterize the biocatalyst and to describe it clearly
 - __sequence_DNA__
   - Type: string
   - Description: The DNA sequence of the biocatalyst.
+ 
+- __sequence_plasmid__
+  - Type: string
+  - Description: The DNA sequence of the plasmid used to produce the biocatalyst. The sequence can be provided in plain text or as a database ID.
+ 
+- __plasmid_specifications__
+  - Type: string
+  - Description: All DNA sequence changes (e.g. codon optimization for _E. coli_, insertion of affinity tags, sequence truncation, etc.) should be provided.
 
 - __origin_organism__
   - Type: string
