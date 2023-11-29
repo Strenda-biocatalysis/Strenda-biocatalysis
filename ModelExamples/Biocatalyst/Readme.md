@@ -192,7 +192,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 
 - __cell_disruption_process__
   - Type: string
-  - Description: Cell disruption methods include various techniques such as mechanical disruption (e.g., ultrasound), chemical disruption (e.g., detergents), thermal disruption, etc.
+  - Description: Cell disruption processes and methods include various techniques such as mechanical disruption (e.g., grinding, homogenization, ultrasonication), chemical disruption (e.g., detergents, enzymes),            physical techniques (e.g., electroporation, high-pressure homogenization, thermal treatment) to break cell walls and release cell contents.
 
 - __concentration__
   - Type: posfloat
