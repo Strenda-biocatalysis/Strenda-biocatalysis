@@ -29,7 +29,7 @@ Information about the sampling process, used during the experiment. In some expe
 
 - __mixing_during_sampling__
   - Type: string 
-  - Description: Provide information about whether the sample was mixed during sampling, as this can affect the representativeness of the collected sample.
+  - Description: Provide information about whether the reaction was mixed during sampling, as this can affect the representativeness of the collected sample.
 
 - __vessel_opened_for_sampling__
   - Type: string
@@ -78,9 +78,17 @@ If the sampling procedure is more complex than just the plain procedure of takin
 
 Sample preprocessing involves the necessary steps taken to prepare and treat collected samples before analysis or further experimentation.
 
+- __quenching_method__
+  - Type: String
+  - Description: Techniques or methods used to halt the reaction, including the chemicals or procedures employed (e.g., heat treatment). Accurate documentation of quenching methods in enzymatic reactions is vital as        these methods can significantly impact subsequent analytical procedures. For instance, opting for an organic solvent as a quenching reagent can notably enhance the solubility of substrates or products, directly         influencing downstream analyses.
+ 
+- __quenching_ratio__
+  - Type: String
+  - Description: Information about the precise ratio or volume of the quenching solution in relation to the reaction mixture. (__if_applicable__)
+
 - __treatment_procedure__
   - Type: string
-  - Description: Details regarding the sample processing steps that were carried out after it was collected from the reaction vessel.
+  - Description: Any further details regarding the sample processing steps that were carried out after it was collected from the reaction vessel (e.g., filtering samples). 
 
 <hr>
 
