@@ -44,6 +44,14 @@ Each component present in the planned reaction must be defined.
   - Type: string
   - Description: The formulation encompass the nature of the reactant, whether it is in powder, liquid, gaseous form, or any other form, as well as the specific conditions under which it is presented.
 
+- __solubility_limit__
+  - Type: posfloat
+  - Description: This limit represents the maximum concentration of a substrate, which might include gases, that can dissolve in a solution or gas phase. (__if_applicable__)
+ 
+- __solubility_limit_unit__
+  - Type: string
+  - Description: The solubility limit of the substrate can be expressed in various units, including M (moles per liter), g/L (grams per liter), % (percentage concentration), or particles per volume, depending on the         type of substrate and the solvent used. (__if_applicable__)
+
 <hr>
 
 # Storage conditions
