@@ -34,7 +34,7 @@ Each component present in the planned reaction must be defined.
 
 - __supplier__
   - Type: string
-  - Description: Information about the source of the compound, usually a commercial supplier with perhaps product code, but could be preparation in a research lab.
+  - Description: Information about the source of the compound, usually a commercial supplier with perhaps product code, but could be preparation in a research lab. Should the component have been synthesized internally,      please include a literature reference detailing its synthesis.
 
 - __purity__
   - Type: float
