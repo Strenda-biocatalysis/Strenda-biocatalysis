@@ -338,7 +338,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 ### ImmobilisationProcedure
 
 - __immobilisation_chemistry__
-  - Type: String
+  - Type: string
   - Description: This aspect denotes the specific chemical methods or techniques used to attach the enzymes onto the chosen base material. Different immobilization chemistries involve various covalent or non-covalent       bonding strategies, including crosslinking, adsorption, covalent bonding, encapsulation, or entrapment.
 
 - __carrier_material__
@@ -346,7 +346,7 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
   - Despription: If a support, base or carrier material was used, the name of the material must be specified. This could be e.g. a gel, a membrane or a particle. (__if_applicable__)
 
 - __linkers__
-  - Type: String
+  - Type: string
   - Description:Linkers are chemical compounds used to establish a connection or bridge between the enzymes and the carrier material. These linkers play a vital role in stabilizing the immobilized enzymes and can           influence the efficiency and functionality of the immobilization process. They facilitate binding between the enzymes and the carrier material, promoting a stable and active biocatalyst structure. Common and            widespread linkers are spacer molecules, crosslinkers, avidin-biotin or silane coupling agents. (__if_applicable__)
 
 - __immobilisation_method__
