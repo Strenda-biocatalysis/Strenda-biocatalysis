@@ -10,7 +10,7 @@ To ensure the reproducibility and accuracy of research results, detailed informa
 
 ## Vessel definition
 
-The following section requests detailed descriptions of the reaction vessels used in the experiment.
+The following section requests detailed descriptions of the reaction vessels used in the experiment. Depending on the reactor type or reaction vessel, it's crucial to consider and document significant differences in how enzymes are utilized, whether in an immobilized (for instance, in a packed-bed or fluidized bed reactor) or soluble (within the liquid phase) state. This distinction can affect the conduct of reactions, mixing methodologies, reaction kinetics, and various essential parameters crucial for accurately describing and documenting the biocatalytic reaction. More information about the application of the biocatalyst can be found in the category [Biocatalyst](https://github.com/StephanM87/Strenda-biocatalysis/blob/main/ModelExamples/Biocatalyst/Readme.md).
 
 <details> <Summary>Vial</Summary>
 
@@ -213,7 +213,7 @@ Shaking is an essential method for ensuring uniform mixing and, consequently, re
 
 - __shaking_type__
   - Type: string
-  - Description: The type of shaking used to mix the reaction could be e.g. horizontal or vertical shaking.
+  - Description: The type of shaking used to mix the reaction could be e.g. horizontal, vertical, back-and-forth or circulatory.
 
 - __deflection__
   - Type: posfloat
@@ -251,7 +251,7 @@ When utilizing mechanically impelled mixing in enzymatic reactions, it is essent
 
 - __stirring_type__
   - Type: string
-  - Description: There are several types of stirring methods used in laboratory and industrial settings, including magnetic stirring, mechanical stirring, overhead stirring and other methods.
+  - Description: There are several types of stirring methods used in laboratory and industrial settings, including magnetic stirring (from vessel bottom), mechanical stirring, overhead stirring and other methods.
 
 - __number_of_stirrers__
   - Type: posfloat
@@ -308,6 +308,18 @@ When utilizing mechanically impelled mixing in enzymatic reactions, it is essent
 - __power_per_volume_unit__
   - Type: string
   - Description: The units commonly used for expressing the stirring power are W/L (watts per liter) or kW/m³ (kilowatts per cubic meter).
+
+- __stir_bar_size__
+  - Type: posfloat
+  - Decription: The length, diameter, or volume of the stir bar used in the experiment. Different sizes of stir bars can affect the efficiency of mixing based on the volume of the reaction mixture and the vessel size.
+ 
+- __stir_bar_size_unit__
+  - Type: posfloat
+  - Decription: The size of a stir bar can be expressed in various units such as length in cm (centimeters), mm (millimeters), m (meters), in (inches), or ft (feet); diameter in mm (millimeters), cm (centimeters), or μm (micrometers); and cm³ (volume in cubic centimeters) or mL (milliliters). The choice of unit depends on the specific dimensions being measured to describe the stir bar's size accurately within experiments.
+ 
+- __stir_bar_shape__
+  - Type: string
+  - Description: The shape or configuration of the stir bar, whether it's cylindrical, octagonal, oval, or another shape. Different shapes can interact with the reaction mixture differently, influencing mixing patterns and efficiency.
 
 <hr>
 
