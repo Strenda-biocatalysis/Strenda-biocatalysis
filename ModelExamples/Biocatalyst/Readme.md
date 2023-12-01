@@ -337,13 +337,21 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 
 ### ImmobilisationProcedure
 
-- __immobilisation_method__
-  - Type: string
-  - Description: Method for immobilising the enzyme. Common methods are e.g. adsorption, embedding in matrices, crosslinking, coimmobilization with carrier materials, etc. For a comprehensive report of the technical        key data of the immobilization process or method, there is literature for further information, e.g. [Ansorge-Schuhmacher _et_ _al._<sup>1</sup>](https://doi.org/10.1007/978-3-662-57619-9_11) 
- 
+- __immobilisation_chemistry__
+  - Type: String
+  - Description: This aspect denotes the specific chemical methods or techniques used to attach the enzymes onto the chosen base material. Different immobilization chemistries involve various covalent or non-covalent       bonding strategies, including crosslinking, adsorption, covalent bonding, encapsulation, or entrapment.
+
 - __carrier_material__
   - Type: string
-  - Despription: If a support material was used, the name of the support material must be specified. This could be e.g. a gel, a membrane or a particle. (__if_applicable__)
+  - Despription: If a support, base or carrier material was used, the name of the material must be specified. This could be e.g. a gel, a membrane or a particle. (__if_applicable__)
+
+- __linkers__
+  - Type: String
+  - Description:Linkers are chemical compounds used to establish a connection or bridge between the enzymes and the carrier material. These linkers play a vital role in stabilizing the immobilized enzymes and can           influence the efficiency and functionality of the immobilization process. They facilitate binding between the enzymes and the carrier material, promoting a stable and active biocatalyst structure. Common and            widespread linkers are spacer molecules, crosslinkers, avidin-biotin or silane coupling agents. (__if_applicable__)
+
+- __immobilisation_method__
+  - Type: string
+  - Description: Further details regarding the immobilisation method of the enzyme. For a comprehensive report of the technical key data of the immobilization process or method, there is literature for further              information, e.g. [Ansorge-Schuhmacher _et_ _al._<sup>1</sup>](https://doi.org/10.1007/978-3-662-57619-9_11) 
 
 <hr>
 
