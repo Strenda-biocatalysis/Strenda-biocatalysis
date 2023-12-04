@@ -4,9 +4,10 @@
 
 # Operation Mode
 
-The careful selection of the appropriate operation mode at the beginning of experiment planning is crucial, as it significantly influences reaction conditions, reaction kinetics, and ultimately, product quality. Considering parameters such as substrate concentrations, reaction times, and temperature within the relevant mode allows for optimal reaction control, directly impacting the efficiency and purity of the final product. Furthermore, choosing a scalable mode not only facilitates potential upscaling of the reaction but also streamlines resource management, contributing to overall process efficiency.
+The careful selection of the appropriate operation mode at the beginning of the experimental planning is crucial, as it significantly influences reaction conditions, reaction kinetics, and ultimately, product quality. Considering parameters such as substrate concentration, reaction time, and temperature within the respective mode allows for optimal reaction control, directly impacting the process efficiency and purity of the final product. Furthermore, choosing a scalable mode not only facilitates potential upscaling of the reaction but also streamlines resource management, contributing to overall process efficiency.
 
-<img src="https://github.com/StephanM87/Strenda-biocatalysis/assets/106530250/9bb7fab2-8778-4a34-9843-1bc1c194de3a" width="550">
+<img src="https://github.com/StephanM87/Strenda-biocatalysis/assets/106530250/4cd798dc-7ee3-4600-b163-3159cea5c2f7" width="550">
+
 
 <hr>
 
@@ -21,7 +22,7 @@ The batch operation mode represents a fundamental approach in biocatalysis, wher
 
 ### Fed-Batch
 
-In the fed-batch operation mode, additional substances or reagents are gradually introduced during the reaction to control reaction conditions or enhance product formation. This mode allows better control of the reaction progress and can increase productivity.
+In the fed-batch operation mode, additional compounds (e.g., substrates, acid/base for pH regulation, etc.) are gradually added during the reaction to control reaction conditions or enhance product formation. This mode allows for better control of the reaction progress and can increase productivity.
 
 - __reactor_type__
     - Type: string
@@ -39,7 +40,7 @@ In the continuous operation mode, the reaction operates continuously with substr
 
 ### CombinatorialMode
 
-A combinatorial mode does not clearly fit into any of the aforementioned subcategories and thus represents a blend of operation modes.
+A combinatorial mode does not clearly fit into any of the aforementioned subcategories and thus represents a mixture of operation modes. This kind of experiment design could be used to systematically explore various reaction conditions or components in a combined manner. This approach allows the exploration of multiple options, such as varying substrate concentrations, catalysts, or reaction conditions. The goal is to identify the optimal conditions or combinations that most efficiently facilitate desired reactions in biocatalysis.
 
 - __reactor_type__
     - Type: string
