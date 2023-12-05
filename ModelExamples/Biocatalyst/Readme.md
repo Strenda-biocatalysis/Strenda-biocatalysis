@@ -6,45 +6,45 @@
 
 This category contains all information required to unambiguously identify the catalyst, its formulation and storage. 
 
-<img src="https://github.com/StephanM87/Strenda-biocatalysis/assets/106530250/47b53655-0c1c-4518-abc7-c2b8c550f55c" width="500">
+<img src="https://github.com/StephanM87/Strenda-biocatalysis/assets/106530250/e67dc4e3-ff1c-485a-9996-281122af2a88" width="500">
 
 ## Source of the biocatalyst
 
-It's important to determine whether the enzyme or biocatalyst was purchased from a company or self-produced. Different information is needed in each case to describe accurately the enzyme used.
+It is important to specify whether the biocatalyst or enzyme was purchased from a company or self-produced. Different information is needed in each case to describe accurately the enzyme used.
 
 <details> <Summary>Biocatalyst purchased</Summary>
 
 ### BiocatalystPurchased
 
-Important information for characterizing the biocatalyst and determining its origin.
+Important information to characterize the biocatalyst and determine its origin.
 
 - __name__
   - Type: string
-  - Description: The name of the biocatalyst can be either generic based on its function and the type of reaction it catalyzes, for example, 'Lipase' or more specific by describing the genus and species, such as            '_Bacillus amyloliquefaciens_ alpha-amylase'.
+  - Description: The name of the biocatalyst can be either generic based on the catalyzed reaction, for example, 'lipase' or more specifically by describing the genus and species, such as '_Bacillus amyloliquefaciens_ alpha-amylase'.
 
-- __ecnumber__
+- __ec_number__
   - Type: string
   - Description: Numerical classification system that categorizes enzymes based on their biochemical function and reaction mechanism, such as EC 3.1.4.12.
 
-- __chemical_reaction__
+- __catalyzed_reaction__
   - Type: string
-  - Description: The chemical reaction catalyzed by the biocatalyst.
+  - Description: The reaction catalyzed by the biocatalyst.
 
 - __sequence_amino_acid__
   - Type: string
-  - Description: The amino acid sequence of the biocatalyst.
+  - Description: The amino acid sequence of the biocatalyst. The amino acid sequence can be represented in either a three-letter or one-letter code. For instance, "Ala-Ser-Gly" corresponds to the three-letter code, while "ASG" represents the same sequence in the one-letter code. One of the databases commonly used for storing and retrieving amino acid sequences is the UniProt database (https://www.uniprot.org/). UniProt provides extensive information on protein sequences, including their one-letter and three-letter amino acid codes, allowing researchers to access and analyze various protein sequences.
  
 - __sequence_DNA__
   - Type: string
-  - Description: The DNA sequence of the biocatalyst.
+  - Description: The DNA sequence of the biocatalyst including any tags and linkers.
 
 - __origin_organism__
   - Type: string
-  - Description: The specific species or source from which the enzyme is derived or isolated. It includes information about the genus and species of the organism. However, the cell type from which the biocatalyst is        derived could be bacterial, as well as plant, animal, or other sources.
+  - Description: The specific species or source from which the enzyme is derived or isolated. It includes information about the genus and species of the organism. However, the cell type from which the biocatalyst is        derived could be bacterial, as well as plant, animal, or other sources. (__if_applicable__)
 
 - __supplier__
   - Type: string
-  - Description: Information about the supplier from which the enzyme was purchased. If possible, a reference for the purchased biocatalyst should also be provided so that identical batches of the same enzyme can be        reordered.
+  - Description: Information about the supplier from which the enzyme was purchased. If possible, a reference for the purchased biocatalyst should also be provided.
 
 - __production_organism__
   - Type: string
@@ -52,19 +52,19 @@ Important information for characterizing the biocatalyst and determining its ori
 
 - __posttranslational_modification__
   - Type: string
-  - Description: Information about any chemical modifications or alterations that occur to the biocatalyst's protein structure after translation. This may include: Phosphorylation, glycosylation, acetylation,               methylation, ubiquitination and other modifications.
+  - Description: Information about any chemical modifications or alterations that occur to the biocatalyst's protein structure after translation, such as phosphorylation, glycosylation, acetylation,               methylation, ubiquitination and other modifications.
 
 - __purity__
   - Type: float
-  - Description: Purity of enzymes typically expressed in percentage (%). It is usually stated as the percentage of the pure enzyme or active component relative to the total amount of the substance.
+  - Description: Purity of enzymes typically expressed in percentage (%). It is usually stated as the percentage of the pure enzyme or active component relative to the total mass of the enzyme preparation.
 
 - __purity_specification__
   - Type: string
-  - Description: Description of how the purity of the biocatalyst was determined. In case of purchased enzymes, this information is often available in the product specification sheet.
+  - Description: Description of how the purity of the biocatalyst was determined. In case of purchased enzymes, this information is often available from the product specification sheet.
 
 - __formulation__
   - Type: string
-  - Description: Depending on the formulation, the biocatalyst may be in a liquid form within a solvent or as a solid powder. It defines the physical state in which the biocatalyst is used. Additional information           regarding the application or formulation in the experiment should be entered in the next subcategory.
+  - Description: Depending on the formulation, the biocatalyst can exist either in a dissolved state within a solvent or as a solid powder. It defines the physical state in which the biocatalyst is used. Additional information regarding the application or formulation in the experiment should be entered in the next subcategory.
 
 </details>
 
@@ -76,23 +76,24 @@ Important information to characterize the biocatalyst and to describe it clearly
 
 - __name__
   - Type: string
-  - Description: The name of the biocatalyst can be either generic based on its function and the type of reaction it catalyzes, for example, 'Lipase' or more specific by describing the genus and species, such as           '_Bacillus amyloliquefaciens_ alpha-amylase'.
+  - Description: The name of the biocatalyst can be either generic based on the catalyzed reaction, for example, 'lipase' or more specifically by describing the genus and species, such as '_Bacillus amyloliquefaciens_ alpha-amylase'.
 
-- __ecnumber__
+
+- __ec_number__
   - Type: string
   - Description: Numerical classification system that categorizes enzymes based on their biochemical function and reaction mechanism, such as EC 3.1.4.12.
 
-- __chemical_reaction__
+- __catalyzed_reaction__
   - Type: string
-  - Description: The chemical reaction catalyzed by the biocatalyst.
+  - Description: The reaction catalyzed by the biocatalyst.
 
 - __sequence_amino_acid__
   - Type: string
-  - Description: The amino acid sequence of the biocatalyst.
+  - Description: The amino acid sequence of the biocatalyst. The amino acid sequence can be represented in either a three-letter or one-letter code. For instance, "Ala-Ser-Gly" corresponds to the three-letter code, while "ASG" represents the same sequence in the one-letter code. One of the databases commonly used for storing and retrieving amino acid sequences is the UniProt database (https://www.uniprot.org/). UniProt provides extensive information on protein sequences, including their one-letter and three-letter amino acid codes, allowing researchers to access and analyze various protein sequences.
  
 - __sequence_DNA__
   - Type: string
-  - Description: The DNA sequence of the biocatalyst.
+  - Description: The DNA sequence of the biocatalyst including any tags and linkers.
  
 - __sequence_plasmid__
   - Type: string
@@ -104,19 +105,19 @@ Important information to characterize the biocatalyst and to describe it clearly
 
 - __origin_organism__
   - Type: string
-  - Description: The specific species or source from which the enzyme is derived or isolated. It includes information about the genus and species of the organism.
+  - Description: The specific species or source from which the enzyme is derived or isolated. It includes information about the genus and species of the organism. (__if_applicable__)
 
 - __production_organism__
   - Type: string
-  - Description: Information about the organism in which the biocatalyst was produced is crucial in the context of heterologous gene expression.
+  - Description: Information about the organism in which the biocatalyst was produced is crucial in the context of heterologous gene expression. If the production strain was purchased, more detailed information on the manufacturer and the organism should be provided. 
 
 - __posttranslational_modification__
   - Type: string
-  - Description: Information about any chemical modifications or alterations that occur to the biocatalyst's protein structure after translation. This may include: Phosphorylation, glycosylation, acetylation,               methylation, ubiquitination and other modifications.
+  - Description: Information about any chemical modifications or alterations that occur to the biocatalyst's protein structure after translation, such as phosphorylation, glycosylation, acetylation,               methylation, ubiquitination and other modifications.
 
 - __purity__
   - Type: float
-  - Description: Purity of enzymes typically expressed in percentage (%). It is usually stated as the percentage of the pure enzyme or active component relative to the total amount of the substance.
+  - Description: Purity of enzymes typically expressed in percentage (%). It is usually stated as the percentage of the pure enzyme or active component relative to the total mass of the enzyme preparation.
 
 - __purity_specification__
   - Type: string
@@ -128,7 +129,7 @@ Important information to characterize the biocatalyst and to describe it clearly
 
 - __formulation__
   - Type: string
-  - Description: Depending on the formulation, the biocatalyst may be in a liquid form within a solvent or as a solid powder. It defines the physical state in which the biocatalyst is used. Additional information           regarding the application or formulation in the experiment should be entered in the next subcategory.
+  - Description: Depending on the formulation, the biocatalyst can exist either in a dissolved state within a solvent or as a solid powder. It defines the physical state in which the biocatalyst is used. Additional information regarding the application or formulation in the experiment should be entered in the next subcategory.
 
 <hr>
 
@@ -142,7 +143,7 @@ Important information to characterize the biocatalyst and to describe it clearly
 
 # Immobilisation and formulation
 
-With a enzyme purchased or self-produced it needs to be specified, how it was used in the reaction. Two categories have been identified for applying a biocatalyst to a reaction: non immobilized and immobilised.
+Independently whether an enzyme was purchased or self-produced, its formulation for the reaction must be specified. Most importantly it must be specified, wether the enzyme was used either immobilized or non-immobilized as soluble biocatalyst.
 
 ## Non immobilised biocatalysts
 
@@ -150,17 +151,19 @@ With a enzyme purchased or self-produced it needs to be specified, how it was us
 
 ### SolubleBiocatalyst
 
+The soluble enzyme refers to purified enzyme.
+
 - __concentration__
   - Type: posfloat
-  - Description: The concentration of the biocatalyst.
+  - Description: Concentration of the biocatalyst.
  
 - __concentration_unit__
   - Type: string
-  - Description: The concentration of the biocatalyst is typically expressed in g/L (grams per liter).
+  - Description: Concentration of the biocatalyst is typically expressed in g/L (grams per liter).
 
 - __concentration_determination_method__
   - Type: string
-  - Description: It is important to specify the type of concentration determination. Various methods for determining the concentration of enzymes can be distinguished, including the Bradford method, Lowry method, UV        absorption, activity assays, ELISA, etc.
+  - Description: It is important to specify the method used for concentration determination. There are various methods available for the determination of the enzyme concentration in solution e.g., the Bradford method, Lowry method, UV absorption, activity assays, ELISA, etc.
 
 - __activity__
   - Type: float
