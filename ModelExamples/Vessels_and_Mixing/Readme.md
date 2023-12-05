@@ -33,7 +33,7 @@ Vials are sealable containers available in various sizes and materials, playing 
 
 - __closure_type__
   - Type: string
-  - Description: Indicate the type of closure or stopper used for the vial, as it affects sealing and the course of the reaction. If no closure or seal was used for the vial, it should be noted as well.
+  - Description: Indicate the type of closure or stopper used for the vial, as it affects sealing and the course of the reaction. If no closure or seal was used for the vial, this should be noted as well.
 
 <hr>
 
@@ -69,19 +69,27 @@ It's crucial to provide detailed information about the plate type, material, wel
  
 - __well_volume__
   - Type: string
-  - Description: The volume that each well can hold, usually expressed in µL (microliters).
+  - Description: The volume of each well is, usually expressed in µL (microliters).
  
 - __well_arrangement__
   - Type: string
   - Description: The arrangement of the wells in the plate, for example, in rows and columns.
  
+- __supplier__
+  - Type: string
+  - Description: Information about the supplier from which the plate was purchased.
+ 
+- __lot_number__
+  - Type: posfloat
+  - Description: The lot number, also known as a batch number or code, is a unique identifier assigned to a specific batch of a product. This makes it possible to check or track information on production.
+ 
 - __sealing_method__
   - Type: string
-  - Description: If the wells were sealed with a sealing film or cover, this should be indicated. (__if_applicable__)
+  - Description: Indicate if the wells were sealed with a sealing film or lid. (__if_applicable__)
 
 - __sealing_material__
   - Type: string
-  - Description: The material of the sealing film or cover. (__if_applicable__)
+  - Description: The material of the sealing film or lid. (__if_applicable__)
 
   <hr>
 
@@ -99,7 +107,7 @@ It's crucial to provide detailed information about the plate type, material, wel
 
 ### StirredTankReactor
 
-Stirred Tank Reactors (STRs) are frequently employed as versatile and controlled vessels, allowing for precise regulation of key parameters like temperature, pH, and agitation speed. All relevant specifications or attributes need to be described.
+Stirred Tank Reactors (STRs) are frequently employed as versatile and controlled vessels, allowing for precise regulation of key parameters like temperature, pH, and stirring speed. All relevant specifications or attributes need to be described.
 
 
 - __type__
@@ -116,7 +124,7 @@ Stirred Tank Reactors (STRs) are frequently employed as versatile and controlled
 
 - __volume_unit__
   - Type: string
-  - Description: The unit of the volume is typically expressed in L (liters).
+  - Description: The volume is typically expressed in L (liters).
 
 - __geometry__
   - Type: string
@@ -167,7 +175,7 @@ When conducting enzymatic reactions in tubular flow or continuous reactors, it i
 
 - __volume_unit__
   - Type: string
-  - Description: The unit of the volume is typically expressed in L (liters).
+  - Description: The volume is typically expressed in L (liters).
 
 - __geometry__
   - Type: string
@@ -213,7 +221,7 @@ Shaking is an essential method for ensuring uniform mixing and, consequently, re
 
 - __shaking_type__
   - Type: string
-  - Description: The type of shaking used to mix the reaction could be e.g. horizontal, vertical, back-and-forth or circulatory.
+  - Description: The type of shaking used to mix the reaction (e.g., horizontal, vertical, back-and-forth or circulatory).
 
 - __deflection__
   - Type: posfloat
@@ -245,13 +253,21 @@ Shaking is an essential method for ensuring uniform mixing and, consequently, re
 
 <details> <Summary>Mechanically impelled mixing (stirring)</Summary>
 
-### MechanicallyImpelledmixing
+### MechanicallyImpelledMixing
 
 When utilizing mechanically impelled mixing in enzymatic reactions, it is essential to provide information about the mixing method and related parameters.
 
 - __stirring_type__
   - Type: string
   - Description: There are several types of stirring methods used in laboratory and industrial settings, including magnetic stirring (from vessel bottom), mechanical stirring, overhead stirring and other methods.
+
+- __stirrer_material__
+  - Type: string
+  - Description: The specific composition or nature of the material should be indicated, e.g. whether it is made of magnetic material, a PTFE (polytetrafluoroethylene) coating, stainless steel or other relevant features that determine its structural or functional properties within the experimental setup.
+ 
+- __supplier__
+  - Type: string
+  - Description: If available, details of the specific designation or manufacturer's name of the stirrer should be provided for precise identification.
 
 - __number_of_stirrers__
   - Type: posfloat
@@ -263,7 +279,7 @@ When utilizing mechanically impelled mixing in enzymatic reactions, it is essent
 
 - __distance_between_stirrers_unit__
   - Type: string
-  - Description: The distance between stirrers can be specified in units such as mm (millimeters), cm (centimeters), or m (meters), depending on the size and scale of the stirring system.
+  - Description: The distance between stirrers can be specified in mm (millimeters), cm (centimeters), or m (meters), depending on the size and scale of the stirring system.
 
 - __stirrer_blade_pitch_angle__
   - Type: posfloat
@@ -285,7 +301,7 @@ When utilizing mechanically impelled mixing in enzymatic reactions, it is essent
   - Type: string
   - Description: There are various morphologies or geometries, such as radial impellers, axial impellers, helical ribbon impellers, paddle impellers, and more, depending on its design and intended purpose.
 
-- __speed__
+- __stirrer_speed__
   - Type: posfloat
   - Description: Specify the speed or frequency at which the stirring was conducted.
 
@@ -334,11 +350,11 @@ When utilizing mechanically impelled mixing in enzymatic reactions, it is essent
 
 ### LiquidOrGasImpelledMixing
 
-Detailed information about the mixing method used, whether it involves liquid or gas impelled mixing, is essential for ensuring the reproducibility and understanding of enzymatic reactions.
+Detailed information about the mixing mode used, whether it involves liquid or gas impelled mixing, is essential for ensuring the reproducibility and understanding of enzymatic reactions.
 
 - __volume_of_liquid_solid_phase__
   - Type: string
-  - Description: In the context of enzymatic reactions or any chemical processes involving heterogeneous mixtures like a liquid and solid phase, essential parameters for describing the system could involve the              composition of the phases, the percentage or fraction of the total volume occupied by the liquid-solid phase mixture, and further information.
+  - Description: In the context of enzymatic reactions or any chemical processes involving heterogeneous mixtures like a liquid and solid phase, essential parameters for describing the system involve the              composition of the phases, the percentage or fraction of the total volume occupied by the liquid-solid phase mixture, and further information.
 
 - __residence_time__
   - Type: posfloat
@@ -350,7 +366,7 @@ Detailed information about the mixing method used, whether it involves liquid or
 
 - __reynolds_number__
   - Type: string
-  - Description: The Reynolds number (Re) is a dimensionless quantity used in fluid dynamics to predict the flow regime of a fluid within a specific system. It helps determine whether the flow is laminar, turbulent, or     somewhere in between.
+  - Description: The Reynolds number (Re) is a dimensionless quantity used in fluid dynamics to predict the flow regime of a fluid within a specific system. It helps to determine whether the flow is laminar, turbulent, or     somewhere in between.
 
 - __passive_mixing__
   - Type: String
