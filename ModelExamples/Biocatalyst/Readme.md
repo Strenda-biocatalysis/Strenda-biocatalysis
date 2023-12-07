@@ -167,15 +167,15 @@ The soluble enzyme refers to purified enzyme.
 
 - __activity__
   - Type: float
-  - Description: The activity of the biocatalyst can be expressed either as volumetric activity, which considers the total activity of the enzyme in the solution, or as specific activity, which takes into account the       enzyme's purity and indicates the activity of an enzyme per unit of enzyme protein or enzyme mass. If the biocatalyst has been purchased, it is advisable to look up more precise information (e.g. via an SOP)            regarding the activities specified by the manufacturer, as these may differ from the values determined by yourself. In addition, the loss of activity of the biocatalyst over the storage period should be taken into      account.
+  - Description: The activity of the biocatalyst can be expressed either as volumetric activity, which considers the total activity of the enzyme in the solution, or as specific activity, which takes into account the       enzyme's purity and indicates the activity of an enzyme per unit of enzyme protein or enzyme mass. If the biocatalyst has been purchased, it is advisable to look up more precise information (e.g. via an SOP)            regarding the activities specified by the manufacturer, as these may differ from the values determined by yourself (different activity assays can lead to different activity values). In addition, the loss of activity of the biocatalyst over the storage period should be taken into account.
 
 - __activity_unit__
   - Type: string
-  - Description: In the case of specific activity, the enzyme's activity is expressed in U/mg (Units per milligram), while in the case of volumetric activity, it's expressed in U/mL (Units per milliliter).
+  - Description: The enzyme's activity can be expressed either as specific activity [U/mg] (Units per milligram) or as volumetric activity [U/mL] (Units per milliliter) or as k<sub>cat</sub> [time<sup>-1</sup>] (catalytic const. or turnover number).
 
 - __activity_determination_method__
   - Type: string
-  - Description: Enzyme activity can be measured in various ways, including spectrophotometrically, colorimetrically, fluorometrically, using biosensors, etc.
+  - Description: Enzyme activity can be measured in various ways, including spectrophotometrically, colorimetrically, fluorometrically, assays and using biosensors, etc.
 
 - __formulation__
   - Type: string
@@ -350,7 +350,7 @@ The soluble enzyme refers to purified enzyme.
 
 - __linkers__
   - Type: string
-  - Description:Linkers are chemical compounds used to establish a connection or bridge between the enzymes and the carrier material. These linkers play a vital role in stabilizing the immobilized enzymes and can           influence the efficiency and functionality of the immobilization process. They facilitate binding between the enzymes and the carrier material, promoting a stable and active biocatalyst structure. Common and            widespread linkers are spacer molecules, crosslinkers, avidin-biotin or silane coupling agents. (__if_applicable__)
+  - Description: Linkers are chemical compounds used to establish a connection or bridge between the enzymes and the carrier material. These linkers play a vital role in stabilizing the immobilized enzymes and can           influence the efficiency and functionality of the immobilization process. They facilitate binding between the enzymes and the carrier material, promoting a stable and active biocatalyst structure. Common and            widespread linkers are spacer molecules, crosslinkers, avidin-biotin or silane coupling agents. (__if_applicable__)
 
 - __immobilisation_method__
   - Type: string
