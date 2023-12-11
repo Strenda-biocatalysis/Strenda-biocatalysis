@@ -179,7 +179,7 @@ The soluble enzyme refers to purified enzyme.
 
 - __formulation__
   - Type: string
-  - Description: Depending on the formulation, the biocatalyst may be in a liquid form within a solvent or as a solid powder. It defines the physical state in which the biocatalyst is applied in the reaction.
+  - Description: Depending on the formulation, the biocatalyst can be applied dissolved in a solvent or as a dried powder. It defines the physical state in which the biocatalyst is applied in the reaction.
  
 <hr>
 
@@ -195,19 +195,20 @@ The soluble enzyme refers to purified enzyme.
 
 - __cell_disruption_process__
   - Type: string
-  - Description: Cell disruption processes and methods include various techniques such as mechanical disruption (e.g., grinding, homogenization, ultrasonication), chemical disruption (e.g., detergents, enzymes),            physical techniques (e.g., electroporation, high-pressure homogenization, thermal treatment) to break cell walls and release cell contents.
+  - Description: Cell disruption processes and methods include various techniques such as mechanical disruption (e.g., grinding, homogenization, ultrasonication, french press), chemical disruption (e.g., detergents, enzymes), physical techniques (e.g., electroporation, high-pressure homogenization, thermal treatment) to break cell walls and release cell contents.
 
 - __concentration__
   - Type: posfloat
-  - Description: The concentration of the biocatalyst.
+  - Description: Concentration of the biocatalyst.
  
 - __concentration_unit__
   - Type: string
-  - Description: The concentration of the biocatalyst is typically expressed in g/L (grams per liter).
+  - Description: Concentration of the biocatalyst is typically expressed in g/L (grams per liter).
 
 - __concentration_determination_method__
   - Type: string
-  - Description: It is important to specify the type of concentration determination. Various methods for determining the concentration of enzymes can be distinguished, including the Bradford method, Lowry method, UV        absorption, activity assays, ELISA, etc.
+  - Description: It is important to specify the type of concentration determination. There are numerous methods available to determine protein content, yet only a few are suitable for estimating or determining the protein content of the target protein within a mixture. Some of these methods include activity assays or the Western blotting technique, which relies on prior SDS-PAGE and antibody binding for detection.
+
  
  <hr>
 
@@ -227,19 +228,19 @@ The soluble enzyme refers to purified enzyme.
  
 - __concentration__
   - Type: posfloat
-  - Description: Typically, in the case of whole-cell catalysts, the cell concentration or cell mass is used as a measure of the quantity of cells used.
+  - Description: In the case of whole-cell catalysts, the cell concentration or cell mass is commonly used as a measure.
  
 - __concentration_unit__
   - Type: string
-  - Description: When the cells are lyophilized, the quantity of lyophilized cells can be specified in grams or kilograms. If wet cells are used, the cell concentration can be indicated in cells per milliliter              (cells/mL) or cells per gram (cells/g) of wet cell weight.
+  - Description: In case of lyophilized cells, the quantity of lyophilized cells can be specified in g (grams) or kg (kilograms). If wet cells are used, the cell concentration can be indicated in cells/mL (cells per milliliter) or cells/g (cells per gram) of wet cell weight. Other common indications of the concentration of wet cells as biocatalysts are the cell concentration in g/L (grams per liter) or OD (optical density).
 
 - __concentration_determination_method__
   - Type: string
-  - Description: It is important to specify the type of concentration determination. Various methods for determining the concentration of enzymes can be distinguished, including flow cytometry or the measurement of the     dry weight of biomass, etc.
+  - Description: Specify the method for cell number per cell weight determination (e.g., flow cytometry, weight of dry biomass, spectrophotometry).
  
 - __formulation__
   - Type: string
-  - Description: When applying a whole cell biocatalyst, there are various options. For example, the cells can be cultivated and then lyophilized or used directly as wet cells.
+  - Description: When applying a whole cell biocatalyst, there are various options. Cultivated cells can be lyophilized or used as wet cells after separation from the medium.
 
  <hr>
 
@@ -255,19 +256,19 @@ The soluble enzyme refers to purified enzyme.
 
 - __separation_method__
   - Type: string
-  - Description: There are various methods to separate the supernatant from the cells, common methods include centrifugation, filtration, sedimentation, flow cytometry, etc.
+  - Description: There are various methods to separate the supernatant from the cells, common methods include centrifugation, filtration, sedimentation, etc.
 
 - __concentration__
   - Type: posfloat
-  - Description: The concentration of the biocatalyst.
+  - Description: Concentration of the biocatalyst.
  
 - __concentration_unit__
   - Type: string
-  - Description: The concentration of the biocatalyst is typically expressed in g/L (grams per liter).
+  - Description: Concentration of the biocatalyst is typically expressed in g/L (grams per liter).
 
 - __concentration_determination_method__
   - Type: string
-  - Description: It is important to specify the type of concentration determination. Various methods for determining the concentration of enzymes can be distinguished, including the Bradford method, Lowry method, UV        absorption, activity assays, ELISA, etc.
+  - Description: It is important to specify the type of concentration determination. There are numerous methods available to determine protein content, yet only a few are suitable for estimating or determining the protein content of the target protein within a mixture. Some of these methods include activity assays or the Western blotting technique, which relies on prior SDS-PAGE and antibody binding for detection.
  
  <hr>
 
@@ -281,21 +282,23 @@ The soluble enzyme refers to purified enzyme.
 
 ### CellFreeProduction
 
+Cell-free enzyme production or gene expression refers to a process where the synthesis of the biocatalyst occurs outside of living cells. This technique involves extracting cellular components, such as ribosomes, DNA, RNA, and other necessary cellular machinery, and using them in a controlled environment (usually in vitro) to produce proteins or enzymes.
+
 - __source_of_cellfree_extract__
   - Type: string
-  - Description: Specification of the organism or cell type from which the cell-free extract is derived. This could be bacterial, plant, animal, or another sources.
+  - Description: Specifiy the organism or cell type from which the cell-free extract is derived (e.g., by describing the genus and species). These could be bacterial, plant, animal, or another sources. If available, reference can be made to an appropriate database entry.
  
 - __concentration__
   - Type: posfloat
-  - Description: The concentration of the biocatalyst.
+  - Description: Concentration of the biocatalyst.
  
 - __concentration_unit__
   - Type: string
-  - Description: The concentration of the biocatalyst is typically expressed in g/L (grams per liter).
+  - Description: Concentration of the biocatalyst is typically expressed in g/L (grams per liter).
 
 - __concentration_determination_method__
   - Type: string
-  - Description: It is important to specify the type of concentration determination. Various methods for determining the concentration of enzymes can be distinguished, including the Bradford method, Lowry method, UV        absorption, activity assays, ELISA, etc.  
+  - Description: It is important to specify the type of concentration determination. There are numerous methods available to determine protein content, yet only a few are suitable for estimating or determining the protein content of the target protein within a mixture. Some of these methods include activity assays or the Western blotting technique, which relies on prior SDS-PAGE and antibody binding for detection.
  
 <hr>
 
@@ -318,15 +321,15 @@ The soluble enzyme refers to purified enzyme.
 
 - __concentration__
   - Type: posfloat
-  - Description: The concentration of the biocatalyst or the whole cells on the immobilised phase.
+  - Description: Concentration of the biocatalyst or the whole cells on the immobilised phase.
  
 - __concentration_unit__
   - Type: string
-  - Description: For immobilized enzymes, the concentration can be expressed in units such as mg/mL (milligrams of enzyme per milliliter) or g/L (grams of enzyme per liter). When it comes to immobilized cells, units        such as cells/mL (cells per milliliter) or cells/g (cells per gram) of the carrier material or immobilizing matrix can be used.
+  - Description: For immobilized enzymes, the concentration is often quantified in terms of enzyme activity per volume (e.g., units per milliliter, U/mL) or weight measurements such as milligrams or grams per liter (mg/L or g/L). When referring to immobilized cells (not the enzymes themselves), units of cells/mL (cells per milliliter) or cells/g (cells per gram) are commonly utilized.
 
 - __concentration_determination_method__
   - Type: string
-  - Description: Various methods are available to determine the concentration of immobilized enzymes or cells. For immobilized enzymes, methods such as protein measurement or enzymatic activity assays can be used. For      immobilized cells, methods like flow cytometry or biomass measurement are applicable.
+  - Description: Various methods are available to determine the concentration of immobilized enzymes or cells. For immobilized enzymes, methods such as protein measurement or enzymatic activity assays can be used. The protein determination can be determined on the carrier material using a BCA test or as a differential measurement using the Bradford method, $\Delta$<sub>280</sub> or also after detachment of the enzyme from the carrier material. An activity measurement is best suited as it provides the activity per gram of immobilized material. For immobilized cells, methods like flow cytometry or biomass measurement are applicable.
 
 <hr>
 
@@ -340,13 +343,17 @@ The soluble enzyme refers to purified enzyme.
 
 ### ImmobilisationProcedure
 
+- __biocatalyst__
+  - Type: string
+  - Description: When it comes to the immobilization method, it is also important to mention how the biocatalyst to be immobilized is present (for example, as a purified enzyme, or as a crude cell extract, etc.).
+
 - __immobilisation_chemistry__
   - Type: string
-  - Description: This aspect denotes the specific chemical methods or techniques used to attach the enzymes onto the chosen base material. Different immobilization chemistries involve various covalent or non-covalent       bonding strategies, including crosslinking, adsorption, covalent bonding, encapsulation, or entrapment.
+  - Description: This aspect denotes the specific chemical methods or techniques used to attach the enzymes onto the chosen base material. Different immobilization chemistries involve various covalent or non-covalent       bonding strategies, including crosslinking, adsorption, covalent bonding, encapsulation, specific binding via (affinity)tag, or entrapment.
 
 - __carrier_material__
   - Type: string
-  - Despription: If a support, base or carrier material was used, the name of the material must be specified. This could be e.g. a gel, a membrane or a particle. (__if_applicable__)
+  - Despription: If a support material, base, or carrier was utilized, it is necessary to specify the material's name (e.g., gel, membrane, particle) along with the supplier and further product details (__if_applicable__)
 
 - __linkers__
   - Type: string
@@ -354,7 +361,7 @@ The soluble enzyme refers to purified enzyme.
 
 - __immobilisation_method__
   - Type: string
-  - Description: Further details regarding the immobilisation method of the enzyme. For a comprehensive report of the technical key data of the immobilization process or method, there is literature for further              information, e.g. [Ansorge-Schuhmacher _et_ _al._<sup>1</sup>](https://doi.org/10.1007/978-3-662-57619-9_11) 
+  - Description: Specify further details regarding the immobilisation method of the enzyme. For a comprehensive report around the technical key data of the immobilization process or method, see literature for further              information, e.g. [Ansorge-Schumacher _et_ _al._<sup>1</sup>](https://doi.org/10.1007/978-3-662-57619-9_11) 
 
 <hr>
 
@@ -368,7 +375,7 @@ The soluble enzyme refers to purified enzyme.
 
 # Storage conditions
 
-Describing the biocatalyst involves specifying its storage conditions before use in the reaction.
+The description of the biocatalyst also includes information on its storage conditions prior to use in the reaction. No information is required for fresh production without storage.
 
 <details> <Summary>Storage conditions</Summary>
 
@@ -384,19 +391,19 @@ Describing the biocatalyst involves specifying its storage conditions before use
 
 - __storage_start__
   - Type: date
-  - Description: The date since the reactant has been stored.
+  - Description: The date since the biocatalyst has been stored.
 
 - __additives__
   - Type: string
-  - Description: Additives for the storage of reactants can include antioxidants, stabilizers, drying agent, or even inert gases (argon, nitrogen), among others.
+  - Description: Additives for the storage of biocatalyst can include antioxidants, stabilizers, drying agent, or even inert gases (argon, nitrogen), among others.
 
 - __removing/rethawing__
   - Type: sting
-  - Description: For specific applications, it may be crucial to track how often the reactant has been removed from storage and, if applicable, thawed.
+  - Description: For specific applications, it may be crucial to track how often the biocatalyst has been removed from storage and, if applicable, thawed.
 
 - __thawing_process__
   - Type: string
-  - Description: If the reactant needs to be frozen, it is also important to know how this was carried out.
+  - Description: If the biocatalyst needs to be frozen, it is also important to know how this was carried out.
 
 <hr>
  
