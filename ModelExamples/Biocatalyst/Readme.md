@@ -396,6 +396,10 @@ The description of the biocatalyst also includes information on its storage cond
 - __additives__
   - Type: string
   - Description: Additives for the storage of biocatalyst can include antioxidants, stabilizers, drying agent, or even inert gases (argon, nitrogen), among others.
+ 
+- __drying_method__
+  - Type: string
+  - Description: For biocatalysts, various drying methods are employed (e.g., freeze-drying, also known as lyophilization, spray-drying, a method that involves atomizing a solution into small particles before drying, or vacuum drying, which removes moisture through low-pressure conditions). (__if_applicable__)
 
 - __removing/rethawing__
   - Type: sting
