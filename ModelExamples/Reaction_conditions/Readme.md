@@ -4,21 +4,21 @@
 
 # Reaction conditions
 
-The reaction conditions constitute a highly complex and extensive category. Reactions can be performed in aqueous reaction solutions, organic solvents, micro aqueous reaction solutions, gassed reaction solutions and many more. The Reaction conditions can be divided into two fundamental main categories: __monoliquid and multiphase systems__.
+The reaction conditions constitute a highly complex and extensive category. Reactions can be performed in aqueous reaction solutions, organic solvents, micro-aqueous reaction solutions, gassed reaction solutions and many more. The reaction conditions can be divided into two fundamental main categories: __monophasic and multiphasic systems__.
 
-<img src="https://github.com/StephanM87/Strenda-biocatalysis/assets/106530250/58da7700-a4de-4d3d-93d0-95f700d440b0" width="600">
+<img src="https://github.com/StephanM87/Strenda-biocatalysis/assets/106530250/bcfc5333-f5db-4a83-8d18-40cef984fabc" width="600">
 
 # Well-mixed reaction solutions
 
-## Monoliquid systems
+## Monophasic systems
 
-A single-phase system in which only one liquid phase is present. All components are fully miscible, and there is no visible separation or boundary between different liquid phases.
+A single-phase system where only one liquid phase is present. All components are fully miscible, and there is no visible separation or boundary between different liquid phases.
 
-<details> <Summary>Monoliquid system description</Summary>
+<details> <Summary>Monophasic system description</Summary>
 
-### MonoliquidSystemDescription
+### MonophasicSystemDescription
 
-To describe a monoliquid system, precise information about the solvent used and the applied system must be provided.
+To describe a monophasic system, precise information about the solvent (mixture) used and the applied reaction system must be provided.
 
 - __solvent_description__
   - Type: string
@@ -26,7 +26,7 @@ To describe a monoliquid system, precise information about the solvent used and 
 
 - __ionic_strength__
   - Type: posfloat
-  - Description: Ionic strength calculated according to the dissolved ions in the solvent. (__if_applicable__)
+  - Description: Ionic strength calculated according to the dissolved ions in the solvent. The following formula can be used: $$I = \frac{1}{2} \sum_{1}^n C_i Z_i^2$$ where, I - ionic strength, C<sub>i</sub> - ionic concentration and Z<sub>i</sub> - ion charges (__if_applicable__)
 
 - __ionic_strength_unit__
   - Type: string
@@ -34,27 +34,27 @@ To describe a monoliquid system, precise information about the solvent used and 
  
 - __further_additives__
   - Type: string
-  - Description: Further additive like cosolvents used to increase solubility of reactants, e.g. DMSO.
+  - Description: Further additive like cosolvents used to increase solubility of components, e.g. DMSO.
 
 <hr>
  
 - __special_treatment__
   - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the monoliquid system that are important for reproducibility and are not described by the aforementioned           metadata, they should be explained here.
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the monophasic system that are important for reproducibility and are not described by the aforementioned           metadata, they should be explained here.
 
 </details>
 
 <hr>
 
-## Multiphase systems
+## Multiphasic systems
 
-Two or more distinct phases coexist within the same physical space. The phases are often separated by interfaces or boundaries. Multiphase systems can include combinations of gases, liquids, and solids.
+Two or more distinct phases coexist within the same reactor. The phases are often separated by interfaces or boundaries. Multiphasic systems can include combinations of gases, liquids, and solids.
 
-<details> <Summary>Multiphase system description</Summary>
+<details> <Summary>Multiphasic system description</Summary>
 
-### MultiphaseSystemDescription
+### MultiphasicSystemDescription
 
-To describe a multiphase system, precise information about the phases used and the applied system must be provided.
+To describe a multiphasic system, precise information about the phases used and the applied system must be provided.
 
 - __phases_number__
   - Type: posfloat
@@ -64,7 +64,7 @@ To describe a multiphase system, precise information about the phases used and t
  
 - __special_treatment__
   - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the multiphase system that are important for reproducibility and are not described by the aforementioned           metadata, they should be explained here.
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the multiphasic system that are important for reproducibility and are not described by the aforementioned           metadata, they should be explained here.
 
 </details>
 
@@ -72,17 +72,17 @@ To describe a multiphase system, precise information about the phases used and t
 
 ## Phase description
 
-Metadata for describing the individual phases of the multiphase system in more detail. Each phase has to be descripted before mixing.
+Metadata to describe the individual phases of the multiphasic system in more detail. Each phase has to be descripted before mixing.
 
 <details> <Summary>Liquid phase</Summary>
 
 ### LiquidPhase
 
- If more then one liquid phase exist the metadata has to be recorded according to the number of liquid phases. 
+ If more then one liquid phase exists the metadata has to be recorded according to the number of liquid phases. 
 
 - __liquid_type__
   - Type: string
-  - Description: Information about the type of liquid used, whether it's an organic solvent,a buffer solution or something else.
+  - Description: Information about the type of liquid used, whether it is an organic solvent,an aqueous buffer or are mixture of both.
 
 - __liquid_amount__
   - Type: posfloat
@@ -90,7 +90,7 @@ Metadata for describing the individual phases of the multiphase system in more d
 
 - __liquid_unit__
   - Type: string
-  - Description: In case of aqueous liquids, millilitre are often used as unit, in case of organic solvents, mass is applied to refer to the solvent.
+  - Description: In case of aqueous liquids, mL (milliliter) is often used as unit, in case of organic solvents, volume percentage (Vol %) or volume fraction (Vol/Vol) is utilized.
 
 </details>
 
@@ -103,15 +103,15 @@ Definition of the solid phase used in the reaction.
 
 - __solid_type__
   - Type: string
-  - Description: Information about the type of solid used, whether it's support materials, solid catalysts, ion exchange resins, or other solids.
+  - Description: Information about the type of solid used, whether it is a support material, solid catalyst, or any other solid compound.
 
 - __solid_amount__
   - Type: posfloat
-  - Description: Mass of the solid used in the reaction solution.
+  - Description: Mass of the solid compound used in the reaction solution.
  
 - __solid_unit__
   - Type: string
-  - Description: In the case of solids, common units like grams, milligrams, or micrograms can be used.
+  - Description: In the case of a solid compound, common units like grams, milligrams, or micrograms can be used.
 
 </details>
 
@@ -124,7 +124,7 @@ Definition of the gas phase used in the reaction. If a gas mixture is involved, 
 
 - __gas_type__
   - Type: string
-  - Description: Information about the type of gas used, whether it's nitrogen dioxide, argon, oxygen or other gases.
+  - Description: Information about the type of gas used, whether it is nitrogen, carbon dioxide, argon, oxygen or other gases.
 
 - __gas_amount__
   - Type: posfloat
@@ -150,7 +150,7 @@ The temperature, if constant, must be clearly defined.
 
 - __temperature__
   - Type: posfloat
-  - Description: The temperature during the reaction.
+  - Description: Temperature during the reaction.
 
 - __temperature_unit__
   - Type: string
@@ -197,7 +197,7 @@ If the temperature is changed during the course of the reaction or there is an e
  
 - __time_unit__
   - Type: string
-  - Description: Common units for specifying time can be s (seconds) or min (minutes).
+  - Description: Common units for specifying time can be s (seconds), min (minutes) or h (hours).
 
 <hr>
 
@@ -222,7 +222,7 @@ Information about the pH value in the system, if the pH is constant over the cou
 
 - __pH_value__
   - Type: posfloat
-  - Description: The value of the pH. 
+  - Description: Value of the pH. 
  
 - __detected_when__
   - Type: string
@@ -242,7 +242,7 @@ Information about the pH value in the system, if the pH is constant over the cou
 
 - __calibration_pH_electrode__
   - Type: string
-  - Description: Usually, a pH electrode is calibrated in dilute aqueous solution using standard buffers at 20-25 °C. If the conditions in the reaction mixture differ from this, it should be specified.                      (__if_applicable__)
+  - Description: Usually, a pH electrode is calibrated using standard buffers at 20-25 °C. If the conditions in the reaction mixture differ from this, it should be specified. (__if_applicable__)
 
 <hr>
 
@@ -256,7 +256,7 @@ Information about the pH value in the system, if the pH is constant over the cou
 
 ### EventBasedpHShift
 
-If the pH is changed during the course of the reaction or there is an event-based change, this must be documented precisely.
+If the pH is changed during the course of the reaction or there is an event-based change, this must be documented precisely. Depending on the buffer chosen, a temperature shift may also result in a pH shift.
 
 - __pH_beginning__
   - Type: posfloat
@@ -300,7 +300,7 @@ If the pH is changed during the course of the reaction or there is an event-base
 
 - __calibration_pH_electrode__
   - Type: string
-  - Description: Usually, a pH electrode is calibrated in dilute aqueous solution using standard buffers at 20-25 °C. If the conditions in the reaction mixture differ from this, it should be specified.                      (__if_applicable__)
+  - Description: Usually, a pH electrode is calibrated using standard buffers at 20-25 °C. If the conditions in the reaction mixture differ from this, it should be specified. (__if_applicable__)
 
 <hr>
 
@@ -315,15 +315,15 @@ If the pH is changed during the course of the reaction or there is an event-base
 
 # Tubular flow/continuous reactor
 
-## Monoliquid systems
+## Monophasic systems
 
 A single-phase system in which only one liquid phase is present. All components are fully miscible, and there is no visible separation or boundary between different liquid phases.
 
-<details> <Summary>Monoliquid system description</Summary>
+<details> <Summary>Monophasic system description</Summary>
 
-### MonoliqudSystemDescription
+### MonophasicSystemDescription
 
-To describe a monoliquid system, precise information about the solvent used and the applied system must be provided.
+To describe a monophasic system, precise information about the solvent used and the applied system must be provided.
 
 - __solvent_description__
   - Type: string
@@ -331,7 +331,7 @@ To describe a monoliquid system, precise information about the solvent used and 
 
 - __ionic_strength__
   - Type: posfloat
-  - Description: Ionic strength calculated according to the dissolved ions in the solvent. (__if_applicable__)
+  - Description: Ionic strength calculated according to the dissolved ions in the solvent. The following formula can be used: $$I = \frac{1}{2} \sum_{1}^n C_i Z_i^2$$ where, I - ionic strength, C<sub>i</sub> - ionic concentration and Z<sub>i</sub> - ion charges (__if_applicable__)
  
 - __ionic_strength_unit__
   - Type: string
@@ -353,22 +353,22 @@ To describe a monoliquid system, precise information about the solvent used and 
  
 - __special_treatment__
   - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the monoliquid system that are important for reproducibility and are not described by the aforementioned           metadata, they should be explained here.
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the monophasic system that are important for reproducibility and are not described by the aforementioned           metadata, they should be explained here.
 
 
 </details>
 
 <hr>
 
-## Multiphase systems
+## Multiphasic systems
 
-Two or more distinct phases coexist within the same physical space. The phases are often separated by interfaces or boundaries. Multiphase systems can include combinations of gases, liquids, and solids.
+Two or more distinct phases coexist within the same reactor. The phases are often separated by interfaces or boundaries. Multiphasic systems can include combinations of gases, liquids, and solids.
 
-<details> <Summary>Multiphase system description</Summary>
+<details> <Summary>Multiphasic system description</Summary>
 
-### MultiphaseSystemDescription
+### MultiphasicSystemDescription
 
-To describe a multiphase system, precise information about the phases used and the applied system must be provided.
+To describe a multiphasic system, precise information about the phases used and the applied system must be provided.
 
 - __phases_number__
   - Type: posfloat
@@ -386,7 +386,7 @@ To describe a multiphase system, precise information about the phases used and t
  
 - __special_treatment__
   - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the multiphase system that are important for reproducibility and are not described by the aforementioned           metadata, they should be explained here.
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the multiphasic system that are important for reproducibility and are not described by the aforementioned           metadata, they should be explained here.
 
 
 </details>
@@ -397,18 +397,18 @@ To describe a multiphase system, precise information about the phases used and t
 
 ## Phase description
 
-Metadata for describing the individual phases of the multiphase system in more detail. Each phase has to be descripted before mixing.
+Metadata for describing the individual phases of the multiphasic system in more detail. Each phase has to be descripted before mixing.
 
 
 <details> <Summary>Liquid phase</Summary>
 
 ### LiquidPhase
 
- If more then one liquid phase exist the metadata has to be recorded according to the number of liquid phases. 
+ If more then one liquid phase exists the metadata has to be recorded according to the number of liquid phases. 
 
 - __liquid_type__
   - Type: string
-  - Description: Information about the type of liquid used, whether it's an organic solvent,a buffer solution or something else.
+  - Description: Information about the type of liquid used, whether it is an organic solvent, an aqueous buffer or a mixture of both.
 
 - __liquid_amount__
   - Type: posfloat
@@ -416,7 +416,7 @@ Metadata for describing the individual phases of the multiphase system in more d
 
 - __liquid_unit__
   - Type: string
-  - Description: In case of aqueous liquids, millilitre are often used as unit, in case of organic solvents, mass is applied to refer to the solvent.
+  - Description: In case of aqueous liquids, mL (milliliter) is often used as unit, in case of organic solvents, volume percentage (Vol %) or volume fraction (Vol/Vol) is utilized.
 
 </details>
 
@@ -429,7 +429,7 @@ Definition of the solid phase used in the reaction.
 
 - __solid_type__
   - Type: string
-  - Description: Information about the type of solid used, whether it's support materials, solid catalysts, ion exchange resins, or other solids.
+  - Description: Information about the type of solid used, whether it is a support material, solid catalyst, or any other solid compound.
 
 - __solid_amount__
   - Type: posfloat
@@ -477,7 +477,7 @@ The temperature, if constant, must be clearly defined.
 
 - __temperature__
   - Type: posfloat
-  - Description: The temperature during the reaction.
+  - Description: Temperature during the reaction.
 
 - __temperature_unit__
   - Type: string
@@ -521,7 +521,7 @@ If there is a temperature gradient or different temperatures are measured in the
  
 - __time_unit__
   - Type: string
-  - Description: Common units for specifying time can be s (seconds) or min (minutes).
+  - Description: Common units for specifying time can be s (seconds), min (minutes) h (hours).
 
 - __temperature_unit__
   - Type: string
@@ -588,7 +588,7 @@ Information about the pH value in the system, if the pH is constant over the cou
 
 - __calibration_pH_electrode__
   - Type: string
-  - Description: Usually, a pH electrode is calibrated in dilute aqueous solution using standard buffers at 20-25 °C. If the conditions in the reaction mixture differ from this, it should be specified.                      (__if_applicable__)
+  - Description: Usually, a pH electrode is calibrated using standard buffers at 20-25 °C. If the conditions in the reaction mixture differ from this, it should be specified. (__if_applicable__)
 
 <hr>
 
@@ -603,7 +603,7 @@ Information about the pH value in the system, if the pH is constant over the cou
 
 ### DynamicpH
 
-If there is a pH gradient or different pHs are measured in the system, these must be described as well as possible.
+If there is a pH gradient or different pHs are measured in the system, these must be described as detailed as possible. Depending on the buffer chosen, a temperature shift may also result in a pH shift.
 
 - __pH_beginning__
   - Type: posfloat
@@ -647,7 +647,7 @@ If there is a pH gradient or different pHs are measured in the system, these mus
 
 - __calibration_pH_electrode__
   - Type: string
-  - Description: Usually, a pH electrode is calibrated in dilute aqueous solution using standard buffers at 20-25 °C. If the conditions in the reaction mixture differ from this, it should be specified.                      (__if_applicable__)
+  - Description: Usually, a pH electrode is calibrated using standard buffers at 20-25 °C. If the conditions in the reaction mixture differ from this, it should be specified. (__if_applicable__)
 
 - __pH_gradient_beginning__
   - Type: posfloat
