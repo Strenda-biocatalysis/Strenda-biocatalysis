@@ -17,11 +17,11 @@ Default sampling refers to the standard methods and procedures commonly used for
 
 ### SamplingDescription
 
-Information about the sampling process, used during the experiment. In some experiments no sampling is taking place at all, for example if an experiment is monitored via a photospectrometer in a 96-well plate over time. In this case, of course, no sampling was done during the experiment.
+Information about the sampling process, used during the experiment. In some experiments no sampling is taking place at all, for example, if an experiment is monitored via a photospectrometer in a 96-well plate over time.
 
 - __volume_per_sample__
   - Type: posfloat
-  - Description: The volume of the collected sample.
+  - Description: Volume of the collected sample.
 
 - __volume_per_sample_unit__
   - Type: string
@@ -37,7 +37,7 @@ Information about the sampling process, used during the experiment. In some expe
 
 - __gas_phase__
   - Type: string
-  - Description: Information about the gas phase above the reaction solution.
+  - Description: Information about the composition of the gas phase above the reaction solution, including gases such as nitrogen, carbon dioxide, argon, oxygen or other gases.
 
 - __time__
   - Type: time
@@ -62,7 +62,7 @@ If the sampling procedure is more complex than just the plain procedure of takin
 
 - __biocatalyst_in_phase__
   - Type: string
-  - Description: Information on whether the collected sample may have contaminations in the form of an (bio)catalyst.
+  - Description: Information on whether the collected sample may be contaminated with the (bio)catalyst.
 
 <hr>
 
