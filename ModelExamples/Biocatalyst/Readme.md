@@ -6,7 +6,7 @@
 
 This category contains all information required to unambiguously identify the catalyst, its formulation and storage. 
 
-<img src="https://github.com/StephanM87/Strenda-biocatalysis/assets/106530250/e67dc4e3-ff1c-485a-9996-281122af2a88" width="500">
+<img src="https://github.com/StephanM87/Strenda-biocatalysis/assets/106530250/e390ded5-3b7d-4e3d-a2e9-0a81ced99eb9" width="500">
 
 ## Source of the biocatalyst
 
