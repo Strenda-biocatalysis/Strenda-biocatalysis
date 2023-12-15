@@ -48,7 +48,32 @@ These parameters serve as essential benchmarks for understanding enzyme kinetics
  
 - __catalytic_efficiency_unit__
   - Type: string
-  - Description: The typical units for catalytic efficiency (K<sub>cat</sub>/K<sub>m</sub>) are usually M<sup>-1</sup>s<sup>-1</sup> or s<sup>-1</sup>.   
+  - Description: The typical units for catalytic efficiency (K<sub>cat</sub>/K<sub>m</sub>) are usually M<sup>-1</sup>s<sup>-1</sup> or s<sup>-1</sup>.
+ 
+- __dissociation_constant__
+  - Type: float
+  - Description: The dissociation constant (K<sub>d</sub>) is a measure that represents the equilibrium between a complex and its dissociated components.
+ 
+- __dissociation_constant_unit__
+  - Type: string
+  - Description: The dissociation constant (K<sub>d</sub>) is typically expressed in M (molarity) or its derivatives, such as nM (nanomoles per liter).
+ 
+- __inhibition_type__
+  - Type: string
+  - Description: Enzyme inhibition encompasses various forms, including competitive, non-competitive, uncompetitive, mixed, and irreversible inhibition. Each type has different effects on the enzyme's function and plays a crucial role in regulating biochemical processes.
+
+- __inhibition_constant__
+  - Type: float
+  - Description: The inhibition constant (K<sub>i</sub>) is a significant parameter in biocatalysis, describing the affinity of an inhibitor for an enzyme. It indicates how effectively an inhibitor influences enzyme activity. A lower K<sub>i</sub> value suggests a strong binding of the inhibitor to the enzyme.
+
+- __inhibition_constant_unit__
+  - Type: string
+  - Description: The units for the inhibition constant (K<sub>i</sub>) are commonly expressed in molar concentration (M) or related units.
+ 
+- __hill_coefficient__
+  - Type: float
+  - Description: The Hill coefficient is a parameter used to describe cooperativity in the binding of molecules to proteins. It is employed in enzyme reactions or oxygen binding to hemoglobin to indicate whether there is positive (cooperative) or negative (anticooperative) binding. A Hill coefficient greater than 1 indicates positive cooperativity, while a value less than 1 indicates negative cooperativity. A value of exactly 1 indicates no cooperativity in the binding.
+  
 
 <hr>
 
@@ -243,6 +268,10 @@ Describing enzyme performance allows researchers to understand the enzyme's capa
 - __pH_optimum__
   - Type: posfloat
   - Description: The pH optimum refers to the specific pH level at which an enzyme exhibits its maximum activity or efficiency in a reaction.
+ 
+- __enzyme_stability__
+  - Type: string
+  - Description: The stability of enzymes is often characterized by various parameters such as the enzyme's half-life under specific conditions, the decline in activity over time, or the preservation of catalytic activity under different environmental conditions. 
 
 <hr>
 
@@ -252,9 +281,48 @@ Describing enzyme performance allows researchers to understand the enzyme's capa
 
 </details>
 
+
 <hr>
 
 
+## Thermodynamic parameters
+
+The indication of thermodynamic parameters in biocatalysis is crucial for deepening the understanding of reaction kinetics and efficiency. These parameters offer insights into energy changes occurring during the reaction and assist in estimating reaction heat, entropy, and free energy. Understanding the thermodynamic properties of a reaction is essential to determine reaction direction, stability of intermediates, and the level of spontaneity or enforcement of a reaction.
+
+<details> <Summary>Thermodynamic parameters</Summary>
+
+### Thermodynamic parameters
+
+Understanding the energy dynamics and spontaneity of reactions through thermodynamic parameters is essential for efficient biocatalysis.
+
+- __gibbs_free_energy_change__
+  - Type: string
+  - Description: The Gibbs free energy (__G__) represents the portion of energy capable of performing work in a reaction under constant temperature and pressure, providing insights into the spontaneity of the reaction. While the absolute value of the free energy cannot be measured directly, the change in free energy (Δ**G**) throughout the reaction, known as free reaction enthalpy, is measurable. As indicated by the Gibbs-Helmholtz equation, it depends on changes in enthalpy (heat content) and entropy (system disorder) during the reaction. <br>
+Δ**G** < 0: The reaction proceeds spontaneously; it is __exergonic__. <br>
+Δ**G** = 0: The system is at equilibrium; no work is performed. <br>
+Δ**G** > 0: The reaction does not proceed spontaneously; it is __endergonic__. A supply of free energy is required to drive the reaction.
+ 
+- __enthalpy_change__
+  - Type: string 
+  - Description: The enthalpy (**H**) represents the heat content within a system, expressing the quantity and nature of chemical bonds. This thermodynamic property cannot be measured independently. However, measurable is the change in enthalpy (Δ**H**), which refers to the amount of heat absorbed or released during a chemical reaction (under constant pressure), also known as the reaction enthalpy. <br>
+Δ**H** > 0: Heat energy is supplied; the reaction is endothermic. <br>
+Δ**H** < 0: Heat energy is released; the reaction is exothermic.
+
+- __entropy_change__
+  - Type: string
+  - Description: The entropy (**S**) is a measure of the degree of disorder in a system or the likelihood of a state. Systems inherently tend towards maximum disorder. Every natural process involves an increase in entropy (disorder). If entropy decreases in one area, it must increase elsewhere correspondingly. The increase in entropy can act as a driving force. <br>
+Δ**S** > 0: The disorder of the system increases. <br>
+Δ**S** < 0: The disorder of the system decreases.
+ 
+<hr>
+
+- __special_treatment__
+  - Type: string
+  - Description: If there are any other specific metrics, parameters, characteristics or aspects related to the thermodynamic parameters that are important to document the results accurately and are not described by the aforementioned attributes, they should be explained here.
+
+</details>
+
+<hr>
 
 
 
