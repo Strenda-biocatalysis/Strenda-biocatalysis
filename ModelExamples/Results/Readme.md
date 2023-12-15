@@ -16,7 +16,7 @@ Accurate reporting of kinetic parameters is crucial in biocatalysis as they prov
 
 ### KineticParameters
 
-These parameters serve as essential benchmarks for understanding enzyme kinetics.
+These parameters serve as essential benchmarks for understanding enzyme kinetics. For a comprehensive report around the technical key data of the kinetic parameters, see literature for further information, e.g. [Pesci _et al._<sup>1</sup>](https://doi.org/10.1007/978-3-662-57619-9_4).
 
 - __michaelis_constant__
   - Type: float
@@ -253,7 +253,7 @@ The indication of enzyme performance is crucial in assessing the effectiveness a
 
 <details> <Summary>Enzyme performance</Summary>
 
-### Enzyme performance
+### EnzymePerformance
 
 Describing enzyme performance allows researchers to understand the enzyme's capability, its longevity under specific conditions, and its overall efficiency in catalyzing reactions, providing valuable insights for optimization and application in various biocatalytic processes.
 
@@ -287,11 +287,11 @@ Describing enzyme performance allows researchers to understand the enzyme's capa
 
 ## Thermodynamic parameters
 
-The indication of thermodynamic parameters in biocatalysis is crucial for deepening the understanding of reaction kinetics and efficiency. These parameters offer insights into energy changes occurring during the reaction and assist in estimating reaction heat, entropy, and free energy. Understanding the thermodynamic properties of a reaction is essential to determine reaction direction, stability of intermediates, and the level of spontaneity or enforcement of a reaction.
+The indication of thermodynamic parameters in biocatalysis is crucial for deepening the understanding of reaction kinetics and efficiency. These parameters offer insights into energy changes occurring during the reaction and assist in estimating reaction heat, entropy, and free energy. Understanding the thermodynamic properties of a reaction is essential to determine reaction direction, stability of intermediates, and the level of spontaneity or enforcement of a reaction. For a comprehensive report around the technical key data of the kinetic parameters, see literature for further information, e.g. [Heintz<sup>2</sup>](https://doi.org/10.1007/978-3-662-49922-1).
 
 <details> <Summary>Thermodynamic parameters</Summary>
 
-### Thermodynamic parameters
+### ThermodynamicParameters
 
 Understanding the energy dynamics and spontaneity of reactions through thermodynamic parameters is essential for efficient biocatalysis.
 
@@ -342,7 +342,7 @@ The description of the biocatalyst also includes information on its storage cond
  
 - __special_treatment__
   - Type: string
-  - Description: If there are any other specific characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata, they should be             explained here.
+  - Description: If there are any other specific characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata, they should be explained here.
 
 
 </details>
@@ -351,7 +351,7 @@ The description of the biocatalyst also includes information on its storage cond
 
 ### Literature
 
-[1] B. Ansorge-Schumacher, M. (2018). Enzymimmobilisierung. In: Jaeger, KE., Liese, A., Syldatk, C. (eds) Einführung in die Enzymtechnologie. Springer Spektrum, Berlin, Heidelberg. https://doi.org/10.1007/978-3-662-57619-9_11
-
+[1] Pesci, L., Kara, S., Liese, A. (2018). Enzymkinetik. In: Jaeger, KE., Liese, A., Syldatk, C. (eds) Einführung in die Enzymtechnologie. Springer Spektrum, Berlin, Heidelberg. https://doi.org/10.1007/978-3-662-57619-9_4
+[2] Heintz, A. (2017). Thermodynamik. Springer Spektrum, Berlin, Heidelberg. https://doi.org/10.1007/978-3-662-49922-1 
 
 </div>
