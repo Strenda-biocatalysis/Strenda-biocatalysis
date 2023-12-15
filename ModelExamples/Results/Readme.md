@@ -4,171 +4,260 @@
 
 # Results documentation
 
-The category serves as a comprehensive repository within the metadata catalog for biocatalytic experiments, capturing a diverse array of metrics and parameters crucial for documenting and analyzing the outcomes of these experiments. It provides clear instructions and recommendations for accurately recording and documenting results, encompassing specific units and metrics relevant to biocatalytic reactions.
+The category serves as a comprehensive repository within the metadata catalog for biocatalytic experiments, capturing a diverse array of metrics and parameters crucial for documenting and analyzing the outcomes of experiments. It provides clear instructions and recommendations for accurately recording and documenting results, encompassing specific units and metrics relevant to biocatalytic reactions.
  
 <img src="https://github.com/DomMSNR/Strenda-biocatalysis/assets/106530250/9c81ca9b-ef03-4971-b875-b7420e83a94e" width="250">
 
 ## Kinetic parameters
 
-Blablablablablabla
+Accurate reporting of kinetic parameters is crucial in biocatalysis as they provide key insights into the efficiency and performance of enzymatic reactions. Parameters like K<sub>m</sub>, V<sub>max</sub>, and K<sub>cat</sub>/K<sub>m</sub> not only elucidate the enzyme-substrate interaction but also aid in optimizing reaction conditions for enhanced catalytic activity and product yield.
 
-<details> <Summary>balblablablablablab</Summary>
+<details> <Summary>KineticParameters</Summary>
 
-### balbalablabl
+### KineticParameters
 
-blablablablbalb
+These parameters serve as essential benchmarks for understanding enzyme kinetics.
 
-- __name__
+- __michaelis_constant__
+  - Type: float
+  - Description: The Michaelis-Menten constant (K<sub>m</sub>​) represents the substrate concentration at which an enzyme achieves half of its maximum reaction rate.
+ 
+- __michaelis_constant_unit__
   - Type: string
-  - Description: The name of the biocatalyst can be either generic based on the catalyzed reaction, for example, 'lipase' or more specifically by describing the genus and species, such as '_Bacillus amyloliquefaciens_ alpha-amylase'.
+  - Description: The unit of the Michaelis-Menten constant (K<sub>m</sub>​) is typically expressed as moles per liter (M or mM).
+ 
+- __maximum_reaction_rate__
+  - Type: float
+  - Description: V<sub>max</sub>, the maximum reaction rate, represents the speed at which an enzyme-catalyzed reaction reaches saturation, indicating the maximum achievable rate of product formation under optimal substrate concentration.
 
-</details>
-
-<details> <Summary>blablablabla</Summary>
-
-### blablablabla
-
-Important information to characterize the biocatalyst and to describe it clearly.
-
-- __name__
+- __maximum_reaction_rate_unit__
   - Type: string
-  - Description: The name of the biocatalyst can be either generic based on the catalyzed reaction, for example, 'lipase' or more specifically by describing the genus and species, such as '_Bacillus amyloliquefaciens_ alpha-amylase'.
+  - Description: The unit of V<sub>max</sub> (Maximum reaction rate) is typically represented as concentration per time, such as moles per liter per second (mol/L/s or mM/s)
+ 
+- __turnover_number__
+  - Type: float
+  - Description: The turnover number (K<sub>cat</sub>) measures the number of substrate molecules converted to product per active site of an enzyme per unit time when the enzyme is fully saturated with substrate.
+
+- __turnover_number_unit__
+  - Type: string
+  - Description: The unit of turnover number (K<sub>cat</sub>) is typically expressed as moles of product per mole of enzyme per second or per minute.
+ 
+- __catalytic_efficiency__
+  - Type: float
+  - Description: Catalytic efficiency (K<sub>cat</sub>/K<sub>m</sub>) is a measure of how effectively an enzyme converts substrate into product, often quantified as the ratio of the turnover number (K<sub>cat</sub>) to the Michaelis constant (K<sub>m</sub>).
+ 
+- __catalytic_efficiency_unit__
+  - Type: string
+  - Description: The typical units for catalytic efficiency (K<sub>cat</sub>/K<sub>m</sub>) are usually M<sup>-1</sup>s<sup>-1</sup> or s<sup>-1</sup>.   
 
 <hr>
 
 - __special_treatment__
   - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
+  - Description: If there are any other specific metrics, parameters, characteristics or aspects related to the kinetics that are important to document the results accurately and are not described by the aforementioned metadata, they should be explained here.
 
 </details>
+
 
 <hr>
 
 ## Yield and conversion
 
-<details> <Summary>blablablablabla</Summary>
+The documentation of yield and conversion in biocatalysis is crucial as it provides essential insights into the efficiency of a reaction and the amount of desired product obtained.
 
-### blablablablabla
+<details> <Summary>YieldAndConversion</Summary>
 
-The soluble enzyme refers to purified enzyme.
+### YieldAndConversion
 
-- __concentration__
+These metrics are vital for evaluating the success of a process, optimizing reaction conditions, and ensuring the production of high-quality products in biocatalytic applications.
+
+- __yield__
   - Type: posfloat
-  - Description: Concentration of the biocatalyst.
+  - Description: Yield represents the amount of the desired product obtained from a reaction. 
+ 
+- __yield_unit__
+  - Type: string
+  - Description: The yield is typically expressed in percentages (%), reflecting the ratio of the actual obtained product quantity to the theoretical maximum product quantity that could be obtained under ideal conditions.
+ 
+- __space_time_yield__
+  - Type: posfloat
+  - Description: Space-time yield in biocatalysis refers to the amount of product obtained per unit volume of the reactor per unit time.
+ 
+- __space_time_yield_unit__
+  - Type: string
+  - Description: Space-time yield is commonly expressed in g/L/h (grams per liter per hour) or mol/L/h (moles per liter per hour).
+
+- __conversion__
+  - Type: float
+  - Description: The term "conversion" in biocatalysis refers to the percentage of substrate that undergoes transformation into the desired product during a reaction.
+ 
+- __conversion_unit__
+  - Type: string
+  - Description: The conversion is commonly expressed as a percentage (%) to indicate the proportion of substrate converted to the desired product during a specific reaction.
  
 <hr>
 
 - __special_treatment__
   - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
+  - Description: If there are any other specific metrics, parameters, characteristics or aspects related to the conversion or yield that are important to document the results accurately and are not described by the aforementioned attributes, they should be explained here.
   
 </details>
 
-<details> <Summary>blablablablabla</Summary>
-  
-### balblablabla
-- __cell_disruption_process__
-  - Type: string
-  - Description: Cell disruption processes and methods include various techniques such as mechanical disruption (e.g., grinding, homogenization, ultrasonication, french press), chemical disruption (e.g., detergents, enzymes), physical techniques (e.g., electroporation, high-pressure homogenization, thermal treatment) to break cell walls and release cell contents.
 
- <hr>
-
-- __special_treatment__
-  - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
-
-</details>
-
-<details> <Summary>Whole cell biocatalyst</Summary>
-
-### blablablablabla
-
-- __harvesting_method__
-  - Type: string
-  - Description: In biotechnological processes, there are various methods for harvesting cells, including centrifugation, filtration, precipitation, etc.
- 
- <hr>
-
-- __special_treatment__
-  - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
-
-</details>
-
-<details> <Summary>Supernatant</Summary>
-
-### blablablablabla
-
-- __separation_method__
-  - Type: string
-  - Description: There are various methods to separate the supernatant from the cells, common methods include centrifugation, filtration, sedimentation, etc.
- 
- <hr>
-
-- __special_treatment__
-  - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
-
-</details>
-
-<details> <Summary>Cell-free-production</Summary>
-
-### blablablablabla
-
-Cell-free enzyme production or gene expression refers to a process where the synthesis of the biocatalyst occurs outside of living cells. This technique involves extracting cellular components, such as ribosomes, DNA, RNA, and other necessary cellular machinery, and using them in a controlled environment (usually in vitro) to produce proteins or enzymes.
-
-- __source_of_cellfree_extract__
-  - Type: string
-  - Description: Specifiy the organism or cell type from which the cell-free extract is derived (e.g., by describing the genus and species). These could be bacterial, plant, animal, or another sources. If available, reference can be made to an appropriate database entry.
- 
 <hr>
-
-- __special_treatment__
-  - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
-
-</details>
-
 
 ## Reaction rate
 
-<details> <Summary>blablablablabla</Summary>
+The accurate documentation of the reaction rate in biocatalysis is fundamental as it provides insight into the initial rate of the enzymatic reaction. This parameter aids in understanding the velocity at which the substrate is converted into products, offering vital information for assessing the enzyme's efficiency and the reaction kinetics. Furthermore, monitoring the reaction rate assists in optimizing reaction conditions and evaluating the catalytic performance of the enzyme under specific experimental setups.
 
-### blablablabla
+<details> <Summary>Reaction rate</Summary>
 
-- __purification_method__
+### ReactionRate
+
+The specification of the reaction rate is crucial as it provides insights into the speed and efficiency of the biocatalytic process. It allows for the characterization of enzyme activity and is fundamental for optimizing reaction conditions and quantifying the reaction speed.
+
+- __initial_reaction_rate__
+  - Type: float
+  - Description: The initial reaction rate refers to the rate at which the product is formed at the beginning of the enzymatic reaction under specific initial substrate concentrations and reaction conditions.
+ 
+- __initial_reaction_rate_unit__
   - Type: string
-  - Description: The purification methods can vary depending on whether it involves whole cells or free enzymes. In the case of whole cells, methods such as centrifugation, filtration, or flow cytometry can be              employed. In the case of free enzymes, methods like cell lysis, filtration, chromatography, and precipitation, among others, may be used.
+  - Description: Typically, the initial reaction rate is expressed as mol/L/min (moles per liter per minute) or µmol/mL/min (micromoles per milliliter per minute).
+
+- __specific_activity__
+  - Type: posfloat
+  - Description: The specific activity refers to the amount of product formed or substrate consumed per unit of enzyme per unit of time.
+ 
+- __specific_activity_unit__
+  - Type: string
+  - Description: The specific activity is typically expressed in µmol/min/mg (micromoles per minute per milligram of protein).
 
 <hr>
 
 - __special_treatment__
   - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
+  - Description: If there are any other specific metrics, parameters, characteristics or aspects related to the reaction rate that are important to document the results accurately and are not described by the aforementioned attributes, they should be explained here.
 
 </details>
 
-<details> <Summary>Immobilisation procedure</Summary>
 
-### blablablabla
+<hr>
 
-- __biocatalyst__
+
+## Selectivity and specificity
+
+The inclusion of selectivity and specificity data is crucial in biocatalysis as it offers insights into the precision and efficiency of a catalyst's performance. These parameters determine the catalyst's ability to favorably convert specific substrates into desired products, providing critical information for evaluating the catalyst's effectiveness and suitability for a given reaction.
+
+<details> <Summary>Selectivity and Specificity</Summary>
+
+### SelectivityAndSpecificity
+
+These parameters directly assess a catalyst's precision in converting specific substrates to desired products.
+
+- __enantiomeric_excess__
+  - Type: posfloat
+  - Description: The enantiomeric excess measures the degree of purity and efficiency in a chiral catalysis process, representing the excess of one enantiomer over the other in a reaction product.
+ 
+- __enantiomeric_excess_unit__
   - Type: string
-  - Description: When it comes to the immobilization method, it is also important to mention how the biocatalyst to be immobilized is present (for example, as a purified enzyme, or as a crude cell extract, etc.).
+  - Description: The primary unit used for enantiomeric excess is percent (%).
 
-- __immobilisation_method__
+- __chemoselectivity__
   - Type: string
-  - Description: Specify further details regarding the immobilisation method of the enzyme. For a comprehensive report around the technical key data of the immobilization process or method, see literature for further              information, e.g. [Ansorge-Schumacher _et_ _al._<sup>1</sup>](https://doi.org/10.1007/978-3-662-57619-9_11) 
+  - Description: Chemoselectivity refers to the ability of a chemical reaction to target a specific functional group or site within a molecule without affecting other reactive groups present. It highlights the preference of a reaction for one type of chemical bond or functional group over others in a molecule. Chemoselective reactions play a crucial role in organic synthesis, allowing precise modification or transformation of a compound while leaving other parts of the molecule unaffected.
+ 
+- __regioselectivity__
+  - Type: string
+  - Description: Regioselectivity refers to the preference of a reaction to occur at a specific site within a molecule or compound that has multiple potential reaction sites. It describes the tendency of a reaction to selectively take place at a particular position of the molecule, considering its structural arrangement of atoms or functional groups, rather than at other possible sites.
+ 
+- __stereoselectivity__
+  - Type: string
+  - Description: Stereoselectivity refers to the preference of a chemical reaction to produce a specific stereoisomer or a particular spatial arrangement of atoms within a molecule. It describes the ability of a reaction to favor the formation of one stereoisomer over others or to create a specific stereochemical outcome. This selectivity is essential in organic synthesis and drug development as it determines the spatial arrangement of molecules and their biological activity.
 
 <hr>
 
 - __special_treatment__
   - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
+  - Description: If there are any other specific metrics, parameters, characteristics or aspects related to the selectivity and specificity that are important to document the results accurately and are not described by the aforementioned attributes, they should be explained here.
 
 </details>
 
 <hr>
+
+
+## Specific substrate metrics
+
+Accurate documentation of specific substrate metrics is crucial in biocatalysis as it enables a detailed understanding of enzyme-substrate interactions, aiding in optimizing reaction conditions.
+
+<details> <Summary>Specific substrate metrics</Summary>
+
+### SpecificSubstrateMetrics
+
+These metrics play a pivotal role in determining the catalytic efficiency and selectivity of the enzymatic reactions, thereby influencing the success and reproducibility of the biocatalytic process.
+
+- __substrate_concentration__
+  - Type: posfloat
+  - Description: The substrate concentration refers to the amount or concentration of the reactant molecules present in a given volume of the reaction mixture.
+ 
+- __substrate_concentration_unit__
+  - Type: string 
+  - Description: The typical units for substrate concentration in biocatalysis often involve mol/L (moles per liter) or mmol/L (millimoles per milliliter).
+
+- __product_concentration__
+  - Type: posfloat
+  - Description: The product concentration refers to the amount of the desired product present in a given volume of a reaction mixture.
+ 
+- __product_concentration_unit__
+  - Type: string
+  - Description: The typical units for product concentration in biocatalysis are expressed as mol/L (moles per liter) or mmol/mL (millimoles per milliliter). 
+
+<hr>
+
+- __special_treatment__
+  - Type: string
+  - Description: If there are any other specific metrics, parameters, characteristics or aspects related to the selectivity and specificity that are important to document the results accurately and are not described by the aforementioned attributes, they should be explained here.
+
+</details>
+
+<hr>
+
+
+## Enzyme performance
+
+The indication of enzyme performance is crucial in assessing the effectiveness and reliability of enzymatic reactions. 
+
+<details> <Summary>Enzyme performance</Summary>
+
+### Enzyme performance
+
+Describing enzyme performance allows researchers to understand the enzyme's capability, its longevity under specific conditions, and its overall efficiency in catalyzing reactions, providing valuable insights for optimization and application in various biocatalytic processes.
+
+- __temperature_optimum__
+  - Type: float
+  - Description: The temperature optimum denotes the specific temperature at which an enzyme demonstrates its highest level of activity or efficiency in a reaction.
+ 
+- __temperature_optimum_unit__
+  - Type: string 
+  - Description: The temperature optimum is typically measured in °C, K or °F.
+
+- __pH_optimum__
+  - Type: posfloat
+  - Description: The pH optimum refers to the specific pH level at which an enzyme exhibits its maximum activity or efficiency in a reaction.
+
+<hr>
+
+- __special_treatment__
+  - Type: string
+  - Description: If there are any other specific metrics, parameters, characteristics or aspects related to the enzyme performance that are important to document the results accurately and are not described by the aforementioned attributes, they should be explained here.
+
+</details>
+
+<hr>
+
+
+
+
+
 
 # blablablabla
 The description of the biocatalyst also includes information on its storage conditions prior to use in the reaction. No information is required for fresh production without storage.
