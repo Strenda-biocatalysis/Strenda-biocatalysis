@@ -361,7 +361,7 @@ Cell-free enzyme production or gene expression refers to a process where the syn
 
 - __immobilisation_method__
   - Type: string
-  - Description: Specify further details regarding the immobilisation method of the enzyme. For a comprehensive report around the technical key data of the immobilization process or method, see literature for further              information, e.g. [Ansorge-Schumacher _et_ _al._<sup>1</sup>](https://doi.org/10.1007/978-3-662-57619-9_11). 
+  - Description: Specify further details regarding the immobilisation method of the enzyme. For a comprehensive report around the technical key data of the immobilization process or method, see literature for further              information, e.g. [Ansorge-Schumacher<sup>1</sup>](https://doi.org/10.1007/978-3-662-57619-9_11). 
 
 <hr>
 
