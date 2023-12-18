@@ -180,11 +180,19 @@ These parameters directly assess a catalyst's precision in converting specific s
 
 - __enantiomeric_excess__
   - Type: posfloat
-  - Description: The enantiomeric excess measures the degree of purity and efficiency in a chiral catalysis process, representing the excess of one enantiomer over the other in a reaction product.
+  - Description: The enantiomeric excess (_ee_) measures the degree of purity and efficiency in a chiral catalysis process, representing the excess of one enantiomer over the other in a reaction product.
  
 - __enantiomeric_excess_unit__
   - Type: string
-  - Description: The primary unit used for enantiomeric excess is percent (%).
+  - Description: The primary unit used for enantiomeric excess (_ee_) is percent (%).
+ 
+- __enantioselectivity__
+  - Type: posfloat
+  - Description: Enantioselectivity (__E__) refers to the ability of an enzyme to preferentially produce one enantiomer over its mirror-image counterpart in a reaction.
+ 
+- __enantioselectivity_unit__
+  - Type: string
+  - Description: The enantioselectivity (__E__) is typically expressed as the ratio of reaction rates for the formation of both enantiomers, often represented as the ratio of product or substrate conversion.
 
 - __chemoselectivity__
   - Type: string
