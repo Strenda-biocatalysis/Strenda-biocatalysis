@@ -68,7 +68,7 @@ The systematic recording and description of experimental outcomes and data obtai
 
 [Results documentation](ModelExamples/Results/Readme.md)
 
-[<img src="https://github.com/DomMSNR/Strenda-biocatalysis/assets/106530250/9c81ca9b-ef03-4971-b875-b7420e83a94e" width=180>](ModelExamples/Results/Readme.md)
+[<img src="https://github.com/DomMSNR/Strenda-biocatalysis/assets/106530250/c5049a15-ecae-4273-ac2d-b7f1c94c6239" width=100>](ModelExamples/Results/Readme.md)
 
 
 
