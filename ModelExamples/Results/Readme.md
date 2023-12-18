@@ -6,13 +6,12 @@
 
 The category serves as a comprehensive repository within the metadata catalog for biocatalytic experiments, capturing a diverse array of metrics and parameters crucial for documenting and analyzing the outcomes of experiments. It provides clear instructions and recommendations for accurately recording and documenting results, encompassing specific units and metrics relevant to biocatalytic reactions.
  
-<img src="https://github.com/DomMSNR/Strenda-biocatalysis/assets/106530250/9c81ca9b-ef03-4971-b875-b7420e83a94e" width="250">
 
 ## Kinetic parameters
 
 Accurate reporting of kinetic parameters is crucial in biocatalysis as they provide key insights into the efficiency and performance of enzymatic reactions. Parameters like K<sub>m</sub>, V<sub>max</sub>, and K<sub>cat</sub>/K<sub>m</sub> not only elucidate the enzyme-substrate interaction but also aid in optimizing reaction conditions for enhanced catalytic activity and product yield.
 
-<details> <Summary>KineticParameters</Summary>
+<details> <Summary>Kinetic parameters</Summary>
 
 ### KineticParameters
 
@@ -90,7 +89,7 @@ These parameters serve as essential benchmarks for understanding enzyme kinetics
 
 The documentation of yield and conversion in biocatalysis is crucial as it provides essential insights into the efficiency of a reaction and the amount of desired product obtained.
 
-<details> <Summary>YieldAndConversion</Summary>
+<details> <Summary>Yield and conversion</Summary>
 
 ### YieldAndConversion
 
@@ -173,7 +172,7 @@ The specification of the reaction rate is crucial as it provides insights into t
 
 The inclusion of selectivity and specificity data is crucial in biocatalysis as it offers insights into the precision and efficiency of a catalyst's performance. These parameters determine the catalyst's ability to favorably convert specific substrates into desired products, providing critical information for evaluating the catalyst's effectiveness and suitability for a given reaction.
 
-<details> <Summary>Selectivity and Specificity</Summary>
+<details> <Summary>Selectivity and specificity</Summary>
 
 ### SelectivityAndSpecificity
 
@@ -322,30 +321,6 @@ Understanding the energy dynamics and spontaneity of reactions through thermodyn
 
 </details>
 
-<hr>
-
-
-
-
-# blablablabla
-The description of the biocatalyst also includes information on its storage conditions prior to use in the reaction. No information is required for fresh production without storage.
-
-<details> <Summary>blablablablabla</Summary>
-
-### blablablabla
-
-- __temperature__
-  - Type: float
-  - Description: The temperature at which the reactant is stored.
-
-<hr>
- 
-- __special_treatment__
-  - Type: string
-  - Description: If there are any other specific characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata, they should be explained here.
-
-
-</details>
 
 <hr>
 
