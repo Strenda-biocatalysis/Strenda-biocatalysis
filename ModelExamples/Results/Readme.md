@@ -4,18 +4,17 @@
 
 # Results documentation
 
-The category serves as a comprehensive repository within the metadata catalog for biocatalytic experiments, capturing a diverse array of metrics and parameters crucial for documenting and analyzing the outcomes of experiments. It provides clear instructions and recommendations for accurately recording and documenting results of biocatalytic experiments.
- 
+This category serves as an extension of the actual metadata catalog and deals with recommendations for the documentation and analysis of the results of biocatalytic experiments. It covers a variety of metrics and parameters based on the [STRANDA Guidelines](https://www.beilstein-institut.de/en/projects/strenda/) for improving the reproducibility of experiments within the field of biocatalysis. 
 
 ## Kinetic parameters
 
-Accurate reporting of kinetic parameters is crucial in biocatalysis as they provide key insights into the efficiency and performance of enzymatic reactions. Parameters like K<sub>m</sub>, V<sub>max</sub>, and k<sub>cat</sub>/K<sub>m</sub> not only elucidate the enzyme-substrate interaction but also aid in optimizing reaction conditions for enhanced catalytic activity and product yield.
+Kinetic parameters provide key insights into the efficiency and performance of an enzymatic reactions. Parameters like K<sub>m</sub>, V<sub>max</sub>, and k<sub>cat</sub>/K<sub>m</sub> elucidate the enzyme-substrate interaction and can further be used for optimizing reaction conditions.
 
 <details> <Summary>Kinetic parameters</Summary>
 
 ### KineticParameters
 
-These parameters serve as essential benchmarks for understanding enzyme kinetics. Certain cases must be taken into account for meaningful documentation of the kinetics. These include biocatalytic reactions with several substrates. The K<sub>m</sub> and k<sub>cat</sub> value is determined by all substrates involved in the reaction and not just one. Therefore, the concentrations of all substrates must be varied and the K<sub>m</sub> and k<sub>cat</sub> values calculated to obtain a common value instead of apparate values. For a comprehensive report around the technical key data of the kinetic parameters, see literature for further information, e.g. [Pesci _et al._<sup>1</sup>](https://doi.org/10.1007/978-3-662-57619-9_4).
+These parameters serve as benchmarks for understanding enzyme kinetics. The K<sub>m</sub> and k<sub>cat</sub> value is determined by all substrates involved in the reaction and not just one. Therefore, the concentrations of <ins>**all**</ins> substrates must be varied and the K<sub>m</sub> and k<sub>cat</sub> values calculated to obtain a common value instead of apparent values. For a comprehensive report around the technical key data of the kinetic parameters, see literature for further information, e.g. [Pesci _et al._<sup>1</sup>](https://doi.org/10.1007/978-3-662-57619-9_4).
 
 - __michaelis_constant__
   - Type: float
@@ -63,7 +62,7 @@ These parameters serve as essential benchmarks for understanding enzyme kinetics
 
 - __inhibition_constant__
   - Type: float
-  - Description: The inhibition constant (K<sub>i</sub>) is a significant parameter in biocatalysis, describing the affinity of an inhibitor for an enzyme. It indicates how effectively an inhibitor influences enzyme activity. A lower K<sub>i</sub> value suggests a strong binding of the inhibitor to the enzyme.
+  - Description: The inhibition constant (K<sub>i</sub>) escribes the affinity of an inhibitor for an enzyme. It indicates how effectively an inhibitor influences enzyme activity. A lower K<sub>i</sub> value suggests a strong binding of the inhibitor to the enzyme.
 
 - __inhibition_constant_unit__
   - Type: string
@@ -71,8 +70,12 @@ These parameters serve as essential benchmarks for understanding enzyme kinetics
  
 - __hill_coefficient__
   - Type: float
-  - Description: The Hill coefficient is a parameter used to describe cooperativity in the binding of molecules to proteins. It is employed in enzyme reactions or oxygen binding to hemoglobin to indicate whether there is positive (cooperative) or negative (anticooperative) binding. A Hill coefficient greater than 1 indicates positive cooperativity, while a value less than 1 indicates negative cooperativity. A value of exactly 1 indicates no cooperativity in the binding.
+  - Description: The Hill coefficient is a parameter used to describe cooperativity in the binding of molecules to proteins. It is employed in enzyme reactions, e.g. oxygen binding to hemoglobin, to indicate whether there is positive (cooperative) or negative (anticooperative) binding. A Hill coefficient greater than 1 indicates positive cooperativity, while a value less than 1 indicates negative cooperativity. A value of exactly 1 indicates no cooperativity.
   
+- __enzyme_stability__
+  - Type: string
+  - Description: The stability of enzymes is often characterized by various parameters such as the enzyme's half-life under specific conditions, the decline in activity over time, or the preservation of catalytic activity under different environmental conditions. 
+
 
 <hr>
 
@@ -87,7 +90,7 @@ These parameters serve as essential benchmarks for understanding enzyme kinetics
 
 ## Yield and conversion
 
-The documentation of yield and conversion in biocatalysis is crucial as it provides essential insights into the efficiency of a reaction and the amount of desired product obtained.
+The documentation of yield and conversion provides essential insights into the efficiency of a reaction and the amount of desired product obtained.
 
 <details> <Summary>Yield and conversion</Summary>
 
@@ -170,42 +173,57 @@ The specification of the reaction rate is crucial as it provides insights into t
 
 ## Selectivity and specificity
 
-The inclusion of selectivity and specificity data is crucial in biocatalysis as it offers insights into the precision and efficiency of a catalyst's performance. These parameters determine the catalyst's ability to favorably convert specific substrates into desired products, providing critical information for evaluating the catalyst's effectiveness and suitability for a given reaction.
+The inclusion of selectivity and specificity data offers insights into the precision and efficiency of a catalyst's performance. These parameters determine the catalyst's ability to favorably convert specific substrates into desired products.
 
 <details> <Summary>Selectivity and specificity</Summary>
 
 ### SelectivityAndSpecificity
 
-These parameters directly assess a catalyst's precision in converting specific substrates to desired products. For a comprehensive report around the technical key data of the selectivity and specificity, see literature for further information, e.g. [Faber<sup>1</sup>](https://doi.org/10.1007/978-3-642-17393-6_2). 
+These parameters directly assess a catalyst's precision in converting specific substrates to desired products. For a comprehensive report around the technical key data of the selectivity and specificity, see literature for further information, e.g. [Faber<sup>2</sup>](https://doi.org/10.1007/978-3-642-17393-6_2), [Liese _et al._<sup>3</sup>](https://doi.org/10.1002/3527608184). 
 
+- __stereoselectivity__
+  - Type: string
+  - Description: Stereoselectivity refers to the preference of a chemical reaction to produce a specific stereoisomer or a particular spatial arrangement of atoms within a molecule. It describes the ability of a reaction to favor the formation of one stereoisomer over others or to create a specific stereochemical outcome.
+ 
+- __enantioselectivity__ #Definition von Kurt Faber hinzufügen
+  - Type: posfloat
+  - Description: Enantioselectivity, or enantiomeric ratio (E), defines the enzyme's capability to preferentially catalyze the transformation of one enantiomer over its mirror-image counterpart. This trait highlights the enzyme's ability to favor a specific enantiomer either as a product or as the preferred substrate for a reaction.
 
 - __enantiomeric_excess__
   - Type: posfloat
-  - Description: The enantiomeric excess (_ee_) measures the degree of purity and efficiency in a chiral catalysis process, representing the excess of one enantiomer over the other in a reaction product.
+  - Description: The enantiomeric excess (_ee_) measures the degree of purity and efficiency in a chiral catalysis process, representing the excess of one enantiomer over the other in a reaction product. The following formula can be used: $$ee_R = \frac{n_R - n_S}{n_R + n_S}$$
+    
+    where, *ee<sub>R</sub>* - enantiomeric excess of the (*R*)-enantiomer (-), *n<sub>R</sub>* - amount of the (*R*)-enatiomer (mol) and *n<sub>S</sub>* - amount of the (*S*)-enatiomer (mol).
  
 - __enantiomeric_excess_unit__
   - Type: string
   - Description: The primary unit used for enantiomeric excess (_ee_) is percent (%).
  
-- __enantioselectivity__
+ - __diastereomeric_excess__ #Anpassen
   - Type: posfloat
-  - Description: Enantioselectivity (E) refers to the ability of an enzyme to preferentially produce one enantiomer over its mirror-image counterpart in a reaction.
+  - Description: The enantiomeric excess (_ee_) measures the degree of purity and efficiency in a chiral catalysis process, representing the excess of one enantiomer over the other in a reaction product. The following formula can be used: $$ee_R = \frac{n_R - n_S}{n_R + n_S}$$
+    
+    where, *ee<sub>R</sub>* - enantiomeric excess of the (*R*)-enantiomer (-), *n<sub>R</sub>* - amount of the (*R*)-enatiomer (mol) and *n<sub>S</sub>* - amount of the (*S*)-enatiomer (mol).
  
-- __enantioselectivity_unit__
+- __diasteriomeric_excess_unit__ #Anpassen
   - Type: string
-  - Description: The enantioselectivity (E) is typically expressed as the ratio of reaction rates for the formation of both enantiomers, often represented as the ratio of product or substrate conversion.
+  - Description: The primary unit used for enantiomeric excess (_ee_) is percent (%).
+ 
+    __isomeric_content__ #Anpassen
+  - Type: posfloat
+  - Description: The enantiomeric excess (_ee_) measures the degree of purity and efficiency in a chiral catalysis process, representing the excess of one enantiomer over the other in a reaction product. The following formula can be used: $$ee_R = \frac{n_R - n_S}{n_R + n_S}$$
+    
+    where, *ee<sub>R</sub>* - enantiomeric excess of the (*R*)-enantiomer (-), *n<sub>R</sub>* - amount of the (*R*)-enatiomer (mol) and *n<sub>S</sub>* - amount of the (*S*)-enatiomer (mol).
+ 
 
 - __chemoselectivity__
   - Type: string
-  - Description: Chemoselectivity refers to the ability of a chemical reaction to target a specific functional group or site within a molecule without affecting other reactive groups present. It highlights the preference of a reaction for one type of chemical bond or functional group over others in a molecule. Chemoselective reactions play a crucial role in organic synthesis, allowing precise modification or transformation of a compound while leaving other parts of the molecule unaffected.
+  - Description: Chemoselectivity refers to the ability of a chemical reaction to target a specific functional group or site within a molecule without affecting other reactive groups present. It highlights the preference of a reaction for one type of chemical bond or functional group over others in a molecule.
  
 - __regioselectivity__
   - Type: string
   - Description: Regioselectivity refers to the preference of a reaction to occur at a specific site within a molecule or compound that has multiple potential reaction sites. It describes the tendency of a reaction to selectively take place at a particular position of the molecule, considering its structural arrangement of atoms or functional groups, rather than at other possible sites.
  
-- __stereoselectivity__
-  - Type: string
-  - Description: Stereoselectivity refers to the preference of a chemical reaction to produce a specific stereoisomer or a particular spatial arrangement of atoms within a molecule. It describes the ability of a reaction to favor the formation of one stereoisomer over others or to create a specific stereochemical outcome. This selectivity is essential in organic synthesis and drug development as it determines the spatial arrangement of molecules and their biological activity.
 
 <hr>
 
@@ -214,88 +232,13 @@ These parameters directly assess a catalyst's precision in converting specific s
   - Description: If there are any other specific metrics, parameters, characteristics or aspects related to the selectivity and specificity that are important to document the results accurately and are not described by the aforementioned attributes, they should be explained here.
 
 </details>
-
-<hr>
-
-
-## Specific substrate metrics
-
-Accurate documentation of specific substrate metrics is crucial in biocatalysis as it enables a detailed understanding of enzyme-substrate interactions, aiding in optimizing reaction conditions.
-
-<details> <Summary>Specific substrate metrics</Summary>
-
-### SpecificSubstrateMetrics
-
-These metrics play a pivotal role in determining the catalytic efficiency and selectivity of the enzymatic reactions, thereby influencing the success and reproducibility of the biocatalytic process.
-
-- __substrate_concentration__
-  - Type: posfloat
-  - Description: The substrate concentration refers to the amount or concentration of the reactant molecules present in a given volume of the reaction mixture.
- 
-- __substrate_concentration_unit__
-  - Type: string 
-  - Description: The typical units for substrate concentration in biocatalysis often involve mol/L (moles per liter) or mmol/L (millimoles per milliliter).
-
-- __product_concentration__
-  - Type: posfloat
-  - Description: The product concentration refers to the amount of the desired product present in a given volume of a reaction mixture.
- 
-- __product_concentration_unit__
-  - Type: string
-  - Description: The typical units for product concentration in biocatalysis are expressed as mol/L (moles per liter) or mmol/mL (millimoles per milliliter). 
-
-<hr>
-
-- __special_treatment__
-  - Type: string
-  - Description: If there are any other specific metrics, parameters, characteristics or aspects related to the selectivity and specificity that are important to document the results accurately and are not described by the aforementioned attributes, they should be explained here.
-
-</details>
-
-<hr>
-
-
-## Enzyme performance
-
-The indication of enzyme performance is crucial in assessing the effectiveness and reliability of enzymatic reactions. 
-
-<details> <Summary>Enzyme performance</Summary>
-
-### EnzymePerformance
-
-Describing enzyme performance allows researchers to understand the enzyme's capability, its longevity under specific conditions, and its overall efficiency in catalyzing reactions, providing valuable insights for optimization and application in various biocatalytic processes.
-
-- __temperature_optimum__
-  - Type: float
-  - Description: The temperature optimum denotes the specific temperature at which an enzyme demonstrates its highest level of activity or efficiency in a reaction.
- 
-- __temperature_optimum_unit__
-  - Type: string 
-  - Description: The temperature optimum is typically measured in °C, K or °F.
-
-- __pH_optimum__
-  - Type: posfloat
-  - Description: The pH optimum refers to the specific pH level at which an enzyme exhibits its maximum activity or efficiency in a reaction.
- 
-- __enzyme_stability__
-  - Type: string
-  - Description: The stability of enzymes is often characterized by various parameters such as the enzyme's half-life under specific conditions, the decline in activity over time, or the preservation of catalytic activity under different environmental conditions. 
-
-<hr>
-
-- __special_treatment__
-  - Type: string
-  - Description: If there are any other specific metrics, parameters, characteristics or aspects related to the enzyme performance that are important to document the results accurately and are not described by the aforementioned attributes, they should be explained here.
-
-</details>
-
 
 <hr>
 
 
 ## Thermodynamic parameters
 
-The indication of thermodynamic parameters in biocatalysis is crucial for deepening the understanding of reaction kinetics and efficiency. These parameters offer insights into energy changes occurring during the reaction and assist in estimating reaction heat, entropy, and free energy. Understanding the thermodynamic properties of a reaction is essential to determine reaction direction, stability of intermediates, and the level of spontaneity or enforcement of a reaction. For a comprehensive report around the technical key data of the kinetic parameters, see literature for further information, e.g. [Heintz<sup>3</sup>](https://doi.org/10.1007/978-3-662-49922-1).
+These parameters offer insights into energy changes occurring during the reaction and assist in estimating reaction heat, entropy, and free energy. Understanding the thermodynamic properties of a reaction is essential to determine reaction direction, stability of intermediates, and the level of spontaneity or enforcement of a reaction, but is beyond the scope of the current project phase. For a comprehensive report around the technical key data of the kinetic parameters, see literature for further information, e.g. [Heintz<sup>4</sup>](https://doi.org/10.1007/978-3-662-49922-1).
 
 <details> <Summary>Thermodynamic parameters</Summary>
 
@@ -313,8 +256,8 @@ Understanding the energy dynamics and spontaneity of reactions through thermodyn
 - __enthalpy_change__
   - Type: string 
   - Description: The enthalpy (**H**) represents the heat content within a system, expressing the quantity and nature of chemical bonds. This thermodynamic property cannot be measured independently. However, measurable is the change in enthalpy (Δ**H**), which refers to the amount of heat absorbed or released during a chemical reaction (under constant pressure), also known as the reaction enthalpy. <br>
-Δ**H** > 0: Heat energy is supplied; the reaction is endothermic. <br>
-Δ**H** < 0: Heat energy is released; the reaction is exothermic.
+Δ**H** > 0: Heat energy is supplied; the reaction is __endothermic__. <br>
+Δ**H** < 0: Heat energy is released; the reaction is __exothermic__.
 
 - __entropy_change__
   - Type: string
@@ -337,7 +280,8 @@ Understanding the energy dynamics and spontaneity of reactions through thermodyn
 
 [1] Pesci, L., Kara, S., Liese, A. (2018). Enzymkinetik. In: Jaeger, KE., Liese, A., Syldatk, C. (eds) Einführung in die Enzymtechnologie. Springer Spektrum, Berlin, Heidelberg. https://doi.org/10.1007/978-3-662-57619-9_4 <br>
 [2] Faber, K. (2011). Biocatalytic Applications. In: Biotransformations in Organic Chemistry. Springer, Berlin, Heidelberg. https://doi.org/10.1007/978-3-642-17393-6_2 <br>
-[3] Heintz, A. (2017). Thermodynamik. Springer Spektrum, Berlin, Heidelberg. https://doi.org/10.1007/978-3-662-49922-1
+[3] Liese, A., Seelbach, K., Wandrey, C. (2006). Basics of Bioreaction Engineering. In: Liese, A., Seelbach, K., Wandrey, C. (eds) Industrial biotransformations. John Wiley & Sons. https://doi.org/10.1002/3527608184 <br>
+[4] Heintz, A. (2017). Thermodynamik. Springer Spektrum, Berlin, Heidelberg. https://doi.org/10.1007/978-3-662-49922-1
 
 
 </div>
