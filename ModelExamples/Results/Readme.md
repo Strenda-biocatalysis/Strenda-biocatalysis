@@ -4,18 +4,18 @@
 
 # Results documentation
 
-The category serves as a comprehensive repository within the metadata catalog for biocatalytic experiments, capturing a diverse array of metrics and parameters crucial for documenting and analyzing the outcomes of experiments. It provides clear instructions and recommendations for accurately recording and documenting results, encompassing specific units and metrics relevant to biocatalytic reactions.
+The category serves as a comprehensive repository within the metadata catalog for biocatalytic experiments, capturing a diverse array of metrics and parameters crucial for documenting and analyzing the outcomes of experiments. It provides clear instructions and recommendations for accurately recording and documenting results of biocatalytic experiments.
  
 
 ## Kinetic parameters
 
-Accurate reporting of kinetic parameters is crucial in biocatalysis as they provide key insights into the efficiency and performance of enzymatic reactions. Parameters like K<sub>m</sub>, V<sub>max</sub>, and K<sub>cat</sub>/K<sub>m</sub> not only elucidate the enzyme-substrate interaction but also aid in optimizing reaction conditions for enhanced catalytic activity and product yield.
+Accurate reporting of kinetic parameters is crucial in biocatalysis as they provide key insights into the efficiency and performance of enzymatic reactions. Parameters like K<sub>m</sub>, V<sub>max</sub>, and k<sub>cat</sub>/K<sub>m</sub> not only elucidate the enzyme-substrate interaction but also aid in optimizing reaction conditions for enhanced catalytic activity and product yield.
 
 <details> <Summary>Kinetic parameters</Summary>
 
 ### KineticParameters
 
-These parameters serve as essential benchmarks for understanding enzyme kinetics. For a comprehensive report around the technical key data of the kinetic parameters, see literature for further information, e.g. [Pesci _et al._<sup>1</sup>](https://doi.org/10.1007/978-3-662-57619-9_4).
+These parameters serve as essential benchmarks for understanding enzyme kinetics. Certain cases must be taken into account for meaningful documentation of the kinetics. These include biocatalytic reactions with several substrates. The K<sub>m</sub> and k<sub>cat</sub> value is determined by all substrates involved in the reaction and not just one. Therefore, the concentrations of all substrates must be varied and the K<sub>m</sub> and k<sub>cat</sub> values calculated to obtain a common value instead of apparate values. For a comprehensive report around the technical key data of the kinetic parameters, see literature for further information, e.g. [Pesci _et al._<sup>1</sup>](https://doi.org/10.1007/978-3-662-57619-9_4).
 
 - __michaelis_constant__
   - Type: float
@@ -31,23 +31,23 @@ These parameters serve as essential benchmarks for understanding enzyme kinetics
 
 - __maximum_reaction_rate_unit__
   - Type: string
-  - Description: The unit of V<sub>max</sub> (Maximum reaction rate) is typically represented as concentration per time, such as moles per liter per second (mol/L/s or mM/s)
+  - Description: The unit of V<sub>max</sub> (Maximum reaction rate) is typically represented as concentration per time, such as moles per liter per second (mol/L/s or mM/s).
  
 - __turnover_number__
   - Type: float
-  - Description: The turnover number (K<sub>cat</sub>) measures the number of substrate molecules converted to product per active site of an enzyme per unit time when the enzyme is fully saturated with substrate.
+  - Description: The turnover number (k<sub>cat</sub>) measures the number of substrate molecules converted to product per active site of an enzyme per unit time when the enzyme is fully saturated with substrate.
 
 - __turnover_number_unit__
   - Type: string
-  - Description: The unit of turnover number (K<sub>cat</sub>) is typically expressed as moles of product per mole of enzyme per second or per minute.
+  - Description: The unit of turnover number (k<sub>cat</sub>) is typically expressed as moles of product per mole of enzyme per second or per minute.
  
 - __catalytic_efficiency__
   - Type: float
-  - Description: Catalytic efficiency (K<sub>cat</sub>/K<sub>m</sub>) is a measure of how effectively an enzyme converts substrate into product, often quantified as the ratio of the turnover number (K<sub>cat</sub>) to the Michaelis constant (K<sub>m</sub>).
+  - Description: Catalytic efficiency (k<sub>cat</sub>/K<sub>m</sub>) is a measure of how effectively an enzyme converts substrate into product, often quantified as the ratio of the turnover number (k<sub>cat</sub>) to the Michaelis constant (K<sub>m</sub>).
  
 - __catalytic_efficiency_unit__
   - Type: string
-  - Description: The typical units for catalytic efficiency (K<sub>cat</sub>/K<sub>m</sub>) are usually M<sup>-1</sup>s<sup>-1</sup> or s<sup>-1</sup>.
+  - Description: The typical units for catalytic efficiency (k<sub>cat</sub>/K<sub>m</sub>) are usually M<sup>-1</sup>s<sup>-1</sup> or s<sup>-1</sup>.
  
 - __dissociation_constant__
   - Type: float
@@ -176,7 +176,8 @@ The inclusion of selectivity and specificity data is crucial in biocatalysis as 
 
 ### SelectivityAndSpecificity
 
-These parameters directly assess a catalyst's precision in converting specific substrates to desired products.
+These parameters directly assess a catalyst's precision in converting specific substrates to desired products. For a comprehensive report around the technical key data of the selectivity and specificity, see literature for further information, e.g. [Faber<sup>1</sup>](https://doi.org/10.1007/978-3-642-17393-6_2). 
+
 
 - __enantiomeric_excess__
   - Type: posfloat
@@ -188,11 +189,11 @@ These parameters directly assess a catalyst's precision in converting specific s
  
 - __enantioselectivity__
   - Type: posfloat
-  - Description: Enantioselectivity (__E__) refers to the ability of an enzyme to preferentially produce one enantiomer over its mirror-image counterpart in a reaction.
+  - Description: Enantioselectivity (E) refers to the ability of an enzyme to preferentially produce one enantiomer over its mirror-image counterpart in a reaction.
  
 - __enantioselectivity_unit__
   - Type: string
-  - Description: The enantioselectivity (__E__) is typically expressed as the ratio of reaction rates for the formation of both enantiomers, often represented as the ratio of product or substrate conversion.
+  - Description: The enantioselectivity (E) is typically expressed as the ratio of reaction rates for the formation of both enantiomers, often represented as the ratio of product or substrate conversion.
 
 - __chemoselectivity__
   - Type: string
@@ -294,7 +295,7 @@ Describing enzyme performance allows researchers to understand the enzyme's capa
 
 ## Thermodynamic parameters
 
-The indication of thermodynamic parameters in biocatalysis is crucial for deepening the understanding of reaction kinetics and efficiency. These parameters offer insights into energy changes occurring during the reaction and assist in estimating reaction heat, entropy, and free energy. Understanding the thermodynamic properties of a reaction is essential to determine reaction direction, stability of intermediates, and the level of spontaneity or enforcement of a reaction. For a comprehensive report around the technical key data of the kinetic parameters, see literature for further information, e.g. [Heintz<sup>2</sup>](https://doi.org/10.1007/978-3-662-49922-1).
+The indication of thermodynamic parameters in biocatalysis is crucial for deepening the understanding of reaction kinetics and efficiency. These parameters offer insights into energy changes occurring during the reaction and assist in estimating reaction heat, entropy, and free energy. Understanding the thermodynamic properties of a reaction is essential to determine reaction direction, stability of intermediates, and the level of spontaneity or enforcement of a reaction. For a comprehensive report around the technical key data of the kinetic parameters, see literature for further information, e.g. [Heintz<sup>3</sup>](https://doi.org/10.1007/978-3-662-49922-1).
 
 <details> <Summary>Thermodynamic parameters</Summary>
 
@@ -335,6 +336,8 @@ Understanding the energy dynamics and spontaneity of reactions through thermodyn
 ### Literature
 
 [1] Pesci, L., Kara, S., Liese, A. (2018). Enzymkinetik. In: Jaeger, KE., Liese, A., Syldatk, C. (eds) Einführung in die Enzymtechnologie. Springer Spektrum, Berlin, Heidelberg. https://doi.org/10.1007/978-3-662-57619-9_4 <br>
-[2] Heintz, A. (2017). Thermodynamik. Springer Spektrum, Berlin, Heidelberg. https://doi.org/10.1007/978-3-662-49922-1 
+[2] Faber, K. (2011). Biocatalytic Applications. In: Biotransformations in Organic Chemistry. Springer, Berlin, Heidelberg. https://doi.org/10.1007/978-3-642-17393-6_2 <br>
+[3] Heintz, A. (2017). Thermodynamik. Springer Spektrum, Berlin, Heidelberg. https://doi.org/10.1007/978-3-662-49922-1
+
 
 </div>
