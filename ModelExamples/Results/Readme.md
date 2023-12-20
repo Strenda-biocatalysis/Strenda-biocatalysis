@@ -142,23 +142,13 @@ These metrics are vital for evaluating the success of a process, optimizing reac
 
 <hr>
 
-## Reaction rate
+## Activity and initial reaction rate
 
-The accurate documentation of the reaction rate in biocatalysis is fundamental as it provides insight into the initial rate of the enzymatic reaction. This parameter aids in understanding the velocity at which the substrate is converted into products, offering vital information for assessing the enzyme's efficiency and the reaction kinetics. Furthermore, monitoring the reaction rate assists in optimizing reaction conditions and evaluating the catalytic performance of the enzyme under specific experimental setups.
+This parameter aids in understanding the velocity at which the substrate is converted into products, offering vital information for assessing the enzyme's efficiency and the reaction kinetics.
 
-<details> <Summary>Reaction rate</Summary>
+<details> <Summary>Activity and initial reaction rate</Summary>
 
-### ReactionRate
-
-The specification of the reaction rate is crucial as it provides insights into the speed and efficiency of the biocatalytic process. It allows for the characterization of enzyme activity and is fundamental for optimizing reaction conditions and quantifying the reaction speed.
-
-- __initial_reaction_rate__
-  - Type: float
-  - Description: The initial reaction rate refers to the rate at which the product is formed at the beginning of the enzymatic reaction under specific initial substrate concentrations and reaction conditions.
- 
-- __initial_reaction_rate_unit__
-  - Type: string
-  - Description: Typically, the initial reaction rate is expressed as mol/L/min (moles per liter per minute) or µmol/mL/min (micromoles per milliliter per minute).
+### ActivityAndInitialReactionRate
 
 - __specific_activity__
   - Type: posfloat
@@ -168,11 +158,20 @@ The specification of the reaction rate is crucial as it provides insights into t
   - Type: string
   - Description: The specific activity is typically expressed in µmol/min/mg (micromoles per minute per milligram of protein).
 
+- __initial_reaction_rate__
+  - Type: float
+  - Description: The initial reaction rate refers to the rate at which the product is formed in the first 10% of the enzymatic reaction under specific initial substrate concentrations and reaction conditions.
+ 
+- __initial_reaction_rate_unit__
+  - Type: string
+  - Description: Typically, the initial reaction rate is expressed as mol/L/min (moles per liter per minute) or µmol/mL/min (micromoles per milliliter per minute).
+
+
 <hr>
 
 - __special_treatment__
   - Type: string
-  - Description: If there are any other specific metrics, parameters, characteristics or aspects related to the reaction rate that are important to document the results accurately and are not described by the aforementioned attributes, they should be explained here.
+  - Description: If there are any other specific metrics, parameters, characteristics or aspects related to the activity or initial reaction rate that are important to document the results accurately and are not described by the aforementioned attributes, they should be explained here.
 
 </details>
 
@@ -250,13 +249,14 @@ These parameters directly assess a catalyst's precision in converting specific s
 
 ## Thermodynamic parameters
 
-These parameters offer insights into energy changes occurring during the reaction and assist in estimating reaction heat, entropy, and free energy. Understanding the thermodynamic properties of a reaction is essential to determine reaction direction, stability of intermediates, and the level of spontaneity or enforcement of a reaction, but is beyond the scope of the current project phase. For a comprehensive report around the technical key data of the kinetic parameters, see literature for further information, e.g. [Heintz<sup>5</sup>](https://doi.org/10.1007/978-3-662-49922-1).
+These parameters offer insights into energy changes occurring during the reaction and assist in estimating reaction heat, entropy, and free energy. Understanding the thermodynamic properties of a reaction is essential to determine reaction direction, stability of intermediates, and the level of spontaneity or enforcement of a reaction, but is beyond the scope of the current project phase. 
 
 <details> <Summary>Thermodynamic parameters</Summary>
 
 ### ThermodynamicParameters
 
-Understanding the energy dynamics and spontaneity of reactions through thermodynamic parameters is essential for efficient biocatalysis.
+Understanding the energy dynamics and spontaneity of reactions through thermodynamic parameters is essential for efficient biocatalysis. For a comprehensive report around the technical key data of the kinetic parameters, see literature for further information, e.g. [Heintz<sup>5</sup>](https://doi.org/10.1007/978-3-662-49922-1).
+
 
 - __gibbs_free_energy_change__
   - Type: string
