@@ -199,22 +199,25 @@ These parameters directly assess a catalyst's precision in converting specific s
   - Type: string
   - Description: The primary unit used for enantiomeric excess (_ee_) is percent (%).
  
- - __diastereomeric_excess__ #Anpassen
+- __diastereomeric_excess__
   - Type: posfloat
-  - Description: The enantiomeric excess (_ee_) measures the degree of purity and efficiency in a chiral catalysis process, representing the excess of one enantiomer over the other in a reaction product. The following formula can be used: $$ee_R = \frac{n_R - n_S}{n_R + n_S}$$
+  - Description: The diasteriomeric excess (_de_) represents the difference in the concentration of one diastereomer over another in a reaction product. The following formula can be used: $$de_1 = \frac{n_1 - n_2}{n_1 + n_2}$$
     
-    where, *ee<sub>R</sub>* - enantiomeric excess of the (*R*)-enantiomer (-), *n<sub>R</sub>* - amount of the (*R*)-enatiomer (mol) and *n<sub>S</sub>* - amount of the (*S*)-enatiomer (mol).
+    where, *de* - diasteriomeric excess of the major diasteriomer (-), *n<sub>1</sub>* - amount of the major diasteriomer (mol) and *n<sub>2</sub>* - amount of the minor diasteriomer (mol).
  
-- __diasteriomeric_excess_unit__ #Anpassen
+- __diasteriomeric_excess_unit__
   - Type: string
-  - Description: The primary unit used for enantiomeric excess (_ee_) is percent (%).
+  - Description: The primary unit used for diasteriomeric excess (_ee_) is percent (%).
  
-    __isomeric_content__ #Anpassen
+- __isomeric_content__
   - Type: posfloat
-  - Description: The enantiomeric excess (_ee_) measures the degree of purity and efficiency in a chiral catalysis process, representing the excess of one enantiomer over the other in a reaction product. The following formula can be used: $$ee_R = \frac{n_R - n_S}{n_R + n_S}$$
+  - Description: The isomeric content (_ic_) refers to the percentage distribution or ratio of different isomers within a mixture resulting from a reaction or process. It describes how various isomers are represented in a product or mixture. The following formula can be used: $$ic = I_1 / \sum_{i=1}^n I_i$$
     
-    where, *ee<sub>R</sub>* - enantiomeric excess of the (*R*)-enantiomer (-), *n<sub>R</sub>* - amount of the (*R*)-enatiomer (mol) and *n<sub>S</sub>* - amount of the (*S*)-enatiomer (mol).
- 
+    where, *ic* - proportion of a specific isomer in a mixture of isomers (-), *I<sub>1</sub>* - amount of the specific isomer (mol) and *I<sub>i</sub>* - quantity of all isomers (mol).
+
+- __isomeric_content_unit__
+  - Type: string
+  - Description: The primary unit used for isomeric content (_ic_) is percent (%).
 
 - __chemoselectivity__
   - Type: string
