@@ -26,7 +26,7 @@ To describe a monophasic system, precise information about the solvent (mixture)
 
 - __ionic_strength__
   - Type: posfloat
-  - Description: Ionic strength calculated according to the dissolved ions in the solvent. The following formula can be used: $$I = \frac{1}{2} \sum_{1}^n C_i Z_i^2$$ where, I - ionic strength, C<sub>i</sub> - ionic concentration and Z<sub>i</sub> - ion charges. (__if_applicable__)
+  - Description: Ionic strength calculated according to the dissolved ions in the solvent. The following formula can be used: $$I = \frac{1}{2} \sum_{i=1}^n C_i Z_i^2$$ where, I - ionic strength, C<sub>i</sub> - ionic concentration and Z<sub>i</sub> - ion charges. (__if_applicable__)
 
 - __ionic_strength_unit__
   - Type: string
