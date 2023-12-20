@@ -90,17 +90,21 @@ These parameters serve as benchmarks for understanding enzyme kinetics. The K<su
 
 ## Yield and conversion
 
-The documentation of yield and conversion provides essential insights into the efficiency of a reaction and the amount of desired product obtained.
+The documentation of yield and conversion provides essential insights into the efficiency of a reaction and the amount of desired product obtained. 
 
 <details> <Summary>Yield and conversion</Summary>
 
 ### YieldAndConversion
 
-These metrics are vital for evaluating the success of a process, optimizing reaction conditions, and ensuring the production of high-quality products in biocatalytic applications.
+These metrics are vital for evaluating the success of a process, optimizing reaction conditions, and ensuring the production of high-quality products in biocatalytic applications. For a comprehensive report around the technical key data of yield and conversion, see literature for further information, e.g. [Lies _et al._<sup>2</sup>](https://doi.org/10.1007/978-3-662-57619-9_4).
+
 
 - __yield__
   - Type: posfloat
-  - Description: Yield represents the amount of the desired product obtained from a reaction. 
+  - Description: Yield represents the amount of the desired product obtained from a reaction. It is the number of synthesized molecules of product per number of starting molecules. The following formula can be used:
+    $$Y_p = \frac{n_p - n_{p0}}{n_{s0}} \cdot \frac{|v_s|}{|v_p|}$$
+
+    where, *Y<sub>p</sub>* - yield of the product *p* (-), *n<sub>p0</sub>* - amount of product *p* at the start of the reaction (mol), *n<sub>p</sub>* - amount of product *p* at the end of the reaction (mol), *v<sub>s</sub>* - stoichiometric factor for the substrate *s* (-), *v<sub>p</sub>* - stoichiometric factor for the product *p* (-). Note: The reported yield relies on analytical findings. Typically, the isolated yield is more common in practice as it reflects the precise quantity of product acquired post downstream processing (DSP).
  
 - __yield_unit__
   - Type: string
@@ -108,7 +112,9 @@ These metrics are vital for evaluating the success of a process, optimizing reac
  
 - __space_time_yield__
   - Type: posfloat
-  - Description: Space-time yield in biocatalysis refers to the amount of product obtained per unit volume of the reactor per unit time.
+  - Description: Space-time yield in biocatalysis refers to the mass of product obtained per unit volume of the reactor per unit time. Other terms commonly used in the literature are *volumetric productivity* or the *reactor productivity*. The following formula can be used: $$STY = \frac{m_p}{𝜏 \cdot V_R}$$
+ 
+    where, *STY* - space-time yield (g L<sup>-1</sup> h<sup>-1</sup>), *m<sub>p</sub>* - mass of the synthesized product (g), 𝜏 - residence time r reaction time (h), *V<sub>R</sub>* - reactor volume.  
  
 - __space_time_yield_unit__
   - Type: string
@@ -116,7 +122,10 @@ These metrics are vital for evaluating the success of a process, optimizing reac
 
 - __conversion__
   - Type: float
-  - Description: The term "conversion" in biocatalysis refers to the percentage of substrate that undergoes transformation into the desired product during a reaction.
+  - Description: The term "conversion" refers to the percentage of substrate that undergoes transformation into the desired product during a reaction. It is the number of converted molecules per number of starting molecules. The following formula can be used:
+    $$X_s = \frac{n_{s0} - n_s}{n_{s0}}$$
+
+    where, *X<sub>s</sub>* - conversion of the substrate *s* (-), *n<sub>s0</sub>* - amount of substrate *s* at the start of the reaction (mol), *n<sub>s</sub>* - amount of substrate *s* at the end of the reaction (mol).
  
 - __conversion_unit__
   - Type: string
@@ -179,7 +188,7 @@ The inclusion of selectivity and specificity data offers insights into the preci
 
 ### SelectivityAndSpecificity
 
-These parameters directly assess a catalyst's precision in converting specific substrates to desired products. For a comprehensive report around the technical key data of the selectivity and specificity, see literature for further information, e.g. [Faber<sup>2</sup>](https://doi.org/10.1007/978-3-642-17393-6_2), [Liese _et al._<sup>3</sup>](https://doi.org/10.1002/3527608184), [Schurig<sup>4</sup>](https://doi.org/10.1007/128_2013_454). 
+These parameters directly assess a catalyst's precision in converting specific substrates to desired products. For a comprehensive report around the technical key data of the selectivity and specificity, see literature for further information, e.g. [Faber<sup>3</sup>](https://doi.org/10.1007/978-3-642-17393-6_2), [Liese _et al._<sup>2</sup>](https://doi.org/10.1002/3527608184), [Schurig<sup>4</sup>](https://doi.org/10.1007/128_2013_454). 
 
 - __stereoselectivity__
   - Type: string
