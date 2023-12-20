@@ -179,13 +179,13 @@ The inclusion of selectivity and specificity data offers insights into the preci
 
 ### SelectivityAndSpecificity
 
-These parameters directly assess a catalyst's precision in converting specific substrates to desired products. For a comprehensive report around the technical key data of the selectivity and specificity, see literature for further information, e.g. [Faber<sup>2</sup>](https://doi.org/10.1007/978-3-642-17393-6_2), [Liese _et al._<sup>3</sup>](https://doi.org/10.1002/3527608184). 
+These parameters directly assess a catalyst's precision in converting specific substrates to desired products. For a comprehensive report around the technical key data of the selectivity and specificity, see literature for further information, e.g. [Faber<sup>2</sup>](https://doi.org/10.1007/978-3-642-17393-6_2), [Liese _et al._<sup>3</sup>](https://doi.org/10.1002/3527608184), [Schurig<sup>4</sup>](https://doi.org/10.1007/128_2013_454). 
 
 - __stereoselectivity__
   - Type: string
   - Description: Stereoselectivity refers to the preference of a chemical reaction to produce a specific stereoisomer or a particular spatial arrangement of atoms within a molecule. It describes the ability of a reaction to favor the formation of one stereoisomer over others or to create a specific stereochemical outcome.
  
-- __enantioselectivity__ #Definition von Kurt Faber hinzufügen
+- __enantioselectivity__
   - Type: posfloat
   - Description: Enantioselectivity, or enantiomeric ratio (E), defines the enzyme's capability to preferentially catalyze the transformation of one enantiomer over its mirror-image counterpart. This trait highlights the enzyme's ability to favor a specific enantiomer either as a product or as the preferred substrate for a reaction.
 
@@ -241,7 +241,7 @@ These parameters directly assess a catalyst's precision in converting specific s
 
 ## Thermodynamic parameters
 
-These parameters offer insights into energy changes occurring during the reaction and assist in estimating reaction heat, entropy, and free energy. Understanding the thermodynamic properties of a reaction is essential to determine reaction direction, stability of intermediates, and the level of spontaneity or enforcement of a reaction, but is beyond the scope of the current project phase. For a comprehensive report around the technical key data of the kinetic parameters, see literature for further information, e.g. [Heintz<sup>4</sup>](https://doi.org/10.1007/978-3-662-49922-1).
+These parameters offer insights into energy changes occurring during the reaction and assist in estimating reaction heat, entropy, and free energy. Understanding the thermodynamic properties of a reaction is essential to determine reaction direction, stability of intermediates, and the level of spontaneity or enforcement of a reaction, but is beyond the scope of the current project phase. For a comprehensive report around the technical key data of the kinetic parameters, see literature for further information, e.g. [Heintz<sup>5</sup>](https://doi.org/10.1007/978-3-662-49922-1).
 
 <details> <Summary>Thermodynamic parameters</Summary>
 
@@ -284,7 +284,8 @@ Understanding the energy dynamics and spontaneity of reactions through thermodyn
 [1] Pesci, L., Kara, S., Liese, A. (2018). Enzymkinetik. In: Jaeger, KE., Liese, A., Syldatk, C. (eds) Einführung in die Enzymtechnologie. Springer Spektrum, Berlin, Heidelberg. https://doi.org/10.1007/978-3-662-57619-9_4 <br>
 [2] Faber, K. (2011). Biocatalytic Applications. In: Biotransformations in Organic Chemistry. Springer, Berlin, Heidelberg. https://doi.org/10.1007/978-3-642-17393-6_2 <br>
 [3] Liese, A., Seelbach, K., Wandrey, C. (2006). Basics of Bioreaction Engineering. In: Liese, A., Seelbach, K., Wandrey, C. (eds) Industrial biotransformations. John Wiley & Sons. https://doi.org/10.1002/3527608184 <br>
-[4] Heintz, A. (2017). Thermodynamik. Springer Spektrum, Berlin, Heidelberg. https://doi.org/10.1007/978-3-662-49922-1
+[4] Schurig, V. (2013). Terms for the Quantitation of a Mixture of Stereoisomers. In: Schurig, V. (eds) Differentiation of Enantiomers I. Topics in Current Chemistry, vol 340. Springer, Cham. https://doi.org/10.1007/128_2013_454 <br>
+[5] Heintz, A. (2017). Thermodynamik. Springer Spektrum, Berlin, Heidelberg. https://doi.org/10.1007/978-3-662-49922-1
 
 
 </div>
