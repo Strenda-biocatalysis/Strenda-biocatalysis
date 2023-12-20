@@ -14,7 +14,7 @@ Kinetic parameters provide key insights into the efficiency and performance of a
 
 ### KineticParameters
 
-These parameters serve as benchmarks for understanding enzyme kinetics. The K<sub>m</sub> and k<sub>cat</sub> value is determined by all substrates involved in the reaction and not just one. Therefore, the concentrations of <ins>**all**</ins> substrates must be varied and the K<sub>m</sub> and k<sub>cat</sub> values calculated to obtain a common value instead of apparent values. For a comprehensive report around the technical key data of the kinetic parameters, see literature for further information, e.g. [Pesci _et al._<sup>1</sup>](https://doi.org/10.1007/978-3-662-57619-9_4).
+These parameters serve as benchmarks for understanding enzyme kinetics. The K<sub>m</sub> and k<sub>cat</sub> value is determined by all substrates involved in the reaction and not just one. Therefore, the concentrations of <ins>**all**</ins> substrates must be varied and the K<sub>m</sub> and k<sub>cat</sub> values calculated to obtain a common value instead of apparent values. For a comprehensive report around the technical key data of the kinetic parameters, see literature for further information, e.g. [Pesci _et al._<sup>1</sup>](https://doi.org/10.1007/978-3-662-57619-9_4), [Bisswanger <sup>2</sup>](https://doi.org/10.1002/9783527806461) .
 
 - __michaelis_constant__
   - Type: float
@@ -96,7 +96,7 @@ The documentation of yield and conversion provides essential insights into the e
 
 ### YieldAndConversion
 
-These metrics are vital for evaluating the success of a process, optimizing reaction conditions, and ensuring the production of high-quality products in biocatalytic applications. For a comprehensive report around the technical key data of yield and conversion, see literature for further information, e.g. [Lies _et al._<sup>2</sup>](https://doi.org/10.1007/978-3-662-57619-9_4).
+These metrics are vital for evaluating the success of a process, optimizing reaction conditions, and ensuring the production of high-quality products in biocatalytic applications. For a comprehensive report around the technical key data of yield and conversion, see literature for further information, e.g. [Lies _et al._<sup>3</sup>](https://doi.org/10.1007/978-3-662-57619-9_4).
 
 
 - __yield__
@@ -187,7 +187,7 @@ The inclusion of selectivity and specificity data offers insights into the preci
 
 ### SelectivityAndSpecificity
 
-These parameters directly assess a catalyst's precision in converting specific substrates to desired products. For a comprehensive report around the technical key data of the selectivity and specificity, see literature for further information, e.g. [Faber<sup>3</sup>](https://doi.org/10.1007/978-3-642-17393-6_2), [Liese _et al._<sup>2</sup>](https://doi.org/10.1002/3527608184), [Schurig<sup>4</sup>](https://doi.org/10.1007/128_2013_454). 
+These parameters directly assess a catalyst's precision in converting specific substrates to desired products. For a comprehensive report around the technical key data of the selectivity and specificity, see literature for further information, e.g. [Faber<sup>4</sup>](https://doi.org/10.1007/978-3-642-17393-6_2), [Liese _et al._<sup>3</sup>](https://doi.org/10.1002/3527608184), [Schurig<sup>5</sup>](https://doi.org/10.1007/128_2013_454). 
 
 - __stereoselectivity__
   - Type: string
@@ -255,7 +255,7 @@ These parameters offer insights into energy changes occurring during the reactio
 
 ### ThermodynamicParameters
 
-Understanding the energy dynamics and spontaneity of reactions through thermodynamic parameters is essential for efficient biocatalysis. For a comprehensive report around the technical key data of the kinetic parameters, see literature for further information, e.g. [Heintz<sup>5</sup>](https://doi.org/10.1007/978-3-662-49922-1).
+Understanding the energy dynamics and spontaneity of reactions through thermodynamic parameters is essential for efficient biocatalysis. For a comprehensive report around the technical key data of the kinetic parameters, see literature for further information, e.g. [Heintz<sup>6</sup>](https://doi.org/10.1007/978-3-662-49922-1).
 
 
 - __gibbs_free_energy_change__
@@ -292,9 +292,9 @@ Understanding the energy dynamics and spontaneity of reactions through thermodyn
 
 [1] Pesci, L., Kara, S., Liese, A. (2018). Enzymkinetik. In: Jaeger, KE., Liese, A., Syldatk, C. (eds) Einführung in die Enzymtechnologie. Springer Spektrum, Berlin, Heidelberg. https://doi.org/10.1007/978-3-662-57619-9_4 <br>
 [2] Faber, K. (2011). Biocatalytic Applications. In: Biotransformations in Organic Chemistry. Springer, Berlin, Heidelberg. https://doi.org/10.1007/978-3-642-17393-6_2 <br>
-[3] Liese, A., Seelbach, K., Wandrey, C. (2006). Basics of Bioreaction Engineering. In: Liese, A., Seelbach, K., Wandrey, C. (eds) Industrial biotransformations. John Wiley & Sons. https://doi.org/10.1002/3527608184 <br>
-[4] Schurig, V. (2013). Terms for the Quantitation of a Mixture of Stereoisomers. In: Schurig, V. (eds) Differentiation of Enantiomers I. Topics in Current Chemistry, vol 340. Springer, Cham. https://doi.org/10.1007/128_2013_454 <br>
-[5] Heintz, A. (2017). Thermodynamik. Springer Spektrum, Berlin, Heidelberg. https://doi.org/10.1007/978-3-662-49922-1
-
+[3] Bisswanger, H. (2017). Enzyme Kinetics: Principles and Methods. John Wiley & Sons. https://doi.org/10.1002/9783527806461 <br>
+[4] Liese, A., Seelbach, K., Wandrey, C. (2006). Basics of Bioreaction Engineering. In: Liese, A., Seelbach, K., Wandrey, C. (eds) Industrial biotransformations. John Wiley & Sons. https://doi.org/10.1002/3527608184 <br>
+[5] Schurig, V. (2013). Terms for the Quantitation of a Mixture of Stereoisomers. In: Schurig, V. (eds) Differentiation of Enantiomers I. Topics in Current Chemistry, vol 340. Springer, Cham. https://doi.org/10.1007/128_2013_454 <br>
+[6] Heintz, A. (2017). Thermodynamik. Springer Spektrum, Berlin, Heidelberg. https://doi.org/10.1007/978-3-662-49922-1 <br>
 
 </div>
