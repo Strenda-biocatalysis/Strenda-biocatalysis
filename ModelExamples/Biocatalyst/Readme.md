@@ -25,6 +25,14 @@ Important information to characterize the biocatalyst and determine its origin.
 - __ec_number__
   - Type: string
   - Description: Numerical classification system that categorizes enzymes based on their biochemical function and reaction mechanism, such as EC 3.1.4.12.
+ 
+- __molecular_weight__
+  - Type: posfloat
+  - Description: The molecular weight (M<sub>W</sub>) refer to the sum of the atomic weights of the atoms in a molecule and therefore describes the mass of an enzyme. 
+
+- __molecular_weight_unit__
+  - Type: string
+  - Description: The enzyme size or molar weight is typically expressed in kDa (kilodaltons).
 
 - __catalyzed_reaction__
   - Type: string
@@ -78,10 +86,17 @@ Important information to characterize the biocatalyst and to describe it clearly
   - Type: string
   - Description: The name of the biocatalyst can be either generic based on the catalyzed reaction, for example, 'lipase' or more specifically by describing the genus and species, such as '_Bacillus amyloliquefaciens_ alpha-amylase'.
 
-
 - __ec_number__
   - Type: string
   - Description: Numerical classification system that categorizes enzymes based on their biochemical function and reaction mechanism, such as EC 3.1.4.12.
+
+- __molecular_weight__
+  - Type: posfloat
+  - Description: The molecular weight (M<sub>W</sub>) refer to the sum of the atomic weights of the atoms in a molecule and therefore describes the mass of an enzyme. 
+
+- __molecular_weight_unit__
+  - Type: string
+  - Description: The enzyme size or molar weight is typically expressed in kDa (kilodaltons).
 
 - __catalyzed_reaction__
   - Type: string
@@ -361,7 +376,7 @@ Cell-free enzyme production or gene expression refers to a process where the syn
 
 - __immobilisation_method__
   - Type: string
-  - Description: Specify further details regarding the immobilisation method of the enzyme. For a comprehensive report around the technical key data of the immobilization process or method, see literature for further              information, e.g. [Ansorge-Schumacher _et_ _al._<sup>1</sup>](https://doi.org/10.1007/978-3-662-57619-9_11) 
+  - Description: Specify further details regarding the immobilisation method of the enzyme. For a comprehensive report around the technical key data of the immobilization process or method, see literature for further              information, e.g. [Ansorge-Schumacher<sup>1</sup>](https://doi.org/10.1007/978-3-662-57619-9_11). 
 
 <hr>
 
