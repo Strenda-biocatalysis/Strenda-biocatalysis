@@ -4,22 +4,22 @@
 
 # Reaction conditions
 
-The reaction conditions constitute a highly complex and extensive category. Reactions can be performed in aqueous reaction solutions, organic solvents, micro-aqueous reaction solutions, gassed reaction solutions and many more. The reaction conditions can be divided into two fundamental main categories: __monophasic and multiphasic systems__.
+The reaction conditions constitute a highly complex and extensive category. Reactions can be performed in aqueous reaction solutions, organic solvents, micro-aqueous reaction solutions, gassed reaction solutions and many more. The reaction conditions can be divided into two fundamental main categories: __monoliquid and multiphasic systems__.
 
 <img src="https://github.com/StephanM87/Strenda-biocatalysis/assets/106530250/aadf0641-b83e-44fb-a639-a4b1d5961eb2" width="600">
 
 
 # Well-mixed reaction solutions
 
-## Monophasic systems
+## Monoliquid systems
 
 A single-phase system where only one liquid phase is present. All components are fully miscible, and there is no visible separation or boundary between different liquid phases.
 
-<details> <Summary>Monophasic system description</Summary>
+<details> <Summary>Monoliquid system description</Summary>
 
-### MonophasicSystemDescription
+### MonoliquidSystemDescription
 
-To describe a monophasic system, precise information about the solvent (mixture) used and the applied reaction system must be provided.
+To describe a monoliquid system, precise information about the solvent (mixture) used and the applied reaction system must be provided.
 
 - __solvent_description__
   - Type: string
@@ -41,7 +41,7 @@ To describe a monophasic system, precise information about the solvent (mixture)
  
 - __special_treatment__
   - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the monophasic system that are important for reproducibility and are not described by the aforementioned           metadata, they should be explained here.
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the monoliquid system that are important for reproducibility and are not described by the aforementioned           metadata, they should be explained here.
 
 </details>
 
@@ -316,15 +316,15 @@ If the pH is changed during the course of the reaction or there is an event-base
 
 # Tubular flow/continuous reactor
 
-## Monophasic systems
+## Monoliquid systems
 
 A single-phase system in which only one liquid phase is present. All components are fully miscible, and there is no visible separation or boundary between different liquid phases.
 
-<details> <Summary>Monophasic system description</Summary>
+<details> <Summary>Monoliquid system description</Summary>
 
-### MonophasicSystemDescription
+### MonoliquidSystemDescription
 
-To describe a monophasic system, precise information about the solvent used and the applied system must be provided.
+To describe a monoliquid system, precise information about the solvent used and the applied system must be provided.
 
 - __solvent_description__
   - Type: string
@@ -354,7 +354,7 @@ To describe a monophasic system, precise information about the solvent used and 
  
 - __special_treatment__
   - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the monophasic system that are important for reproducibility and are not described by the aforementioned           metadata, they should be explained here.
+  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the monoliquid system that are important for reproducibility and are not described by the aforementioned           metadata, they should be explained here.
 
 
 </details>
