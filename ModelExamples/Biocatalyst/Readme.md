@@ -6,7 +6,7 @@
 
 This category contains all information required to unambiguously identify the catalyst, its formulation and storage. 
 
-<img src="https://github.com/StephanM87/Strenda-biocatalysis/assets/106530250/e390ded5-3b7d-4e3d-a2e9-0a81ced99eb9" width="500">
+<img src="https://github.com/StephanM87/Strenda-biocatalysis/assets/106530250/f1460f1a-a2fc-43d7-b8fd-e9049885a33a" width="500">
 
 ## Source of the biocatalyst
 
@@ -156,11 +156,11 @@ Important information to characterize the biocatalyst and to describe it clearly
 
 <hr>
 
-# Immobilisation and formulation
+# Formulation
 
-Independently whether an enzyme was purchased or self-produced, its formulation for the reaction must be specified. Most importantly it must be specified, wether the enzyme was used either immobilized or non-immobilized as soluble biocatalyst.
+Independently whether an enzyme was purchased or self-produced, its formulation for the reaction must be specified.
 
-## Non immobilised biocatalysts
+## Biocatalyst application
 
 <details> <Summary>Soluble biocatalyst</Summary>
 
@@ -324,11 +324,33 @@ Cell-free enzyme production or gene expression refers to a process where the syn
 </details>
 
 
-## Immobilised biocatalysts
+# Immobilisation
+
+Most importantly it must be specified, wether the enzyme was used either immobilized or non-immobilized as soluble biocatalyst.
 
 <details> <Summary>Immobilised biocatalyst</Summary>
 
-### ImmobilisedBiocatalyst
+### Immobilised biocatalyst
+
+- __biocatalyst__
+  - Type: string
+  - Description: When it comes to the immobilization method, it is also important to mention how the biocatalyst to be immobilized is present (for example, as a purified enzyme, or as a crude cell extract, etc.).
+
+- __immobilisation_chemistry__
+  - Type: string
+  - Description: This aspect denotes the specific chemical methods or techniques used to attach the enzymes onto the chosen base material. Different immobilization chemistries involve various covalent or non-covalent       bonding strategies, including crosslinking, adsorption, covalent bonding, encapsulation, specific binding via (affinity)tag, or entrapment.
+
+- __carrier_material__
+  - Type: string
+  - Despription: If a support material, base, or carrier was utilized, it is necessary to specify the material's name (e.g., gel, membrane, particle) along with the supplier and further product details (__if_applicable__)
+
+- __linkers__
+  - Type: string
+  - Description: Linkers are chemical compounds used to establish a connection or bridge between the enzymes and the carrier material. These linkers play a vital role in stabilizing the immobilized enzymes and can           influence the efficiency and functionality of the immobilization process. They facilitate binding between the enzymes and the carrier material, promoting a stable and active biocatalyst structure. Common and            widespread linkers are spacer molecules, crosslinkers, avidin-biotin or silane coupling agents. (__if_applicable__)
+
+- __immobilisation_method__
+  - Type: string
+  - Description: Specify further details regarding the immobilisation method of the enzyme. For a comprehensive report around the technical key data of the immobilization process or method, see literature for further              information, e.g. [Ansorge-Schumacher<sup>1</sup>](https://doi.org/10.1007/978-3-662-57619-9_11). 
 
 - __purification_method__
   - Type: string
@@ -354,37 +376,6 @@ Cell-free enzyme production or gene expression refers to a process where the syn
 
 </details>
 
-<details> <Summary>Immobilisation procedure</Summary>
-
-### ImmobilisationProcedure
-
-- __biocatalyst__
-  - Type: string
-  - Description: When it comes to the immobilization method, it is also important to mention how the biocatalyst to be immobilized is present (for example, as a purified enzyme, or as a crude cell extract, etc.).
-
-- __immobilisation_chemistry__
-  - Type: string
-  - Description: This aspect denotes the specific chemical methods or techniques used to attach the enzymes onto the chosen base material. Different immobilization chemistries involve various covalent or non-covalent       bonding strategies, including crosslinking, adsorption, covalent bonding, encapsulation, specific binding via (affinity)tag, or entrapment.
-
-- __carrier_material__
-  - Type: string
-  - Despription: If a support material, base, or carrier was utilized, it is necessary to specify the material's name (e.g., gel, membrane, particle) along with the supplier and further product details (__if_applicable__)
-
-- __linkers__
-  - Type: string
-  - Description: Linkers are chemical compounds used to establish a connection or bridge between the enzymes and the carrier material. These linkers play a vital role in stabilizing the immobilized enzymes and can           influence the efficiency and functionality of the immobilization process. They facilitate binding between the enzymes and the carrier material, promoting a stable and active biocatalyst structure. Common and            widespread linkers are spacer molecules, crosslinkers, avidin-biotin or silane coupling agents. (__if_applicable__)
-
-- __immobilisation_method__
-  - Type: string
-  - Description: Specify further details regarding the immobilisation method of the enzyme. For a comprehensive report around the technical key data of the immobilization process or method, see literature for further              information, e.g. [Ansorge-Schumacher<sup>1</sup>](https://doi.org/10.1007/978-3-662-57619-9_11). 
-
-<hr>
-
-- __special_treatment__
-  - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
-
-</details>
 
 <hr>
 
