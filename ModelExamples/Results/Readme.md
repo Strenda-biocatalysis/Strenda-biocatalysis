@@ -26,11 +26,11 @@ These parameters serve as benchmarks for understanding enzyme kinetics. The K<su
  
 - __maximum_reaction_rate__
   - Type: float
-  - Description: V<sub>max</sub>, the maximum reaction rate, represents the speed at which an enzyme-catalyzed reaction reaches saturation, indicating the maximum achievable rate of product formation under optimal substrate concentration.
+  - Description: V<sub>max</sub>, the maximum reaction rate, represents the speed at which an enzyme-catalyzed reaction reaches saturation, indicating the maximum achievable rate of product formation under optimal substrate concentration (where enzymes are predominantly saturated with substrates).
 
 - __maximum_reaction_rate_unit__
   - Type: string
-  - Description: The unit of V<sub>max</sub> (Maximum reaction rate) is typically represented as concentration per time, such as moles per liter per second (mol/L/s or mM/s).
+  - Description: The unit of V<sub>max</sub> (maximum reaction rate) is typically represented as concentration per time, such as moles per liter per second (mol/L/s or mM/s).
  
 - __turnover_number__
   - Type: float
@@ -38,15 +38,15 @@ These parameters serve as benchmarks for understanding enzyme kinetics. The K<su
 
 - __turnover_number_unit__
   - Type: string
-  - Description: The unit of turnover number (k<sub>cat</sub>) is typically expressed as moles of product per mole of enzyme per second or per minute.
+  - Description: The unit of turnover number (k<sub>cat</sub>) is typically expressed as moles of product per mole of enzyme per second or per minute (time<sup>-1</sup>).
  
 - __catalytic_efficiency__
   - Type: float
-  - Description: Catalytic efficiency (k<sub>cat</sub>/K<sub>m</sub>) is a measure of how effectively an enzyme converts substrate into product, often quantified as the ratio of the turnover number (k<sub>cat</sub>) to the Michaelis constant (K<sub>m</sub>).
+  - Description: Catalytic efficiency (k<sub>cat</sub>/K<sub>m</sub>) is a measure of how effectively an enzyme converts substrate into product, often quantified as the ratio of the turnover number (k<sub>cat</sub>) to the Michaelis-Menten constant (K<sub>m</sub>).
  
 - __catalytic_efficiency_unit__
   - Type: string
-  - Description: The typical units for catalytic efficiency (k<sub>cat</sub>/K<sub>m</sub>) are usually M<sup>-1</sup>s<sup>-1</sup> or s<sup>-1</sup>.
+  - Description: The typical unit for catalytic efficiency (k<sub>cat</sub>/K<sub>m</sub>) is M<sup>-1</sup>s<sup>-1</sup>.
  
 - __dissociation_constant__
   - Type: float
@@ -54,7 +54,7 @@ These parameters serve as benchmarks for understanding enzyme kinetics. The K<su
  
 - __dissociation_constant_unit__
   - Type: string
-  - Description: The dissociation constant (K<sub>d</sub>) is typically expressed in M (molarity) or its derivatives, such as nM (nanomoles per liter).
+  - Description: The dissociation constant (K<sub>d</sub>) is typically expressed in M (mol per liter) or its derivatives, such as nM (nanomoles per liter).
  
 - __inhibition_type__
   - Type: string
@@ -62,11 +62,11 @@ These parameters serve as benchmarks for understanding enzyme kinetics. The K<su
 
 - __inhibition_constant__
   - Type: float
-  - Description: The inhibition constant (K<sub>i</sub>) escribes the affinity of an inhibitor for an enzyme. It indicates how effectively an inhibitor influences enzyme activity. A lower K<sub>i</sub> value suggests a strong binding of the inhibitor to the enzyme.
+  - Description: The inhibition constant (K<sub>i</sub>) describes the affinity of an inhibitor for an enzyme. It indicates how effectively an inhibitor influences enzyme activity. A lower K<sub>i</sub> value suggests a strong binding of the inhibitor to the enzyme.
 
 - __inhibition_constant_unit__
   - Type: string
-  - Description: The units for the inhibition constant (K<sub>i</sub>) are commonly expressed in molar concentration (M) or related units.
+  - Description: The units for the inhibition constant (K<sub>i</sub>) are commonly expressed in M (mol per liter) or related units.
  
 - __hill_coefficient__
   - Type: float
