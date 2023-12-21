@@ -8,8 +8,9 @@ This catalogue offers researchers and scientists in the field of biocatalysis a 
 
 The structure of each attribute comprises a "type" determining the data format and a "description" providing detailed insights into the required metadata. Possible format types include ‘PosFloat’ (for positive real numbers), ‘Float’ (covering all real numbers), and ‘String’ (for free text).
 
-Feel free to explore the valuable information in this catalogue and join in standardizing enzymatic reaction data. On this website, the ATTRIBUTES (metadata) are organised in following six main CATEGORIES, which are visualised as icons. Please click on the icons below to open the next level and review the ATTRIBUTES. If you want more details regarding biocatalysis, you can check out [Bell _et_ _al._<sup>1</sup>](https://doi.org/10.1038/s43586-021-00044-z)
+Feel free to explore the valuable information in this catalogue and join in standardizing enzymatic reaction data. On this website, the ATTRIBUTES (metadata) are organised in following seven main CATEGORIES, which are visualised as icons. Please click on the icons below to open the next level and review the ATTRIBUTES. If you want more details regarding biocatalysis, you can check out [Bell _et_ _al._<sup>1</sup>](https://doi.org/10.1038/s43586-021-00044-z)
 
+<hr>
 
 # CATEGORIES and ATTRIBUTES
 
@@ -61,6 +62,20 @@ Understanding the sampling process is crucial for obtaining reliable data in enz
 
 [<img src="assets\Hexagons-sampling.png" width=100>](ModelExamples/Sampling/Readme.md)
 
+## Results documentation
+
+The systematic recording and description of experimental outcomes and data obtained from biocatalytic reactions.
+
+[Results documentation](ModelExamples/Results/Readme.md)
+
+[<img src="https://github.com/DomMSNR/Strenda-biocatalysis/assets/106530250/c5049a15-ecae-4273-ac2d-b7f1c94c6239" width=100>](ModelExamples/Results/Readme.md)
+
+
+
+
+
+
+<hr>
 
 # Contact us
 
