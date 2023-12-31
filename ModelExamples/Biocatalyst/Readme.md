@@ -297,7 +297,7 @@ The soluble enzyme refers to purified enzyme.
 
 ### CellFreeProduction
 
-Cell-free enzyme production or gene expression refers to a process where the synthesis of the biocatalyst occurs outside of living cells. This technique involves extracting cellular components, such as ribosomes, DNA, RNA, and other necessary cellular machinery, and using them in a controlled environment (usually in vitro) to produce proteins or enzymes.
+Cell-free enzyme production or gene expression refers to a process where the synthesis of the biocatalyst occurs outside of living cells. This technique involves extracting cellular components, such as ribosomes, DNA, RNA, and other necessary cellular machinery, and using them in a controlled environment (usually in vitro) to produce proteins or enzymes. For further information see, e.g. [Khambhati _et al._<sup>1</sup>]( https://doi.org/10.3389/fbioe.2019.00248).
 
 - __source_of_cellfree_extract__
   - Type: string
@@ -323,6 +323,7 @@ Cell-free enzyme production or gene expression refers to a process where the syn
 
 </details>
 
+<hr>
 
 # Immobilisation
 
@@ -350,7 +351,7 @@ Most importantly it must be specified, wether the enzyme was used either immobil
 
 - __immobilisation_method__
   - Type: string
-  - Description: Specify further details regarding the immobilisation method of the enzyme. For a comprehensive report around the technical key data of the immobilization process or method, see literature for further              information, e.g. [Ansorge-Schumacher<sup>1</sup>](https://doi.org/10.1007/978-3-662-57619-9_11). 
+  - Description: Specify further details regarding the immobilisation method of the enzyme. For a comprehensive report around the technical key data of the immobilization process or method, see literature for further              information, e.g. [Ansorge-Schumacher<sup>2</sup>](https://doi.org/10.1007/978-3-662-57619-9_11). 
 
 - __purification_method__
   - Type: string
@@ -428,7 +429,8 @@ The description of the biocatalyst also includes information on its storage cond
 
 ### Literature
 
-[1] B. Ansorge-Schumacher, M. (2018). Enzymimmobilisierung. In: Jaeger, KE., Liese, A., Syldatk, C. (eds) Einführung in die Enzymtechnologie. Springer Spektrum, Berlin, Heidelberg. https://doi.org/10.1007/978-3-662-57619-9_11
+[1] Khushal, K., Gargi, B., Nisarg, G., Darren, B., Vishwesh, K., Vijai, S. (2019). Exploring the Potential of Cell-Free Protein Synthesis for Extending the Abilities of Biological Systems. _Frontiers in Bioengineering and Biotechnology_. https://doi.org/10.3389/fbioe.2019.00248 <br>
+[2] B. Ansorge-Schumacher, M. (2018). Enzymimmobilisierung. In: Jaeger, KE., Liese, A., Syldatk, C. (eds) Einführung in die Enzymtechnologie. Springer Spektrum, Berlin, Heidelberg. https://doi.org/10.1007/978-3-662-57619-9_11
 
 
 </div>
