@@ -429,7 +429,7 @@ The description of the biocatalyst also includes information on its storage cond
 
 ### Literature
 
-[1] Khushal, K., Gargi, B., Nisarg, G., Darren, B., Vishwesh, K., Vijai, S. (2019). Exploring the Potential of Cell-Free Protein Synthesis for Extending the Abilities of Biological Systems. _Frontiers in Bioengineering and Biotechnology_. https://doi.org/10.3389/fbioe.2019.00248 <br>
+[1] Khambhati, K., Bhattacharjee, G., Gohil, N., Braddick, D., Kulkarni, V., Singh, V. (2019). Exploring the Potential of Cell-Free Protein Synthesis for Extending the Abilities of Biological Systems. _Frontiers in Bioengineering and Biotechnology_. https://doi.org/10.3389/fbioe.2019.00248 <br>
 [2] B. Ansorge-Schumacher, M. (2018). Enzymimmobilisierung. In: Jaeger, KE., Liese, A., Syldatk, C. (eds) Einführung in die Enzymtechnologie. Springer Spektrum, Berlin, Heidelberg. https://doi.org/10.1007/978-3-662-57619-9_11
 
 
