@@ -76,14 +76,6 @@ Describing the components in the reaction mixture involve specifying their stora
   - Type: string
   - Description: Additives for the storage of components can include antioxidants, stabilizers, drying agent, or even inert gases (argon, nitrogen), among others.
 
-- __removing/rethawing__
-  - Type: sting
-  - Description: For specific applications, it may be crucial to track how often the component has been removed from storage and, if applicable, thawed.
-
-- __thawing_process__
-  - Type: string
-  - Description: If the component needs to be frozen, it is also important to know how this was carried out.
-
 <hr>
  
 - __special_treatment__
