@@ -62,6 +62,9 @@ Understanding the sampling process is crucial for obtaining reliable data in enz
 
 [<img src="assets\Hexagons-sampling.png" width=100>](ModelExamples/Sampling/Readme.md)
 
+
+<blockquote>
+
 ## Results documentation
 
 The systematic recording and description of experimental outcomes and data obtained from biocatalytic reactions.
@@ -70,7 +73,7 @@ The systematic recording and description of experimental outcomes and data obtai
 
 [<img src="https://github.com/DomMSNR/Strenda-biocatalysis/assets/106530250/c5049a15-ecae-4273-ac2d-b7f1c94c6239" width=100>](ModelExamples/Results/Readme.md)
 
-
+</blockquote>
 
 
 
