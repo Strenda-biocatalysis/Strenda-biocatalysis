@@ -6,7 +6,7 @@
 
 This category contains all information required to unambiguously identify the catalyst, its formulation and storage. 
 
-<img src="https://github.com/StephanM87/Strenda-biocatalysis/assets/106530250/f1460f1a-a2fc-43d7-b8fd-e9049885a33a" width="500">
+<img src="https://github.com/StephanM87/Strenda-biocatalysis/assets/106530250/a5a79a07-adfb-4ad6-8967-51b59746fa87" width="500">
 
 ## Source of the biocatalyst
 
@@ -164,7 +164,7 @@ Independently whether an enzyme was purchased or self-produced, its formulation 
 
 <details> <Summary>Soluble biocatalyst</Summary>
 
-### SolubleBiocatalyst
+### PurifiedBiocatalyst
 
 The soluble enzyme refers to purified enzyme.
 
@@ -267,7 +267,7 @@ The soluble enzyme refers to purified enzyme.
 
 <details> <Summary>Supernatant</Summary>
 
-### Supernatant
+### SecretedEnzyme
 
 - __separation_method__
   - Type: string
