@@ -408,14 +408,6 @@ The description of the biocatalyst also includes information on its storage cond
   - Type: string
   - Description: For biocatalysts, various drying methods are employed (e.g., freeze-drying, also known as lyophilization, spray-drying, a method that involves atomizing a solution into small particles before drying, or vacuum drying, which removes moisture through low-pressure conditions). (__if_applicable__)
 
-- __removing/rethawing__
-  - Type: sting
-  - Description: For specific applications, it may be crucial to track how often the biocatalyst has been removed from storage and, if applicable, thawed.
-
-- __thawing_process__
-  - Type: string
-  - Description: If the biocatalyst needs to be frozen, it is also important to know how this was carried out.
-
 <hr>
  
 - __special_treatment__
