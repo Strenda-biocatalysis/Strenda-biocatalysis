@@ -162,7 +162,7 @@ Independently whether an enzyme was purchased or self-produced, its formulation 
 
 ## Biocatalyst application
 
-<details> <Summary>Soluble biocatalyst</Summary>
+<details> <Summary>Purified biocatalyst</Summary>
 
 ### PurifiedBiocatalyst
 
@@ -265,7 +265,7 @@ The soluble enzyme refers to purified enzyme.
 
 </details>
 
-<details> <Summary>Supernatant</Summary>
+<details> <Summary>Secreted enzyme</Summary>
 
 ### SecretedEnzyme
 
