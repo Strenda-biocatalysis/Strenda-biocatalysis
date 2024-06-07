@@ -1,0 +1,60 @@
+name: Python generator
+
+on:
+  push:
+    paths:
+      - "specifications/*.md"
+
+jobs:
+  generate:
+    name: Generate Pipeline
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+
+      - name: Install MD-Models
+        run: cargo install --git https://github.com/JR-1991/md-models.git
+
+      - name: Run the generation pipeline
+        run: md-models pipeline -i gen.toml
+
+      - name: Format the generated code
+        uses: chartboost/ruff-action@v1
+        with:
+          args: "format"
+
+      - name: "Pushing API"
+        shell: "bash"
+        run: |
+          if [[ `git status --porcelain` ]]; then
+              git add --all
+              git config --global user.name 'MD-Models Bot'
+              git config --global user.email 'mdmodels@bot.com'
+              git commit -am "Pipeline update"
+              git push
+          else
+            echo "Nothing changed!"
+          fi
+  deploy:
+    name: Deploy Documentation
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    needs: generate
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+      - uses: actions/cache@v2
+        with:
+          path: .cache
+          key: ${{ github.ref }}
+      - run: pip install mkdocs-material jupyter nbconvert mkdocs-jupyter
+      - run: mkdocs gh-deploy --force
