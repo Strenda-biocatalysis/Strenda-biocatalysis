@@ -326,7 +326,7 @@ __immobilisation_chemistry__* `string`
 
 __carrier_material__* `string`
 
-- `Despription`: If a support material, base, or carrier was utilized, it is necessary to specify the material's name (e.g., gel, membrane, particle) along with the supplier and further product details (
+- If a support material, base, or carrier was utilized, it is necessary to specify the material's name (e.g., gel, membrane, particle) along with the supplier and further product details (
 
 __linkers__* `string`
 

@@ -355,7 +355,7 @@ Most importantly it must be specified, wether the enzyme was used either immobil
 
 - __carrier_material__
   - Type: string
-  - Despription: If a support material, base, or carrier was utilized, it is necessary to specify the material's name (e.g., gel, membrane, particle) along with the supplier and further product details (__if_applicable__)
+  - Description: If a support material, base, or carrier was utilized, it is necessary to specify the material's name (e.g., gel, membrane, particle) along with the supplier and further product details (__if_applicable__)
 
 - __linkers__
   - Type: string
