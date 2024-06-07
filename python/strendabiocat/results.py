@@ -32,37 +32,22 @@ class KineticParameters:
     # JSON-LD fields
     id: str = field(
         metadata=config(field_name="@id"),
-        default_factory=lambda: "stbc:KineticParameters/" + str(uuid4())
+        default_factory=lambda: "stbc:KineticParameters/" + str(uuid4()),
     )
     __type__: list[str] = field(
         metadata=config(field_name="@type"),
-        default_factory = lambda: [
+        default_factory=lambda: [
             "stbc:KineticParameters",
         ],
     )
     __context__: dict[str, str | dict] = field(
         metadata=config(field_name="@context"),
-        default_factory = lambda: {
+        default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        }
+        },
     )
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
 @dataclass_json
 @dataclass
 class YieldAndConversion:
@@ -77,28 +62,22 @@ class YieldAndConversion:
     # JSON-LD fields
     id: str = field(
         metadata=config(field_name="@id"),
-        default_factory=lambda: "stbc:YieldAndConversion/" + str(uuid4())
+        default_factory=lambda: "stbc:YieldAndConversion/" + str(uuid4()),
     )
     __type__: list[str] = field(
         metadata=config(field_name="@type"),
-        default_factory = lambda: [
+        default_factory=lambda: [
             "stbc:YieldAndConversion",
         ],
     )
     __context__: dict[str, str | dict] = field(
         metadata=config(field_name="@context"),
-        default_factory = lambda: {
+        default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        }
+        },
     )
-    
-    
-    
-    
-    
-    
-    
-    
+
+
 @dataclass_json
 @dataclass
 class ActivityAndInitialReactionRate:
@@ -111,26 +90,22 @@ class ActivityAndInitialReactionRate:
     # JSON-LD fields
     id: str = field(
         metadata=config(field_name="@id"),
-        default_factory=lambda: "stbc:ActivityAndInitialReactionRate/" + str(uuid4())
+        default_factory=lambda: "stbc:ActivityAndInitialReactionRate/" + str(uuid4()),
     )
     __type__: list[str] = field(
         metadata=config(field_name="@type"),
-        default_factory = lambda: [
+        default_factory=lambda: [
             "stbc:ActivityAndInitialReactionRate",
         ],
     )
     __context__: dict[str, str | dict] = field(
         metadata=config(field_name="@context"),
-        default_factory = lambda: {
+        default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        }
+        },
     )
-    
-    
-    
-    
-    
-    
+
+
 @dataclass_json
 @dataclass
 class SelectivityAndSpecificity:
@@ -149,32 +124,22 @@ class SelectivityAndSpecificity:
     # JSON-LD fields
     id: str = field(
         metadata=config(field_name="@id"),
-        default_factory=lambda: "stbc:SelectivityAndSpecificity/" + str(uuid4())
+        default_factory=lambda: "stbc:SelectivityAndSpecificity/" + str(uuid4()),
     )
     __type__: list[str] = field(
         metadata=config(field_name="@type"),
-        default_factory = lambda: [
+        default_factory=lambda: [
             "stbc:SelectivityAndSpecificity",
         ],
     )
     __context__: dict[str, str | dict] = field(
         metadata=config(field_name="@context"),
-        default_factory = lambda: {
+        default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        }
+        },
     )
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
 @dataclass_json
 @dataclass
 class ThermodynamicParameters:
@@ -185,17 +150,17 @@ class ThermodynamicParameters:
     # JSON-LD fields
     id: str = field(
         metadata=config(field_name="@id"),
-        default_factory=lambda: "stbc:ThermodynamicParameters/" + str(uuid4())
+        default_factory=lambda: "stbc:ThermodynamicParameters/" + str(uuid4()),
     )
     __type__: list[str] = field(
         metadata=config(field_name="@type"),
-        default_factory = lambda: [
+        default_factory=lambda: [
             "stbc:ThermodynamicParameters",
         ],
     )
     __context__: dict[str, str | dict] = field(
         metadata=config(field_name="@context"),
-        default_factory = lambda: {
+        default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        }
+        },
     )

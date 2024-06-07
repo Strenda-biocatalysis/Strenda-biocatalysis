@@ -22,27 +22,22 @@ class SamplingDescription:
     # JSON-LD fields
     id: str = field(
         metadata=config(field_name="@id"),
-        default_factory=lambda: "stbc:SamplingDescription/" + str(uuid4())
+        default_factory=lambda: "stbc:SamplingDescription/" + str(uuid4()),
     )
     __type__: list[str] = field(
         metadata=config(field_name="@type"),
-        default_factory = lambda: [
+        default_factory=lambda: [
             "stbc:SamplingDescription",
         ],
     )
     __context__: dict[str, str | dict] = field(
         metadata=config(field_name="@context"),
-        default_factory = lambda: {
+        default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        }
+        },
     )
-    
-    
-    
-    
-    
-    
-    
+
+
 @dataclass_json
 @dataclass
 class SamplingFromHeterogeneousReactionSolutions:
@@ -53,24 +48,23 @@ class SamplingFromHeterogeneousReactionSolutions:
     # JSON-LD fields
     id: str = field(
         metadata=config(field_name="@id"),
-        default_factory=lambda: "stbc:SamplingFromHeterogeneousReactionSolutions/" + str(uuid4())
+        default_factory=lambda: "stbc:SamplingFromHeterogeneousReactionSolutions/"
+        + str(uuid4()),
     )
     __type__: list[str] = field(
         metadata=config(field_name="@type"),
-        default_factory = lambda: [
+        default_factory=lambda: [
             "stbc:SamplingFromHeterogeneousReactionSolutions",
         ],
     )
     __context__: dict[str, str | dict] = field(
         metadata=config(field_name="@context"),
-        default_factory = lambda: {
+        default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        }
+        },
     )
-    
-    
-    
-    
+
+
 @dataclass_json
 @dataclass
 class SamplePreprocessing:
@@ -82,17 +76,17 @@ class SamplePreprocessing:
     # JSON-LD fields
     id: str = field(
         metadata=config(field_name="@id"),
-        default_factory=lambda: "stbc:SamplePreprocessing/" + str(uuid4())
+        default_factory=lambda: "stbc:SamplePreprocessing/" + str(uuid4()),
     )
     __type__: list[str] = field(
         metadata=config(field_name="@type"),
-        default_factory = lambda: [
+        default_factory=lambda: [
             "stbc:SamplePreprocessing",
         ],
     )
     __context__: dict[str, str | dict] = field(
         metadata=config(field_name="@context"),
-        default_factory = lambda: {
+        default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        }
+        },
     )

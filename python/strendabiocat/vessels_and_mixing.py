@@ -21,26 +21,22 @@ class Vial:
     # JSON-LD fields
     id: str = field(
         metadata=config(field_name="@id"),
-        default_factory=lambda: "stbc:Vial/" + str(uuid4())
+        default_factory=lambda: "stbc:Vial/" + str(uuid4()),
     )
     __type__: list[str] = field(
         metadata=config(field_name="@type"),
-        default_factory = lambda: [
+        default_factory=lambda: [
             "stbc:Vial",
         ],
     )
     __context__: dict[str, str | dict] = field(
         metadata=config(field_name="@context"),
-        default_factory = lambda: {
+        default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        }
+        },
     )
-    
-    
-    
-    
-    
-    
+
+
 @dataclass_json
 @dataclass
 class Plate:
@@ -59,32 +55,22 @@ class Plate:
     # JSON-LD fields
     id: str = field(
         metadata=config(field_name="@id"),
-        default_factory=lambda: "stbc:Plate/" + str(uuid4())
+        default_factory=lambda: "stbc:Plate/" + str(uuid4()),
     )
     __type__: list[str] = field(
         metadata=config(field_name="@type"),
-        default_factory = lambda: [
+        default_factory=lambda: [
             "stbc:Plate",
         ],
     )
     __context__: dict[str, str | dict] = field(
         metadata=config(field_name="@context"),
-        default_factory = lambda: {
+        default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        }
+        },
     )
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
 @dataclass_json
 @dataclass
 class StirredTankReactor:
@@ -104,33 +90,22 @@ class StirredTankReactor:
     # JSON-LD fields
     id: str = field(
         metadata=config(field_name="@id"),
-        default_factory=lambda: "stbc:StirredTankReactor/" + str(uuid4())
+        default_factory=lambda: "stbc:StirredTankReactor/" + str(uuid4()),
     )
     __type__: list[str] = field(
         metadata=config(field_name="@type"),
-        default_factory = lambda: [
+        default_factory=lambda: [
             "stbc:StirredTankReactor",
         ],
     )
     __context__: dict[str, str | dict] = field(
         metadata=config(field_name="@context"),
-        default_factory = lambda: {
+        default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        }
+        },
     )
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
 @dataclass_json
 @dataclass
 class TubularFlowContinuousReactor:
@@ -146,29 +121,22 @@ class TubularFlowContinuousReactor:
     # JSON-LD fields
     id: str = field(
         metadata=config(field_name="@id"),
-        default_factory=lambda: "stbc:TubularFlowContinuousReactor/" + str(uuid4())
+        default_factory=lambda: "stbc:TubularFlowContinuousReactor/" + str(uuid4()),
     )
     __type__: list[str] = field(
         metadata=config(field_name="@type"),
-        default_factory = lambda: [
+        default_factory=lambda: [
             "stbc:TubularFlowContinuousReactor",
         ],
     )
     __context__: dict[str, str | dict] = field(
         metadata=config(field_name="@context"),
-        default_factory = lambda: {
+        default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        }
+        },
     )
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
 @dataclass_json
 @dataclass
 class Shaking:
@@ -183,28 +151,22 @@ class Shaking:
     # JSON-LD fields
     id: str = field(
         metadata=config(field_name="@id"),
-        default_factory=lambda: "stbc:Shaking/" + str(uuid4())
+        default_factory=lambda: "stbc:Shaking/" + str(uuid4()),
     )
     __type__: list[str] = field(
         metadata=config(field_name="@type"),
-        default_factory = lambda: [
+        default_factory=lambda: [
             "stbc:Shaking",
         ],
     )
     __context__: dict[str, str | dict] = field(
         metadata=config(field_name="@context"),
-        default_factory = lambda: {
+        default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        }
+        },
     )
-    
-    
-    
-    
-    
-    
-    
-    
+
+
 @dataclass_json
 @dataclass
 class MechanicallyImpelledMixing:
@@ -233,42 +195,22 @@ class MechanicallyImpelledMixing:
     # JSON-LD fields
     id: str = field(
         metadata=config(field_name="@id"),
-        default_factory=lambda: "stbc:MechanicallyImpelledMixing/" + str(uuid4())
+        default_factory=lambda: "stbc:MechanicallyImpelledMixing/" + str(uuid4()),
     )
     __type__: list[str] = field(
         metadata=config(field_name="@type"),
-        default_factory = lambda: [
+        default_factory=lambda: [
             "stbc:MechanicallyImpelledMixing",
         ],
     )
     __context__: dict[str, str | dict] = field(
         metadata=config(field_name="@context"),
-        default_factory = lambda: {
+        default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        }
+        },
     )
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
 @dataclass_json
 @dataclass
 class LiquidOrGasImpelledMixing:
@@ -284,17 +226,17 @@ class LiquidOrGasImpelledMixing:
     # JSON-LD fields
     id: str = field(
         metadata=config(field_name="@id"),
-        default_factory=lambda: "stbc:LiquidOrGasImpelledMixing/" + str(uuid4())
+        default_factory=lambda: "stbc:LiquidOrGasImpelledMixing/" + str(uuid4()),
     )
     __type__: list[str] = field(
         metadata=config(field_name="@type"),
-        default_factory = lambda: [
+        default_factory=lambda: [
             "stbc:LiquidOrGasImpelledMixing",
         ],
     )
     __context__: dict[str, str | dict] = field(
         metadata=config(field_name="@context"),
-        default_factory = lambda: {
+        default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        }
+        },
     )

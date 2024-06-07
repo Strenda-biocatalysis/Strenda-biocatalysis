@@ -30,35 +30,22 @@ class BiocatalystPurchased:
     # JSON-LD fields
     id: str = field(
         metadata=config(field_name="@id"),
-        default_factory=lambda: "stbc:BiocatalystPurchased/" + str(uuid4())
+        default_factory=lambda: "stbc:BiocatalystPurchased/" + str(uuid4()),
     )
     __type__: list[str] = field(
         metadata=config(field_name="@type"),
-        default_factory = lambda: [
+        default_factory=lambda: [
             "stbc:BiocatalystPurchased",
         ],
     )
     __context__: dict[str, str | dict] = field(
         metadata=config(field_name="@context"),
-        default_factory = lambda: {
+        default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        }
+        },
     )
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
 @dataclass_json
 @dataclass
 class BiocatalystSelfProduced:
@@ -83,38 +70,22 @@ class BiocatalystSelfProduced:
     # JSON-LD fields
     id: str = field(
         metadata=config(field_name="@id"),
-        default_factory=lambda: "stbc:BiocatalystSelfProduced/" + str(uuid4())
+        default_factory=lambda: "stbc:BiocatalystSelfProduced/" + str(uuid4()),
     )
     __type__: list[str] = field(
         metadata=config(field_name="@type"),
-        default_factory = lambda: [
+        default_factory=lambda: [
             "stbc:BiocatalystSelfProduced",
         ],
     )
     __context__: dict[str, str | dict] = field(
         metadata=config(field_name="@context"),
-        default_factory = lambda: {
+        default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        }
+        },
     )
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
 @dataclass_json
 @dataclass
 class PurifiedBiocatalyst:
@@ -130,29 +101,22 @@ class PurifiedBiocatalyst:
     # JSON-LD fields
     id: str = field(
         metadata=config(field_name="@id"),
-        default_factory=lambda: "stbc:PurifiedBiocatalyst/" + str(uuid4())
+        default_factory=lambda: "stbc:PurifiedBiocatalyst/" + str(uuid4()),
     )
     __type__: list[str] = field(
         metadata=config(field_name="@type"),
-        default_factory = lambda: [
+        default_factory=lambda: [
             "stbc:PurifiedBiocatalyst",
         ],
     )
     __context__: dict[str, str | dict] = field(
         metadata=config(field_name="@context"),
-        default_factory = lambda: {
+        default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        }
+        },
     )
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
 @dataclass_json
 @dataclass
 class CrudeCellExtract:
@@ -165,26 +129,22 @@ class CrudeCellExtract:
     # JSON-LD fields
     id: str = field(
         metadata=config(field_name="@id"),
-        default_factory=lambda: "stbc:CrudeCellExtract/" + str(uuid4())
+        default_factory=lambda: "stbc:CrudeCellExtract/" + str(uuid4()),
     )
     __type__: list[str] = field(
         metadata=config(field_name="@type"),
-        default_factory = lambda: [
+        default_factory=lambda: [
             "stbc:CrudeCellExtract",
         ],
     )
     __context__: dict[str, str | dict] = field(
         metadata=config(field_name="@context"),
-        default_factory = lambda: {
+        default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        }
+        },
     )
-    
-    
-    
-    
-    
-    
+
+
 @dataclass_json
 @dataclass
 class WholeCellBiocatalyst:
@@ -198,27 +158,22 @@ class WholeCellBiocatalyst:
     # JSON-LD fields
     id: str = field(
         metadata=config(field_name="@id"),
-        default_factory=lambda: "stbc:WholeCellBiocatalyst/" + str(uuid4())
+        default_factory=lambda: "stbc:WholeCellBiocatalyst/" + str(uuid4()),
     )
     __type__: list[str] = field(
         metadata=config(field_name="@type"),
-        default_factory = lambda: [
+        default_factory=lambda: [
             "stbc:WholeCellBiocatalyst",
         ],
     )
     __context__: dict[str, str | dict] = field(
         metadata=config(field_name="@context"),
-        default_factory = lambda: {
+        default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        }
+        },
     )
-    
-    
-    
-    
-    
-    
-    
+
+
 @dataclass_json
 @dataclass
 class SecretedEnzyme:
@@ -231,26 +186,22 @@ class SecretedEnzyme:
     # JSON-LD fields
     id: str = field(
         metadata=config(field_name="@id"),
-        default_factory=lambda: "stbc:SecretedEnzyme/" + str(uuid4())
+        default_factory=lambda: "stbc:SecretedEnzyme/" + str(uuid4()),
     )
     __type__: list[str] = field(
         metadata=config(field_name="@type"),
-        default_factory = lambda: [
+        default_factory=lambda: [
             "stbc:SecretedEnzyme",
         ],
     )
     __context__: dict[str, str | dict] = field(
         metadata=config(field_name="@context"),
-        default_factory = lambda: {
+        default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        }
+        },
     )
-    
-    
-    
-    
-    
-    
+
+
 @dataclass_json
 @dataclass
 class CellFreeProduction:
@@ -263,26 +214,22 @@ class CellFreeProduction:
     # JSON-LD fields
     id: str = field(
         metadata=config(field_name="@id"),
-        default_factory=lambda: "stbc:CellFreeProduction/" + str(uuid4())
+        default_factory=lambda: "stbc:CellFreeProduction/" + str(uuid4()),
     )
     __type__: list[str] = field(
         metadata=config(field_name="@type"),
-        default_factory = lambda: [
+        default_factory=lambda: [
             "stbc:CellFreeProduction",
         ],
     )
     __context__: dict[str, str | dict] = field(
         metadata=config(field_name="@context"),
-        default_factory = lambda: {
+        default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        }
+        },
     )
-    
-    
-    
-    
-    
-    
+
+
 @dataclass_json
 @dataclass
 class Immobilised:
@@ -300,31 +247,22 @@ class Immobilised:
     # JSON-LD fields
     id: str = field(
         metadata=config(field_name="@id"),
-        default_factory=lambda: "stbc:Immobilised/" + str(uuid4())
+        default_factory=lambda: "stbc:Immobilised/" + str(uuid4()),
     )
     __type__: list[str] = field(
         metadata=config(field_name="@type"),
-        default_factory = lambda: [
+        default_factory=lambda: [
             "stbc:Immobilised",
         ],
     )
     __context__: dict[str, str | dict] = field(
         metadata=config(field_name="@context"),
-        default_factory = lambda: {
+        default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        }
+        },
     )
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
 @dataclass_json
 @dataclass
 class StorageConditions:
@@ -338,17 +276,17 @@ class StorageConditions:
     # JSON-LD fields
     id: str = field(
         metadata=config(field_name="@id"),
-        default_factory=lambda: "stbc:StorageConditions/" + str(uuid4())
+        default_factory=lambda: "stbc:StorageConditions/" + str(uuid4()),
     )
     __type__: list[str] = field(
         metadata=config(field_name="@type"),
-        default_factory = lambda: [
+        default_factory=lambda: [
             "stbc:StorageConditions",
         ],
     )
     __context__: dict[str, str | dict] = field(
         metadata=config(field_name="@context"),
-        default_factory = lambda: {
+        default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        }
+        },
     )
