@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "SamplePreprocessing",
+  "type": "object",
+  "properties": {
+    "quenching_method": {
+      "title": "quenching_method",
+      "description": "Techniques or methods used to halt the reaction, including the chemicals or procedures employed (e.g., heat treatment). Accurate documentation of quenching methods in enzymatic reactions is vital as        these methods can significantly impact subsequent analytical procedures. For instance, opting for an organic solvent as a quenching reagent can notably enhance the solubility of substrates or products, directly         influencing downstream analyses.",
+      "type": "string"
+    },
+    "quenching_ratio": {
+      "title": "quenching_ratio",
+      "description": "Information about the precise ratio or volume of the quenching solution in relation to the reaction mixture. (",
+      "type": "string"
+    },
+    "treatment_procedure": {
+      "title": "treatment_procedure",
+      "description": "Any further details regarding the sample processing steps that were carried out after it was collected from the reaction vessel (e.g., filtering samples).",
+      "type": "string"
+    },
+    "special_treatment": {
+      "title": "special_treatment",
+      "description": "If there are any other specific methods, procedures, characteristics or aspects related to the sampling that are important for reproducibility and are not described by the aforementioned                     metadata, they should be explained here.",
+      "type": "string"
+    }
+  },
+  "description": "Sample preprocessing involves the necessary steps taken to prepare and treat collected samples before analysis or further experimentation."
+}

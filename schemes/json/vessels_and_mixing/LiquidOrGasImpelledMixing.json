@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "LiquidOrGasImpelledMixing",
+  "type": "object",
+  "properties": {
+    "volume_of_liquid_solid_phase": {
+      "title": "volume_of_liquid_solid_phase",
+      "description": "In the context of enzymatic reactions or any chemical processes involving heterogeneous mixtures like a liquid and solid phase, essential parameters for describing the system involve the              composition of the phases, the percentage or fraction of the total volume occupied by the liquid-solid phase mixture, and further information.",
+      "type": "string"
+    },
+    "residence_time": {
+      "title": "residence_time",
+      "description": "The residence time, often denoted as \"τ\" (tau), refers to the average amount of time a substance or component spends inside a specific system or reactor and is to be specified.",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "residence_time_unit": {
+      "title": "residence_time_unit",
+      "description": "The units for residence time can vary depending on the system and the units used for volume and flow rate. Common units include s (seconds), min (minutes), h (hours), or any time-related units.",
+      "type": "string"
+    },
+    "reynolds_number": {
+      "title": "reynolds_number",
+      "description": "The Reynolds number (Re) is a dimensionless quantity used in fluid dynamics to predict the flow regime of a fluid within a specific system. It helps to determine whether the flow is laminar, turbulent, or     somewhere in between.",
+      "type": "string"
+    },
+    "passive_mixing": {
+      "title": "passive_mixing",
+      "description": "The design of the coils and the flow patterns created by the geometry of the tubing can lead to passive mixing as the fluid flows through the reactor without the need for external agitation. More           detailed information must be provided to describe the process.",
+      "type": "string"
+    },
+    "active_T_or_Y_mixer": {
+      "title": "active_T_or_Y_mixer",
+      "description": "Key features for describing an active Y or T mixer can include inlet ports, mixer chamber, outlet port, control, materials amon others.",
+      "type": "string"
+    },
+    "pulsing": {
+      "title": "pulsing",
+      "description": "The pulsing process involves periodically injecting or introducing specific components, such as reactants or additives, into a reaction system at regular intervals or in a pulsatile manner. More            detailed information must be provided to describe the process.",
+      "type": "string"
+    },
+    "special_treatment": {
+      "title": "special_treatment",
+      "description": "If there are any other specific methods, procedures, characteristics or aspects related to the liquid or gas impelled mixing that are important for reproducibility and are not described by the              aforementioned metadata, they should be explained here.",
+      "type": "string"
+    }
+  },
+  "description": "Detailed information about the mixing mode used, whether it involves liquid or gas impelled mixing, is essential for ensuring the reproducibility and understanding of enzymatic reactions."
+}

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- Roots -->
+    <xs:element name="Vial" type="VialType"/>
+    <xs:element name="Plate" type="PlateType"/>
+    <xs:element name="StirredTankReactor" type="StirredTankReactorType"/>
+    <xs:element name="TubularFlowContinuousReactor" type="TubularFlowContinuousReactorType"/>
+    <xs:element name="Shaking" type="ShakingType"/>
+    <xs:element name="MechanicallyImpelledMixing" type="MechanicallyImpelledMixingType"/>
+    <xs:element name="LiquidOrGasImpelledMixing" type="LiquidOrGasImpelledMixingType"/>
+    
+    <!-- Vial Definition -->
+    <xs:complexType name="VialType">
+        <xs:sequence>
+            <xs:element name="vial_size" type="xs:float" />
+            <xs:element name="vial_size_unit" type="xs:string" />
+            <xs:element name="vial_material" type="xs:string" />
+            <xs:element name="closure_type" type="xs:string" />
+            <xs:element name="special_treatment" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- Plate Definition -->
+    <xs:complexType name="PlateType">
+        <xs:sequence>
+            <xs:element name="plate_type" type="xs:string" />
+            <xs:element name="plate_material" type="xs:string" />
+            <xs:element name="number_of_wells" type="xs:string" />
+            <xs:element name="well_shape" type="xs:string" />
+            <xs:element name="well_volume" type="xs:string" />
+            <xs:element name="well_arrangement" type="xs:string" />
+            <xs:element name="supplier" type="xs:string" />
+            <xs:element name="lot_number" type="xs:float" />
+            <xs:element name="sealing_method" type="xs:string" />
+            <xs:element name="sealing_material" type="xs:string" />
+            <xs:element name="special_treatment" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- StirredTankReactor Definition -->
+    <xs:complexType name="StirredTankReactorType">
+        <xs:sequence>
+            <xs:element name="type" type="xs:string" />
+            <xs:element name="material" type="xs:string" />
+            <xs:element name="volume" type="xs:float" />
+            <xs:element name="volume_unit" type="xs:string" />
+            <xs:element name="geometry" type="xs:string" />
+            <xs:element name="bottom_type" type="xs:string" />
+            <xs:element name="gas_consumption" type="xs:string" />
+            <xs:element name="gas_supply" type="xs:string" />
+            <xs:element name="gas_supply_rate" type="xs:float" />
+            <xs:element name="gas_supply_rate_unit" type="xs:string" />
+            <xs:element name="temperature_control" type="xs:string" />
+            <xs:element name="special_treatment" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- TubularFlowContinuousReactor Definition -->
+    <xs:complexType name="TubularFlowContinuousReactorType">
+        <xs:sequence>
+            <xs:element name="volume" type="xs:float" />
+            <xs:element name="volume_unit" type="xs:string" />
+            <xs:element name="geometry" type="xs:string" />
+            <xs:element name="reactor_type" type="xs:string" />
+            <xs:element name="material" type="xs:string" />
+            <xs:element name="tubing" type="xs:string" />
+            <xs:element name="localisation_of_the_catalyst" type="xs:string" />
+            <xs:element name="special_treatment" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- Shaking Definition -->
+    <xs:complexType name="ShakingType">
+        <xs:sequence>
+            <xs:element name="shaking_type" type="xs:string" />
+            <xs:element name="deflection" type="xs:float" />
+            <xs:element name="deflection_unit" type="xs:string" />
+            <xs:element name="speed" type="xs:float" />
+            <xs:element name="speed_unit" type="xs:string" />
+            <xs:element name="position" type="xs:string" />
+            <xs:element name="special_treatment" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- MechanicallyImpelledMixing Definition -->
+    <xs:complexType name="MechanicallyImpelledMixingType">
+        <xs:sequence>
+            <xs:element name="stirring_type" type="xs:string" />
+            <xs:element name="stirrer_material" type="xs:string" />
+            <xs:element name="supplier" type="xs:string" />
+            <xs:element name="number_of_stirrers" type="xs:float" />
+            <xs:element name="distance_between_stirrers" type="xs:float" />
+            <xs:element name="distance_between_stirrers_unit" type="xs:string" />
+            <xs:element name="stirrer_blade_pitch_angle" type="xs:float" />
+            <xs:element name="number_of_stirrer_blades" type="xs:float" />
+            <xs:element name="stirrer_blade_size" type="xs:float" />
+            <xs:element name="stirrer_blade_size_unit" type="xs:string" />
+            <xs:element name="stirrer_geometry" type="xs:string" />
+            <xs:element name="stirrer_speed" type="xs:float" />
+            <xs:element name="speed_unit" type="xs:string" />
+            <xs:element name="height_of_stirrer_above_vessel_base" type="xs:float" />
+            <xs:element name="height_of_stirrer_above_vessel_base_unit" type="xs:string" />
+            <xs:element name="power_per_volume" type="xs:float" />
+            <xs:element name="power_per_volume_unit" type="xs:string" />
+            <xs:element name="stir_bar_size" type="xs:float" />
+            <xs:element name="stir_bar_size_unit" type="xs:float" />
+            <xs:element name="stir_bar_shape" type="xs:string" />
+            <xs:element name="special_treatment" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- LiquidOrGasImpelledMixing Definition -->
+    <xs:complexType name="LiquidOrGasImpelledMixingType">
+        <xs:sequence>
+            <xs:element name="volume_of_liquid_solid_phase" type="xs:string" />
+            <xs:element name="residence_time" type="xs:float" />
+            <xs:element name="residence_time_unit" type="xs:string" />
+            <xs:element name="reynolds_number" type="xs:string" />
+            <xs:element name="passive_mixing" type="xs:string" />
+            <xs:element name="active_T_or_Y_mixer" type="xs:string" />
+            <xs:element name="pulsing" type="xs:string" />
+            <xs:element name="special_treatment" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    
+
+</xs:schema>

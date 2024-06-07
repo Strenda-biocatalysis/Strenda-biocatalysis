@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- Roots -->
+    <xs:element name="Components" type="ComponentsType"/>
+    <xs:element name="StorageConditions" type="StorageConditionsType"/>
+    
+    <!-- Components Definition -->
+    <xs:complexType name="ComponentsType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" />
+            <xs:element name="smiles" type="xs:string" />
+            <xs:element name="persistent_identifier_PID" type="xs:string" />
+            <xs:element name="concentration" type="xs:float" />
+            <xs:element name="concentration_unit" type="xs:string" />
+            <xs:element name="supplier" type="xs:string" />
+            <xs:element name="purity" type="xs:float" />
+            <xs:element name="formulation" type="xs:string" />
+            <xs:element name="solubility_limit" type="xs:float" />
+            <xs:element name="solubility_limit_unit" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- StorageConditions Definition -->
+    <xs:complexType name="StorageConditionsType">
+        <xs:sequence>
+            <xs:element name="temperature" type="xs:float" />
+            <xs:element name="temperature_unit" type="xs:string" />
+            <xs:element name="storage_start" type="xs:date" />
+            <xs:element name="additives" type="xs:string" />
+            <xs:element name="special_treatment" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    
+
+</xs:schema>

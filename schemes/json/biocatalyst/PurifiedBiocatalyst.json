@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "PurifiedBiocatalyst",
+  "type": "object",
+  "properties": {
+    "concentration": {
+      "title": "concentration",
+      "description": "Concentration of the biocatalyst.",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "concentration_unit": {
+      "title": "concentration_unit",
+      "description": "Concentration of the biocatalyst is typically expressed in g/L (grams per liter).",
+      "type": "string"
+    },
+    "concentration_determination_method": {
+      "title": "concentration_determination_method",
+      "description": "It is important to specify the method used for concentration determination. There are various methods available for the determination of the enzyme concentration in solution e.g., the Bradford method, Lowry method, UV absorption, activity assays, ELISA, etc.",
+      "type": "string"
+    },
+    "activity": {
+      "title": "activity",
+      "description": "The activity of the biocatalyst can be expressed either as volumetric activity, which considers the total activity of the enzyme in the solution, or as specific activity, which takes into account the       enzyme's purity and indicates the activity of an enzyme per unit of enzyme protein or enzyme mass. If the biocatalyst has been purchased, it is advisable to look up more precise information (e.g. via an SOP)            regarding the activities specified by the manufacturer, as these may differ from the values determined by yourself (different activity assays can lead to different activity values). In addition, the loss of activity of the biocatalyst over the storage period should be taken into account.",
+      "type": "number"
+    },
+    "activity_unit": {
+      "title": "activity_unit",
+      "description": "The enzyme's activity can be expressed either as specific activity [][][]",
+      "type": "string"
+    },
+    "activity_determination_method": {
+      "title": "activity_determination_method",
+      "description": "Enzyme activity can be measured in various ways, including spectrophotometrically, colorimetrically, fluorometrically, assays and using biosensors, etc.",
+      "type": "string"
+    },
+    "formulation": {
+      "title": "formulation",
+      "description": "Depending on the formulation, the biocatalyst can be applied dissolved in a solvent or as a dried powder. It defines the physical state in which the biocatalyst is applied in the reaction.",
+      "type": "string"
+    },
+    "special_treatment": {
+      "title": "special_treatment",
+      "description": "If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.",
+      "type": "string"
+    }
+  },
+  "description": "The soluble enzyme refers to purified enzyme.Crude cell extract"
+}

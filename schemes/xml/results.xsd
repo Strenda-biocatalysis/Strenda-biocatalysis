@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- Roots -->
+    <xs:element name="KineticParameters" type="KineticParametersType"/>
+    <xs:element name="YieldAndConversion" type="YieldAndConversionType"/>
+    <xs:element name="ActivityAndInitialReactionRate" type="ActivityAndInitialReactionRateType"/>
+    <xs:element name="SelectivityAndSpecificity" type="SelectivityAndSpecificityType"/>
+    <xs:element name="ThermodynamicParameters" type="ThermodynamicParametersType"/>
+    
+    <!-- KineticParameters Definition -->
+    <xs:complexType name="KineticParametersType">
+        <xs:sequence>
+            <xs:element name="michaelis_constant" type="xs:float" />
+            <xs:element name="michaelis_constant_unit" type="xs:string" />
+            <xs:element name="maximum_reaction_rate" type="xs:float" />
+            <xs:element name="maximum_reaction_rate_unit" type="xs:string" />
+            <xs:element name="turnover_number" type="xs:float" />
+            <xs:element name="turnover_number_unit" type="xs:string" />
+            <xs:element name="catalytic_efficiency" type="xs:float" />
+            <xs:element name="catalytic_efficiency_unit" type="xs:string" />
+            <xs:element name="dissociation_constant" type="xs:float" />
+            <xs:element name="dissociation_constant_unit" type="xs:string" />
+            <xs:element name="inhibition_type" type="xs:string" />
+            <xs:element name="inhibition_constant" type="xs:float" />
+            <xs:element name="inhibition_constant_unit" type="xs:string" />
+            <xs:element name="hill_coefficient" type="xs:float" />
+            <xs:element name="enzyme_stability" type="xs:string" />
+            <xs:element name="special_treatment" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- YieldAndConversion Definition -->
+    <xs:complexType name="YieldAndConversionType">
+        <xs:sequence>
+            <xs:element name="c_yield" type="xs:float" />
+            <xs:element name="yield_unit" type="xs:string" />
+            <xs:element name="space_time_yield" type="xs:float" />
+            <xs:element name="space_time_yield_unit" type="xs:string" />
+            <xs:element name="conversion" type="xs:float" />
+            <xs:element name="conversion_unit" type="xs:string" />
+            <xs:element name="special_treatment" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ActivityAndInitialReactionRate Definition -->
+    <xs:complexType name="ActivityAndInitialReactionRateType">
+        <xs:sequence>
+            <xs:element name="specific_activity" type="xs:float" />
+            <xs:element name="specific_activity_unit" type="xs:string" />
+            <xs:element name="initial_reaction_rate" type="xs:float" />
+            <xs:element name="initial_reaction_rate_unit" type="xs:string" />
+            <xs:element name="special_treatment" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- SelectivityAndSpecificity Definition -->
+    <xs:complexType name="SelectivityAndSpecificityType">
+        <xs:sequence>
+            <xs:element name="stereoselectivity" type="xs:string" />
+            <xs:element name="enantioselectivity" type="xs:float" />
+            <xs:element name="enantiomeric_excess" type="xs:float" />
+            <xs:element name="enantiomeric_excess_unit" type="xs:string" />
+            <xs:element name="diastereomeric_excess" type="xs:float" />
+            <xs:element name="diasteriomeric_excess_unit" type="xs:string" />
+            <xs:element name="isomeric_content" type="xs:float" />
+            <xs:element name="isomeric_content_unit" type="xs:string" />
+            <xs:element name="chemoselectivity" type="xs:string" />
+            <xs:element name="regioselectivity" type="xs:string" />
+            <xs:element name="special_treatment" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ThermodynamicParameters Definition -->
+    <xs:complexType name="ThermodynamicParametersType">
+        <xs:sequence>
+            <xs:element name="gibbs_free_energy_change" type="xs:string" />
+            <xs:element name="enthalpy_change" type="xs:string" />
+            <xs:element name="special_treatment" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    
+
+</xs:schema>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- Roots -->
+    <xs:element name="BiocatalystPurchased" type="BiocatalystPurchasedType"/>
+    <xs:element name="BiocatalystSelfProduced" type="BiocatalystSelfProducedType"/>
+    <xs:element name="PurifiedBiocatalyst" type="PurifiedBiocatalystType"/>
+    <xs:element name="CrudeCellExtract" type="CrudeCellExtractType"/>
+    <xs:element name="WholeCellBiocatalyst" type="WholeCellBiocatalystType"/>
+    <xs:element name="SecretedEnzyme" type="SecretedEnzymeType"/>
+    <xs:element name="CellFreeProduction" type="CellFreeProductionType"/>
+    <xs:element name="Immobilised" type="ImmobilisedType"/>
+    <xs:element name="StorageConditions" type="StorageConditionsType"/>
+    
+    <!-- BiocatalystPurchased Definition -->
+    <xs:complexType name="BiocatalystPurchasedType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" />
+            <xs:element name="ec_number" type="xs:string" />
+            <xs:element name="molecular_weight" type="xs:float" />
+            <xs:element name="molecular_weight_unit" type="xs:string" />
+            <xs:element name="catalyzed_reaction" type="xs:string" />
+            <xs:element name="sequence_amino_acid" type="xs:string" />
+            <xs:element name="sequence_DNA" type="xs:string" />
+            <xs:element name="origin_organism" type="xs:string" />
+            <xs:element name="supplier" type="xs:string" />
+            <xs:element name="production_organism" type="xs:string" />
+            <xs:element name="posttranslational_modification" type="xs:string" />
+            <xs:element name="purity" type="xs:float" />
+            <xs:element name="purity_specification" type="xs:string" />
+            <xs:element name="formulation" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- BiocatalystSelfProduced Definition -->
+    <xs:complexType name="BiocatalystSelfProducedType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" />
+            <xs:element name="ec_number" type="xs:string" />
+            <xs:element name="molecular_weight" type="xs:float" />
+            <xs:element name="molecular_weight_unit" type="xs:string" />
+            <xs:element name="catalyzed_reaction" type="xs:string" />
+            <xs:element name="sequence_amino_acid" type="xs:string" />
+            <xs:element name="sequence_DNA" type="xs:string" />
+            <xs:element name="sequence_plasmid" type="xs:string" />
+            <xs:element name="plasmid_specifications" type="xs:string" />
+            <xs:element name="origin_organism" type="xs:string" />
+            <xs:element name="production_organism" type="xs:string" />
+            <xs:element name="posttranslational_modification" type="xs:string" />
+            <xs:element name="purity" type="xs:float" />
+            <xs:element name="purity_specification" type="xs:string" />
+            <xs:element name="purification_method" type="xs:string" />
+            <xs:element name="formulation" type="xs:string" />
+            <xs:element name="special_treatment" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- PurifiedBiocatalyst Definition -->
+    <xs:complexType name="PurifiedBiocatalystType">
+        <xs:sequence>
+            <xs:element name="concentration" type="xs:float" />
+            <xs:element name="concentration_unit" type="xs:string" />
+            <xs:element name="concentration_determination_method" type="xs:string" />
+            <xs:element name="activity" type="xs:float" />
+            <xs:element name="activity_unit" type="xs:string" />
+            <xs:element name="activity_determination_method" type="xs:string" />
+            <xs:element name="formulation" type="xs:string" />
+            <xs:element name="special_treatment" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- CrudeCellExtract Definition -->
+    <xs:complexType name="CrudeCellExtractType">
+        <xs:sequence>
+            <xs:element name="cell_disruption_process" type="xs:string" />
+            <xs:element name="concentration" type="xs:float" />
+            <xs:element name="concentration_unit" type="xs:string" />
+            <xs:element name="concentration_determination_method" type="xs:string" />
+            <xs:element name="special_treatment" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- WholeCellBiocatalyst Definition -->
+    <xs:complexType name="WholeCellBiocatalystType">
+        <xs:sequence>
+            <xs:element name="harvesting_method" type="xs:string" />
+            <xs:element name="concentration" type="xs:float" />
+            <xs:element name="concentration_unit" type="xs:string" />
+            <xs:element name="concentration_determination_method" type="xs:string" />
+            <xs:element name="formulation" type="xs:string" />
+            <xs:element name="special_treatment" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- SecretedEnzyme Definition -->
+    <xs:complexType name="SecretedEnzymeType">
+        <xs:sequence>
+            <xs:element name="separation_method" type="xs:string" />
+            <xs:element name="concentration" type="xs:float" />
+            <xs:element name="concentration_unit" type="xs:string" />
+            <xs:element name="concentration_determination_method" type="xs:string" />
+            <xs:element name="special_treatment" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- CellFreeProduction Definition -->
+    <xs:complexType name="CellFreeProductionType">
+        <xs:sequence>
+            <xs:element name="source_of_cellfree_extract" type="xs:string" />
+            <xs:element name="concentration" type="xs:float" />
+            <xs:element name="concentration_unit" type="xs:string" />
+            <xs:element name="concentration_determination_method" type="xs:string" />
+            <xs:element name="special_treatment" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- Immobilised Definition -->
+    <xs:complexType name="ImmobilisedType">
+        <xs:sequence>
+            <xs:element name="biocatalyst" type="xs:string" />
+            <xs:element name="immobilisation_chemistry" type="xs:string" />
+            <xs:element name="carrier_material" type="xs:string" />
+            <xs:element name="linkers" type="xs:string" />
+            <xs:element name="immobilisation_method" type="xs:string" />
+            <xs:element name="purification_method" type="xs:string" />
+            <xs:element name="concentration" type="xs:float" />
+            <xs:element name="concentration_unit" type="xs:string" />
+            <xs:element name="concentration_determination_method" type="xs:string" />
+            <xs:element name="special_treatment" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- StorageConditions Definition -->
+    <xs:complexType name="StorageConditionsType">
+        <xs:sequence>
+            <xs:element name="temperature" type="xs:float" />
+            <xs:element name="temperature_unit" type="xs:string" />
+            <xs:element name="storage_start" type="xs:date" />
+            <xs:element name="additives" type="xs:string" />
+            <xs:element name="drying_method" type="xs:string" />
+            <xs:element name="special_treatment" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    
+
+</xs:schema>

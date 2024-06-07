@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- Roots -->
+    <xs:element name="SamplingDescription" type="SamplingDescriptionType"/>
+    <xs:element name="SamplingFromHeterogeneousReactionSolutions" type="SamplingFromHeterogeneousReactionSolutionsType"/>
+    <xs:element name="SamplePreprocessing" type="SamplePreprocessingType"/>
+    
+    <!-- SamplingDescription Definition -->
+    <xs:complexType name="SamplingDescriptionType">
+        <xs:sequence>
+            <xs:element name="volume_per_sample" type="xs:float" />
+            <xs:element name="volume_per_sample_unit" type="xs:string" />
+            <xs:element name="mixing_during_sampling" type="xs:string" />
+            <xs:element name="vessel_opened_for_sampling" type="xs:string" />
+            <xs:element name="gas_phase" type="xs:string" />
+            <xs:element name="time" type="xs:float" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- SamplingFromHeterogeneousReactionSolutions Definition -->
+    <xs:complexType name="SamplingFromHeterogeneousReactionSolutionsType">
+        <xs:sequence>
+            <xs:element name="phase" type="xs:string" />
+            <xs:element name="biocatalyst_in_phase" type="xs:string" />
+            <xs:element name="special_treatment" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- SamplePreprocessing Definition -->
+    <xs:complexType name="SamplePreprocessingType">
+        <xs:sequence>
+            <xs:element name="quenching_method" type="xs:string" />
+            <xs:element name="quenching_ratio" type="xs:string" />
+            <xs:element name="treatment_procedure" type="xs:string" />
+            <xs:element name="special_treatment" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    
+
+</xs:schema>
