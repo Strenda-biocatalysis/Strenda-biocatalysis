@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - "specifications/*.md"
+      - "gen.toml"
 
 jobs:
   generate:
