@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "TubularFlowContinuousReactor",
+  "type": "object",
+  "properties": {
+    "volume": {
+      "title": "volume",
+      "description": "Indicate the total volume capacity of the tubular flow/continuous reactor.",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "volume_unit": {
+      "title": "volume_unit",
+      "description": "The volume is typically expressed in L (liters).",
+      "type": "string"
+    },
+    "geometry": {
+      "title": "geometry",
+      "description": "The exact geometry of the tubular flow/continuous reactor.",
+      "type": "string"
+    },
+    "reactor_type": {
+      "title": "reactor_type",
+      "description": "There are several types of tubular flow/continuous reactors, e.g. packed bed reactor, or a plug flow reactor, differing in design and intended use. A detailed description is required.",
+      "type": "string"
+    },
+    "material": {
+      "title": "material",
+      "description": "Material the reactor is made of, e.g. glass, stainless steel or other materials.",
+      "type": "string"
+    },
+    "tubing": {
+      "title": "tubing",
+      "description": "When using tubing in a tubular flow/continuous reactor, various pieces of information can be provided, such as tubing material, diameter, length, connections, etc.",
+      "type": "string"
+    },
+    "localisation_of_the_catalyst": {
+      "title": "localisation_of_the_catalyst",
+      "description": "Specify the exact location of the catalyst in the tubular flow/continuous reactor. The biocatalyst is typically present in the liquid phase or immobilized on a support matrix (such as particles or          membranes).",
+      "type": "string"
+    },
+    "special_treatment": {
+      "title": "special_treatment",
+      "description": "If there are any other specific methods, procedures, characteristics or aspects related to the tubular flow/continuous reactor or its preparation for the reaction that are important for reproducibility     and are not described by the aforementioned metadata, they should be explained here.",
+      "type": "string"
+    }
+  },
+  "description": "When conducting enzymatic reactions in tubular flow or continuous reactors, it is essential to provide detailed information about the reactor setup, e.g. plug flow reactor, and operating conditions to ensure reproducibility and transparency in reporting the experimental process."
+}

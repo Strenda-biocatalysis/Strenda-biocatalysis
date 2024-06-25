@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "YieldAndConversion",
+  "type": "object",
+  "properties": {
+    "c_yield": {
+      "title": "c_yield",
+      "description": "Yield represents the amount of the desired product obtained from a reaction. It is the number of synthesized molecules of product per number of starting molecules. The following formula can be used:",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "yield_unit": {
+      "title": "yield_unit",
+      "description": "The yield is typically expressed in percentages (%), reflecting the ratio of the actual obtained product quantity to the theoretical maximum product quantity that could be obtained under ideal conditions.",
+      "type": "string"
+    },
+    "space_time_yield": {
+      "title": "space_time_yield",
+      "description": "Space-time yield in biocatalysis refers to the mass of product obtained per unit volume of the reactor per unit time. Other terms commonly used in the literature are",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "space_time_yield_unit": {
+      "title": "space_time_yield_unit",
+      "description": "Space-time yield is commonly expressed in g/L/h (grams per liter per hour) or mol/L/h (moles per liter per hour).",
+      "type": "string"
+    },
+    "conversion": {
+      "title": "conversion",
+      "description": "The term \"conversion\" refers to the percentage of substrate that undergoes transformation into the desired product during a reaction. It is the number of converted molecules per number of starting molecules. The following formula can be used:",
+      "type": "number"
+    },
+    "conversion_unit": {
+      "title": "conversion_unit",
+      "description": "The conversion is commonly expressed as a percentage (%) to indicate the proportion of substrate converted to the desired product during a specific reaction.",
+      "type": "string"
+    },
+    "special_treatment": {
+      "title": "special_treatment",
+      "description": "If there are any other specific metrics, parameters, characteristics or aspects related to the conversion or yield that are important to document the results accurately and are not described by the aforementioned attributes, they should be explained here.",
+      "type": "string"
+    }
+  },
+  "description": "These metrics are vital for evaluating the success of a process, optimizing reaction conditions, and ensuring the production of high-quality products in biocatalytic applications. For a comprehensive report around the technical key data of yield and conversion, see literature for further information, e.g. Lies _et al._3."
+}

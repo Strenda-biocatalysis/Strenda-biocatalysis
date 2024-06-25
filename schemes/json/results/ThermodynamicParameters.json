@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "ThermodynamicParameters",
+  "type": "object",
+  "properties": {
+    "gibbs_free_energy_change": {
+      "title": "gibbs_free_energy_change",
+      "description": "The Gibbs free energy (",
+      "type": "string"
+    },
+    "enthalpy_change": {
+      "title": "enthalpy_change",
+      "description": "The enthalpy (",
+      "type": "string"
+    },
+    "special_treatment": {
+      "title": "special_treatment",
+      "description": "If there are any other specific metrics, parameters, characteristics or aspects related to the thermodynamic parameters that are important to document the results accurately and are not described by the aforementioned attributes, they should be explained here.",
+      "type": "string"
+    }
+  },
+  "description": "Understanding the energy dynamics and spontaneity of reactions through thermodynamic parameters is essential for efficient biocatalysis. For a comprehensive report around the technical key data of the kinetic parameters, see literature for further information, e.g. Heintz6."
+}

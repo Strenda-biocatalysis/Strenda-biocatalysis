@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- Roots -->
+    <xs:element name="Components" type="ComponentsType"/>
+    <xs:element name="StorageConditions" type="StorageConditionsType"/>
+
+    <!-- Components Definition -->
+    <xs:complexType name="ComponentsType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        The name of the component can be either the trivial or trade name, the systematic designation according to IUPAC nomenclature, or any other means of identifying the substance.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="smiles" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        SMILES (Simplified Molecular Input Line Entry System) is a chemical notation used to represent and describe molecular structures in a simplified and human-readable format.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="persistent_identifier_PID" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        One or more identifiers that refer to the compound, such as CAS number, PubChem code, InChI code, etc.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="concentration" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation>
+                        Concentration of the component.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="concentration_unit" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        The concentration of the component is typically expressed in M (Molar), mmol/L (millimoles per liter), or µmol/L (micromoles per liter).
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="supplier" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Information about the source of the compound, usually a commercial supplier with perhaps product code, but could be preparation in a research lab. Should the component have been synthesized internally,      please include a literature reference detailing its synthesis.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="purity" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation>
+                        Purity of a substance typically expressed in percentage (%). It is commonly defined as the percentage of the pure or desired compound relative to the total mass or volume of the substance.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="formulation" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        The formulation encompass the nature of the component, whether it is in powder, liquid, gaseous form, or any other form, as well as the specific conditions under which it is presented.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="solubility_limit" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation>
+                        This limit represents the maximum concentration of a component, which might include gases, that can dissolve in a solution or gas phase. (
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="solubility_limit_unit" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        The solubility limit of a component can be expressed in various units, including M (moles per liter), g/L (grams per liter), % (percentage concentration), or particles per volume, depending on the         type of component and the solvent used. (
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- StorageConditions Definition -->
+    <xs:complexType name="StorageConditionsType">
+        <xs:sequence>
+            <xs:element name="temperature" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation>
+                        Temperature at which the component is stored.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="temperature_unit" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        The temperature can be specified in units such as K, °C, or °F.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="storage_start" type="xs:date">
+                <xs:annotation>
+                    <xs:documentation>
+                        The date since the component has been stored.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="additives" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Additives for the storage of components can include antioxidants, stabilizers, drying agent, or even inert gases (argon, nitrogen), among others.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="special_treatment" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        If there are any other specific characteristics or aspects related to a component that are important for reproducibility and are not described by the aforementioned metadata, they should be explained       here.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+
+</xs:schema>

@@ -1,0 +1,88 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "KineticParameters",
+  "type": "object",
+  "properties": {
+    "michaelis_constant": {
+      "title": "michaelis_constant",
+      "description": "The Michaelis-Menten constant (Km​) represents the substrate concentration at which an enzyme achieves half of its maximum reaction rate.",
+      "type": "number"
+    },
+    "michaelis_constant_unit": {
+      "title": "michaelis_constant_unit",
+      "description": "The unit of the Michaelis-Menten constant (Km​) is typically expressed as moles per liter (M or mM).",
+      "type": "string"
+    },
+    "maximum_reaction_rate": {
+      "title": "maximum_reaction_rate",
+      "description": "Vmax, the maximum reaction rate, represents the speed at which an enzyme-catalyzed reaction reaches saturation, indicating the maximum achievable rate of product formation under optimal substrate concentration (where enzymes are predominantly saturated with substrates).",
+      "type": "number"
+    },
+    "maximum_reaction_rate_unit": {
+      "title": "maximum_reaction_rate_unit",
+      "description": "The unit of Vmax (maximum reaction rate) is typically represented as concentration per time, such as moles per liter per second (mol/L/s or mM/s).",
+      "type": "string"
+    },
+    "turnover_number": {
+      "title": "turnover_number",
+      "description": "The turnover number (kcat) measures the number of substrate molecules converted to product per active site of an enzyme per unit time when the enzyme is fully saturated with substrate.",
+      "type": "number"
+    },
+    "turnover_number_unit": {
+      "title": "turnover_number_unit",
+      "description": "The unit of turnover number (kcat) is typically expressed as moles of product per mole of enzyme per second or per minute (time-1).",
+      "type": "string"
+    },
+    "catalytic_efficiency": {
+      "title": "catalytic_efficiency",
+      "description": "Catalytic efficiency (kcat/Km) is a measure of how effectively an enzyme converts substrate into product, often quantified as the ratio of the turnover number (kcat) to the Michaelis-Menten constant (Km).",
+      "type": "number"
+    },
+    "catalytic_efficiency_unit": {
+      "title": "catalytic_efficiency_unit",
+      "description": "The typical unit for catalytic efficiency (kcat/Km) is M-1s-1.",
+      "type": "string"
+    },
+    "dissociation_constant": {
+      "title": "dissociation_constant",
+      "description": "The dissociation constant (Kd) is a measure that represents the equilibrium between a complex and its dissociated components.",
+      "type": "number"
+    },
+    "dissociation_constant_unit": {
+      "title": "dissociation_constant_unit",
+      "description": "The dissociation constant (Kd) is typically expressed in M (mol per liter) or its derivatives, such as nM (nanomoles per liter).",
+      "type": "string"
+    },
+    "inhibition_type": {
+      "title": "inhibition_type",
+      "description": "Enzyme inhibition encompasses various forms, including competitive, non-competitive, uncompetitive, mixed, and irreversible inhibition. Each type has different effects on the enzyme's function and plays a crucial role in regulating biochemical processes.",
+      "type": "string"
+    },
+    "inhibition_constant": {
+      "title": "inhibition_constant",
+      "description": "The inhibition constant (Ki) describes the affinity of an inhibitor for an enzyme. It indicates how effectively an inhibitor influences enzyme activity. A lower Ki value suggests a strong binding of the inhibitor to the enzyme.",
+      "type": "number"
+    },
+    "inhibition_constant_unit": {
+      "title": "inhibition_constant_unit",
+      "description": "The units for the inhibition constant (Ki) are commonly expressed in M (mol per liter) or related units.",
+      "type": "string"
+    },
+    "hill_coefficient": {
+      "title": "hill_coefficient",
+      "description": "The Hill coefficient is a parameter used to describe cooperativity in the binding of molecules to proteins. It is employed in enzyme reactions, e.g. oxygen binding to hemoglobin, to indicate whether there is positive (cooperative) or negative (anticooperative) binding. A Hill coefficient greater than 1 indicates positive cooperativity, while a value less than 1 indicates negative cooperativity. A value of exactly 1 indicates no cooperativity.",
+      "type": "number"
+    },
+    "enzyme_stability": {
+      "title": "enzyme_stability",
+      "description": "The stability of enzymes is often characterized by various parameters such as the enzyme's half-life under specific conditions, the decline in activity over time, or the preservation of catalytic activity under different environmental conditions.",
+      "type": "string"
+    },
+    "special_treatment": {
+      "title": "special_treatment",
+      "description": "If there are any other specific metrics, parameters, characteristics or aspects related to the kinetics that are important to document the results accurately and are not described by the aforementioned metadata, they should be explained here.",
+      "type": "string"
+    }
+  },
+  "description": "These parameters serve as benchmarks for understanding enzyme kinetics. The Km and kcat value is determined by all substrates involved in the reaction and not just one. Therefore, the concentrations of all substrates must be varied and the Km and kcat values calculated to obtain a common value instead of apparent values. For a comprehensive report around the technical key data of the kinetic parameters, see literature for further information, e.g. Pesci _et al._1, Bisswanger 2 ."
+}

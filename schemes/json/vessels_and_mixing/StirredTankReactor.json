@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "StirredTankReactor",
+  "type": "object",
+  "properties": {
+    "type": {
+      "title": "type",
+      "description": "There are several types of Stirred Tank Reactors, differing in design and intended use. A detailed description is required.",
+      "type": "string"
+    },
+    "material": {
+      "title": "material",
+      "description": "Material the reactor is made of, e.g. glass, polypropylene etc.",
+      "type": "string"
+    },
+    "volume": {
+      "title": "volume",
+      "description": "Indicate the total volume capacity of the Stirred Tank Reactor.",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "volume_unit": {
+      "title": "volume_unit",
+      "description": "The volume is typically expressed in L (liters).",
+      "type": "string"
+    },
+    "geometry": {
+      "title": "geometry",
+      "description": "The geometry of the reactor, in particular of interest is the ratio of height to width.",
+      "type": "string"
+    },
+    "bottom_type": {
+      "title": "bottom_type",
+      "description": "Shape of the bottom of the reactor, e.g. a round bottom or a flat bottom.",
+      "type": "string"
+    },
+    "gas_consumption": {
+      "title": "gas_consumption",
+      "description": "Common gases that are supplied to the reactor include, e.g., air, oxygen, hydrogen, etc.",
+      "type": "string"
+    },
+    "gas_supply": {
+      "title": "gas_supply",
+      "description": "Gas can be supplied to a Stirred Tank Reactor in various ways, such as through sparging using a tube or an aeration basket, bubbling, or direct injection into the reactor vessel.",
+      "type": "string"
+    },
+    "gas_supply_rate": {
+      "title": "gas_supply_rate",
+      "description": "Specification of the gas supply rate.",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "gas_supply_rate_unit": {
+      "title": "gas_supply_rate_unit",
+      "description": "The units for the gas supply rate in a Stirred Tank Reactor can be L/min (liters per minute), m³/h (cubic meters per hour), or other volume units per unit of time.",
+      "type": "string"
+    },
+    "temperature_control": {
+      "title": "temperature_control",
+      "description": "The temperature in a Stirred Tank Reactor can be controlled through various methods, typically using external heat sources or cooling systems such as heating jackets, cooling coils, or external             temperature control units.",
+      "type": "string"
+    },
+    "special_treatment": {
+      "title": "special_treatment",
+      "description": "If there are any other specific methods, procedures, characteristics or aspects related to the Stirred Tank Reactor or its preparation for the reaction that are important for reproducibility and are        not described by the aforementioned metadata, they should be explained here.",
+      "type": "string"
+    }
+  },
+  "description": "Stirred Tank Reactors (STRs) are frequently employed as versatile and controlled vessels, allowing for precise regulation of key parameters like temperature, pH, and stirring speed. All relevant specifications or attributes need to be described.Tubular flow/continuous reactor"
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "WholeCellBiocatalyst",
+  "type": "object",
+  "properties": {
+    "harvesting_method": {
+      "title": "harvesting_method",
+      "description": "In biotechnological processes, there are various methods for harvesting cells, including centrifugation, filtration, precipitation, etc.",
+      "type": "string"
+    },
+    "concentration": {
+      "title": "concentration",
+      "description": "In the case of whole-cell catalysts, the cell concentration or cell mass is commonly used as a measure.",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "concentration_unit": {
+      "title": "concentration_unit",
+      "description": "In case of lyophilized cells, the quantity of lyophilized cells can be specified in g (grams) or kg (kilograms). If wet cells are used, the cell concentration can be indicated in cells/mL (cells per milliliter) or cells/g (cells per gram) of wet cell weight. Other common indications of the concentration of wet cells as biocatalysts are the cell concentration in g/L (grams per liter) or OD (optical density).",
+      "type": "string"
+    },
+    "concentration_determination_method": {
+      "title": "concentration_determination_method",
+      "description": "Specify the method for cell number per cell weight determination (e.g., flow cytometry, weight of dry biomass, spectrophotometry).",
+      "type": "string"
+    },
+    "formulation": {
+      "title": "formulation",
+      "description": "When applying a whole cell biocatalyst, there are various options. Cultivated cells can be lyophilized or used as wet cells after separation from the medium.",
+      "type": "string"
+    },
+    "special_treatment": {
+      "title": "special_treatment",
+      "description": "If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.",
+      "type": "string"
+    }
+  },
+  "description": "Secreted enzyme"
+}

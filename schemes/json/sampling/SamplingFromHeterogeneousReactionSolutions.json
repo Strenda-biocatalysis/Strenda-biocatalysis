@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "SamplingFromHeterogeneousReactionSolutions",
+  "type": "object",
+  "properties": {
+    "phase": {
+      "title": "phase",
+      "description": "Information about which phase the sample was taken from must be provided.",
+      "type": "string"
+    },
+    "biocatalyst_in_phase": {
+      "title": "biocatalyst_in_phase",
+      "description": "Information on whether the collected sample may be contaminated with the (bio)catalyst.",
+      "type": "string"
+    },
+    "special_treatment": {
+      "title": "special_treatment",
+      "description": "If there are any other specific methods, procedures, characteristics or aspects related to the sampling that are important for reproducibility and are not described by the aforementioned                     metadata, they should be explained here.",
+      "type": "string"
+    }
+  },
+  "description": "Sample preprocessing"
+}

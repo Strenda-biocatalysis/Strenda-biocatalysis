@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "Shaking",
+  "type": "object",
+  "properties": {
+    "shaking_type": {
+      "title": "shaking_type",
+      "description": "The type of shaking used to mix the reaction (e.g., horizontal, vertical, back-and-forth or circulatory).",
+      "type": "string"
+    },
+    "deflection": {
+      "title": "deflection",
+      "description": "Information about the extent of deflection or bending of the agitator from its original position of the horizontal shaking system.",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "deflection_unit": {
+      "title": "deflection_unit",
+      "description": "Units such as mm (millimeters) or μm (micrometers) could be used to describe deflection in relation to the movement of the shaking system.",
+      "type": "string"
+    },
+    "speed": {
+      "title": "speed",
+      "description": "Specify the speed or frequency at which the shaking was conducted.",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "speed_unit": {
+      "title": "speed_unit",
+      "description": "The shaking speed or frequency could be expressed in units such as rpm (rounds per minute) or Hz (cycles per second).",
+      "type": "string"
+    },
+    "position": {
+      "title": "position",
+      "description": "Information regarding the orientation of the vessel in the shaking system relative to deflection.",
+      "type": "string"
+    },
+    "special_treatment": {
+      "title": "special_treatment",
+      "description": "If there are any other specific methods, procedures, characteristics or aspects related to the shaking that are important for reproducibility and are not described by the aforementioned metadata, they      should be explained here.",
+      "type": "string"
+    }
+  },
+  "description": "Shaking is an essential method for ensuring uniform mixing and, consequently, recording relevant metadata is crucial for maintaining consistent reaction conditions.Mechanically impelled mixing (stirring)"
+}

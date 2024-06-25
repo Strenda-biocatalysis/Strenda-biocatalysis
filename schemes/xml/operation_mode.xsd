@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- Roots -->
+    <xs:element name="Batch" type="BatchType"/>
+    <xs:element name="FedBatch" type="FedBatchType"/>
+    <xs:element name="Continuous" type="ContinuousType"/>
+    <xs:element name="CombinatorialMode" type="CombinatorialModeType"/>
+
+    <!-- Batch Definition -->
+    <xs:complexType name="BatchType">
+        <xs:sequence>
+            <xs:element name="reactor_type" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- FedBatch Definition -->
+    <xs:complexType name="FedBatchType">
+        <xs:sequence>
+            <xs:element name="reactor_type" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Continuous Definition -->
+    <xs:complexType name="ContinuousType">
+        <xs:sequence>
+            <xs:element name="reactor_type" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- CombinatorialMode Definition -->
+    <xs:complexType name="CombinatorialModeType">
+        <xs:sequence>
+            <xs:element name="reactor_type" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+</xs:schema>

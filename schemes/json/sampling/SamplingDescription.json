@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "SamplingDescription",
+  "type": "object",
+  "properties": {
+    "volume_per_sample": {
+      "title": "volume_per_sample",
+      "description": "Volume of the collected sample.",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "volume_per_sample_unit": {
+      "title": "volume_per_sample_unit",
+      "description": "Common units include mL (milliliters), μl (microliters), g (grams), or other volume units, depending on whether the samples are liquid or solid.",
+      "type": "string"
+    },
+    "mixing_during_sampling": {
+      "title": "mixing_during_sampling",
+      "description": "Provide information about whether the reaction was mixed during sampling, as this can affect the representativeness of the collected sample.",
+      "type": "string"
+    },
+    "vessel_opened_for_sampling": {
+      "title": "vessel_opened_for_sampling",
+      "description": "Information about whether the reaction vessel was opened for sampling or not.",
+      "type": "string"
+    },
+    "gas_phase": {
+      "title": "gas_phase",
+      "description": "Information about the composition of the gas phase above the reaction solution, including gases such as nitrogen, carbon dioxide, argon, oxygen or other gases.",
+      "type": "string"
+    },
+    "time": {
+      "title": "time",
+      "description": "The time at which the sample was taken.",
+      "type": "number"
+    }
+  },
+  "description": "Information about the sampling process, used during the experiment. In some experiments no sampling is taking place at all, for example, if an experiment is monitored via a photospectrometer in a 96-well plate over time."
+}

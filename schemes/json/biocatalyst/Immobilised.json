@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "Immobilised",
+  "type": "object",
+  "properties": {
+    "biocatalyst": {
+      "title": "biocatalyst",
+      "description": "When it comes to the immobilization method, it is also important to mention how the biocatalyst to be immobilized is present (for example, as a purified enzyme, or as a crude cell extract, etc.).",
+      "type": "string"
+    },
+    "immobilisation_chemistry": {
+      "title": "immobilisation_chemistry",
+      "description": "This aspect denotes the specific chemical methods or techniques used to attach the enzymes onto the chosen base material. Different immobilization chemistries involve various covalent or non-covalent       bonding strategies, including crosslinking, adsorption, covalent bonding, encapsulation, specific binding via (affinity)tag, or entrapment.",
+      "type": "string"
+    },
+    "carrier_material": {
+      "title": "carrier_material",
+      "description": "If a support material, base, or carrier was utilized, it is necessary to specify the material's name (e.g., gel, membrane, particle) along with the supplier and further product details (",
+      "type": "string"
+    },
+    "linkers": {
+      "title": "linkers",
+      "description": "Linkers are chemical compounds used to establish a connection or bridge between the enzymes and the carrier material. These linkers play a vital role in stabilizing the immobilized enzymes and can           influence the efficiency and functionality of the immobilization process. They facilitate binding between the enzymes and the carrier material, promoting a stable and active biocatalyst structure. Common and            widespread linkers are spacer molecules, crosslinkers, avidin-biotin or silane coupling agents. (",
+      "type": "string"
+    },
+    "immobilisation_method": {
+      "title": "immobilisation_method",
+      "description": "Specify further details regarding the immobilisation method of the enzyme. For a comprehensive report around the technical key data of the immobilization process or method, see literature for further              information, e.g. Ansorge-Schumacher2.",
+      "type": "string"
+    },
+    "purification_method": {
+      "title": "purification_method",
+      "description": "The purification methods can vary depending on whether it involves whole cells or free enzymes. In the case of whole cells, methods such as centrifugation, filtration, or flow cytometry can be              employed. In the case of free enzymes, methods like cell lysis, filtration, chromatography, and precipitation, among others, may be used.",
+      "type": "string"
+    },
+    "concentration": {
+      "title": "concentration",
+      "description": "Concentration of the biocatalyst or the whole cells on the immobilised phase.",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "concentration_unit": {
+      "title": "concentration_unit",
+      "description": "For immobilized enzymes, the concentration is often quantified in terms of enzyme activity per volume (e.g., units per milliliter, U/mL) or weight measurements such as milligrams or grams per liter (mg/L or g/L). When referring to immobilized cells (not the enzymes themselves), units of cells/mL (cells per milliliter) or cells/g (cells per gram) are commonly utilized.",
+      "type": "string"
+    },
+    "concentration_determination_method": {
+      "title": "concentration_determination_method",
+      "description": "Various methods are available to determine the concentration of immobilized enzymes or cells. For immobilized enzymes, methods such as protein measurement or enzymatic activity assays can be used. The protein determination can be determined on the carrier material using a BCA test or as a differential measurement using the Bradford method, $\\Delta$280 or also after detachment of the enzyme from the carrier material. An activity measurement is best suited as it provides the activity per gram of immobilized material. For immobilized cells, methods like flow cytometry or biomass measurement are applicable.",
+      "type": "string"
+    },
+    "special_treatment": {
+      "title": "special_treatment",
+      "description": "If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.",
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "BiocatalystSelfProduced",
+  "type": "object",
+  "properties": {
+    "name": {
+      "title": "name",
+      "description": "The name of the biocatalyst can be either generic based on the catalyzed reaction, for example, 'lipase' or more specifically by describing the genus and species, such as '",
+      "type": "string"
+    },
+    "ec_number": {
+      "title": "ec_number",
+      "description": "Numerical classification system that categorizes enzymes based on their biochemical function and reaction mechanism, such as EC 3.1.4.12.",
+      "type": "string"
+    },
+    "molecular_weight": {
+      "title": "molecular_weight",
+      "description": "The molecular weight (MW) refer to the sum of the atomic weights of the atoms in a molecule and therefore describes the mass of an enzyme.",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "molecular_weight_unit": {
+      "title": "molecular_weight_unit",
+      "description": "The enzyme size or molar weight is typically expressed in kDa (kilodaltons).",
+      "type": "string"
+    },
+    "catalyzed_reaction": {
+      "title": "catalyzed_reaction",
+      "description": "The reaction catalyzed by the biocatalyst.",
+      "type": "string"
+    },
+    "sequence_amino_acid": {
+      "title": "sequence_amino_acid",
+      "description": "The amino acid sequence of the biocatalyst. The amino acid sequence can be represented in either a three-letter or one-letter code. For instance, \"Ala-Ser-Gly\" corresponds to the three-letter code, while \"ASG\" represents the same sequence in the one-letter code. One of the databases commonly used for storing and retrieving amino acid sequences is the UniProt database (https://www.uniprot.org/). UniProt provides extensive information on protein sequences, including their one-letter and three-letter amino acid codes, allowing researchers to access and analyze various protein sequences.",
+      "type": "string"
+    },
+    "sequence_DNA": {
+      "title": "sequence_DNA",
+      "description": "The DNA sequence of the biocatalyst including any tags and linkers.",
+      "type": "string"
+    },
+    "sequence_plasmid": {
+      "title": "sequence_plasmid",
+      "description": "The DNA sequence of the plasmid used to produce the biocatalyst. The sequence can be provided in plain text or as a database ID.",
+      "type": "string"
+    },
+    "plasmid_specifications": {
+      "title": "plasmid_specifications",
+      "description": "All DNA sequence changes (e.g. codon optimization for",
+      "type": "string"
+    },
+    "origin_organism": {
+      "title": "origin_organism",
+      "description": "The specific species or source from which the enzyme is derived or isolated. It includes information about the genus and species of the organism. (",
+      "type": "string"
+    },
+    "production_organism": {
+      "title": "production_organism",
+      "description": "Information about the organism in which the biocatalyst was produced is crucial in the context of heterologous gene expression. If the production strain was purchased, more detailed information on the manufacturer and the organism should be provided.",
+      "type": "string"
+    },
+    "posttranslational_modification": {
+      "title": "posttranslational_modification",
+      "description": "Information about any chemical modifications or alterations that occur to the biocatalyst's protein structure after translation, such as phosphorylation, glycosylation, acetylation,               methylation, ubiquitination and other modifications.",
+      "type": "string"
+    },
+    "purity": {
+      "title": "purity",
+      "description": "Purity of enzymes typically expressed in percentage (%). It is usually stated as the percentage of the pure enzyme or active component relative to the total mass of the enzyme preparation.",
+      "type": "number"
+    },
+    "purity_specification": {
+      "title": "purity_specification",
+      "description": "The choice of method for the purity determination depends on the type of enzyme and the available resources and may include gel electrophoresis, HPLC, ELISA, Western blotting, etc.",
+      "type": "string"
+    },
+    "purification_method": {
+      "title": "purification_method",
+      "description": "The choice of purification methods is diverse and can impact the enzyme, with possible methods including chromatographic techniques, precipitation, HPLC, ultrafiltration, dialysis, salt fractionation,      etc.",
+      "type": "string"
+    },
+    "formulation": {
+      "title": "formulation",
+      "description": "Depending on the formulation, the biocatalyst can exist either in a dissolved state within a solvent or as a solid powder. It defines the physical state in which the biocatalyst is used. Additional information regarding the application or formulation in the experiment should be entered in the next subcategory.",
+      "type": "string"
+    },
+    "special_treatment": {
+      "title": "special_treatment",
+      "description": "If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.",
+      "type": "string"
+    }
+  },
+  "description": "Important information to characterize the biocatalyst and to describe it clearly."
+}
