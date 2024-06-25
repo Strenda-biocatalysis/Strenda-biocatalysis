@@ -13,5 +13,5 @@ paths = [
 [generate]
 xml-schema = { out = "schemes/xml/*.xsd", per-spec = true }
 json-schema-all = { out = "schemes/json/", per-spec = true }
-python-dataclass = { out = "python/strendabiocat/*.py", per-spec = true }
+python-pydantic = { out = "python/strendabiocat/*.py", per-spec = true }
 mk-docs = { out = "docs/guidelines/*.md", per-spec = true }
