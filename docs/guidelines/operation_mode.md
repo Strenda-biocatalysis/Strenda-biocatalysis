@@ -9,13 +9,12 @@ This page provides comprehensive information about the structure and components 
         fedbatch(FedBatch)
         continuous(Continuous)
         combinatorialmode(CombinatorialMode)
-    
+
         click batch "#batch" "Go to Batch"
         click fedbatch "#fedbatch" "Go to FedBatch"
         click continuous "#continuous" "Go to Continuous"
         click combinatorialmode "#combinatorialmode" "Go to CombinatorialMode"
     ```
-
 
 
 ## Types

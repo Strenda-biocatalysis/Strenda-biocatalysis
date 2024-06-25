@@ -5,37 +5,115 @@
     <xs:element name="SamplingDescription" type="SamplingDescriptionType"/>
     <xs:element name="SamplingFromHeterogeneousReactionSolutions" type="SamplingFromHeterogeneousReactionSolutionsType"/>
     <xs:element name="SamplePreprocessing" type="SamplePreprocessingType"/>
-    
+
     <!-- SamplingDescription Definition -->
     <xs:complexType name="SamplingDescriptionType">
         <xs:sequence>
-            <xs:element name="volume_per_sample" type="xs:float" />
-            <xs:element name="volume_per_sample_unit" type="xs:string" />
-            <xs:element name="mixing_during_sampling" type="xs:string" />
-            <xs:element name="vessel_opened_for_sampling" type="xs:string" />
-            <xs:element name="gas_phase" type="xs:string" />
-            <xs:element name="time" type="xs:float" />
+            <xs:element name="volume_per_sample" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation>
+                        Volume of the collected sample.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="volume_per_sample_unit" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Common units include mL (milliliters), μl (microliters), g (grams), or other volume units, depending on whether the samples are liquid or solid.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="mixing_during_sampling" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Provide information about whether the reaction was mixed during sampling, as this can affect the representativeness of the collected sample.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="vessel_opened_for_sampling" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Information about whether the reaction vessel was opened for sampling or not.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="gas_phase" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Information about the composition of the gas phase above the reaction solution, including gases such as nitrogen, carbon dioxide, argon, oxygen or other gases.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="time" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation>
+                        The time at which the sample was taken.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
         </xs:sequence>
     </xs:complexType>
-    
+
     <!-- SamplingFromHeterogeneousReactionSolutions Definition -->
     <xs:complexType name="SamplingFromHeterogeneousReactionSolutionsType">
         <xs:sequence>
-            <xs:element name="phase" type="xs:string" />
-            <xs:element name="biocatalyst_in_phase" type="xs:string" />
-            <xs:element name="special_treatment" type="xs:string" />
+            <xs:element name="phase" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Information about which phase the sample was taken from must be provided.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="biocatalyst_in_phase" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Information on whether the collected sample may be contaminated with the (bio)catalyst.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="special_treatment" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        If there are any other specific methods, procedures, characteristics or aspects related to the sampling that are important for reproducibility and are not described by the aforementioned                     metadata, they should be explained here.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
         </xs:sequence>
     </xs:complexType>
-    
+
     <!-- SamplePreprocessing Definition -->
     <xs:complexType name="SamplePreprocessingType">
         <xs:sequence>
-            <xs:element name="quenching_method" type="xs:string" />
-            <xs:element name="quenching_ratio" type="xs:string" />
-            <xs:element name="treatment_procedure" type="xs:string" />
-            <xs:element name="special_treatment" type="xs:string" />
+            <xs:element name="quenching_method" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Techniques or methods used to halt the reaction, including the chemicals or procedures employed (e.g., heat treatment). Accurate documentation of quenching methods in enzymatic reactions is vital as        these methods can significantly impact subsequent analytical procedures. For instance, opting for an organic solvent as a quenching reagent can notably enhance the solubility of substrates or products, directly         influencing downstream analyses.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="quenching_ratio" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Information about the precise ratio or volume of the quenching solution in relation to the reaction mixture. (
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="treatment_procedure" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Any further details regarding the sample processing steps that were carried out after it was collected from the reaction vessel (e.g., filtering samples).
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="special_treatment" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        If there are any other specific methods, procedures, characteristics or aspects related to the sampling that are important for reproducibility and are not described by the aforementioned                     metadata, they should be explained here.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
         </xs:sequence>
     </xs:complexType>
-    
+
 
 </xs:schema>
