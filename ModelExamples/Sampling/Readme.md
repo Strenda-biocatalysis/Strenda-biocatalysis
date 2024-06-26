@@ -6,7 +6,7 @@
 
 The categorisation of sampling into the two main categories, __default sampling__ and __specialised sampling__, enables the capture and documentation of either standard sampling information and/or specialised sampling data, depending on specific needs.
 
-<img src="https://github.com/StephanM87/Strenda-biocatalysis/assets/106530250/ac27b533-6654-489c-adbe-497a0ee3224b" width="400">
+<img src="https://github.com/Strenda-biocatalysis/Strenda-biocatalysis/assets/106530250/6e9fd0d1-c728-4062-a86c-262668744adf" width="400">
 
 ## Default sampling
 
