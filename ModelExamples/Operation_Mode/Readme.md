@@ -6,7 +6,7 @@
 
 The careful selection of the appropriate operation mode at the beginning of the experimental planning is crucial, as it significantly influences reaction conditions, reaction kinetics, and ultimately, product quality. Considering parameters such as substrate concentration, reaction time, and temperature within the respective mode allows for optimal reaction control, directly impacting the process efficiency and purity of the final product. Furthermore, choosing a scalable mode not only facilitates potential upscaling of the reaction but also streamlines resource management, contributing to overall process efficiency.
 
-<img src="https://github.com/StephanM87/Strenda-biocatalysis/assets/106530250/4cd798dc-7ee3-4600-b163-3159cea5c2f7" width="550">
+<img src="https://github.com/Strenda-biocatalysis/Strenda-biocatalysis/assets/106530250/483a25db-0ac8-4007-bb8c-6c4dc40f17de" width="550">
 
 
 <hr>
