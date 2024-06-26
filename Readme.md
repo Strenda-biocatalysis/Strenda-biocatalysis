@@ -20,7 +20,7 @@ The operation mode is the first step in the experimental planning, it describes 
 
 [Operation mode](ModelExamples/Operation_Mode/Readme.md)
 
-[<img src="assets\Hexagons-operation-mode.png" width=100>](ModelExamples/Operation_Mode/Readme.md)
+[<img src="https://github.com/Strenda-biocatalysis/Strenda-biocatalysis/assets/106530250/60454bd0-df6c-4aba-b265-80e8b3f4ee54" width=100>](ModelExamples/Operation_Mode/Readme.md)
 
 ## Vessel type and mixing (hydrodynamics)
 
@@ -28,7 +28,7 @@ When discussing enzymatic reactions, it's essential to address the vessel type a
 
 [Vessel type and mixing (hydrodynamics)](ModelExamples/Vessels_and_Mixing/Readme.md)
 
-[<img src="assets\Hexagons-vessel.png" width=100>](ModelExamples/Vessels_and_Mixing/Readme.md)
+[<img src="https://github.com/Strenda-biocatalysis/Strenda-biocatalysis/assets/106530250/0c54f36e-e164-46ad-a001-72d55a08aed4" width=100>](ModelExamples/Vessels_and_Mixing/Readme.md)
 
 ## (Bio)catalyst
 
@@ -36,7 +36,7 @@ Closely examining the role of the biocatalyst is a fundamental aspect in the con
 
 [(Bio)catalyst](ModelExamples/Biocatalyst/Readme.md)
 
-[<img src="assets\Hexagon-enzyme.png" width=100>](ModelExamples/Biocatalyst/Readme.md)
+[<img src="https://github.com/Strenda-biocatalysis/Strenda-biocatalysis/assets/106530250/f15e6273-cb1c-42fa-b64f-822cee90fae2" width=100>](ModelExamples/Biocatalyst/Readme.md)
 
 ## Components
 
@@ -44,7 +44,7 @@ Exploring the components involved in the reaction mixture is essential for a com
 
 [Components](ModelExamples/Components/Readme.md)
 
-[<img src="assets\Hexagons-reactants.png" width=100>](ModelExamples/Components/Readme.md)
+[<img src="https://github.com/Strenda-biocatalysis/Strenda-biocatalysis/assets/106530250/e741b716-b644-43e5-abc1-591310705392" width=100>](ModelExamples/Components/Readme.md)
 
 ## Reaction conditions
 
@@ -52,7 +52,7 @@ Examining the reaction conditions provides critical insights into the enzymatic 
 
 [Reaction conditions](ModelExamples/Reaction_conditions/Readme.md)
 
-[<img src="assets\Hexagons-conditions.png" width=100>](ModelExamples/Reaction_conditions/Readme.md)
+[<img src="https://github.com/Strenda-biocatalysis/Strenda-biocatalysis/assets/106530250/60baa6fd-acb8-4f69-b61c-afadac4f7a3c" width=100>](ModelExamples/Reaction_conditions/Readme.md)
 
 ## Sampling
 
@@ -60,7 +60,7 @@ Understanding the sampling process is crucial for obtaining reliable data in enz
 
 [Sampling](ModelExamples/Sampling/Readme.md)
 
-[<img src="assets\Hexagons-sampling.png" width=100>](ModelExamples/Sampling/Readme.md)
+[<img src="https://github.com/Strenda-biocatalysis/Strenda-biocatalysis/assets/106530250/1aa9e3a2-a0d8-428e-92c3-2316bb3d81a1" width=100>](ModelExamples/Sampling/Readme.md)
 
 
 <blockquote>
