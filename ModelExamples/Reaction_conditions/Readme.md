@@ -6,8 +6,7 @@
 
 The reaction conditions constitute a highly complex and extensive category. Reactions can be performed in aqueous reaction solutions, organic solvents, micro-aqueous reaction solutions, gassed reaction solutions and many more. The reaction conditions can be divided into two fundamental main categories: __monoliquid and multiphasic systems__.
 
-<img src="https://github.com/StephanM87/Strenda-biocatalysis/assets/106530250/aadf0641-b83e-44fb-a639-a4b1d5961eb2" width="600">
-
+<img src="https://github.com/Strenda-biocatalysis/Strenda-biocatalysis/assets/106530250/01d614b7-71d0-4b1f-ba81-ae541343ddd4" width="600">
 
 # Well-mixed reaction solutions
 
