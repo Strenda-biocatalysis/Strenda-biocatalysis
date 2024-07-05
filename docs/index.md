@@ -28,7 +28,7 @@ When discussing enzymatic reactions, it's essential to address the vessel type a
 
 [Vessel type and mixing (hydrodynamics)](ModelExamples/Vessels_and_Mixing/Readme.md)
 
-[<img src="assets\Hexagons-vessel.png" width=100>](ModelExamples/Vessels_and_Mixing/Readme.md)
+[<img src="assets\Hexagons-vessel.png" width=101>](ModelExamples/Vessels_and_Mixing/Readme.md)
 
 ## (Bio)catalyst
 
