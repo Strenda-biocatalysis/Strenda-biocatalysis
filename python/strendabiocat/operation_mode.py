@@ -80,16 +80,16 @@ class Batch(BaseModel):
 
     # JSON-LD fields
     ld_id: str = Field(
-        alias="@id", default_factory=lambda: "stbc:Batch/" + str(uuid4())
+        serialization_alias="@id", default_factory=lambda: "stbc:Batch/" + str(uuid4())
     )
     ld_type: list[str] = Field(
-        alias="@type",
+        serialization_alias="@type",
         default_factory=lambda: [
             "stbc:Batch",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
-        alias="@context",
+        serialization_alias="@context",
         default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
         },
@@ -170,16 +170,17 @@ class FedBatch(BaseModel):
 
     # JSON-LD fields
     ld_id: str = Field(
-        alias="@id", default_factory=lambda: "stbc:FedBatch/" + str(uuid4())
+        serialization_alias="@id",
+        default_factory=lambda: "stbc:FedBatch/" + str(uuid4()),
     )
     ld_type: list[str] = Field(
-        alias="@type",
+        serialization_alias="@type",
         default_factory=lambda: [
             "stbc:FedBatch",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
-        alias="@context",
+        serialization_alias="@context",
         default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
         },
@@ -260,16 +261,17 @@ class Continuous(BaseModel):
 
     # JSON-LD fields
     ld_id: str = Field(
-        alias="@id", default_factory=lambda: "stbc:Continuous/" + str(uuid4())
+        serialization_alias="@id",
+        default_factory=lambda: "stbc:Continuous/" + str(uuid4()),
     )
     ld_type: list[str] = Field(
-        alias="@type",
+        serialization_alias="@type",
         default_factory=lambda: [
             "stbc:Continuous",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
-        alias="@context",
+        serialization_alias="@context",
         default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
         },
@@ -350,16 +352,17 @@ class CombinatorialMode(BaseModel):
 
     # JSON-LD fields
     ld_id: str = Field(
-        alias="@id", default_factory=lambda: "stbc:CombinatorialMode/" + str(uuid4())
+        serialization_alias="@id",
+        default_factory=lambda: "stbc:CombinatorialMode/" + str(uuid4()),
     )
     ld_type: list[str] = Field(
-        alias="@type",
+        serialization_alias="@type",
         default_factory=lambda: [
             "stbc:CombinatorialMode",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
-        alias="@context",
+        serialization_alias="@context",
         default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
         },

@@ -83,15 +83,17 @@ class Vial(BaseModel):
     special_treatment: str
 
     # JSON-LD fields
-    ld_id: str = Field(alias="@id", default_factory=lambda: "stbc:Vial/" + str(uuid4()))
+    ld_id: str = Field(
+        serialization_alias="@id", default_factory=lambda: "stbc:Vial/" + str(uuid4())
+    )
     ld_type: list[str] = Field(
-        alias="@type",
+        serialization_alias="@type",
         default_factory=lambda: [
             "stbc:Vial",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
-        alias="@context",
+        serialization_alias="@context",
         default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
         },
@@ -182,16 +184,16 @@ class Plate(BaseModel):
 
     # JSON-LD fields
     ld_id: str = Field(
-        alias="@id", default_factory=lambda: "stbc:Plate/" + str(uuid4())
+        serialization_alias="@id", default_factory=lambda: "stbc:Plate/" + str(uuid4())
     )
     ld_type: list[str] = Field(
-        alias="@type",
+        serialization_alias="@type",
         default_factory=lambda: [
             "stbc:Plate",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
-        alias="@context",
+        serialization_alias="@context",
         default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
         },
@@ -283,16 +285,17 @@ class StirredTankReactor(BaseModel):
 
     # JSON-LD fields
     ld_id: str = Field(
-        alias="@id", default_factory=lambda: "stbc:StirredTankReactor/" + str(uuid4())
+        serialization_alias="@id",
+        default_factory=lambda: "stbc:StirredTankReactor/" + str(uuid4()),
     )
     ld_type: list[str] = Field(
-        alias="@type",
+        serialization_alias="@type",
         default_factory=lambda: [
             "stbc:StirredTankReactor",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
-        alias="@context",
+        serialization_alias="@context",
         default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
         },
@@ -380,17 +383,17 @@ class TubularFlowContinuousReactor(BaseModel):
 
     # JSON-LD fields
     ld_id: str = Field(
-        alias="@id",
+        serialization_alias="@id",
         default_factory=lambda: "stbc:TubularFlowContinuousReactor/" + str(uuid4()),
     )
     ld_type: list[str] = Field(
-        alias="@type",
+        serialization_alias="@type",
         default_factory=lambda: [
             "stbc:TubularFlowContinuousReactor",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
-        alias="@context",
+        serialization_alias="@context",
         default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
         },
@@ -477,16 +480,17 @@ class Shaking(BaseModel):
 
     # JSON-LD fields
     ld_id: str = Field(
-        alias="@id", default_factory=lambda: "stbc:Shaking/" + str(uuid4())
+        serialization_alias="@id",
+        default_factory=lambda: "stbc:Shaking/" + str(uuid4()),
     )
     ld_type: list[str] = Field(
-        alias="@type",
+        serialization_alias="@type",
         default_factory=lambda: [
             "stbc:Shaking",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
-        alias="@context",
+        serialization_alias="@context",
         default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
         },
@@ -587,17 +591,17 @@ class MechanicallyImpelledMixing(BaseModel):
 
     # JSON-LD fields
     ld_id: str = Field(
-        alias="@id",
+        serialization_alias="@id",
         default_factory=lambda: "stbc:MechanicallyImpelledMixing/" + str(uuid4()),
     )
     ld_type: list[str] = Field(
-        alias="@type",
+        serialization_alias="@type",
         default_factory=lambda: [
             "stbc:MechanicallyImpelledMixing",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
-        alias="@context",
+        serialization_alias="@context",
         default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
         },
@@ -685,17 +689,17 @@ class LiquidOrGasImpelledMixing(BaseModel):
 
     # JSON-LD fields
     ld_id: str = Field(
-        alias="@id",
+        serialization_alias="@id",
         default_factory=lambda: "stbc:LiquidOrGasImpelledMixing/" + str(uuid4()),
     )
     ld_type: list[str] = Field(
-        alias="@type",
+        serialization_alias="@type",
         default_factory=lambda: [
             "stbc:LiquidOrGasImpelledMixing",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
-        alias="@context",
+        serialization_alias="@context",
         default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
         },

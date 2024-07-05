@@ -85,16 +85,17 @@ class SamplingDescription(BaseModel):
 
     # JSON-LD fields
     ld_id: str = Field(
-        alias="@id", default_factory=lambda: "stbc:SamplingDescription/" + str(uuid4())
+        serialization_alias="@id",
+        default_factory=lambda: "stbc:SamplingDescription/" + str(uuid4()),
     )
     ld_type: list[str] = Field(
-        alias="@type",
+        serialization_alias="@type",
         default_factory=lambda: [
             "stbc:SamplingDescription",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
-        alias="@context",
+        serialization_alias="@context",
         default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
         },
@@ -177,18 +178,18 @@ class SamplingFromHeterogeneousReactionSolutions(BaseModel):
 
     # JSON-LD fields
     ld_id: str = Field(
-        alias="@id",
+        serialization_alias="@id",
         default_factory=lambda: "stbc:SamplingFromHeterogeneousReactionSolutions/"
         + str(uuid4()),
     )
     ld_type: list[str] = Field(
-        alias="@type",
+        serialization_alias="@type",
         default_factory=lambda: [
             "stbc:SamplingFromHeterogeneousReactionSolutions",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
-        alias="@context",
+        serialization_alias="@context",
         default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
         },
@@ -272,16 +273,17 @@ class SamplePreprocessing(BaseModel):
 
     # JSON-LD fields
     ld_id: str = Field(
-        alias="@id", default_factory=lambda: "stbc:SamplePreprocessing/" + str(uuid4())
+        serialization_alias="@id",
+        default_factory=lambda: "stbc:SamplePreprocessing/" + str(uuid4()),
     )
     ld_type: list[str] = Field(
-        alias="@type",
+        serialization_alias="@type",
         default_factory=lambda: [
             "stbc:SamplePreprocessing",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
-        alias="@context",
+        serialization_alias="@context",
         default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
         },

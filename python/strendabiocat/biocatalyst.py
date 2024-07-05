@@ -93,16 +93,17 @@ class BiocatalystPurchased(BaseModel):
 
     # JSON-LD fields
     ld_id: str = Field(
-        alias="@id", default_factory=lambda: "stbc:BiocatalystPurchased/" + str(uuid4())
+        serialization_alias="@id",
+        default_factory=lambda: "stbc:BiocatalystPurchased/" + str(uuid4()),
     )
     ld_type: list[str] = Field(
-        alias="@type",
+        serialization_alias="@type",
         default_factory=lambda: [
             "stbc:BiocatalystPurchased",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
-        alias="@context",
+        serialization_alias="@context",
         default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
         },
@@ -199,17 +200,17 @@ class BiocatalystSelfProduced(BaseModel):
 
     # JSON-LD fields
     ld_id: str = Field(
-        alias="@id",
+        serialization_alias="@id",
         default_factory=lambda: "stbc:BiocatalystSelfProduced/" + str(uuid4()),
     )
     ld_type: list[str] = Field(
-        alias="@type",
+        serialization_alias="@type",
         default_factory=lambda: [
             "stbc:BiocatalystSelfProduced",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
-        alias="@context",
+        serialization_alias="@context",
         default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
         },
@@ -297,16 +298,17 @@ class PurifiedBiocatalyst(BaseModel):
 
     # JSON-LD fields
     ld_id: str = Field(
-        alias="@id", default_factory=lambda: "stbc:PurifiedBiocatalyst/" + str(uuid4())
+        serialization_alias="@id",
+        default_factory=lambda: "stbc:PurifiedBiocatalyst/" + str(uuid4()),
     )
     ld_type: list[str] = Field(
-        alias="@type",
+        serialization_alias="@type",
         default_factory=lambda: [
             "stbc:PurifiedBiocatalyst",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
-        alias="@context",
+        serialization_alias="@context",
         default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
         },
@@ -391,16 +393,17 @@ class CrudeCellExtract(BaseModel):
 
     # JSON-LD fields
     ld_id: str = Field(
-        alias="@id", default_factory=lambda: "stbc:CrudeCellExtract/" + str(uuid4())
+        serialization_alias="@id",
+        default_factory=lambda: "stbc:CrudeCellExtract/" + str(uuid4()),
     )
     ld_type: list[str] = Field(
-        alias="@type",
+        serialization_alias="@type",
         default_factory=lambda: [
             "stbc:CrudeCellExtract",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
-        alias="@context",
+        serialization_alias="@context",
         default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
         },
@@ -486,16 +489,17 @@ class WholeCellBiocatalyst(BaseModel):
 
     # JSON-LD fields
     ld_id: str = Field(
-        alias="@id", default_factory=lambda: "stbc:WholeCellBiocatalyst/" + str(uuid4())
+        serialization_alias="@id",
+        default_factory=lambda: "stbc:WholeCellBiocatalyst/" + str(uuid4()),
     )
     ld_type: list[str] = Field(
-        alias="@type",
+        serialization_alias="@type",
         default_factory=lambda: [
             "stbc:WholeCellBiocatalyst",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
-        alias="@context",
+        serialization_alias="@context",
         default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
         },
@@ -580,16 +584,17 @@ class SecretedEnzyme(BaseModel):
 
     # JSON-LD fields
     ld_id: str = Field(
-        alias="@id", default_factory=lambda: "stbc:SecretedEnzyme/" + str(uuid4())
+        serialization_alias="@id",
+        default_factory=lambda: "stbc:SecretedEnzyme/" + str(uuid4()),
     )
     ld_type: list[str] = Field(
-        alias="@type",
+        serialization_alias="@type",
         default_factory=lambda: [
             "stbc:SecretedEnzyme",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
-        alias="@context",
+        serialization_alias="@context",
         default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
         },
@@ -674,16 +679,17 @@ class CellFreeProduction(BaseModel):
 
     # JSON-LD fields
     ld_id: str = Field(
-        alias="@id", default_factory=lambda: "stbc:CellFreeProduction/" + str(uuid4())
+        serialization_alias="@id",
+        default_factory=lambda: "stbc:CellFreeProduction/" + str(uuid4()),
     )
     ld_type: list[str] = Field(
-        alias="@type",
+        serialization_alias="@type",
         default_factory=lambda: [
             "stbc:CellFreeProduction",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
-        alias="@context",
+        serialization_alias="@context",
         default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
         },
@@ -773,16 +779,17 @@ class Immobilised(BaseModel):
 
     # JSON-LD fields
     ld_id: str = Field(
-        alias="@id", default_factory=lambda: "stbc:Immobilised/" + str(uuid4())
+        serialization_alias="@id",
+        default_factory=lambda: "stbc:Immobilised/" + str(uuid4()),
     )
     ld_type: list[str] = Field(
-        alias="@type",
+        serialization_alias="@type",
         default_factory=lambda: [
             "stbc:Immobilised",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
-        alias="@context",
+        serialization_alias="@context",
         default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
         },
@@ -868,16 +875,17 @@ class StorageConditions(BaseModel):
 
     # JSON-LD fields
     ld_id: str = Field(
-        alias="@id", default_factory=lambda: "stbc:StorageConditions/" + str(uuid4())
+        serialization_alias="@id",
+        default_factory=lambda: "stbc:StorageConditions/" + str(uuid4()),
     )
     ld_type: list[str] = Field(
-        alias="@type",
+        serialization_alias="@type",
         default_factory=lambda: [
             "stbc:StorageConditions",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
-        alias="@context",
+        serialization_alias="@context",
         default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
         },

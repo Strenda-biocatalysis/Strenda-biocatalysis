@@ -89,16 +89,17 @@ class Components(BaseModel):
 
     # JSON-LD fields
     ld_id: str = Field(
-        alias="@id", default_factory=lambda: "stbc:Components/" + str(uuid4())
+        serialization_alias="@id",
+        default_factory=lambda: "stbc:Components/" + str(uuid4()),
     )
     ld_type: list[str] = Field(
-        alias="@type",
+        serialization_alias="@type",
         default_factory=lambda: [
             "stbc:Components",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
-        alias="@context",
+        serialization_alias="@context",
         default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
         },
@@ -183,16 +184,17 @@ class StorageConditions(BaseModel):
 
     # JSON-LD fields
     ld_id: str = Field(
-        alias="@id", default_factory=lambda: "stbc:StorageConditions/" + str(uuid4())
+        serialization_alias="@id",
+        default_factory=lambda: "stbc:StorageConditions/" + str(uuid4()),
     )
     ld_type: list[str] = Field(
-        alias="@type",
+        serialization_alias="@type",
         default_factory=lambda: [
             "stbc:StorageConditions",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
-        alias="@context",
+        serialization_alias="@context",
         default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
         },

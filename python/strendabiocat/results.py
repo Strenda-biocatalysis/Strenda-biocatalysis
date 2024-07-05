@@ -95,16 +95,17 @@ class KineticParameters(BaseModel):
 
     # JSON-LD fields
     ld_id: str = Field(
-        alias="@id", default_factory=lambda: "stbc:KineticParameters/" + str(uuid4())
+        serialization_alias="@id",
+        default_factory=lambda: "stbc:KineticParameters/" + str(uuid4()),
     )
     ld_type: list[str] = Field(
-        alias="@type",
+        serialization_alias="@type",
         default_factory=lambda: [
             "stbc:KineticParameters",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
-        alias="@context",
+        serialization_alias="@context",
         default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
         },
@@ -191,16 +192,17 @@ class YieldAndConversion(BaseModel):
 
     # JSON-LD fields
     ld_id: str = Field(
-        alias="@id", default_factory=lambda: "stbc:YieldAndConversion/" + str(uuid4())
+        serialization_alias="@id",
+        default_factory=lambda: "stbc:YieldAndConversion/" + str(uuid4()),
     )
     ld_type: list[str] = Field(
-        alias="@type",
+        serialization_alias="@type",
         default_factory=lambda: [
             "stbc:YieldAndConversion",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
-        alias="@context",
+        serialization_alias="@context",
         default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
         },
@@ -285,17 +287,17 @@ class ActivityAndInitialReactionRate(BaseModel):
 
     # JSON-LD fields
     ld_id: str = Field(
-        alias="@id",
+        serialization_alias="@id",
         default_factory=lambda: "stbc:ActivityAndInitialReactionRate/" + str(uuid4()),
     )
     ld_type: list[str] = Field(
-        alias="@type",
+        serialization_alias="@type",
         default_factory=lambda: [
             "stbc:ActivityAndInitialReactionRate",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
-        alias="@context",
+        serialization_alias="@context",
         default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
         },
@@ -386,17 +388,17 @@ class SelectivityAndSpecificity(BaseModel):
 
     # JSON-LD fields
     ld_id: str = Field(
-        alias="@id",
+        serialization_alias="@id",
         default_factory=lambda: "stbc:SelectivityAndSpecificity/" + str(uuid4()),
     )
     ld_type: list[str] = Field(
-        alias="@type",
+        serialization_alias="@type",
         default_factory=lambda: [
             "stbc:SelectivityAndSpecificity",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
-        alias="@context",
+        serialization_alias="@context",
         default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
         },
@@ -479,17 +481,17 @@ class ThermodynamicParameters(BaseModel):
 
     # JSON-LD fields
     ld_id: str = Field(
-        alias="@id",
+        serialization_alias="@id",
         default_factory=lambda: "stbc:ThermodynamicParameters/" + str(uuid4()),
     )
     ld_type: list[str] = Field(
-        alias="@type",
+        serialization_alias="@type",
         default_factory=lambda: [
             "stbc:ThermodynamicParameters",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
-        alias="@context",
+        serialization_alias="@context",
         default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
         },
