@@ -22,7 +22,7 @@ A single-phase system where only one liquid phase is present. All components are
 
 <details> <Summary>Monoliquid system description</Summary>
 
-### MonoliquidSystemDescription
+### MonoliquidSystemDescription_WMRS
 
 To describe a monoliquid system, precise information about the solvent (mixture) used and the applied reaction system must be provided.
 
@@ -59,7 +59,7 @@ Two or more distinct phases coexist within the same reactor. The phases are ofte
 
 <details> <Summary>Multiphasic system description</Summary>
 
-### MultiphasicSystemDescription
+### MultiphasicSystemDescription_WMRS
 
 To describe a multiphasic system, precise information about the phases used and the applied system must be provided.
 
@@ -84,7 +84,7 @@ Metadata to describe the individual phases of the multiphasic system in more det
 
 <details> <Summary>Liquid phase</Summary>
 
-### LiquidPhase
+### LiquidPhase_WMRS
 
  If more then one liquid phase exists the metadata has to be recorded according to the number of liquid phases.
 
@@ -106,7 +106,7 @@ Metadata to describe the individual phases of the multiphasic system in more det
 
 <details> <Summary>Solid phase</Summary>
 
-### SolidPhase
+### SolidPhase_WMRS
 
 Definition of the solid phase used in the reaction.
 
@@ -128,7 +128,7 @@ Definition of the solid phase used in the reaction.
 
 <details> <Summary>Gas phase</Summary>
 
-### GasPhase
+### GasPhase_WMRS
 
 Definition of the gas phase used in the reaction. If a gas mixture is involved, this must be taken into account.
 
@@ -155,7 +155,7 @@ Another crucial aspect is the temperature profile throughout the reaction. The t
 
 <details> <Summary>Temperature constant</Summary>
 
-### TemperatureConstant
+### TemperatureConstant_WMRS
 
 The temperature, if constant, must be clearly defined.
 
@@ -179,7 +179,7 @@ The temperature, if constant, must be clearly defined.
 
 <details> <Summary>Event-based temperature shift</Summary>
 
-### EventBasedTemperatureShift
+### EventBasedTemperatureShift_WMRS
 
 If the temperature is changed during the course of the reaction or there is an event-based change, this must be documented precisely.
 
@@ -232,7 +232,7 @@ Another critical factor to consider is the pH profile during the reaction. The p
 
 <details> <Summary>pH constant</Summary>
 
-### pHConstant
+### pHConstant_WMRS
 
 Information about the pH value in the system, if the pH is constant over the course of the reaction.
 
@@ -272,7 +272,7 @@ Information about the pH value in the system, if the pH is constant over the cou
 
 <details> <Summary>Event-based pH shift</Summary>
 
-### EventBasedpHShift
+### EventBasedpHShift_WMRS
 
 If the pH is changed during the course of the reaction or there is an event-based change, this must be documented precisely. Depending on the buffer chosen, a temperature shift may also result in a pH shift.
 
@@ -344,7 +344,7 @@ A single-phase system in which only one liquid phase is present. All components 
 
 <details> <Summary>Monoliquid system description</Summary>
 
-### MonoliquidSystemDescription
+### MonoliquidSystemDescription_TFCR
 
 To describe a monoliquid system, precise information about the solvent used and the applied system must be provided.
 
@@ -390,7 +390,7 @@ Two or more distinct phases coexist within the same reactor. The phases are ofte
 
 <details> <Summary>Multiphasic system description</Summary>
 
-### MultiphasicSystemDescription
+### MultiphasicSystemDescription_TFCR
 
 To describe a multiphasic system, precise information about the phases used and the applied system must be provided.
 
@@ -427,7 +427,7 @@ Metadata for describing the individual phases of the multiphasic system in more 
 
 <details> <Summary>Liquid phase</Summary>
 
-### LiquidPhase
+### LiquidPhase_TFCR
 
  If more then one liquid phase exists the metadata has to be recorded according to the number of liquid phases.
 
@@ -449,7 +449,7 @@ Metadata for describing the individual phases of the multiphasic system in more 
 
 <details> <Summary>Solid phase</Summary>
 
-### SolidPhase
+### SolidPhase_TFCR
 
 Definition of the solid phase used in the reaction.
 
@@ -472,7 +472,7 @@ Definition of the solid phase used in the reaction.
 
 <details> <Summary>Gas phase</Summary>
 
-### GasPhase
+### GasPhase_TFCR
 
 Definition of the gas phase used in the reaction. If a gas mixture is involved, this must be taken into account.
 
@@ -499,7 +499,7 @@ Definition of the gas phase used in the reaction. If a gas mixture is involved, 
 
 <details> <Summary>Temperature constant</Summary>
 
-### TemperatureConstant
+### TemperatureConstant_TFCR
 
 The temperature, if constant, must be clearly defined.
 
@@ -524,7 +524,7 @@ The temperature, if constant, must be clearly defined.
 
 <details> <Summary>Dynamic temperature</Summary>
 
-### DynamicTemperature
+### DynamicTemperature_TFCR
 
 If there is a temperature gradient or different temperatures are measured in the system, these must be described as well as possible.
 
@@ -598,7 +598,7 @@ If there is a temperature gradient or different temperatures are measured in the
 
 <details> <Summary>pH constant</Summary>
 
-### pHConstant
+### pHConstant_TFCR
 
 Information about the pH value in the system, if the pH is constant over the course of the reaction.
 
@@ -639,7 +639,7 @@ Information about the pH value in the system, if the pH is constant over the cou
 
 <details> <Summary>Dynamic pH</Summary>
 
-### DynamicpH
+### DynamicpH_TFCR
 
 If there is a pH gradient or different pHs are measured in the system, these must be described as detailed as possible. Depending on the buffer chosen, a temperature shift may also result in a pH shift.
 
