@@ -3,6 +3,7 @@ name: Python generator
 on:
   push:
     paths:
+      - "docs/**"
       - "specifications/*.md"
       - "gen.toml"
 
