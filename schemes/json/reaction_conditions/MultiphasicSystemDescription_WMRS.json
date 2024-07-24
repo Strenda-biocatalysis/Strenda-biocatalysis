@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "MultiphasicSystemDescription_WMRS",
+  "type": "object",
+  "properties": {
+    "phases_number": {
+      "title": "phases_number",
+      "description": "Number of phases present in the system, if there is an aqueous and a gas phase present, the number is 2.",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "special_treatment": {
+      "title": "special_treatment",
+      "description": "If there are any other specific methods, procedures, characteristics or aspects related to the multiphasic system that are important for reproducibility and are not described by the aforementioned           metadata, they should be explained here.",
+      "type": "string"
+    }
+  },
+  "description": "To describe a multiphasic system, precise information about the phases used and the applied system must be provided."
+}

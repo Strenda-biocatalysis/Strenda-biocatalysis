@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- Roots -->
+    <xs:element name="KineticParameters" type="KineticParametersType"/>
+    <xs:element name="YieldAndConversion" type="YieldAndConversionType"/>
+    <xs:element name="ActivityAndInitialReactionRate" type="ActivityAndInitialReactionRateType"/>
+    <xs:element name="SelectivityAndSpecificity" type="SelectivityAndSpecificityType"/>
+    <xs:element name="ThermodynamicParameters" type="ThermodynamicParametersType"/>
+
+    <!-- KineticParameters Definition -->
+    <xs:complexType name="KineticParametersType">
+        <xs:sequence>
+            <xs:element name="michaelis_constant" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation>
+                        The Michaelis-Menten constant (Km​) represents the substrate concentration at which an enzyme achieves half of its maximum reaction rate.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="michaelis_constant_unit" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        The unit of the Michaelis-Menten constant (Km​) is typically expressed as moles per liter (M or mM).
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="maximum_reaction_rate" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation>
+                        Vmax, the maximum reaction rate, represents the speed at which an enzyme-catalyzed reaction reaches saturation, indicating the maximum achievable rate of product formation under optimal substrate concentration (where enzymes are predominantly saturated with substrates).
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="maximum_reaction_rate_unit" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        The unit of Vmax (maximum reaction rate) is typically represented as concentration per time, such as moles per liter per second (mol/L/s or mM/s).
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="turnover_number" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation>
+                        The turnover number (kcat) measures the number of substrate molecules converted to product per active site of an enzyme per unit time when the enzyme is fully saturated with substrate.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="turnover_number_unit" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        The unit of turnover number (kcat) is typically expressed as moles of product per mole of enzyme per second or per minute (time-1).
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="catalytic_efficiency" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation>
+                        Catalytic efficiency (kcat/Km) is a measure of how effectively an enzyme converts substrate into product, often quantified as the ratio of the turnover number (kcat) to the Michaelis-Menten constant (Km).
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="catalytic_efficiency_unit" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        The typical unit for catalytic efficiency (kcat/Km) is M-1s-1.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="dissociation_constant" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation>
+                        The dissociation constant (Kd) is a measure that represents the equilibrium between a complex and its dissociated components.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="dissociation_constant_unit" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        The dissociation constant (Kd) is typically expressed in M (mol per liter) or its derivatives, such as nM (nanomoles per liter).
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="inhibition_type" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Enzyme inhibition encompasses various forms, including competitive, non-competitive, uncompetitive, mixed, and irreversible inhibition. Each type has different effects on the enzyme's function and plays a crucial role in regulating biochemical processes.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="inhibition_constant" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation>
+                        The inhibition constant (Ki) describes the affinity of an inhibitor for an enzyme. It indicates how effectively an inhibitor influences enzyme activity. A lower Ki value suggests a strong binding of the inhibitor to the enzyme.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="inhibition_constant_unit" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        The units for the inhibition constant (Ki) are commonly expressed in M (mol per liter) or related units.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="hill_coefficient" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation>
+                        The Hill coefficient is a parameter used to describe cooperativity in the binding of molecules to proteins. It is employed in enzyme reactions, e.g. oxygen binding to hemoglobin, to indicate whether there is positive (cooperative) or negative (anticooperative) binding. A Hill coefficient greater than 1 indicates positive cooperativity, while a value less than 1 indicates negative cooperativity. A value of exactly 1 indicates no cooperativity.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="enzyme_stability" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        The stability of enzymes is often characterized by various parameters such as the enzyme's half-life under specific conditions, the decline in activity over time, or the preservation of catalytic activity under different environmental conditions.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="special_treatment" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        If there are any other specific metrics, parameters, characteristics or aspects related to the kinetics that are important to document the results accurately and are not described by the aforementioned metadata, they should be explained here.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- YieldAndConversion Definition -->
+    <xs:complexType name="YieldAndConversionType">
+        <xs:sequence>
+            <xs:element name="c_yield" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation>
+                        Yield represents the amount of the desired product obtained from a reaction. It is the number of synthesized molecules of product per number of starting molecules. The following formula can be used:
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="yield_unit" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        The yield is typically expressed in percentages (%), reflecting the ratio of the actual obtained product quantity to the theoretical maximum product quantity that could be obtained under ideal conditions.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="space_time_yield" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation>
+                        Space-time yield in biocatalysis refers to the mass of product obtained per unit volume of the reactor per unit time. Other terms commonly used in the literature are
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="space_time_yield_unit" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Space-time yield is commonly expressed in g/L/h (grams per liter per hour) or mol/L/h (moles per liter per hour).
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="conversion" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation>
+                        The term "conversion" refers to the percentage of substrate that undergoes transformation into the desired product during a reaction. It is the number of converted molecules per number of starting molecules. The following formula can be used:
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="conversion_unit" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        The conversion is commonly expressed as a percentage (%) to indicate the proportion of substrate converted to the desired product during a specific reaction.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="special_treatment" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        If there are any other specific metrics, parameters, characteristics or aspects related to the conversion or yield that are important to document the results accurately and are not described by the aforementioned attributes, they should be explained here.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ActivityAndInitialReactionRate Definition -->
+    <xs:complexType name="ActivityAndInitialReactionRateType">
+        <xs:sequence>
+            <xs:element name="specific_activity" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation>
+                        The specific activity refers to the amount of product formed or substrate consumed per unit of enzyme per unit of time.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="specific_activity_unit" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        The specific activity is typically expressed in µmol/min/mg (micromoles per minute per milligram of protein).
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="initial_reaction_rate" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation>
+                        The initial reaction rate refers to the rate at which the product is formed in the first 10% of the enzymatic reaction under specific initial substrate concentrations and reaction conditions.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="initial_reaction_rate_unit" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Typically, the initial reaction rate is expressed as mol/L/min (moles per liter per minute) or µmol/mL/min (micromoles per milliliter per minute).
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="special_treatment" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        If there are any other specific metrics, parameters, characteristics or aspects related to the activity or initial reaction rate that are important to document the results accurately and are not described by the aforementioned attributes, they should be explained here.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- SelectivityAndSpecificity Definition -->
+    <xs:complexType name="SelectivityAndSpecificityType">
+        <xs:sequence>
+            <xs:element name="stereoselectivity" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Stereoselectivity refers to the preference of a chemical reaction to produce a specific stereoisomer or a particular spatial arrangement of atoms within a molecule. It describes the ability of a reaction to favor the formation of one stereoisomer over others or to create a specific stereochemical outcome.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="enantioselectivity" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation>
+                        Enantioselectivity, or enantiomeric ratio (E), defines the enzyme's capability to preferentially catalyze the transformation of one enantiomer over its mirror-image counterpart. This trait highlights the enzyme's ability to favor a specific enantiomer either as a product or as the preferred substrate for a reaction.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="enantiomeric_excess" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation>
+                        The enantiomeric excess (
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="enantiomeric_excess_unit" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        The primary unit used for enantiomeric excess (
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="diastereomeric_excess" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation>
+                        The diasteriomeric excess (
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="diasteriomeric_excess_unit" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        The primary unit used for diasteriomeric excess (
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="isomeric_content" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation>
+                        The isomeric content (
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="isomeric_content_unit" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        The primary unit used for isomeric content (
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="chemoselectivity" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Chemoselectivity refers to the ability of a chemical reaction to target a specific functional group or site within a molecule without affecting other reactive groups present. It highlights the preference of a reaction for one type of chemical bond or functional group over others in a molecule.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="regioselectivity" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Regioselectivity refers to the preference of a reaction to occur at a specific site within a molecule or compound that has multiple potential reaction sites. It describes the tendency of a reaction to selectively take place at a particular position of the molecule, considering its structural arrangement of atoms or functional groups, rather than at other possible sites.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="special_treatment" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        If there are any other specific metrics, parameters, characteristics or aspects related to the selectivity and specificity that are important to document the results accurately and are not described by the aforementioned attributes, they should be explained here.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ThermodynamicParameters Definition -->
+    <xs:complexType name="ThermodynamicParametersType">
+        <xs:sequence>
+            <xs:element name="gibbs_free_energy_change" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        The Gibbs free energy (
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="enthalpy_change" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        The enthalpy (
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="special_treatment" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        If there are any other specific metrics, parameters, characteristics or aspects related to the thermodynamic parameters that are important to document the results accurately and are not described by the aforementioned attributes, they should be explained here.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+
+</xs:schema>

@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "TemperatureConstant_TFCR",
+  "type": "object",
+  "properties": {
+    "temperature": {
+      "title": "temperature",
+      "description": "Temperature during the reaction.",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "temperature_unit": {
+      "title": "temperature_unit",
+      "description": "The temperature can be specified in units such as K, °C, or °F.",
+      "type": "string"
+    },
+    "special_treatment": {
+      "title": "special_treatment",
+      "description": "If there are any other specific methods, procedures, characteristics or aspects related to the temperature that are important for reproducibility and are not described by the aforementioned                 metadata, they should be explained here.",
+      "type": "string"
+    }
+  },
+  "description": "The temperature, if constant, must be clearly defined.Dynamic temperature"
+}

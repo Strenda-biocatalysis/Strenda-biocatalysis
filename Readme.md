@@ -1,8 +1,8 @@
-<div align="justify"> 
-  
+<div align="justify">
+
 # Welcome to STRENDA biocatalysis guidelines
 
-Welcome to the STRENDA biocatalysis guidelines online catalogue, a comprehensive resource for the standardized collection of enzymatic reaction metadata. 
+Welcome to the STRENDA biocatalysis guidelines online catalogue, a comprehensive resource for the standardized collection of enzymatic reaction metadata.
 
 This catalogue offers researchers and scientists in the field of biocatalysis a structured platform to access and contribute metadata crucial for understanding enzymatic transformations. STRENDA biocatalysis aims to define which ATTRIBUTES should be used to describe an experiment in biocatalysis. Exactly for this, the following catalogue was designed and built in an adaptive modular way. While the primary focus remains on enzymatic transformations themselves, the broader landscape of biocatalysis, including aspects such as product purification, analytics, and experimental processes, is also acknowledged. These complementary aspects of biocatalysis, though essential, are not within the scope of this first version of the STRENDA biocatalysis guidelines. It's important to note that not all attributes are required for every experiment. Decision trees indicating mandatory attributes will be provided in the future. Currently, our focus is on compiling a comprehensive list of all attributes.
 
@@ -18,49 +18,55 @@ Feel free to explore the valuable information in this catalogue and join in stan
 
 The operation mode is the first step in the experimental planning, it describes the mode in which the experiment was performed (e.g. batch, fed-batch, continuous)
 
-[Operation mode](ModelExamples/Operation_Mode/Readme.md)
+[Operation mode](specifications/operation_mode.md)
 
-[<img src="https://github.com/Strenda-biocatalysis/Strenda-biocatalysis/assets/106530250/60454bd0-df6c-4aba-b265-80e8b3f4ee54" width=100>](ModelExamples/Operation_Mode/Readme.md)
+[<img src="assets\Hexagons-operation-mode.png" width=100>](specifications/operation_mode.md)
+
 
 ## Vessel type and mixing (hydrodynamics)
 
 When discussing enzymatic reactions, it's essential to address the vessel type and its influence on mixing and hydrodynamics.
 
-[Vessel type and mixing (hydrodynamics)](ModelExamples/Vessels_and_Mixing/Readme.md)
+[Vessel type and mixing (hydrodynamics)](specifications/vessels_and_mixing.md)
 
-[<img src="https://github.com/Strenda-biocatalysis/Strenda-biocatalysis/assets/106530250/0c54f36e-e164-46ad-a001-72d55a08aed4" width=100>](ModelExamples/Vessels_and_Mixing/Readme.md)
+[<img src="assets\Hexagons-vessel.png" width=100>](specifications/vessels_and_mixing.md)
+
 
 ## (Bio)catalyst
 
 Closely examining the role of the biocatalyst is a fundamental aspect in the context of enzymatic reactions.
 
-[(Bio)catalyst](ModelExamples/Biocatalyst/Readme.md)
+[(Bio)catalyst](specifications/biocatalyst.md)
 
-[<img src="https://github.com/Strenda-biocatalysis/Strenda-biocatalysis/assets/106530250/f15e6273-cb1c-42fa-b64f-822cee90fae2" width=100>](ModelExamples/Biocatalyst/Readme.md)
+[<img src="assets\Hexagon-enzyme.png" width=100>](specifications/biocatalyst.md)
 
+  
 ## Components
 
 Exploring the components involved in the reaction mixture is essential for a comprehensive understanding of enzymatic reactions.
 
-[Components](ModelExamples/Components/Readme.md)
+[Components](specifications/components.md)
 
-[<img src="https://github.com/Strenda-biocatalysis/Strenda-biocatalysis/assets/106530250/e741b716-b644-43e5-abc1-591310705392" width=100>](ModelExamples/Components/Readme.md)
+[<img src="assets\Hexagons-reactants.png" width=100>](specifications/components.md)
+
 
 ## Reaction conditions
 
 Examining the reaction conditions provides critical insights into the enzymatic reaction process.
 
-[Reaction conditions](ModelExamples/Reaction_conditions/Readme.md)
+[Reaction conditions](specifications/reaction_conditions.md)
 
-[<img src="https://github.com/Strenda-biocatalysis/Strenda-biocatalysis/assets/106530250/60baa6fd-acb8-4f69-b61c-afadac4f7a3c" width=100>](ModelExamples/Reaction_conditions/Readme.md)
+[<img src="assets\Hexagons-conditions.png" width=100>](specifications/reaction_conditions.md)
+
 
 ## Sampling
 
 Understanding the sampling process is crucial for obtaining reliable data in enzymatic studies.
 
-[Sampling](ModelExamples/Sampling/Readme.md)
+[Sampling](specifications/sampling.md)
 
-[<img src="https://github.com/Strenda-biocatalysis/Strenda-biocatalysis/assets/106530250/1aa9e3a2-a0d8-428e-92c3-2316bb3d81a1" width=100>](ModelExamples/Sampling/Readme.md)
+[<img src="assets\Hexagons-sampling.png" width=100>](specifications/sampling.md)
+
 
 
 <blockquote>
@@ -69,9 +75,10 @@ Understanding the sampling process is crucial for obtaining reliable data in enz
 
 The systematic recording and description of experimental outcomes and data obtained from biocatalytic reactions.
 
-[Results documentation](ModelExamples/Results/Readme.md)
+[Results documentation](specifications/results.md)
 
-[<img src="https://github.com/Strenda-biocatalysis/Strenda-biocatalysis/assets/106530250/89e0ffdc-bc52-497c-98bd-2802a64589d4" width=100>](ModelExamples/Results/Readme.md)
+[<img src="https://github.com/DomMSNR/Strenda-biocatalysis/assets/106530250/c5049a15-ecae-4273-ac2d-b7f1c94c6239" width=100>](specifications/results.md)
+
 
 </blockquote>
 

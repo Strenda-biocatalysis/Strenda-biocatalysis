@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "CrudeCellExtract",
+  "type": "object",
+  "properties": {
+    "cell_disruption_process": {
+      "title": "cell_disruption_process",
+      "description": "Cell disruption processes and methods include various techniques such as mechanical disruption (e.g., grinding, homogenization, ultrasonication, french press), chemical disruption (e.g., detergents, enzymes), physical techniques (e.g., electroporation, high-pressure homogenization, thermal treatment) to break cell walls and release cell contents.",
+      "type": "string"
+    },
+    "concentration": {
+      "title": "concentration",
+      "description": "Concentration of the biocatalyst.",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "concentration_unit": {
+      "title": "concentration_unit",
+      "description": "Concentration of the biocatalyst is typically expressed in g/L (grams per liter).",
+      "type": "string"
+    },
+    "concentration_determination_method": {
+      "title": "concentration_determination_method",
+      "description": "It is important to specify the type of concentration determination. There are numerous methods available to determine protein content, yet only a few are suitable for estimating or determining the protein content of the target protein within a mixture. Some of these methods include activity assays or the Western blotting technique, which relies on prior SDS-PAGE and antibody binding for detection.",
+      "type": "string"
+    },
+    "special_treatment": {
+      "title": "special_treatment",
+      "description": "If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.",
+      "type": "string"
+    }
+  },
+  "description": "Whole cell biocatalyst"
+}

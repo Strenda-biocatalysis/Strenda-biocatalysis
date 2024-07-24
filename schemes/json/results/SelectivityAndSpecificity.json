@@ -1,0 +1,67 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "SelectivityAndSpecificity",
+  "type": "object",
+  "properties": {
+    "stereoselectivity": {
+      "title": "stereoselectivity",
+      "description": "Stereoselectivity refers to the preference of a chemical reaction to produce a specific stereoisomer or a particular spatial arrangement of atoms within a molecule. It describes the ability of a reaction to favor the formation of one stereoisomer over others or to create a specific stereochemical outcome.",
+      "type": "string"
+    },
+    "enantioselectivity": {
+      "title": "enantioselectivity",
+      "description": "Enantioselectivity, or enantiomeric ratio (E), defines the enzyme's capability to preferentially catalyze the transformation of one enantiomer over its mirror-image counterpart. This trait highlights the enzyme's ability to favor a specific enantiomer either as a product or as the preferred substrate for a reaction.",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "enantiomeric_excess": {
+      "title": "enantiomeric_excess",
+      "description": "The enantiomeric excess (",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "enantiomeric_excess_unit": {
+      "title": "enantiomeric_excess_unit",
+      "description": "The primary unit used for enantiomeric excess (",
+      "type": "string"
+    },
+    "diastereomeric_excess": {
+      "title": "diastereomeric_excess",
+      "description": "The diasteriomeric excess (",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "diasteriomeric_excess_unit": {
+      "title": "diasteriomeric_excess_unit",
+      "description": "The primary unit used for diasteriomeric excess (",
+      "type": "string"
+    },
+    "isomeric_content": {
+      "title": "isomeric_content",
+      "description": "The isomeric content (",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "isomeric_content_unit": {
+      "title": "isomeric_content_unit",
+      "description": "The primary unit used for isomeric content (",
+      "type": "string"
+    },
+    "chemoselectivity": {
+      "title": "chemoselectivity",
+      "description": "Chemoselectivity refers to the ability of a chemical reaction to target a specific functional group or site within a molecule without affecting other reactive groups present. It highlights the preference of a reaction for one type of chemical bond or functional group over others in a molecule.",
+      "type": "string"
+    },
+    "regioselectivity": {
+      "title": "regioselectivity",
+      "description": "Regioselectivity refers to the preference of a reaction to occur at a specific site within a molecule or compound that has multiple potential reaction sites. It describes the tendency of a reaction to selectively take place at a particular position of the molecule, considering its structural arrangement of atoms or functional groups, rather than at other possible sites.",
+      "type": "string"
+    },
+    "special_treatment": {
+      "title": "special_treatment",
+      "description": "If there are any other specific metrics, parameters, characteristics or aspects related to the selectivity and specificity that are important to document the results accurately and are not described by the aforementioned attributes, they should be explained here.",
+      "type": "string"
+    }
+  },
+  "description": "These parameters directly assess a catalyst's precision in converting specific substrates to desired products. For a comprehensive report around the technical key data of the selectivity and specificity, see literature for further information, e.g. Faber4, Liese _et al._3, Schurig5."
+}

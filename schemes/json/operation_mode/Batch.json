@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "Batch",
+  "type": "object",
+  "properties": {
+    "reactor_type": {
+      "title": "reactor_type",
+      "type": "string"
+    }
+  },
+  "description": "The batch operation mode represents a fundamental approach in biocatalysis, where all reaction components are mixed simultaneously within a closed system, and the reaction proceeds until a predetermined endpoint is reached. This mode is easy to control and well-suited for producing small batches of products."
+}

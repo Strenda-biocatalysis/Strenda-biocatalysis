@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "MultiphasicSystemDescription_TFCR",
+  "type": "object",
+  "properties": {
+    "phases_number": {
+      "title": "phases_number",
+      "description": "Number of phases present in the system, if there is an aqueous and a gas phase present, the number is 2.",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "Flow_rate": {
+      "title": "Flow_rate",
+      "description": "The flow rate must be specified to determine how fast a liquid or gas is flowing through a reactor or system.",
+      "type": "number"
+    },
+    "Flow_rate_unit": {
+      "title": "Flow_rate_unit",
+      "description": "Common units for describing flow rate include L/min (liters per minute), mL/h (milliliters per hour), m³/h (cubic meters per hour), or other volume units per unit of time.",
+      "type": "string"
+    },
+    "special_treatment": {
+      "title": "special_treatment",
+      "description": "If there are any other specific methods, procedures, characteristics or aspects related to the multiphasic system that are important for reproducibility and are not described by the aforementioned           metadata, they should be explained here.",
+      "type": "string"
+    }
+  },
+  "description": "To describe a multiphasic system, precise information about the phases used and the applied system must be provided."
+}
