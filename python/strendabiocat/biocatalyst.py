@@ -11,7 +11,6 @@ from datetime import date, datetime
 # based on their attributes
 Cls = TypeVar("Cls")
 
-
 class FilterWrapper(Generic[Cls]):
     """Wrapper class to filter a list of objects based on their attributes"""
 
@@ -48,8 +47,7 @@ def add_namespace(obj, prefix: str | None, iri: str | None):
     elif iri and prefix is None:
         raise ValueError("If iri is provided, prefix must also be provided")
 
-    obj.ld_context[prefix] = iri  # type: ignore
-
+    obj.ld_context[prefix] = iri # type: ignore
 
 def validate_prefix(term: str | dict, prefix: str):
     """Validates that a term is prefixed with a given prefix
@@ -67,14 +65,13 @@ def validate_prefix(term: str | dict, prefix: str):
     elif isinstance(term, str) and not term.startswith(prefix + ":"):
         raise ValueError(f"Term {term} is not prefixed with {prefix}")
 
-
 # Model Definitions
 
-
 class BiocatalystPurchased(BaseModel):
-    model_config: ConfigDict = ConfigDict(  # type: ignore
-        validate_assigment=True,
-    )  # type: ignore
+
+    model_config: ConfigDict = ConfigDict( # type: ignore
+        validate_assigment = True,
+    ) # type: ignore
 
     name: str
     ec_number: str
@@ -94,27 +91,28 @@ class BiocatalystPurchased(BaseModel):
     # JSON-LD fields
     ld_id: str = Field(
         serialization_alias="@id",
-        default_factory=lambda: "stbc:BiocatalystPurchased/" + str(uuid4()),
+        default_factory=lambda: "stbc:BiocatalystPurchased/" + str(uuid4())
     )
     ld_type: list[str] = Field(
         serialization_alias="@type",
-        default_factory=lambda: [
+        default_factory = lambda: [
             "stbc:BiocatalystPurchased",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
         serialization_alias="@context",
-        default_factory=lambda: {
+        default_factory = lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        },
+        }
     )
+
 
     def set_attr_term(
         self,
         attr: str,
         term: str | dict,
         prefix: str | None = None,
-        iri: str | None = None,
+        iri: str | None = None
     ):
         """Sets the term for a given attribute in the JSON-LD object
 
@@ -136,9 +134,7 @@ class BiocatalystPurchased(BaseModel):
             AssertionError: If the attribute is not found in the model
         """
 
-        assert (
-            attr in self.model_fields
-        ), f"Attribute {attr} not found in {self.__class__.__name__}"
+        assert attr in self.model_fields, f"Attribute {attr} not found in {self.__class__.__name__}"
 
         if prefix:
             validate_prefix(term, prefix)
@@ -147,7 +143,10 @@ class BiocatalystPurchased(BaseModel):
         self.ld_context[attr] = term
 
     def add_type_term(
-        self, term: str, prefix: str | None = None, iri: str | None = None
+        self,
+        term: str,
+        prefix: str | None = None,
+        iri: str | None = None
     ):
         """Adds a term to the @type field of the JSON-LD object
 
@@ -176,9 +175,10 @@ class BiocatalystPurchased(BaseModel):
 
 
 class BiocatalystSelfProduced(BaseModel):
-    model_config: ConfigDict = ConfigDict(  # type: ignore
-        validate_assigment=True,
-    )  # type: ignore
+
+    model_config: ConfigDict = ConfigDict( # type: ignore
+        validate_assigment = True,
+    ) # type: ignore
 
     name: str
     ec_number: str
@@ -201,27 +201,28 @@ class BiocatalystSelfProduced(BaseModel):
     # JSON-LD fields
     ld_id: str = Field(
         serialization_alias="@id",
-        default_factory=lambda: "stbc:BiocatalystSelfProduced/" + str(uuid4()),
+        default_factory=lambda: "stbc:BiocatalystSelfProduced/" + str(uuid4())
     )
     ld_type: list[str] = Field(
         serialization_alias="@type",
-        default_factory=lambda: [
+        default_factory = lambda: [
             "stbc:BiocatalystSelfProduced",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
         serialization_alias="@context",
-        default_factory=lambda: {
+        default_factory = lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        },
+        }
     )
+
 
     def set_attr_term(
         self,
         attr: str,
         term: str | dict,
         prefix: str | None = None,
-        iri: str | None = None,
+        iri: str | None = None
     ):
         """Sets the term for a given attribute in the JSON-LD object
 
@@ -243,9 +244,7 @@ class BiocatalystSelfProduced(BaseModel):
             AssertionError: If the attribute is not found in the model
         """
 
-        assert (
-            attr in self.model_fields
-        ), f"Attribute {attr} not found in {self.__class__.__name__}"
+        assert attr in self.model_fields, f"Attribute {attr} not found in {self.__class__.__name__}"
 
         if prefix:
             validate_prefix(term, prefix)
@@ -254,7 +253,10 @@ class BiocatalystSelfProduced(BaseModel):
         self.ld_context[attr] = term
 
     def add_type_term(
-        self, term: str, prefix: str | None = None, iri: str | None = None
+        self,
+        term: str,
+        prefix: str | None = None,
+        iri: str | None = None
     ):
         """Adds a term to the @type field of the JSON-LD object
 
@@ -283,9 +285,10 @@ class BiocatalystSelfProduced(BaseModel):
 
 
 class PurifiedBiocatalyst(BaseModel):
-    model_config: ConfigDict = ConfigDict(  # type: ignore
-        validate_assigment=True,
-    )  # type: ignore
+
+    model_config: ConfigDict = ConfigDict( # type: ignore
+        validate_assigment = True,
+    ) # type: ignore
 
     concentration: float
     concentration_unit: str
@@ -299,27 +302,28 @@ class PurifiedBiocatalyst(BaseModel):
     # JSON-LD fields
     ld_id: str = Field(
         serialization_alias="@id",
-        default_factory=lambda: "stbc:PurifiedBiocatalyst/" + str(uuid4()),
+        default_factory=lambda: "stbc:PurifiedBiocatalyst/" + str(uuid4())
     )
     ld_type: list[str] = Field(
         serialization_alias="@type",
-        default_factory=lambda: [
+        default_factory = lambda: [
             "stbc:PurifiedBiocatalyst",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
         serialization_alias="@context",
-        default_factory=lambda: {
+        default_factory = lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        },
+        }
     )
+
 
     def set_attr_term(
         self,
         attr: str,
         term: str | dict,
         prefix: str | None = None,
-        iri: str | None = None,
+        iri: str | None = None
     ):
         """Sets the term for a given attribute in the JSON-LD object
 
@@ -341,9 +345,7 @@ class PurifiedBiocatalyst(BaseModel):
             AssertionError: If the attribute is not found in the model
         """
 
-        assert (
-            attr in self.model_fields
-        ), f"Attribute {attr} not found in {self.__class__.__name__}"
+        assert attr in self.model_fields, f"Attribute {attr} not found in {self.__class__.__name__}"
 
         if prefix:
             validate_prefix(term, prefix)
@@ -352,7 +354,10 @@ class PurifiedBiocatalyst(BaseModel):
         self.ld_context[attr] = term
 
     def add_type_term(
-        self, term: str, prefix: str | None = None, iri: str | None = None
+        self,
+        term: str,
+        prefix: str | None = None,
+        iri: str | None = None
     ):
         """Adds a term to the @type field of the JSON-LD object
 
@@ -381,9 +386,10 @@ class PurifiedBiocatalyst(BaseModel):
 
 
 class CrudeCellExtract(BaseModel):
-    model_config: ConfigDict = ConfigDict(  # type: ignore
-        validate_assigment=True,
-    )  # type: ignore
+
+    model_config: ConfigDict = ConfigDict( # type: ignore
+        validate_assigment = True,
+    ) # type: ignore
 
     cell_disruption_process: str
     concentration: float
@@ -394,27 +400,28 @@ class CrudeCellExtract(BaseModel):
     # JSON-LD fields
     ld_id: str = Field(
         serialization_alias="@id",
-        default_factory=lambda: "stbc:CrudeCellExtract/" + str(uuid4()),
+        default_factory=lambda: "stbc:CrudeCellExtract/" + str(uuid4())
     )
     ld_type: list[str] = Field(
         serialization_alias="@type",
-        default_factory=lambda: [
+        default_factory = lambda: [
             "stbc:CrudeCellExtract",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
         serialization_alias="@context",
-        default_factory=lambda: {
+        default_factory = lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        },
+        }
     )
+
 
     def set_attr_term(
         self,
         attr: str,
         term: str | dict,
         prefix: str | None = None,
-        iri: str | None = None,
+        iri: str | None = None
     ):
         """Sets the term for a given attribute in the JSON-LD object
 
@@ -436,9 +443,7 @@ class CrudeCellExtract(BaseModel):
             AssertionError: If the attribute is not found in the model
         """
 
-        assert (
-            attr in self.model_fields
-        ), f"Attribute {attr} not found in {self.__class__.__name__}"
+        assert attr in self.model_fields, f"Attribute {attr} not found in {self.__class__.__name__}"
 
         if prefix:
             validate_prefix(term, prefix)
@@ -447,7 +452,10 @@ class CrudeCellExtract(BaseModel):
         self.ld_context[attr] = term
 
     def add_type_term(
-        self, term: str, prefix: str | None = None, iri: str | None = None
+        self,
+        term: str,
+        prefix: str | None = None,
+        iri: str | None = None
     ):
         """Adds a term to the @type field of the JSON-LD object
 
@@ -476,9 +484,10 @@ class CrudeCellExtract(BaseModel):
 
 
 class WholeCellBiocatalyst(BaseModel):
-    model_config: ConfigDict = ConfigDict(  # type: ignore
-        validate_assigment=True,
-    )  # type: ignore
+
+    model_config: ConfigDict = ConfigDict( # type: ignore
+        validate_assigment = True,
+    ) # type: ignore
 
     harvesting_method: str
     concentration: float
@@ -490,27 +499,28 @@ class WholeCellBiocatalyst(BaseModel):
     # JSON-LD fields
     ld_id: str = Field(
         serialization_alias="@id",
-        default_factory=lambda: "stbc:WholeCellBiocatalyst/" + str(uuid4()),
+        default_factory=lambda: "stbc:WholeCellBiocatalyst/" + str(uuid4())
     )
     ld_type: list[str] = Field(
         serialization_alias="@type",
-        default_factory=lambda: [
+        default_factory = lambda: [
             "stbc:WholeCellBiocatalyst",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
         serialization_alias="@context",
-        default_factory=lambda: {
+        default_factory = lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        },
+        }
     )
+
 
     def set_attr_term(
         self,
         attr: str,
         term: str | dict,
         prefix: str | None = None,
-        iri: str | None = None,
+        iri: str | None = None
     ):
         """Sets the term for a given attribute in the JSON-LD object
 
@@ -532,9 +542,7 @@ class WholeCellBiocatalyst(BaseModel):
             AssertionError: If the attribute is not found in the model
         """
 
-        assert (
-            attr in self.model_fields
-        ), f"Attribute {attr} not found in {self.__class__.__name__}"
+        assert attr in self.model_fields, f"Attribute {attr} not found in {self.__class__.__name__}"
 
         if prefix:
             validate_prefix(term, prefix)
@@ -543,7 +551,10 @@ class WholeCellBiocatalyst(BaseModel):
         self.ld_context[attr] = term
 
     def add_type_term(
-        self, term: str, prefix: str | None = None, iri: str | None = None
+        self,
+        term: str,
+        prefix: str | None = None,
+        iri: str | None = None
     ):
         """Adds a term to the @type field of the JSON-LD object
 
@@ -572,9 +583,10 @@ class WholeCellBiocatalyst(BaseModel):
 
 
 class SecretedEnzyme(BaseModel):
-    model_config: ConfigDict = ConfigDict(  # type: ignore
-        validate_assigment=True,
-    )  # type: ignore
+
+    model_config: ConfigDict = ConfigDict( # type: ignore
+        validate_assigment = True,
+    ) # type: ignore
 
     separation_method: str
     concentration: float
@@ -585,27 +597,28 @@ class SecretedEnzyme(BaseModel):
     # JSON-LD fields
     ld_id: str = Field(
         serialization_alias="@id",
-        default_factory=lambda: "stbc:SecretedEnzyme/" + str(uuid4()),
+        default_factory=lambda: "stbc:SecretedEnzyme/" + str(uuid4())
     )
     ld_type: list[str] = Field(
         serialization_alias="@type",
-        default_factory=lambda: [
+        default_factory = lambda: [
             "stbc:SecretedEnzyme",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
         serialization_alias="@context",
-        default_factory=lambda: {
+        default_factory = lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        },
+        }
     )
+
 
     def set_attr_term(
         self,
         attr: str,
         term: str | dict,
         prefix: str | None = None,
-        iri: str | None = None,
+        iri: str | None = None
     ):
         """Sets the term for a given attribute in the JSON-LD object
 
@@ -627,9 +640,7 @@ class SecretedEnzyme(BaseModel):
             AssertionError: If the attribute is not found in the model
         """
 
-        assert (
-            attr in self.model_fields
-        ), f"Attribute {attr} not found in {self.__class__.__name__}"
+        assert attr in self.model_fields, f"Attribute {attr} not found in {self.__class__.__name__}"
 
         if prefix:
             validate_prefix(term, prefix)
@@ -638,7 +649,10 @@ class SecretedEnzyme(BaseModel):
         self.ld_context[attr] = term
 
     def add_type_term(
-        self, term: str, prefix: str | None = None, iri: str | None = None
+        self,
+        term: str,
+        prefix: str | None = None,
+        iri: str | None = None
     ):
         """Adds a term to the @type field of the JSON-LD object
 
@@ -667,9 +681,10 @@ class SecretedEnzyme(BaseModel):
 
 
 class CellFreeProduction(BaseModel):
-    model_config: ConfigDict = ConfigDict(  # type: ignore
-        validate_assigment=True,
-    )  # type: ignore
+
+    model_config: ConfigDict = ConfigDict( # type: ignore
+        validate_assigment = True,
+    ) # type: ignore
 
     source_of_cellfree_extract: str
     concentration: float
@@ -680,27 +695,28 @@ class CellFreeProduction(BaseModel):
     # JSON-LD fields
     ld_id: str = Field(
         serialization_alias="@id",
-        default_factory=lambda: "stbc:CellFreeProduction/" + str(uuid4()),
+        default_factory=lambda: "stbc:CellFreeProduction/" + str(uuid4())
     )
     ld_type: list[str] = Field(
         serialization_alias="@type",
-        default_factory=lambda: [
+        default_factory = lambda: [
             "stbc:CellFreeProduction",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
         serialization_alias="@context",
-        default_factory=lambda: {
+        default_factory = lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        },
+        }
     )
+
 
     def set_attr_term(
         self,
         attr: str,
         term: str | dict,
         prefix: str | None = None,
-        iri: str | None = None,
+        iri: str | None = None
     ):
         """Sets the term for a given attribute in the JSON-LD object
 
@@ -722,9 +738,7 @@ class CellFreeProduction(BaseModel):
             AssertionError: If the attribute is not found in the model
         """
 
-        assert (
-            attr in self.model_fields
-        ), f"Attribute {attr} not found in {self.__class__.__name__}"
+        assert attr in self.model_fields, f"Attribute {attr} not found in {self.__class__.__name__}"
 
         if prefix:
             validate_prefix(term, prefix)
@@ -733,7 +747,10 @@ class CellFreeProduction(BaseModel):
         self.ld_context[attr] = term
 
     def add_type_term(
-        self, term: str, prefix: str | None = None, iri: str | None = None
+        self,
+        term: str,
+        prefix: str | None = None,
+        iri: str | None = None
     ):
         """Adds a term to the @type field of the JSON-LD object
 
@@ -762,9 +779,10 @@ class CellFreeProduction(BaseModel):
 
 
 class Immobilised(BaseModel):
-    model_config: ConfigDict = ConfigDict(  # type: ignore
-        validate_assigment=True,
-    )  # type: ignore
+
+    model_config: ConfigDict = ConfigDict( # type: ignore
+        validate_assigment = True,
+    ) # type: ignore
 
     biocatalyst: str
     immobilisation_chemistry: str
@@ -780,27 +798,28 @@ class Immobilised(BaseModel):
     # JSON-LD fields
     ld_id: str = Field(
         serialization_alias="@id",
-        default_factory=lambda: "stbc:Immobilised/" + str(uuid4()),
+        default_factory=lambda: "stbc:Immobilised/" + str(uuid4())
     )
     ld_type: list[str] = Field(
         serialization_alias="@type",
-        default_factory=lambda: [
+        default_factory = lambda: [
             "stbc:Immobilised",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
         serialization_alias="@context",
-        default_factory=lambda: {
+        default_factory = lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        },
+        }
     )
+
 
     def set_attr_term(
         self,
         attr: str,
         term: str | dict,
         prefix: str | None = None,
-        iri: str | None = None,
+        iri: str | None = None
     ):
         """Sets the term for a given attribute in the JSON-LD object
 
@@ -822,9 +841,7 @@ class Immobilised(BaseModel):
             AssertionError: If the attribute is not found in the model
         """
 
-        assert (
-            attr in self.model_fields
-        ), f"Attribute {attr} not found in {self.__class__.__name__}"
+        assert attr in self.model_fields, f"Attribute {attr} not found in {self.__class__.__name__}"
 
         if prefix:
             validate_prefix(term, prefix)
@@ -833,7 +850,10 @@ class Immobilised(BaseModel):
         self.ld_context[attr] = term
 
     def add_type_term(
-        self, term: str, prefix: str | None = None, iri: str | None = None
+        self,
+        term: str,
+        prefix: str | None = None,
+        iri: str | None = None
     ):
         """Adds a term to the @type field of the JSON-LD object
 
@@ -862,9 +882,10 @@ class Immobilised(BaseModel):
 
 
 class StorageConditions(BaseModel):
-    model_config: ConfigDict = ConfigDict(  # type: ignore
-        validate_assigment=True,
-    )  # type: ignore
+
+    model_config: ConfigDict = ConfigDict( # type: ignore
+        validate_assigment = True,
+    ) # type: ignore
 
     temperature: float
     temperature_unit: str
@@ -876,27 +897,28 @@ class StorageConditions(BaseModel):
     # JSON-LD fields
     ld_id: str = Field(
         serialization_alias="@id",
-        default_factory=lambda: "stbc:StorageConditions/" + str(uuid4()),
+        default_factory=lambda: "stbc:StorageConditions/" + str(uuid4())
     )
     ld_type: list[str] = Field(
         serialization_alias="@type",
-        default_factory=lambda: [
+        default_factory = lambda: [
             "stbc:StorageConditions",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
         serialization_alias="@context",
-        default_factory=lambda: {
+        default_factory = lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        },
+        }
     )
+
 
     def set_attr_term(
         self,
         attr: str,
         term: str | dict,
         prefix: str | None = None,
-        iri: str | None = None,
+        iri: str | None = None
     ):
         """Sets the term for a given attribute in the JSON-LD object
 
@@ -918,9 +940,7 @@ class StorageConditions(BaseModel):
             AssertionError: If the attribute is not found in the model
         """
 
-        assert (
-            attr in self.model_fields
-        ), f"Attribute {attr} not found in {self.__class__.__name__}"
+        assert attr in self.model_fields, f"Attribute {attr} not found in {self.__class__.__name__}"
 
         if prefix:
             validate_prefix(term, prefix)
@@ -929,7 +949,10 @@ class StorageConditions(BaseModel):
         self.ld_context[attr] = term
 
     def add_type_term(
-        self, term: str, prefix: str | None = None, iri: str | None = None
+        self,
+        term: str,
+        prefix: str | None = None,
+        iri: str | None = None
     ):
         """Adds a term to the @type field of the JSON-LD object
 

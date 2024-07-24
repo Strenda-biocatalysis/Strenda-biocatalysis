@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "pHConstant_WMRS",
+  "type": "object",
+  "properties": {
+    "pH_value": {
+      "title": "pH_value",
+      "description": "Value of the pH.",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "detected_when": {
+      "title": "detected_when",
+      "description": "Specification of the timepoint at which the pH was measured. It includes whether the pH value was measured before, during, or after the reaction and whether all components of the reaction solution were     already present or if some were added after the measurement.",
+      "type": "string"
+    },
+    "detected_how": {
+      "title": "detected_how",
+      "description": "The pH value of a reaction can be determined in various ways, such as using a pH meter, pH paper, titration, electrochemical sensors, or other methods.",
+      "type": "string"
+    },
+    "temperature": {
+      "title": "temperature",
+      "description": "The temperature at the time of pH measurement.",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "temperature_unit": {
+      "title": "temperature_unit",
+      "description": "The temperature can be specified in units such as K, °C, or °F.",
+      "type": "string"
+    },
+    "calibration_pH_electrode": {
+      "title": "calibration_pH_electrode",
+      "description": "Usually, a pH electrode is calibrated using standard buffers at 20-25 °C. If the conditions in the reaction mixture differ from this, it should be specified. (",
+      "type": "string"
+    },
+    "special_treatment": {
+      "title": "special_treatment",
+      "description": "If there are any other specific methods, procedures, characteristics or aspects related to the pH value that are important for reproducibility and are not described by the aforementioned                    metadata, they should be explained here.",
+      "type": "string"
+    }
+  },
+  "description": "Information about the pH value in the system, if the pH is constant over the course of the reaction.Event-based pH shift"
+}

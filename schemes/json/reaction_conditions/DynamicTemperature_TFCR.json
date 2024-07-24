@@ -1,0 +1,80 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "DynamicTemperature_TFCR",
+  "type": "object",
+  "properties": {
+    "temperature_beginning": {
+      "title": "temperature_beginning",
+      "description": "The initial temperature, prior to the start of the reaction, should be specified.",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "temperature_after_event": {
+      "title": "temperature_after_event",
+      "description": "The temperature that is present after a specific event has occurred.",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "event_description": {
+      "title": "event_description",
+      "description": "Information regarding the event that caused the temperature change. In the case of a fed-batch reaction protocol, this event can also be the planned adjustment of the temperature to another specific        value based on the current progress of the reaction process.",
+      "type": "string"
+    },
+    "temperature_at_XY": {
+      "title": "temperature_at_XY",
+      "description": "The temperature can also be measured at a variably chosen time point",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "time_at_XY": {
+      "title": "time_at_XY",
+      "description": "Specification of the exact time point",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "time_unit": {
+      "title": "time_unit",
+      "description": "Common units for specifying time can be s (seconds), min (minutes) h (hours).",
+      "type": "string"
+    },
+    "temperature_unit": {
+      "title": "temperature_unit",
+      "description": "The temperature can be specified in units such as K, °C, or °F.",
+      "type": "string"
+    },
+    "temperature_gradient_beginning": {
+      "title": "temperature_gradient_beginning",
+      "description": "The initial temperature from which the temperature gradient begins. (",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "temperature_gradient_end": {
+      "title": "temperature_gradient_end",
+      "description": "The target temperature reached after the temperature gradient is applied. (",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "gradient_length": {
+      "title": "gradient_length",
+      "description": "The distance or time span over which the temperature gradient is applied. (",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "gradient_length_unit": {
+      "title": "gradient_length_unit",
+      "description": "The gradient length can be specified either as the physical distance (e.g. in meters) or as the time span (e.g. in minutes). (",
+      "type": "string"
+    },
+    "measurement_points": {
+      "title": "measurement_points",
+      "description": "Information about the locations or time points where temperature measurements are taken to monitor the gradient. This can be important to ensure that the gradient behaves as intended.                       (",
+      "type": "string"
+    },
+    "special_treatment": {
+      "title": "special_treatment",
+      "description": "If there are any other specific methods, procedures, characteristics or aspects related to the temperature profile that are important for reproducibility and are not described by the aforementioned         metadata, they should be explained here.",
+      "type": "string"
+    }
+  },
+  "description": "If there is a temperature gradient or different temperatures are measured in the system, these must be described as well as possible."
+}

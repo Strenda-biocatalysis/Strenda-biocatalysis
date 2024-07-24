@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "LiquidPhase_WMRS",
+  "type": "object",
+  "properties": {
+    "liquid_type": {
+      "title": "liquid_type",
+      "description": "Information about the type of liquid used, whether it is an organic solvent,an aqueous buffer or are mixture of both.",
+      "type": "string"
+    },
+    "liquid_amount": {
+      "title": "liquid_amount",
+      "description": "Amount of the liquid added to the reaction.",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "liquid_unit": {
+      "title": "liquid_unit",
+      "description": "In case of aqueous liquids, mL (milliliter) is often used as unit, in case of organic solvents, volume percentage (Vol %) or volume fraction (Vol/Vol) is utilized.",
+      "type": "string"
+    }
+  },
+  "description": "If more then one liquid phase exists the metadata has to be recorded according to the number of liquid phases.Solid phase"
+}

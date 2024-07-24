@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "MonoliquidSystemDescription_TFCR",
+  "type": "object",
+  "properties": {
+    "solvent_description": {
+      "title": "solvent_description",
+      "description": "The solvent used in the reaction system, e.g. a buffered aqueous solution or an organic solvent.",
+      "type": "string"
+    },
+    "ionic_strength": {
+      "title": "ionic_strength",
+      "description": "Ionic strength calculated according to the dissolved ions in the solvent. The following formula can be used: $$I = \\frac{1}{2} \\sum",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "ionic_strength_unit": {
+      "title": "ionic_strength_unit",
+      "description": "The unit of ionic strength is usually expressed in mol/L (moles per liter), or in mmol/L (millimoles per liter). (",
+      "type": "string"
+    },
+    "further_additives": {
+      "title": "further_additives",
+      "description": "Further additive like cosolvents used to increase solubility of reactants, e.g. DMSO.",
+      "type": "string"
+    },
+    "Flow_rate": {
+      "title": "Flow_rate",
+      "description": "The flow rate must be specified to determine how fast a liquid or gas is flowing through a reactor or system.",
+      "type": "number"
+    },
+    "Flow_rate_unit": {
+      "title": "Flow_rate_unit",
+      "description": "Common units for describing flow rate include L/min (liters per minute), mL/h (milliliters per hour), m³/h (cubic meters per hour), or other volume units per unit of time.",
+      "type": "string"
+    },
+    "special_treatment": {
+      "title": "special_treatment",
+      "description": "If there are any other specific methods, procedures, characteristics or aspects related to the monoliquid system that are important for reproducibility and are not described by the aforementioned           metadata, they should be explained here.",
+      "type": "string"
+    }
+  },
+  "description": "To describe a monoliquid system, precise information about the solvent used and the applied system must be provided."
+}

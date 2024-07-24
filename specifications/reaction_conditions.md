@@ -7,7 +7,7 @@ prefix: "stbc"
 
 <div align="justify">
 
-## Reaction conditions
+# Reaction conditions
 
 The reaction conditions constitute a highly complex and extensive category. Reactions can be performed in aqueous reaction solutions, organic solvents, micro-aqueous reaction solutions, gassed reaction solutions and many more. The reaction conditions can be divided into two fundamental main categories: __monoliquid and multiphasic systems__.
 

@@ -11,7 +11,6 @@ from datetime import date, datetime
 # based on their attributes
 Cls = TypeVar("Cls")
 
-
 class FilterWrapper(Generic[Cls]):
     """Wrapper class to filter a list of objects based on their attributes"""
 
@@ -48,8 +47,7 @@ def add_namespace(obj, prefix: str | None, iri: str | None):
     elif iri and prefix is None:
         raise ValueError("If iri is provided, prefix must also be provided")
 
-    obj.ld_context[prefix] = iri  # type: ignore
-
+    obj.ld_context[prefix] = iri # type: ignore
 
 def validate_prefix(term: str | dict, prefix: str):
     """Validates that a term is prefixed with a given prefix
@@ -67,14 +65,13 @@ def validate_prefix(term: str | dict, prefix: str):
     elif isinstance(term, str) and not term.startswith(prefix + ":"):
         raise ValueError(f"Term {term} is not prefixed with {prefix}")
 
-
 # Model Definitions
 
-
 class Vial(BaseModel):
-    model_config: ConfigDict = ConfigDict(  # type: ignore
-        validate_assigment=True,
-    )  # type: ignore
+
+    model_config: ConfigDict = ConfigDict( # type: ignore
+        validate_assigment = True,
+    ) # type: ignore
 
     vial_size: float
     vial_size_unit: str
@@ -84,27 +81,29 @@ class Vial(BaseModel):
 
     # JSON-LD fields
     ld_id: str = Field(
-        serialization_alias="@id", default_factory=lambda: "stbc:Vial/" + str(uuid4())
+        serialization_alias="@id",
+        default_factory=lambda: "stbc:Vial/" + str(uuid4())
     )
     ld_type: list[str] = Field(
         serialization_alias="@type",
-        default_factory=lambda: [
+        default_factory = lambda: [
             "stbc:Vial",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
         serialization_alias="@context",
-        default_factory=lambda: {
+        default_factory = lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        },
+        }
     )
+
 
     def set_attr_term(
         self,
         attr: str,
         term: str | dict,
         prefix: str | None = None,
-        iri: str | None = None,
+        iri: str | None = None
     ):
         """Sets the term for a given attribute in the JSON-LD object
 
@@ -126,9 +125,7 @@ class Vial(BaseModel):
             AssertionError: If the attribute is not found in the model
         """
 
-        assert (
-            attr in self.model_fields
-        ), f"Attribute {attr} not found in {self.__class__.__name__}"
+        assert attr in self.model_fields, f"Attribute {attr} not found in {self.__class__.__name__}"
 
         if prefix:
             validate_prefix(term, prefix)
@@ -137,7 +134,10 @@ class Vial(BaseModel):
         self.ld_context[attr] = term
 
     def add_type_term(
-        self, term: str, prefix: str | None = None, iri: str | None = None
+        self,
+        term: str,
+        prefix: str | None = None,
+        iri: str | None = None
     ):
         """Adds a term to the @type field of the JSON-LD object
 
@@ -166,9 +166,10 @@ class Vial(BaseModel):
 
 
 class Plate(BaseModel):
-    model_config: ConfigDict = ConfigDict(  # type: ignore
-        validate_assigment=True,
-    )  # type: ignore
+
+    model_config: ConfigDict = ConfigDict( # type: ignore
+        validate_assigment = True,
+    ) # type: ignore
 
     plate_type: str
     plate_material: str
@@ -184,27 +185,29 @@ class Plate(BaseModel):
 
     # JSON-LD fields
     ld_id: str = Field(
-        serialization_alias="@id", default_factory=lambda: "stbc:Plate/" + str(uuid4())
+        serialization_alias="@id",
+        default_factory=lambda: "stbc:Plate/" + str(uuid4())
     )
     ld_type: list[str] = Field(
         serialization_alias="@type",
-        default_factory=lambda: [
+        default_factory = lambda: [
             "stbc:Plate",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
         serialization_alias="@context",
-        default_factory=lambda: {
+        default_factory = lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        },
+        }
     )
+
 
     def set_attr_term(
         self,
         attr: str,
         term: str | dict,
         prefix: str | None = None,
-        iri: str | None = None,
+        iri: str | None = None
     ):
         """Sets the term for a given attribute in the JSON-LD object
 
@@ -226,9 +229,7 @@ class Plate(BaseModel):
             AssertionError: If the attribute is not found in the model
         """
 
-        assert (
-            attr in self.model_fields
-        ), f"Attribute {attr} not found in {self.__class__.__name__}"
+        assert attr in self.model_fields, f"Attribute {attr} not found in {self.__class__.__name__}"
 
         if prefix:
             validate_prefix(term, prefix)
@@ -237,7 +238,10 @@ class Plate(BaseModel):
         self.ld_context[attr] = term
 
     def add_type_term(
-        self, term: str, prefix: str | None = None, iri: str | None = None
+        self,
+        term: str,
+        prefix: str | None = None,
+        iri: str | None = None
     ):
         """Adds a term to the @type field of the JSON-LD object
 
@@ -266,9 +270,10 @@ class Plate(BaseModel):
 
 
 class StirredTankReactor(BaseModel):
-    model_config: ConfigDict = ConfigDict(  # type: ignore
-        validate_assigment=True,
-    )  # type: ignore
+
+    model_config: ConfigDict = ConfigDict( # type: ignore
+        validate_assigment = True,
+    ) # type: ignore
 
     type: str
     material: str
@@ -286,27 +291,28 @@ class StirredTankReactor(BaseModel):
     # JSON-LD fields
     ld_id: str = Field(
         serialization_alias="@id",
-        default_factory=lambda: "stbc:StirredTankReactor/" + str(uuid4()),
+        default_factory=lambda: "stbc:StirredTankReactor/" + str(uuid4())
     )
     ld_type: list[str] = Field(
         serialization_alias="@type",
-        default_factory=lambda: [
+        default_factory = lambda: [
             "stbc:StirredTankReactor",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
         serialization_alias="@context",
-        default_factory=lambda: {
+        default_factory = lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        },
+        }
     )
+
 
     def set_attr_term(
         self,
         attr: str,
         term: str | dict,
         prefix: str | None = None,
-        iri: str | None = None,
+        iri: str | None = None
     ):
         """Sets the term for a given attribute in the JSON-LD object
 
@@ -328,9 +334,7 @@ class StirredTankReactor(BaseModel):
             AssertionError: If the attribute is not found in the model
         """
 
-        assert (
-            attr in self.model_fields
-        ), f"Attribute {attr} not found in {self.__class__.__name__}"
+        assert attr in self.model_fields, f"Attribute {attr} not found in {self.__class__.__name__}"
 
         if prefix:
             validate_prefix(term, prefix)
@@ -339,7 +343,10 @@ class StirredTankReactor(BaseModel):
         self.ld_context[attr] = term
 
     def add_type_term(
-        self, term: str, prefix: str | None = None, iri: str | None = None
+        self,
+        term: str,
+        prefix: str | None = None,
+        iri: str | None = None
     ):
         """Adds a term to the @type field of the JSON-LD object
 
@@ -368,9 +375,10 @@ class StirredTankReactor(BaseModel):
 
 
 class TubularFlowContinuousReactor(BaseModel):
-    model_config: ConfigDict = ConfigDict(  # type: ignore
-        validate_assigment=True,
-    )  # type: ignore
+
+    model_config: ConfigDict = ConfigDict( # type: ignore
+        validate_assigment = True,
+    ) # type: ignore
 
     volume: float
     volume_unit: str
@@ -384,27 +392,28 @@ class TubularFlowContinuousReactor(BaseModel):
     # JSON-LD fields
     ld_id: str = Field(
         serialization_alias="@id",
-        default_factory=lambda: "stbc:TubularFlowContinuousReactor/" + str(uuid4()),
+        default_factory=lambda: "stbc:TubularFlowContinuousReactor/" + str(uuid4())
     )
     ld_type: list[str] = Field(
         serialization_alias="@type",
-        default_factory=lambda: [
+        default_factory = lambda: [
             "stbc:TubularFlowContinuousReactor",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
         serialization_alias="@context",
-        default_factory=lambda: {
+        default_factory = lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        },
+        }
     )
+
 
     def set_attr_term(
         self,
         attr: str,
         term: str | dict,
         prefix: str | None = None,
-        iri: str | None = None,
+        iri: str | None = None
     ):
         """Sets the term for a given attribute in the JSON-LD object
 
@@ -426,9 +435,7 @@ class TubularFlowContinuousReactor(BaseModel):
             AssertionError: If the attribute is not found in the model
         """
 
-        assert (
-            attr in self.model_fields
-        ), f"Attribute {attr} not found in {self.__class__.__name__}"
+        assert attr in self.model_fields, f"Attribute {attr} not found in {self.__class__.__name__}"
 
         if prefix:
             validate_prefix(term, prefix)
@@ -437,7 +444,10 @@ class TubularFlowContinuousReactor(BaseModel):
         self.ld_context[attr] = term
 
     def add_type_term(
-        self, term: str, prefix: str | None = None, iri: str | None = None
+        self,
+        term: str,
+        prefix: str | None = None,
+        iri: str | None = None
     ):
         """Adds a term to the @type field of the JSON-LD object
 
@@ -466,9 +476,10 @@ class TubularFlowContinuousReactor(BaseModel):
 
 
 class Shaking(BaseModel):
-    model_config: ConfigDict = ConfigDict(  # type: ignore
-        validate_assigment=True,
-    )  # type: ignore
+
+    model_config: ConfigDict = ConfigDict( # type: ignore
+        validate_assigment = True,
+    ) # type: ignore
 
     shaking_type: str
     deflection: float
@@ -481,27 +492,28 @@ class Shaking(BaseModel):
     # JSON-LD fields
     ld_id: str = Field(
         serialization_alias="@id",
-        default_factory=lambda: "stbc:Shaking/" + str(uuid4()),
+        default_factory=lambda: "stbc:Shaking/" + str(uuid4())
     )
     ld_type: list[str] = Field(
         serialization_alias="@type",
-        default_factory=lambda: [
+        default_factory = lambda: [
             "stbc:Shaking",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
         serialization_alias="@context",
-        default_factory=lambda: {
+        default_factory = lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        },
+        }
     )
+
 
     def set_attr_term(
         self,
         attr: str,
         term: str | dict,
         prefix: str | None = None,
-        iri: str | None = None,
+        iri: str | None = None
     ):
         """Sets the term for a given attribute in the JSON-LD object
 
@@ -523,9 +535,7 @@ class Shaking(BaseModel):
             AssertionError: If the attribute is not found in the model
         """
 
-        assert (
-            attr in self.model_fields
-        ), f"Attribute {attr} not found in {self.__class__.__name__}"
+        assert attr in self.model_fields, f"Attribute {attr} not found in {self.__class__.__name__}"
 
         if prefix:
             validate_prefix(term, prefix)
@@ -534,7 +544,10 @@ class Shaking(BaseModel):
         self.ld_context[attr] = term
 
     def add_type_term(
-        self, term: str, prefix: str | None = None, iri: str | None = None
+        self,
+        term: str,
+        prefix: str | None = None,
+        iri: str | None = None
     ):
         """Adds a term to the @type field of the JSON-LD object
 
@@ -563,9 +576,10 @@ class Shaking(BaseModel):
 
 
 class MechanicallyImpelledMixing(BaseModel):
-    model_config: ConfigDict = ConfigDict(  # type: ignore
-        validate_assigment=True,
-    )  # type: ignore
+
+    model_config: ConfigDict = ConfigDict( # type: ignore
+        validate_assigment = True,
+    ) # type: ignore
 
     stirring_type: str
     stirrer_material: str
@@ -592,27 +606,28 @@ class MechanicallyImpelledMixing(BaseModel):
     # JSON-LD fields
     ld_id: str = Field(
         serialization_alias="@id",
-        default_factory=lambda: "stbc:MechanicallyImpelledMixing/" + str(uuid4()),
+        default_factory=lambda: "stbc:MechanicallyImpelledMixing/" + str(uuid4())
     )
     ld_type: list[str] = Field(
         serialization_alias="@type",
-        default_factory=lambda: [
+        default_factory = lambda: [
             "stbc:MechanicallyImpelledMixing",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
         serialization_alias="@context",
-        default_factory=lambda: {
+        default_factory = lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        },
+        }
     )
+
 
     def set_attr_term(
         self,
         attr: str,
         term: str | dict,
         prefix: str | None = None,
-        iri: str | None = None,
+        iri: str | None = None
     ):
         """Sets the term for a given attribute in the JSON-LD object
 
@@ -634,9 +649,7 @@ class MechanicallyImpelledMixing(BaseModel):
             AssertionError: If the attribute is not found in the model
         """
 
-        assert (
-            attr in self.model_fields
-        ), f"Attribute {attr} not found in {self.__class__.__name__}"
+        assert attr in self.model_fields, f"Attribute {attr} not found in {self.__class__.__name__}"
 
         if prefix:
             validate_prefix(term, prefix)
@@ -645,7 +658,10 @@ class MechanicallyImpelledMixing(BaseModel):
         self.ld_context[attr] = term
 
     def add_type_term(
-        self, term: str, prefix: str | None = None, iri: str | None = None
+        self,
+        term: str,
+        prefix: str | None = None,
+        iri: str | None = None
     ):
         """Adds a term to the @type field of the JSON-LD object
 
@@ -674,9 +690,10 @@ class MechanicallyImpelledMixing(BaseModel):
 
 
 class LiquidOrGasImpelledMixing(BaseModel):
-    model_config: ConfigDict = ConfigDict(  # type: ignore
-        validate_assigment=True,
-    )  # type: ignore
+
+    model_config: ConfigDict = ConfigDict( # type: ignore
+        validate_assigment = True,
+    ) # type: ignore
 
     volume_of_liquid_solid_phase: str
     residence_time: float
@@ -690,27 +707,28 @@ class LiquidOrGasImpelledMixing(BaseModel):
     # JSON-LD fields
     ld_id: str = Field(
         serialization_alias="@id",
-        default_factory=lambda: "stbc:LiquidOrGasImpelledMixing/" + str(uuid4()),
+        default_factory=lambda: "stbc:LiquidOrGasImpelledMixing/" + str(uuid4())
     )
     ld_type: list[str] = Field(
         serialization_alias="@type",
-        default_factory=lambda: [
+        default_factory = lambda: [
             "stbc:LiquidOrGasImpelledMixing",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
         serialization_alias="@context",
-        default_factory=lambda: {
+        default_factory = lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        },
+        }
     )
+
 
     def set_attr_term(
         self,
         attr: str,
         term: str | dict,
         prefix: str | None = None,
-        iri: str | None = None,
+        iri: str | None = None
     ):
         """Sets the term for a given attribute in the JSON-LD object
 
@@ -732,9 +750,7 @@ class LiquidOrGasImpelledMixing(BaseModel):
             AssertionError: If the attribute is not found in the model
         """
 
-        assert (
-            attr in self.model_fields
-        ), f"Attribute {attr} not found in {self.__class__.__name__}"
+        assert attr in self.model_fields, f"Attribute {attr} not found in {self.__class__.__name__}"
 
         if prefix:
             validate_prefix(term, prefix)
@@ -743,7 +759,10 @@ class LiquidOrGasImpelledMixing(BaseModel):
         self.ld_context[attr] = term
 
     def add_type_term(
-        self, term: str, prefix: str | None = None, iri: str | None = None
+        self,
+        term: str,
+        prefix: str | None = None,
+        iri: str | None = None
     ):
         """Adds a term to the @type field of the JSON-LD object
 

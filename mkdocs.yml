@@ -1,10 +1,12 @@
-site_name: Strenda Biocatalysis
+site_name: STRENDA Biocatalysis
 repo_url: https://github.com/Strenda-biocatalysis/Strenda-biocatalysis
 edit_uri: edit/main/docs/
 plugins:
   - mkdocs-jupyter
   - search
 markdown_extensions:
+  - attr_list
+  - md_in_html
   - admonition
   - pymdownx.details
   - pymdownx.superfences:

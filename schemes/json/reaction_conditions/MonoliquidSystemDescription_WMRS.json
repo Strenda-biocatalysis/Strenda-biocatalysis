@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "MonoliquidSystemDescription_WMRS",
+  "type": "object",
+  "properties": {
+    "solvent_description": {
+      "title": "solvent_description",
+      "description": "The solvent used in the reaction system, e.g. a buffered aqueous solution or an organic solvent.",
+      "type": "string"
+    },
+    "ionic_strength": {
+      "title": "ionic_strength",
+      "description": "Ionic strength calculated according to the dissolved ions in the solvent. The following formula can be used: $$I = \\frac{1}{2} \\sum",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "ionic_strength_unit": {
+      "title": "ionic_strength_unit",
+      "description": "The unit of ionic strength is usually expressed in mol/L (moles per liter), or in mmol/L (millimoles per liter). (",
+      "type": "string"
+    },
+    "further_additives": {
+      "title": "further_additives",
+      "description": "Further additive like cosolvents used to increase solubility of components, e.g. DMSO.",
+      "type": "string"
+    },
+    "special_treatment": {
+      "title": "special_treatment",
+      "description": "If there are any other specific methods, procedures, characteristics or aspects related to the monoliquid system that are important for reproducibility and are not described by the aforementioned           metadata, they should be explained here.",
+      "type": "string"
+    }
+  },
+  "description": "To describe a monoliquid system, precise information about the solvent (mixture) used and the applied reaction system must be provided."
+}

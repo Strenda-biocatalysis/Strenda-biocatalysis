@@ -8,6 +8,7 @@ paths = [
     "specifications/results.md",
     "specifications/sampling.md",
     "specifications/vessels_and_mixing.md",
+    "specifications/reaction_conditions.md",
 ]
 
 [generate]
@@ -15,3 +16,4 @@ xml-schema = { out = "schemes/xml/*.xsd", per-spec = true }
 json-schema-all = { out = "schemes/json/", per-spec = true }
 python-pydantic = { out = "python/strendabiocat/*.py", per-spec = true }
 mk-docs = { out = "docs/guidelines/*.md", per-spec = true }
+typescript = { out = "typescript/src/*.ts", per-spec = true }
