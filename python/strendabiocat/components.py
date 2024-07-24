@@ -11,6 +11,7 @@ from datetime import date, datetime
 # based on their attributes
 Cls = TypeVar("Cls")
 
+
 class FilterWrapper(Generic[Cls]):
     """Wrapper class to filter a list of objects based on their attributes"""
 
@@ -47,7 +48,8 @@ def add_namespace(obj, prefix: str | None, iri: str | None):
     elif iri and prefix is None:
         raise ValueError("If iri is provided, prefix must also be provided")
 
-    obj.ld_context[prefix] = iri # type: ignore
+    obj.ld_context[prefix] = iri  # type: ignore
+
 
 def validate_prefix(term: str | dict, prefix: str):
     """Validates that a term is prefixed with a given prefix
@@ -65,13 +67,14 @@ def validate_prefix(term: str | dict, prefix: str):
     elif isinstance(term, str) and not term.startswith(prefix + ":"):
         raise ValueError(f"Term {term} is not prefixed with {prefix}")
 
+
 # Model Definitions
 
-class Components(BaseModel):
 
-    model_config: ConfigDict = ConfigDict( # type: ignore
-        validate_assigment = True,
-    ) # type: ignore
+class Components(BaseModel):
+    model_config: ConfigDict = ConfigDict(  # type: ignore
+        validate_assigment=True,
+    )  # type: ignore
 
     name: str
     smiles: str
@@ -87,28 +90,27 @@ class Components(BaseModel):
     # JSON-LD fields
     ld_id: str = Field(
         serialization_alias="@id",
-        default_factory=lambda: "stbc:Components/" + str(uuid4())
+        default_factory=lambda: "stbc:Components/" + str(uuid4()),
     )
     ld_type: list[str] = Field(
         serialization_alias="@type",
-        default_factory = lambda: [
+        default_factory=lambda: [
             "stbc:Components",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
         serialization_alias="@context",
-        default_factory = lambda: {
+        default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        }
+        },
     )
-
 
     def set_attr_term(
         self,
         attr: str,
         term: str | dict,
         prefix: str | None = None,
-        iri: str | None = None
+        iri: str | None = None,
     ):
         """Sets the term for a given attribute in the JSON-LD object
 
@@ -130,7 +132,9 @@ class Components(BaseModel):
             AssertionError: If the attribute is not found in the model
         """
 
-        assert attr in self.model_fields, f"Attribute {attr} not found in {self.__class__.__name__}"
+        assert (
+            attr in self.model_fields
+        ), f"Attribute {attr} not found in {self.__class__.__name__}"
 
         if prefix:
             validate_prefix(term, prefix)
@@ -139,10 +143,7 @@ class Components(BaseModel):
         self.ld_context[attr] = term
 
     def add_type_term(
-        self,
-        term: str,
-        prefix: str | None = None,
-        iri: str | None = None
+        self, term: str, prefix: str | None = None, iri: str | None = None
     ):
         """Adds a term to the @type field of the JSON-LD object
 
@@ -171,10 +172,9 @@ class Components(BaseModel):
 
 
 class StorageConditions(BaseModel):
-
-    model_config: ConfigDict = ConfigDict( # type: ignore
-        validate_assigment = True,
-    ) # type: ignore
+    model_config: ConfigDict = ConfigDict(  # type: ignore
+        validate_assigment=True,
+    )  # type: ignore
 
     temperature: float
     temperature_unit: str
@@ -185,28 +185,27 @@ class StorageConditions(BaseModel):
     # JSON-LD fields
     ld_id: str = Field(
         serialization_alias="@id",
-        default_factory=lambda: "stbc:StorageConditions/" + str(uuid4())
+        default_factory=lambda: "stbc:StorageConditions/" + str(uuid4()),
     )
     ld_type: list[str] = Field(
         serialization_alias="@type",
-        default_factory = lambda: [
+        default_factory=lambda: [
             "stbc:StorageConditions",
         ],
     )
     ld_context: dict[str, str | dict] = Field(
         serialization_alias="@context",
-        default_factory = lambda: {
+        default_factory=lambda: {
             "stbc": "https://www.github.com/my/repo/",
-        }
+        },
     )
-
 
     def set_attr_term(
         self,
         attr: str,
         term: str | dict,
         prefix: str | None = None,
-        iri: str | None = None
+        iri: str | None = None,
     ):
         """Sets the term for a given attribute in the JSON-LD object
 
@@ -228,7 +227,9 @@ class StorageConditions(BaseModel):
             AssertionError: If the attribute is not found in the model
         """
 
-        assert attr in self.model_fields, f"Attribute {attr} not found in {self.__class__.__name__}"
+        assert (
+            attr in self.model_fields
+        ), f"Attribute {attr} not found in {self.__class__.__name__}"
 
         if prefix:
             validate_prefix(term, prefix)
@@ -237,10 +238,7 @@ class StorageConditions(BaseModel):
         self.ld_context[attr] = term
 
     def add_type_term(
-        self,
-        term: str,
-        prefix: str | None = None,
-        iri: str | None = None
+        self, term: str, prefix: str | None = None, iri: str | None = None
     ):
         """Adds a term to the @type field of the JSON-LD object
 
