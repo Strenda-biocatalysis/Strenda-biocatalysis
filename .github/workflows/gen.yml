@@ -22,7 +22,7 @@ jobs:
           override: true
 
       - name: Install MD-Models
-        run: cargo install --git https://github.com/JR-1991/md-models.git
+        run: cargo install mdmodels
 
       - name: Run the generation pipeline
         run: md-models pipeline -i gen.toml
