@@ -11,7 +11,8 @@ prefix: "stbc"
 
 This category contains all information required to unambiguously identify the catalyst, its formulation and storage.
 
-<img src="https://github.com/StephanM87/Strenda-biocatalysis/assets/106530250/a5a79a07-adfb-4ad6-8967-51b59746fa87" width="500">
+<img src="https://github.com/user-attachments/assets/65a2332a-85f9-45f5-a078-61a421f54fac" width="500">
+
 
 ## Source of the biocatalyst
 
