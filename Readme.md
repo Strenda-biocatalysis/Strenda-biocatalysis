@@ -20,7 +20,7 @@ The operation mode is the first step in the experimental planning, it describes 
 
 [Operation mode](specifications/operation_mode.md)
 
-[<img src="assets\Hexagons-operation-mode.png" width=100>](specifications/operation_mode.md)
+[<img src="https://github.com/user-attachments/assets/83cfcf83-ccad-46e2-8eba-f99ebb11d813" width=100>](specifications/operation_mode.md)
 
 
 ## Vessel type and mixing (hydrodynamics)
@@ -29,7 +29,7 @@ When discussing enzymatic reactions, it's essential to address the vessel type a
 
 [Vessel type and mixing (hydrodynamics)](specifications/vessels_and_mixing.md)
 
-[<img src="assets\Hexagons-vessel.png" width=100>](specifications/vessels_and_mixing.md)
+[<img src="https://github.com/user-attachments/assets/40e5127b-b089-4678-ad9b-9684c845187c" width=100>](specifications/vessels_and_mixing.md)
 
 
 ## (Bio)catalyst
@@ -38,8 +38,7 @@ Closely examining the role of the biocatalyst is a fundamental aspect in the con
 
 [(Bio)catalyst](specifications/biocatalyst.md)
 
-[<img src="assets\Hexagon-enzyme.png" width=100>](specifications/biocatalyst.md)
-
+[<img src="https://github.com/user-attachments/assets/d8d85384-40d2-4335-8738-ced715cff17a" width=100>](specifications/biocatalyst.md)
   
 ## Components
 
@@ -47,7 +46,7 @@ Exploring the components involved in the reaction mixture is essential for a com
 
 [Components](specifications/components.md)
 
-[<img src="assets\Hexagons-reactants.png" width=100>](specifications/components.md)
+[<img src="https://github.com/user-attachments/assets/32c9c5eb-2f76-4f65-9407-b977de29cc37" width=100>](specifications/components.md)
 
 
 ## Reaction conditions
@@ -56,7 +55,7 @@ Examining the reaction conditions provides critical insights into the enzymatic 
 
 [Reaction conditions](specifications/reaction_conditions.md)
 
-[<img src="assets\Hexagons-conditions.png" width=100>](specifications/reaction_conditions.md)
+[<img src="https://github.com/user-attachments/assets/4bf50aaa-32ba-4d28-86a9-bd25667e4a05" width=100>](specifications/reaction_conditions.md)
 
 
 ## Sampling
@@ -65,8 +64,7 @@ Understanding the sampling process is crucial for obtaining reliable data in enz
 
 [Sampling](specifications/sampling.md)
 
-[<img src="assets\Hexagons-sampling.png" width=100>](specifications/sampling.md)
-
+[<img src="https://github.com/user-attachments/assets/40e71202-fa62-445c-8456-530fdf445ccc" width=100>](specifications/sampling.md)
 
 
 <blockquote>
@@ -77,7 +75,7 @@ The systematic recording and description of experimental outcomes and data obtai
 
 [Results documentation](specifications/results.md)
 
-[<img src="https://github.com/DomMSNR/Strenda-biocatalysis/assets/106530250/c5049a15-ecae-4273-ac2d-b7f1c94c6239" width=100>](specifications/results.md)
+[<img src="https://github.com/user-attachments/assets/5224fc59-c70b-4f49-a4c3-ad92cf7b2836" width=100>](specifications/results.md)
 
 
 </blockquote>
