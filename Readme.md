@@ -25,7 +25,7 @@ The operation mode is the first step in the experimental planning, it describes 
 
 ## Vessel type and mixing (hydrodynamics)
 
-When discussing enzymatic reactions, it's essential to address the vessel type and its influence on mixing and hydrodynamics.
+When discussing enzymatic reactions, it is essential to address the vessel type and its influence on mixing and hydrodynamics.
 
 [Vessel type and mixing (hydrodynamics)](specifications/vessels_and_mixing.md)
 
