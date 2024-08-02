@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg width="47.5mm" height="54mm" version="1.1" viewBox="0 0 47.5 54" xmlns="http://www.w3.org/2000/svg" xmlns:serif="http://www.serif.com/">
+ <rect x="-2.235" y="-4.8426" width="55.007" height="60.967" ry="2.712" fill="#fff"/>
+ <g transform="translate(-167.08 -141.07)" clip-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1.5">
+  <g transform="matrix(.083946 0 0 .083946 116.85 83.479)" fill-rule="evenodd">
+   <path d="m879.6 694.21 271.76 156.9v313.81l-271.76 156.91-271.77-156.91v-313.81z" fill="none" stroke="#eb5f73" stroke-width="12.5px"/>
+  </g>
+  <g>
+   <g transform="matrix(.07847 0 0 .07847 157.22 129.6)" fill-rule="evenodd">
+    <g>
+     <g transform="matrix(.83876 0 0 1 36.512 -318.84)" serif:id="rect1114">
+      <path d="m366.8 636.66s9.109 3.722 22.053 9.004c8.211 3.351 19.461 9.199 26.121 9.14 6.493-0.058 11.409-2.499 19.228-6.004 10.557-4.732 23.316-5.883 23.316-5.883s10.24 2.743 25.667 5.73c0 0 6.841-5.045 13.534-3.877 8.443 1.475 17.76 9.138 25.21 7.963 22.511-3.551 41.323-16.073 41.323-16.073v150.16h-196.45z" fill="#adbde3"/>
+     </g>
+     <path d="m336.91 276.04v197.02h179.29v-196.71" fill="none" stroke="#000" stroke-width="7.73px"/>
+     <path d="m336.91 276.04v197.02h179.29v-196.71" fill="none" stroke="#000" stroke-opacity=".52" stroke-width="14.26px"/>
+    </g>
+   </g>
+   <g transform="matrix(.07847 0 0 .07847 157.22 147.81)" fill-rule="evenodd">
+    <g>
+     <g transform="matrix(.83876 0 0 1 36.512 -318.84)" serif:id="rect1114">
+      <path d="m366.8 636.66s9.109 3.722 22.053 9.004c8.211 3.351 19.461 9.199 26.121 9.14 6.493-0.058 11.409-2.499 19.228-6.004 10.557-4.732 23.316-5.883 23.316-5.883s10.24 2.743 25.667 5.73c0 0 6.841-5.045 13.534-3.877 8.443 1.475 17.76 9.138 25.21 7.963 22.511-3.551 41.323-16.073 41.323-16.073v150.16h-196.45z" fill="#adbde3"/>
+     </g>
+     <path d="m336.91 276.04v197.02h179.29v-196.71" fill="none" stroke="#000" stroke-width="7.73px"/>
+     <path d="m336.91 276.04v197.02h179.29v-196.71" fill="none" stroke="#000" stroke-opacity=".52" stroke-width="14.26px"/>
+    </g>
+   </g>
+   <g transform="translate(7.6519)">
+    <path d="m194.81 174.79 4.8244 2.4118-4.8244 2.4118c1.2063-1.2055 1.2063-3.6172 0-4.8235z" fill-rule="evenodd" stroke-width=".083946"/>
+    <path d="m191.24 177.21h4.5406" fill="none" stroke="#000" stroke-width="1.119px"/>
+   </g>
+   <g transform="translate(-16.59)">
+    <path d="m194.81 174.79 4.8244 2.4118-4.8244 2.4118c1.2063-1.2055 1.2063-3.6172 0-4.8235z" fill-rule="evenodd" stroke-width=".083946"/>
+    <path d="m191.24 177.21h4.5406" fill="none" stroke="#000" stroke-width="1.119px"/>
+   </g>
+  </g>
+ </g>
+</svg>

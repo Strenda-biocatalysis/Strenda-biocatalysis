@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg width="47.5mm" height="54mm" version="1.1" viewBox="0 0 47.5 54" xmlns="http://www.w3.org/2000/svg">
+ <rect x="-2.235" y="-4.8426" width="55.007" height="60.967" ry="2.712" fill="#fff"/>
+ <g transform="translate(5.2318 -32.719)" clip-rule="evenodd" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1.5">
+  <g transform="matrix(.083946 0 0 .083946 -55.457 -24.871)" stroke="#000">
+   <path d="m879.6 694.21 271.76 156.9v313.81l-271.76 156.91-271.77-156.91v-313.81z" fill="none" stroke="#000" stroke-width="12.5px"/>
+  </g>
+  <g id="noun-arrow-1929463.svg" transform="matrix(.036912 0 0 .039957 17.294 59.256)">
+   <g transform="translate(-350,-350)">
+    <g>
+     <g>
+      <g transform="translate(-38.848 24.683)">
+       <path d="m231.69 366.02h373.2l-186.73 246.06z" stroke="#000" stroke-width="1px"/>
+      </g>
+      <g transform="matrix(1 0 0 1.1209 -38.848 -19.569)">
+       <path d="m338.89 366.02 79.399-270.13 80.724 270.13z" stroke="#000" stroke-width=".94px"/>
+      </g>
+     </g>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>
