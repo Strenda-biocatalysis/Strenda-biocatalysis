@@ -5,7 +5,7 @@
   "properties": {
     "name": {
       "title": "name",
-      "description": "The name of the biocatalyst can be either generic based on the catalyzed reaction, for example, 'lipase' or more specifically by describing the genus and species, such as '",
+      "description": "The name of the biocatalyst can be either generic based on the catalyzed reaction, for example, 'lipase', named after substrate specificty such as 'lactase', or more specifically by describing the genus and species e.g. 'Bacillus subtilis protease', sometimes it also can be a number letter combination such as 'CHMO-M15', a abberviation, such as 'EaGK, KatG' or common names such as 'trypsin'",
       "type": "string"
     },
     "ec_number": {
@@ -26,7 +26,7 @@
     },
     "catalyzed_reaction": {
       "title": "catalyzed_reaction",
-      "description": "The reaction catalyzed by the biocatalyst.",
+      "description": "The chemical reaction catalyzed by the biocatalyst.",
       "type": "string"
     },
     "sequence_amino_acid": {
@@ -36,32 +36,32 @@
     },
     "sequence_DNA": {
       "title": "sequence_DNA",
-      "description": "The DNA sequence of the biocatalyst including any tags and linkers.",
+      "description": "The DNA sequence of the biocatalyst including any tags and linkers. DNA sequence consisted out of Adenine (A), Thymine (T), Cytosine (C), and Guanine (G), e.g. ATGGAT",
       "type": "string"
     },
     "sequence_plasmid": {
       "title": "sequence_plasmid",
-      "description": "The DNA sequence of the plasmid used to produce the biocatalyst. The sequence can be provided in plain text or as a database ID.",
+      "description": "The DNA sequence of the plasmid used to produce the biocatalyst. The sequence can be provided in plain text, as a database ID, or the name of the plasmid can be mentioned, e.g. pET28.",
       "type": "string"
     },
     "plasmid_specifications": {
       "title": "plasmid_specifications",
-      "description": "All DNA sequence changes (e.g. codon optimization for",
+      "description": "All DNA sequence changes (e.g. codon optimization for [production_organism] auch as E. coli or K. pastoris)",
       "type": "string"
     },
     "origin_organism": {
       "title": "origin_organism",
-      "description": "The specific species or source from which the enzyme is derived or isolated. It includes information about the genus and species of the organism. (",
+      "description": "The specific species or source from which the enzyme is derived or isolated. It includes information about the genus and species of the organism. However, the cell type from which the biocatalyst is derived could be bacterial, as well as plant, animal, or other sources. Organism names are usually written in italic and consisted out of two words; however can be also shortern to the inital letter of the organismn and the second word for bacteria e.g. Escherichia coli or E. coli, Bacillus subtilis or B. subtilis, Acinetobacter johnsonii or A. johnsonii",
       "type": "string"
     },
     "production_organism": {
       "title": "production_organism",
-      "description": "Information about the organism in which the biocatalyst was produced is crucial in the context of heterologous gene expression. If the production strain was purchased, more detailed information on the manufacturer and the organism should be provided.",
+      "description": "Information about the organism in which the biocatalyst was produced is crucial in the context of heterologous gene expression. Organism names are usually written in italic and consisted out of two words; however can be also shortern to the inital letter of the organismn and the second word for bacteria e.g. Escherichia coli or E. coli or yest e.g. Komagataella pastoris or K. pastoris, both are commonly used as production organisms.",
       "type": "string"
     },
     "posttranslational_modification": {
       "title": "posttranslational_modification",
-      "description": "Information about any chemical modifications or alterations that occur to the biocatalyst's protein structure after translation, such as phosphorylation, glycosylation, acetylation,               methylation, ubiquitination and other modifications.",
+      "description": "Information about any chemical modifications or alterations that occur to the biocatalyst's protein structure after translation, such as phosphorylation, glycosylation, acetylation, methylation, ubiquitination and other modifications. at a certain amino acid position e.g. ubiquitination at lysine residue 200 was detected.",
       "type": "string"
     },
     "purity": {
@@ -71,22 +71,22 @@
     },
     "purity_specification": {
       "title": "purity_specification",
-      "description": "The choice of method for the purity determination depends on the type of enzyme and the available resources and may include gel electrophoresis, HPLC, ELISA, Western blotting, etc.",
+      "description": "The choice of method for the purity determination depends on the type of enzyme and the available resources and may include gel electrophoresis, like 'SDS-PAGE', HPLC, ELISA, Western blotting, etc.",
       "type": "string"
     },
     "purification_method": {
       "title": "purification_method",
-      "description": "The choice of purification methods is diverse and can impact the enzyme, with possible methods including chromatographic techniques, precipitation, HPLC, ultrafiltration, dialysis, salt fractionation,      etc.",
+      "description": "The choice of purification methods is diverse and can impact the enzyme, with possible methods including chromatographic techniques, such as 'immobilized metal affinity chromatography (IMAC) or ion-exchange chromatography (IEX)', precipitation with e.g. 'ammonium sulphate', HPLC, ultrafiltration, dialysis, salt fractionation, etc.",
       "type": "string"
     },
     "formulation": {
       "title": "formulation",
-      "description": "Depending on the formulation, the biocatalyst can exist either in a dissolved state within a solvent or as a solid powder. It defines the physical state in which the biocatalyst is used. Additional information regarding the application or formulation in the experiment should be entered in the next subcategory.",
+      "description": "Depending on the formulation, the biocatalyst can exist either in a dissolved state within a solvent or as a solid powder. It defines the physical state in which the biocatalyst is used. An example for a solvent would be a buffer that can be composed out of different salts and is set to a pH, sometimes is also glycerol in the formulation e.g. 50 mM Tris-HCl, 200 mM NaCl, 10% glycerol, pH 8; 20 mM HEPES, 10 mM MgCl2, pH 7.2. Additional information regarding the application or formulation in the experiment should be entered in the next subcategory.",
       "type": "string"
     },
     "special_treatment": {
       "title": "special_treatment",
-      "description": "If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.",
+      "description": "If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata, they should be explained here.",
       "type": "string"
     }
   },

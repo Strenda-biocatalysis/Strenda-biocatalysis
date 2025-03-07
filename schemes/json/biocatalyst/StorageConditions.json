@@ -5,7 +5,7 @@
   "properties": {
     "temperature": {
       "title": "temperature",
-      "description": "The temperature at which the reactant is stored.",
+      "description": "The temperature at which the reactant is stored, e.g. stored in at -20 °C, stored in the fridge at 4 °C, stored at room temperature (RT)",
       "type": "number"
     },
     "temperature_unit": {
@@ -15,17 +15,17 @@
     },
     "storage_start": {
       "title": "storage_start",
-      "description": "The date since the biocatalyst has been stored.",
+      "description": "The date since the biocatalyst has been stored, e.g. stored for one week or one day",
       "type": "string"
     },
     "additives": {
       "title": "additives",
-      "description": "Additives for the storage of biocatalyst can include antioxidants, stabilizers, drying agent, or even inert gases (argon, nitrogen), among others.",
+      "description": "Additives for the storage of biocatalyst can include antioxidants, stabilizers (glycerol), drying agent, or even inert gases (argon, nitrogen), among others.",
       "type": "string"
     },
     "drying_method": {
       "title": "drying_method",
-      "description": "For biocatalysts, various drying methods are employed (e.g., freeze-drying, also known as lyophilization, spray-drying, a method that involves atomizing a solution into small particles before drying, or vacuum drying, which removes moisture through low-pressure conditions). (",
+      "description": "For biocatalysts, various drying methods are employed (e.g., freeze-drying, also known as lyophilization, spray-drying, a method that involves atomizing a solution into small particles before drying, or vacuum drying, which removes moisture through low-pressure conditions).",
       "type": "string"
     },
     "special_treatment": {

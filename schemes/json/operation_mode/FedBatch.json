@@ -8,5 +8,5 @@
       "type": "string"
     }
   },
-  "description": "In the fed-batch operation mode, additional compounds (e.g., substrates, acid/base for pH regulation, etc.) are gradually added during the reaction to control reaction conditions or enhance product formation. This mode allows for better control of the reaction progress and can increase productivity."
+  "description": "A fed-batch process refers to a reaction where additional compounds (such as substrates) are gradually or continuously added during the reaction to control the reaction conditions or enhance product formation. A description for a batch reaction could be “Substrates are gradually or continuously added during the reaction."."
 }
