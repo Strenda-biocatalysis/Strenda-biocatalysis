@@ -8,5 +8,7 @@
       "type": "string"
     }
   },
-  "description": "In the continuous operation mode, the reaction operates continuously with substrates continuously supplied and products continuously removed. This mode enables uniform product formation and is particularly suitable for large-scale production."
+  "description": "A continuous process in biocatalysis or industrial chemistry refers to a method where the reaction operates continuously, with substrates constantly supplied into the system and products continuously removed during the process.
+A description for a batch reaction could be “The system/reactor operates continuously with the continuous supply and removal of reactants".
+."
 }
