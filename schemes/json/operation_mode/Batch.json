@@ -8,5 +8,5 @@
       "type": "string"
     }
   },
-  "description": "The batch operation mode represents a fundamental approach in biocatalysis, where all reaction components are mixed simultaneously within a closed system, and the reaction proceeds until a predetermined endpoint is reached. This mode is easy to control and well-suited for producing small batches of products."
+  "description": "A batch process refers to a method where all the required materials (substrates, reactants, solvents, enzymes, etc.) are mixed together in a single, closed system/vessel and the reaction proceeds over a defined period of time until a predetermined endpoint or desired product concentration is reached. A description for a batch reaction could be “All reactants are combined and the reaction was incubated for 24 h.”."
 }
