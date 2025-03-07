@@ -10,12 +10,12 @@
     },
     "smiles": {
       "title": "smiles",
-      "description": "SMILES (Simplified Molecular Input Line Entry System) is a chemical notation used to represent and describe molecular structures in a simplified and human-readable format.",
+      "description": "SMILES (Simplified Molecular Input Line Entry System) is a chemical notation used to represent and describe molecular structures in a simplified and human-readable format, e.g. C1=CC=C(C=C1)C=O",
       "type": "string"
     },
     "persistent_identifier_PID": {
       "title": "persistent_identifier_PID",
-      "description": "One or more identifiers that refer to the compound, such as CAS number, PubChem code, InChI code, etc.",
+      "description": "One or more identifiers that refer to the compound, such as CAS number e.g. 56-65-5, PubChem code e.g. 240, InChI code e.g. InChI=1S/C7H6O/c8-6-7-4-2-1-3-5-7/h1-6H, etc.",
       "type": "string"
     },
     "concentration": {
@@ -31,7 +31,7 @@
     },
     "supplier": {
       "title": "supplier",
-      "description": "Information about the source of the compound, usually a commercial supplier with perhaps product code, but could be preparation in a research lab. Should the component have been synthesized internally,      please include a literature reference detailing its synthesis.",
+      "description": "Information about the source of the compound, usually a commercial supplier with perhaps product code, but could be preparation in a research lab. Should the component have been synthesized internally, please include a literature reference detailing its synthesis.",
       "type": "string"
     },
     "purity": {

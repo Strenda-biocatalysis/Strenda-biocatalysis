@@ -11,7 +11,7 @@
     },
     "concentration_unit": {
       "title": "concentration_unit",
-      "description": "Concentration of the biocatalyst is typically expressed in g/L (grams per liter).",
+      "description": "Concentration of the biocatalyst is typically expressed in g/L (grams per liter) or mg/mL milligrams per milliliter.",
       "type": "string"
     },
     "concentration_determination_method": {
@@ -21,12 +21,12 @@
     },
     "activity": {
       "title": "activity",
-      "description": "The activity of the biocatalyst can be expressed either as volumetric activity, which considers the total activity of the enzyme in the solution, or as specific activity, which takes into account the       enzyme's purity and indicates the activity of an enzyme per unit of enzyme protein or enzyme mass. If the biocatalyst has been purchased, it is advisable to look up more precise information (e.g. via an SOP)            regarding the activities specified by the manufacturer, as these may differ from the values determined by yourself (different activity assays can lead to different activity values). In addition, the loss of activity of the biocatalyst over the storage period should be taken into account.",
+      "description": "The activity of the biocatalyst can be expressed either as volumetric activity, which considers the total activity of the enzyme in the solution, or as specific activity, which takes into account the enzyme's purity and indicates the activity of an enzyme per unit of enzyme protein or enzyme mass. If the biocatalyst has been purchased, it is advisable to look up more precise information (e.g. via an SOP) regarding the activities specified by the manufacturer, as these may differ from the values determined by yourself (different activity assays can lead to different activity values). In addition, the loss of activity of the biocatalyst over the storage period should be taken into account.",
       "type": "number"
     },
     "activity_unit": {
       "title": "activity_unit",
-      "description": "The enzyme's activity can be expressed either as specific activity [][][]",
+      "description": "The enzyme's activity can be expressed either as specific activity (µmol/min)/mg = U/mg (micromole per min per mg = units per milligram) ",
       "type": "string"
     },
     "activity_determination_method": {
@@ -36,14 +36,14 @@
     },
     "formulation": {
       "title": "formulation",
-      "description": "Depending on the formulation, the biocatalyst can be applied dissolved in a solvent or as a dried powder. It defines the physical state in which the biocatalyst is applied in the reaction.",
+      "description": "Depending on the formulation, the biocatalyst can be applied dissolved in a solvent or as a dried powder. It defines the physical state in which the biocatalyst is applied in the reaction.An example for a solvent would be a buffers that can be composed out of different salts and is set to a pH, sometimes is also glycerol in the formulation e.g. 50 mM Tris-HCl, 200 mM NaCl, 10% glycerol, pH 8; 20 mM HEPES, 10 mM MgCl2, pH 7.2. Additional information regarding the application or formulation in the experiment should be entered in the next subcategory.",
       "type": "string"
     },
     "special_treatment": {
       "title": "special_treatment",
-      "description": "If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.",
+      "description": "If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata, they should be explained here.",
       "type": "string"
     }
   },
-  "description": "The soluble enzyme refers to purified enzyme.Crude cell extract"
+  "description": "The soluble enzyme refers to purified enzyme."
 }

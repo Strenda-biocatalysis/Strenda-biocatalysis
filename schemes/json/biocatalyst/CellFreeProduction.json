@@ -16,7 +16,7 @@
     },
     "concentration_unit": {
       "title": "concentration_unit",
-      "description": "Concentration of the biocatalyst is typically expressed in g/L (grams per liter).",
+      "description": "Concentration of the biocatalyst is typically expressed in g/L (grams per liter) or mg/mL.",
       "type": "string"
     },
     "concentration_determination_method": {
@@ -26,7 +26,7 @@
     },
     "special_treatment": {
       "title": "special_treatment",
-      "description": "If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.",
+      "description": "If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata, they should be explained here.",
       "type": "string"
     }
   },
