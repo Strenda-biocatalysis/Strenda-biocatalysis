@@ -1,0 +1,5370 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix stbc: <https://biocat.strenda.io#> .
+
+
+#########################################################
+# Class-scoped prefixes
+#########################################################
+
+@prefix StrendaBiocatalysis: <https://biocat.strenda.io#StrendaBiocatalysis/> .
+@prefix ReactionConditions: <https://biocat.strenda.io#ReactionConditions/> .
+@prefix ReactorSetup: <https://biocat.strenda.io#ReactorSetup/> .
+@prefix FlowConditions: <https://biocat.strenda.io#FlowConditions/> .
+@prefix ReactionSystem: <https://biocat.strenda.io#ReactionSystem/> .
+@prefix MonoliquidSystem: <https://biocat.strenda.io#MonoliquidSystem/> .
+@prefix MultiphasicSystem: <https://biocat.strenda.io#MultiphasicSystem/> .
+@prefix Phase: <https://biocat.strenda.io#Phase/> .
+@prefix TemperatureProfile: <https://biocat.strenda.io#TemperatureProfile/> .
+@prefix ProfilePoint: <https://biocat.strenda.io#ProfilePoint/> .
+@prefix Gradient: <https://biocat.strenda.io#Gradient/> .
+@prefix PHProfile: <https://biocat.strenda.io#PHProfile/> .
+@prefix PHPoint: <https://biocat.strenda.io#PHPoint/> .
+@prefix PHGradient: <https://biocat.strenda.io#PHGradient/> .
+@prefix PHDetection: <https://biocat.strenda.io#PHDetection/> .
+@prefix UnitDefinition: <https://biocat.strenda.io#UnitDefinition/> .
+@prefix BaseUnit: <https://biocat.strenda.io#BaseUnit/> .
+@prefix Quantity: <https://biocat.strenda.io#Quantity/> .
+@prefix StorageConditions: <https://biocat.strenda.io#StorageConditions/> .
+@prefix VesselAndMixing: <https://biocat.strenda.io#VesselAndMixing/> .
+@prefix Vessel: <https://biocat.strenda.io#Vessel/> .
+@prefix Closure: <https://biocat.strenda.io#Closure/> .
+@prefix ReactorSpecifics: <https://biocat.strenda.io#ReactorSpecifics/> .
+@prefix GasHandling: <https://biocat.strenda.io#GasHandling/> .
+@prefix Mixing: <https://biocat.strenda.io#Mixing/> .
+@prefix ShakingMixing: <https://biocat.strenda.io#ShakingMixing/> .
+@prefix MechanicalMixing: <https://biocat.strenda.io#MechanicalMixing/> .
+@prefix StirBar: <https://biocat.strenda.io#StirBar/> .
+@prefix FluidImpelledMixing: <https://biocat.strenda.io#FluidImpelledMixing/> .
+@prefix Biocatalyst: <https://biocat.strenda.io#Biocatalyst/> .
+@prefix BiocatalystIdentity: <https://biocat.strenda.io#BiocatalystIdentity/> .
+@prefix SequenceInfo: <https://biocat.strenda.io#SequenceInfo/> .
+@prefix BiocatalystSource: <https://biocat.strenda.io#BiocatalystSource/> .
+@prefix PurchasedDetails: <https://biocat.strenda.io#PurchasedDetails/> .
+@prefix SelfProducedDetails: <https://biocat.strenda.io#SelfProducedDetails/> .
+@prefix BiocatalystApplication: <https://biocat.strenda.io#BiocatalystApplication/> .
+@prefix Concentration: <https://biocat.strenda.io#Concentration/> .
+@prefix Activity: <https://biocat.strenda.io#Activity/> .
+@prefix ApplicationWorkflowDetails: <https://biocat.strenda.io#ApplicationWorkflowDetails/> .
+@prefix Immobilization: <https://biocat.strenda.io#Immobilization/> .
+@prefix ExperimentalResults: <https://biocat.strenda.io#ExperimentalResults/> .
+@prefix KineticResults: <https://biocat.strenda.io#KineticResults/> .
+@prefix InhibitionParameters: <https://biocat.strenda.io#InhibitionParameters/> .
+@prefix YieldAndConversionResults: <https://biocat.strenda.io#YieldAndConversionResults/> .
+@prefix ActivityResults: <https://biocat.strenda.io#ActivityResults/> .
+@prefix SelectivityResults: <https://biocat.strenda.io#SelectivityResults/> .
+@prefix ThermodynamicResults: <https://biocat.strenda.io#ThermodynamicResults/> .
+@prefix Sampling: <https://biocat.strenda.io#Sampling/> .
+@prefix SamplingStrategy: <https://biocat.strenda.io#SamplingStrategy/> .
+@prefix Sample: <https://biocat.strenda.io#Sample/> .
+@prefix SamplePreprocessing: <https://biocat.strenda.io#SamplePreprocessing/> .
+@prefix OperationMode: <https://biocat.strenda.io#OperationMode/> .
+@prefix FeedingStrategy: <https://biocat.strenda.io#FeedingStrategy/> .
+@prefix ReactionComponent: <https://biocat.strenda.io#ReactionComponent/> .
+@prefix ComponentIdentity: <https://biocat.strenda.io#ComponentIdentity/> .
+@prefix AmountConcentration: <https://biocat.strenda.io#AmountConcentration/> .
+@prefix Provenance: <https://biocat.strenda.io#Provenance/> .
+@prefix SolubilityLimit: <https://biocat.strenda.io#SolubilityLimit/> .
+
+#########################################################
+# Ontology
+#########################################################
+
+stbc:ontology a owl:Ontology ;
+  rdfs:comment "Ontology generated from the stbc data model." .
+
+#########################################################
+# Class: StrendaBiocatalysis
+#########################################################
+# Specification of the Strenda-biocatalysis
+project.
+#########################################################
+
+stbc:StrendaBiocatalysis a owl:Class ;
+  rdfs:comment "Specification of the Strenda-biocatalysis project." .
+
+stbc:StrendaBiocatalysis
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty StrendaBiocatalysis:Biocatalyst ;
+      owl:allValuesFrom stbc:Biocatalyst
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty StrendaBiocatalysis:ReactionComponents ;
+      owl:allValuesFrom stbc:ReactionComponent
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty StrendaBiocatalysis:OperationMode ;
+      owl:allValuesFrom stbc:OperationMode
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty StrendaBiocatalysis:ReactionConditions ;
+      owl:allValuesFrom stbc:ReactionConditions
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty StrendaBiocatalysis:Results ;
+      owl:allValuesFrom stbc:ExperimentalResults
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty StrendaBiocatalysis:Sampling ;
+      owl:allValuesFrom stbc:Sampling
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty StrendaBiocatalysis:VesselsAndMixing ;
+      owl:allValuesFrom stbc:VesselAndMixing
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: StrendaBiocatalysis:Biocatalyst
+#########################################################
+
+StrendaBiocatalysis:Biocatalyst
+  a owl:ObjectProperty;
+  rdfs:domain stbc:StrendaBiocatalysis ;
+  rdfs:range stbc:Biocatalyst ;
+  rdfs:label "StrendaBiocatalysis/Biocatalyst" ;
+  rdfs:comment "Biocatalyst used in the Strenda-biocatalysis project." .
+
+#########################################################
+# Property: StrendaBiocatalysis:ReactionComponents
+#########################################################
+
+StrendaBiocatalysis:ReactionComponents
+  a owl:ObjectProperty;
+  rdfs:domain stbc:StrendaBiocatalysis ;
+  rdfs:range stbc:ReactionComponent ;
+  rdfs:label "StrendaBiocatalysis/ReactionComponents" ;
+  rdfs:comment "Components used in the Strenda-biocatalysis project." .
+
+#########################################################
+# Property: StrendaBiocatalysis:OperationMode
+#########################################################
+
+StrendaBiocatalysis:OperationMode
+  a owl:ObjectProperty;
+  rdfs:domain stbc:StrendaBiocatalysis ;
+  rdfs:range stbc:OperationMode ;
+  rdfs:label "StrendaBiocatalysis/OperationMode" ;
+  rdfs:comment "Operation mode used in the Strenda-biocatalysis project." .
+
+#########################################################
+# Property: StrendaBiocatalysis:ReactionConditions
+#########################################################
+
+StrendaBiocatalysis:ReactionConditions
+  a owl:ObjectProperty;
+  rdfs:domain stbc:StrendaBiocatalysis ;
+  rdfs:range stbc:ReactionConditions ;
+  rdfs:label "StrendaBiocatalysis/ReactionConditions" ;
+  rdfs:comment "Reaction conditions used in the Strenda-biocatalysis project." .
+
+#########################################################
+# Property: StrendaBiocatalysis:Results
+#########################################################
+
+StrendaBiocatalysis:Results
+  a owl:ObjectProperty;
+  rdfs:domain stbc:StrendaBiocatalysis ;
+  rdfs:range stbc:ExperimentalResults ;
+  rdfs:label "StrendaBiocatalysis/Results" ;
+  rdfs:comment "Results used in the Strenda-biocatalysis project." .
+
+#########################################################
+# Property: StrendaBiocatalysis:Sampling
+#########################################################
+
+StrendaBiocatalysis:Sampling
+  a owl:ObjectProperty;
+  rdfs:domain stbc:StrendaBiocatalysis ;
+  rdfs:range stbc:Sampling ;
+  rdfs:label "StrendaBiocatalysis/Sampling" ;
+  rdfs:comment "Sampling used in the Strenda-biocatalysis project." .
+
+#########################################################
+# Property: StrendaBiocatalysis:VesselsAndMixing
+#########################################################
+
+StrendaBiocatalysis:VesselsAndMixing
+  a owl:ObjectProperty;
+  rdfs:domain stbc:StrendaBiocatalysis ;
+  rdfs:range stbc:VesselAndMixing ;
+  rdfs:label "StrendaBiocatalysis/VesselsAndMixing" ;
+  rdfs:comment "Vessel and mixing configuration used in the Strenda-biocatalysis project." .
+
+#########################################################
+# Class: ReactionConditions
+#########################################################
+# Comprehensive specification of the physical and
+chemical conditions under which a biocatalytic
+reaction is performed, including reactor setup,
+reaction system characteristics, temperature and
+pH profiles.
+#########################################################
+
+stbc:ReactionConditions a owl:Class ;
+  rdfs:comment "Comprehensive specification of the physical and chemical conditions under which a biocatalytic reaction is performed, including reactor setup, reaction system characteristics, temperature and pH profiles." .
+
+stbc:ReactionConditions
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty ReactionConditions:Reactor ;
+      owl:allValuesFrom stbc:ReactorSetup
+      ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ReactionConditions:System ;
+      owl:allValuesFrom stbc:ReactionSystem
+      ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ReactionConditions:Phases ;
+      owl:allValuesFrom stbc:Phase
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ReactionConditions:Temperature ;
+      owl:allValuesFrom stbc:TemperatureProfile
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ReactionConditions:PH ;
+      owl:allValuesFrom stbc:PHProfile
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ReactionConditions:Notes ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: ReactionConditions:Reactor
+#########################################################
+
+ReactionConditions:Reactor
+  a owl:ObjectProperty;
+  rdfs:domain stbc:ReactionConditions ;
+  rdfs:range stbc:ReactorSetup ;
+  rdfs:label "ReactionConditions/Reactor" ;
+  rdfs:comment "Configuration and specifications of the reactor used for the biocatalytic reaction." .
+
+#########################################################
+# Property: ReactionConditions:System
+#########################################################
+
+ReactionConditions:System
+  a owl:ObjectProperty;
+  rdfs:domain stbc:ReactionConditions ;
+  rdfs:range stbc:ReactionSystem ;
+  rdfs:label "ReactionConditions/System" ;
+  rdfs:comment "Characterization of the reaction system as monoliquid or multiphasic." .
+
+#########################################################
+# Property: ReactionConditions:Phases
+#########################################################
+
+ReactionConditions:Phases
+  a owl:ObjectProperty;
+  rdfs:domain stbc:ReactionConditions ;
+  rdfs:range stbc:Phase ;
+  rdfs:label "ReactionConditions/Phases" ;
+  rdfs:comment "Individual phases present in the reaction system (liquid, solid, gas)." .
+
+#########################################################
+# Property: ReactionConditions:Temperature
+#########################################################
+
+ReactionConditions:Temperature
+  a owl:ObjectProperty;
+  rdfs:domain stbc:ReactionConditions ;
+  rdfs:range stbc:TemperatureProfile ;
+  rdfs:label "ReactionConditions/Temperature" ;
+  rdfs:comment "Temperature conditions throughout the reaction, which can be constant, event-based, or follow a gradient." .
+
+#########################################################
+# Property: ReactionConditions:PH
+#########################################################
+
+ReactionConditions:PH
+  a owl:ObjectProperty;
+  rdfs:domain stbc:ReactionConditions ;
+  rdfs:range stbc:PHProfile ;
+  rdfs:label "ReactionConditions/PH" ;
+  rdfs:comment "pH conditions throughout the reaction, which can be constant, event-based, or follow a gradient." .
+
+#########################################################
+# Property: ReactionConditions:Notes
+#########################################################
+
+ReactionConditions:Notes
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:ReactionConditions ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "ReactionConditions/Notes" ;
+  rdfs:comment "Additional notes or comments about the reaction conditions." .
+
+#########################################################
+# Class: ReactorSetup
+#########################################################
+# Configuration and operational parameters of the
+reactor system used for the biocatalytic reaction.
+#########################################################
+
+stbc:ReactorSetup a owl:Class ;
+  rdfs:comment "Configuration and operational parameters of the reactor system used for the biocatalytic reaction." .
+
+stbc:ReactorSetup
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty ReactorSetup:ReactorType ;
+      owl:onDataRange xsd:ReactorType
+      ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ReactorSetup:Flow ;
+      owl:allValuesFrom stbc:FlowConditions
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ReactorSetup:Notes ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: ReactorSetup:ReactorType
+#########################################################
+
+ReactorSetup:ReactorType
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:ReactorSetup ;
+  rdfs:range xsd:ReactorType ;
+  rdfs:label "ReactorSetup/ReactorType" ;
+  rdfs:comment "Type of reactor configuration used (well-mixed or tubular flow)." .
+
+#########################################################
+# Property: ReactorSetup:Flow
+#########################################################
+
+ReactorSetup:Flow
+  a owl:ObjectProperty;
+  rdfs:domain stbc:ReactorSetup ;
+  rdfs:range stbc:FlowConditions ;
+  rdfs:label "ReactorSetup/Flow" ;
+  rdfs:comment "Flow rate specifications for continuous or fed-batch operations." .
+
+#########################################################
+# Property: ReactorSetup:Notes
+#########################################################
+
+ReactorSetup:Notes
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:ReactorSetup ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "ReactorSetup/Notes" ;
+  rdfs:comment "Additional notes about the reactor setup." .
+
+#########################################################
+# Class: FlowConditions
+#########################################################
+# Specifications for flow rates in continuous or
+fed-batch reactor operations.
+#########################################################
+
+stbc:FlowConditions a owl:Class ;
+  rdfs:comment "Specifications for flow rates in continuous or fed-batch reactor operations." .
+
+stbc:FlowConditions
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty FlowConditions:FlowRate ;
+      owl:onDataRange xsd:xsd:decimal
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty FlowConditions:FlowRateUnit ;
+      owl:allValuesFrom stbc:UnitDefinition
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: FlowConditions:FlowRate
+#########################################################
+
+FlowConditions:FlowRate
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:FlowConditions ;
+  rdfs:range xsd:xsd:decimal ;
+  rdfs:label "FlowConditions/FlowRate" ;
+  rdfs:comment "Numerical value of the flow rate." .
+
+#########################################################
+# Property: FlowConditions:FlowRateUnit
+#########################################################
+
+FlowConditions:FlowRateUnit
+  a owl:ObjectProperty;
+  rdfs:domain stbc:FlowConditions ;
+  rdfs:range stbc:UnitDefinition ;
+  rdfs:label "FlowConditions/FlowRateUnit" ;
+  rdfs:comment "Unit of measurement for the flow rate." .
+
+#########################################################
+# Class: ReactionSystem
+#########################################################
+# Characterization of the reaction system based on
+the number and types of phases present.
+#########################################################
+
+stbc:ReactionSystem a owl:Class ;
+  rdfs:comment "Characterization of the reaction system based on the number and types of phases present." .
+
+stbc:ReactionSystem
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty ReactionSystem:SystemType ;
+      owl:onDataRange xsd:SystemType
+      ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ReactionSystem:Monoliquid ;
+      owl:allValuesFrom stbc:MonoliquidSystem
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ReactionSystem:Multiphasic ;
+      owl:allValuesFrom stbc:MultiphasicSystem
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ReactionSystem:Notes ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: ReactionSystem:SystemType
+#########################################################
+
+ReactionSystem:SystemType
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:ReactionSystem ;
+  rdfs:range xsd:SystemType ;
+  rdfs:label "ReactionSystem/SystemType" ;
+  rdfs:comment "Classification of the system as monoliquid or multiphasic." .
+
+#########################################################
+# Property: ReactionSystem:Monoliquid
+#########################################################
+
+ReactionSystem:Monoliquid
+  a owl:ObjectProperty;
+  rdfs:domain stbc:ReactionSystem ;
+  rdfs:range stbc:MonoliquidSystem ;
+  rdfs:label "ReactionSystem/Monoliquid" ;
+  rdfs:comment "Specifications for single-phase liquid systems." .
+
+#########################################################
+# Property: ReactionSystem:Multiphasic
+#########################################################
+
+ReactionSystem:Multiphasic
+  a owl:ObjectProperty;
+  rdfs:domain stbc:ReactionSystem ;
+  rdfs:range stbc:MultiphasicSystem ;
+  rdfs:label "ReactionSystem/Multiphasic" ;
+  rdfs:comment "Specifications for systems containing multiple phases." .
+
+#########################################################
+# Property: ReactionSystem:Notes
+#########################################################
+
+ReactionSystem:Notes
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:ReactionSystem ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "ReactionSystem/Notes" ;
+  rdfs:comment "Additional notes about the reaction system." .
+
+#########################################################
+# Class: MonoliquidSystem
+#########################################################
+# Specifications for single-phase liquid reaction
+systems.
+#########################################################
+
+stbc:MonoliquidSystem a owl:Class ;
+  rdfs:comment "Specifications for single-phase liquid reaction systems." .
+
+stbc:MonoliquidSystem
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty MonoliquidSystem:SolventDescription ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty MonoliquidSystem:IonicStrength ;
+      owl:allValuesFrom stbc:Quantity
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty MonoliquidSystem:FurtherAdditives ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty MonoliquidSystem:Notes ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: MonoliquidSystem:SolventDescription
+#########################################################
+
+MonoliquidSystem:SolventDescription
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:MonoliquidSystem ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "MonoliquidSystem/SolventDescription" ;
+  rdfs:comment "Detailed description of the solvent or solvent mixture used." .
+
+#########################################################
+# Property: MonoliquidSystem:IonicStrength
+#########################################################
+
+MonoliquidSystem:IonicStrength
+  a owl:ObjectProperty;
+  rdfs:domain stbc:MonoliquidSystem ;
+  rdfs:range stbc:Quantity ;
+  rdfs:label "MonoliquidSystem/IonicStrength" ;
+  rdfs:comment "Ionic strength of the solution, affecting enzyme activity and stability." .
+
+#########################################################
+# Property: MonoliquidSystem:FurtherAdditives
+#########################################################
+
+MonoliquidSystem:FurtherAdditives
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:MonoliquidSystem ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "MonoliquidSystem/FurtherAdditives" ;
+  rdfs:comment "Description of any additional additives present in the system." .
+
+#########################################################
+# Property: MonoliquidSystem:Notes
+#########################################################
+
+MonoliquidSystem:Notes
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:MonoliquidSystem ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "MonoliquidSystem/Notes" ;
+  rdfs:comment "Additional notes about the monoliquid system." .
+
+#########################################################
+# Class: MultiphasicSystem
+#########################################################
+# Specifications for reaction systems containing
+multiple distinct phases.
+#########################################################
+
+stbc:MultiphasicSystem a owl:Class ;
+  rdfs:comment "Specifications for reaction systems containing multiple distinct phases." .
+
+stbc:MultiphasicSystem
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty MultiphasicSystem:PhasesNumber ;
+      owl:onDataRange xsd:xsd:integer
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty MultiphasicSystem:Notes ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: MultiphasicSystem:PhasesNumber
+#########################################################
+
+MultiphasicSystem:PhasesNumber
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:MultiphasicSystem ;
+  rdfs:range xsd:xsd:integer ;
+  rdfs:label "MultiphasicSystem/PhasesNumber" ;
+  rdfs:comment "Total number of distinct phases present in the system." .
+
+#########################################################
+# Property: MultiphasicSystem:Notes
+#########################################################
+
+MultiphasicSystem:Notes
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:MultiphasicSystem ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "MultiphasicSystem/Notes" ;
+  rdfs:comment "Additional notes about the multiphasic system." .
+
+#########################################################
+# Class: Phase
+#########################################################
+# Specification of individual phases within the
+reaction system.
+#########################################################
+
+stbc:Phase a owl:Class ;
+  rdfs:comment "Specification of individual phases within the reaction system." .
+
+stbc:Phase
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty Phase:PhaseType ;
+      owl:onDataRange xsd:PhaseType
+      ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Phase:MaterialDescription ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Phase:Amount ;
+      owl:allValuesFrom stbc:Quantity
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Phase:Notes ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: Phase:PhaseType
+#########################################################
+
+Phase:PhaseType
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Phase ;
+  rdfs:range xsd:PhaseType ;
+  rdfs:label "Phase/PhaseType" ;
+  rdfs:comment "Physical state of the phase (liquid, solid, or gas)." .
+
+#########################################################
+# Property: Phase:MaterialDescription
+#########################################################
+
+Phase:MaterialDescription
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Phase ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "Phase/MaterialDescription" ;
+  rdfs:comment "Detailed description of the materials comprising this phase." .
+
+#########################################################
+# Property: Phase:Amount
+#########################################################
+
+Phase:Amount
+  a owl:ObjectProperty;
+  rdfs:domain stbc:Phase ;
+  rdfs:range stbc:Quantity ;
+  rdfs:label "Phase/Amount" ;
+  rdfs:comment "Quantity of material in this phase." .
+
+#########################################################
+# Property: Phase:Notes
+#########################################################
+
+Phase:Notes
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Phase ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "Phase/Notes" ;
+  rdfs:comment "Additional notes about this specific phase." .
+
+#########################################################
+# Class: TemperatureProfile
+#########################################################
+# Specification of temperature conditions
+throughout the biocatalytic reaction, which can
+follow various patterns depending on the reaction
+requirements.
+#########################################################
+
+stbc:TemperatureProfile a owl:Class ;
+  rdfs:comment "Specification of temperature conditions throughout the biocatalytic reaction, which can follow various patterns depending on the reaction requirements." .
+
+stbc:TemperatureProfile
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty TemperatureProfile:ProfileType ;
+      owl:onDataRange xsd:ProfileType
+      ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty TemperatureProfile:TemperatureUnit ;
+      owl:allValuesFrom stbc:UnitDefinition
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty TemperatureProfile:ConstantTemperature ;
+      owl:onDataRange xsd:xsd:decimal
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty TemperatureProfile:ProfilePoints ;
+      owl:allValuesFrom stbc:ProfilePoint
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty TemperatureProfile:Gradient ;
+      owl:allValuesFrom stbc:Gradient
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty TemperatureProfile:Notes ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: TemperatureProfile:ProfileType
+#########################################################
+
+TemperatureProfile:ProfileType
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:TemperatureProfile ;
+  rdfs:range xsd:ProfileType ;
+  rdfs:label "TemperatureProfile/ProfileType" ;
+  rdfs:comment "Type of temperature profile used (constant, event-based, multipoint, or gradient)." .
+
+#########################################################
+# Property: TemperatureProfile:TemperatureUnit
+#########################################################
+
+TemperatureProfile:TemperatureUnit
+  a owl:ObjectProperty;
+  rdfs:domain stbc:TemperatureProfile ;
+  rdfs:range stbc:UnitDefinition ;
+  rdfs:label "TemperatureProfile/TemperatureUnit" ;
+  rdfs:comment "Unit of measurement for temperature values." .
+
+#########################################################
+# Property: TemperatureProfile:ConstantTemperature
+#########################################################
+
+TemperatureProfile:ConstantTemperature
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:TemperatureProfile ;
+  rdfs:range xsd:xsd:decimal ;
+  rdfs:label "TemperatureProfile/ConstantTemperature" ;
+  rdfs:comment "Temperature value for constant temperature profiles." .
+
+#########################################################
+# Property: TemperatureProfile:ProfilePoints
+#########################################################
+
+TemperatureProfile:ProfilePoints
+  a owl:ObjectProperty;
+  rdfs:domain stbc:TemperatureProfile ;
+  rdfs:range stbc:ProfilePoint ;
+  rdfs:label "TemperatureProfile/ProfilePoints" ;
+  rdfs:comment "Series of temperature points for event-based or multipoint profiles." .
+
+#########################################################
+# Property: TemperatureProfile:Gradient
+#########################################################
+
+TemperatureProfile:Gradient
+  a owl:ObjectProperty;
+  rdfs:domain stbc:TemperatureProfile ;
+  rdfs:range stbc:Gradient ;
+  rdfs:label "TemperatureProfile/Gradient" ;
+  rdfs:comment "Gradient specifications for temperature ramp profiles." .
+
+#########################################################
+# Property: TemperatureProfile:Notes
+#########################################################
+
+TemperatureProfile:Notes
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:TemperatureProfile ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "TemperatureProfile/Notes" ;
+  rdfs:comment "Additional notes about the temperature profile." .
+
+#########################################################
+# Class: ProfilePoint
+#########################################################
+# Individual temperature measurement point in
+time-based temperature profiles.
+#########################################################
+
+stbc:ProfilePoint a owl:Class ;
+  rdfs:comment "Individual temperature measurement point in time-based temperature profiles." .
+
+stbc:ProfilePoint
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty ProfilePoint:Value ;
+      owl:onDataRange xsd:xsd:decimal
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ProfilePoint:Time ;
+      owl:onDataRange xsd:xsd:decimal
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ProfilePoint:TimeUnit ;
+      owl:allValuesFrom stbc:UnitDefinition
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ProfilePoint:EventDescription ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: ProfilePoint:Value
+#########################################################
+
+ProfilePoint:Value
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:ProfilePoint ;
+  rdfs:range xsd:xsd:decimal ;
+  rdfs:label "ProfilePoint/Value" ;
+  rdfs:comment "Temperature value at this point." .
+
+#########################################################
+# Property: ProfilePoint:Time
+#########################################################
+
+ProfilePoint:Time
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:ProfilePoint ;
+  rdfs:range xsd:xsd:decimal ;
+  rdfs:label "ProfilePoint/Time" ;
+  rdfs:comment "Time at which this temperature is measured or set." .
+
+#########################################################
+# Property: ProfilePoint:TimeUnit
+#########################################################
+
+ProfilePoint:TimeUnit
+  a owl:ObjectProperty;
+  rdfs:domain stbc:ProfilePoint ;
+  rdfs:range stbc:UnitDefinition ;
+  rdfs:label "ProfilePoint/TimeUnit" ;
+  rdfs:comment "Unit of measurement for the time value." .
+
+#########################################################
+# Property: ProfilePoint:EventDescription
+#########################################################
+
+ProfilePoint:EventDescription
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:ProfilePoint ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "ProfilePoint/EventDescription" ;
+  rdfs:comment "Description of any specific event associated with this temperature point." .
+
+#########################################################
+# Class: Gradient
+#########################################################
+# Specification for temperature gradient profiles
+where temperature changes linearly over time or
+distance.
+#########################################################
+
+stbc:Gradient a owl:Class ;
+  rdfs:comment "Specification for temperature gradient profiles where temperature changes linearly over time or distance." .
+
+stbc:Gradient
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty Gradient:StartValue ;
+      owl:onDataRange xsd:xsd:decimal
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Gradient:EndValue ;
+      owl:onDataRange xsd:xsd:decimal
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Gradient:Length ;
+      owl:onDataRange xsd:xsd:decimal
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Gradient:LengthUnit ;
+      owl:allValuesFrom stbc:UnitDefinition
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Gradient:MeasurementPoints ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: Gradient:StartValue
+#########################################################
+
+Gradient:StartValue
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Gradient ;
+  rdfs:range xsd:xsd:decimal ;
+  rdfs:label "Gradient/StartValue" ;
+  rdfs:comment "Initial temperature value at the beginning of the gradient." .
+
+#########################################################
+# Property: Gradient:EndValue
+#########################################################
+
+Gradient:EndValue
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Gradient ;
+  rdfs:range xsd:xsd:decimal ;
+  rdfs:label "Gradient/EndValue" ;
+  rdfs:comment "Final temperature value at the end of the gradient." .
+
+#########################################################
+# Property: Gradient:Length
+#########################################################
+
+Gradient:Length
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Gradient ;
+  rdfs:range xsd:xsd:decimal ;
+  rdfs:label "Gradient/Length" ;
+  rdfs:comment "Duration or distance over which the gradient is applied." .
+
+#########################################################
+# Property: Gradient:LengthUnit
+#########################################################
+
+Gradient:LengthUnit
+  a owl:ObjectProperty;
+  rdfs:domain stbc:Gradient ;
+  rdfs:range stbc:UnitDefinition ;
+  rdfs:label "Gradient/LengthUnit" ;
+  rdfs:comment "Unit of measurement for the gradient length (time or distance)." .
+
+#########################################################
+# Property: Gradient:MeasurementPoints
+#########################################################
+
+Gradient:MeasurementPoints
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Gradient ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "Gradient/MeasurementPoints" ;
+  rdfs:comment "Description of how temperature is measured along the gradient." .
+
+#########################################################
+# Class: PHProfile
+#########################################################
+# Specification of pH conditions throughout
+the biocatalytic reaction, which can follow
+various patterns to optimize enzyme activity and
+stability.
+#########################################################
+
+stbc:PHProfile a owl:Class ;
+  rdfs:comment "Specification of pH conditions throughout the biocatalytic reaction, which can follow various patterns to optimize enzyme activity and stability." .
+
+stbc:PHProfile
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty PHProfile:ProfileType ;
+      owl:onDataRange xsd:ProfileType
+      ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty PHProfile:ConstantPH ;
+      owl:onDataRange xsd:xsd:decimal
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty PHProfile:ProfilePoints ;
+      owl:allValuesFrom stbc:PHPoint
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty PHProfile:Gradient ;
+      owl:allValuesFrom stbc:PHGradient
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty PHProfile:Detection ;
+      owl:allValuesFrom stbc:PHDetection
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty PHProfile:Notes ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: PHProfile:ProfileType
+#########################################################
+
+PHProfile:ProfileType
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:PHProfile ;
+  rdfs:range xsd:ProfileType ;
+  rdfs:label "PHProfile/ProfileType" ;
+  rdfs:comment "Type of pH profile used (constant, event-based, multipoint, or gradient)." .
+
+#########################################################
+# Property: PHProfile:ConstantPH
+#########################################################
+
+PHProfile:ConstantPH
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:PHProfile ;
+  rdfs:range xsd:xsd:decimal ;
+  rdfs:label "PHProfile/ConstantPH" ;
+  rdfs:comment "pH value for constant pH profiles." .
+
+#########################################################
+# Property: PHProfile:ProfilePoints
+#########################################################
+
+PHProfile:ProfilePoints
+  a owl:ObjectProperty;
+  rdfs:domain stbc:PHProfile ;
+  rdfs:range stbc:PHPoint ;
+  rdfs:label "PHProfile/ProfilePoints" ;
+  rdfs:comment "Series of pH points for event-based or multipoint profiles." .
+
+#########################################################
+# Property: PHProfile:Gradient
+#########################################################
+
+PHProfile:Gradient
+  a owl:ObjectProperty;
+  rdfs:domain stbc:PHProfile ;
+  rdfs:range stbc:PHGradient ;
+  rdfs:label "PHProfile/Gradient" ;
+  rdfs:comment "Gradient specifications for pH ramp profiles." .
+
+#########################################################
+# Property: PHProfile:Detection
+#########################################################
+
+PHProfile:Detection
+  a owl:ObjectProperty;
+  rdfs:domain stbc:PHProfile ;
+  rdfs:range stbc:PHDetection ;
+  rdfs:label "PHProfile/Detection" ;
+  rdfs:comment "Methods and conditions used for pH detection and measurement." .
+
+#########################################################
+# Property: PHProfile:Notes
+#########################################################
+
+PHProfile:Notes
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:PHProfile ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "PHProfile/Notes" ;
+  rdfs:comment "Additional notes about the pH profile." .
+
+#########################################################
+# Class: PHPoint
+#########################################################
+# Individual pH measurement point in time-based
+pH profiles.
+#########################################################
+
+stbc:PHPoint a owl:Class ;
+  rdfs:comment "Individual pH measurement point in time-based pH profiles." .
+
+stbc:PHPoint
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty PHPoint:Value ;
+      owl:onDataRange xsd:xsd:decimal
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty PHPoint:Time ;
+      owl:onDataRange xsd:xsd:decimal
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty PHPoint:TimeUnit ;
+      owl:allValuesFrom stbc:UnitDefinition
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty PHPoint:EventDescription ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: PHPoint:Value
+#########################################################
+
+PHPoint:Value
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:PHPoint ;
+  rdfs:range xsd:xsd:decimal ;
+  rdfs:label "PHPoint/Value" ;
+  rdfs:comment "pH value at this point." .
+
+#########################################################
+# Property: PHPoint:Time
+#########################################################
+
+PHPoint:Time
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:PHPoint ;
+  rdfs:range xsd:xsd:decimal ;
+  rdfs:label "PHPoint/Time" ;
+  rdfs:comment "Time at which this pH is measured or set." .
+
+#########################################################
+# Property: PHPoint:TimeUnit
+#########################################################
+
+PHPoint:TimeUnit
+  a owl:ObjectProperty;
+  rdfs:domain stbc:PHPoint ;
+  rdfs:range stbc:UnitDefinition ;
+  rdfs:label "PHPoint/TimeUnit" ;
+  rdfs:comment "Unit of measurement for the time value." .
+
+#########################################################
+# Property: PHPoint:EventDescription
+#########################################################
+
+PHPoint:EventDescription
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:PHPoint ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "PHPoint/EventDescription" ;
+  rdfs:comment "Description of any specific event associated with this pH point." .
+
+#########################################################
+# Class: PHGradient
+#########################################################
+# Specification for pH gradient profiles where pH
+changes linearly over time.
+#########################################################
+
+stbc:PHGradient a owl:Class ;
+  rdfs:comment "Specification for pH gradient profiles where pH changes linearly over time." .
+
+stbc:PHGradient
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty PHGradient:StartValue ;
+      owl:onDataRange xsd:xsd:decimal
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty PHGradient:EndValue ;
+      owl:onDataRange xsd:xsd:decimal
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty PHGradient:Length ;
+      owl:onDataRange xsd:xsd:decimal
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty PHGradient:LengthUnit ;
+      owl:allValuesFrom stbc:UnitDefinition
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty PHGradient:MeasurementPoints ;
+      owl:onDataRange xsd:xsd:decimal
+    ] .
+
+#########################################################
+# Property: PHGradient:StartValue
+#########################################################
+
+PHGradient:StartValue
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:PHGradient ;
+  rdfs:range xsd:xsd:decimal ;
+  rdfs:label "PHGradient/StartValue" ;
+  rdfs:comment "Initial pH value at the beginning of the gradient." .
+
+#########################################################
+# Property: PHGradient:EndValue
+#########################################################
+
+PHGradient:EndValue
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:PHGradient ;
+  rdfs:range xsd:xsd:decimal ;
+  rdfs:label "PHGradient/EndValue" ;
+  rdfs:comment "Final pH value at the end of the gradient." .
+
+#########################################################
+# Property: PHGradient:Length
+#########################################################
+
+PHGradient:Length
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:PHGradient ;
+  rdfs:range xsd:xsd:decimal ;
+  rdfs:label "PHGradient/Length" ;
+  rdfs:comment "Duration over which the pH gradient is applied." .
+
+#########################################################
+# Property: PHGradient:LengthUnit
+#########################################################
+
+PHGradient:LengthUnit
+  a owl:ObjectProperty;
+  rdfs:domain stbc:PHGradient ;
+  rdfs:range stbc:UnitDefinition ;
+  rdfs:label "PHGradient/LengthUnit" ;
+  rdfs:comment "Unit of measurement for the gradient duration." .
+
+#########################################################
+# Property: PHGradient:MeasurementPoints
+#########################################################
+
+PHGradient:MeasurementPoints
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:PHGradient ;
+  rdfs:range xsd:xsd:decimal ;
+  rdfs:label "PHGradient/MeasurementPoints" ;
+  rdfs:comment "Measurement points along the gradient." .
+
+#########################################################
+# Class: PHDetection
+#########################################################
+# Specifications for pH measurement methods and
+calibration conditions.
+#########################################################
+
+stbc:PHDetection a owl:Class ;
+  rdfs:comment "Specifications for pH measurement methods and calibration conditions." .
+
+stbc:PHDetection
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty PHDetection:DetectedWhen ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty PHDetection:DetectedHow ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty PHDetection:Temperature ;
+      owl:onDataRange xsd:xsd:decimal
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty PHDetection:TemperatureUnit ;
+      owl:allValuesFrom stbc:UnitDefinition
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty PHDetection:CalibrationPHElectrode ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: PHDetection:DetectedWhen
+#########################################################
+
+PHDetection:DetectedWhen
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:PHDetection ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "PHDetection/DetectedWhen" ;
+  rdfs:comment "Timing or conditions under which pH is detected." .
+
+#########################################################
+# Property: PHDetection:DetectedHow
+#########################################################
+
+PHDetection:DetectedHow
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:PHDetection ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "PHDetection/DetectedHow" ;
+  rdfs:comment "Method or instrument used for pH detection." .
+
+#########################################################
+# Property: PHDetection:Temperature
+#########################################################
+
+PHDetection:Temperature
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:PHDetection ;
+  rdfs:range xsd:xsd:decimal ;
+  rdfs:label "PHDetection/Temperature" ;
+  rdfs:comment "Temperature at which pH measurements are calibrated or performed." .
+
+#########################################################
+# Property: PHDetection:TemperatureUnit
+#########################################################
+
+PHDetection:TemperatureUnit
+  a owl:ObjectProperty;
+  rdfs:domain stbc:PHDetection ;
+  rdfs:range stbc:UnitDefinition ;
+  rdfs:label "PHDetection/TemperatureUnit" ;
+  rdfs:comment "Unit of measurement for the calibration temperature." .
+
+#########################################################
+# Property: PHDetection:CalibrationPHElectrode
+#########################################################
+
+PHDetection:CalibrationPHElectrode
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:PHDetection ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "PHDetection/CalibrationPHElectrode" ;
+  rdfs:comment "Details about pH electrode calibration procedures and standards." .
+
+#########################################################
+# Class: UnitDefinition
+#########################################################
+# Represents a unit definition that is based on
+the SI unit system.
+#########################################################
+
+stbc:UnitDefinition a owl:Class ;
+  rdfs:comment "Represents a unit definition that is based on the SI unit system." .
+
+stbc:UnitDefinition
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty UnitDefinition:Id ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty UnitDefinition:Name ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty UnitDefinition:BaseUnits ;
+      owl:allValuesFrom stbc:BaseUnit
+    ] .
+
+#########################################################
+# Property: UnitDefinition:Id
+#########################################################
+
+UnitDefinition:Id
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:UnitDefinition ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "UnitDefinition/Id" ;
+  rdfs:comment "Unique identifier of the unit definition." .
+
+#########################################################
+# Property: UnitDefinition:Name
+#########################################################
+
+UnitDefinition:Name
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:UnitDefinition ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "UnitDefinition/Name" ;
+  rdfs:comment "Common name of the unit definition." .
+
+#########################################################
+# Property: UnitDefinition:BaseUnits
+#########################################################
+
+UnitDefinition:BaseUnits
+  a owl:ObjectProperty;
+  rdfs:domain stbc:UnitDefinition ;
+  rdfs:range stbc:BaseUnit ;
+  rdfs:label "UnitDefinition/BaseUnits" ;
+  rdfs:comment "Base units that define the unit." .
+
+#########################################################
+# Class: BaseUnit
+#########################################################
+# Represents a base unit in the unit definition.
+#########################################################
+
+stbc:BaseUnit a owl:Class ;
+  rdfs:comment "Represents a base unit in the unit definition." .
+
+stbc:BaseUnit
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty BaseUnit:Kind ;
+      owl:onDataRange xsd:UnitType
+      ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty BaseUnit:Exponent ;
+      owl:onDataRange xsd:xsd:integer
+      ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty BaseUnit:Multiplier ;
+      owl:onDataRange xsd:xsd:decimal
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty BaseUnit:Scale ;
+      owl:onDataRange xsd:xsd:decimal
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: BaseUnit:Kind
+#########################################################
+
+BaseUnit:Kind
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:BaseUnit ;
+  rdfs:range xsd:UnitType ;
+  rdfs:label "BaseUnit/Kind" ;
+  rdfs:comment "Kind of the base unit (e.g., meter, kilogram, second)." .
+
+#########################################################
+# Property: BaseUnit:Exponent
+#########################################################
+
+BaseUnit:Exponent
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:BaseUnit ;
+  rdfs:range xsd:xsd:integer ;
+  rdfs:label "BaseUnit/Exponent" ;
+  rdfs:comment "Exponent of the base unit in the unit definition." .
+
+#########################################################
+# Property: BaseUnit:Multiplier
+#########################################################
+
+BaseUnit:Multiplier
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:BaseUnit ;
+  rdfs:range xsd:xsd:decimal ;
+  rdfs:label "BaseUnit/Multiplier" ;
+  rdfs:comment "Multiplier of the base unit in the unit definition." .
+
+#########################################################
+# Property: BaseUnit:Scale
+#########################################################
+
+BaseUnit:Scale
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:BaseUnit ;
+  rdfs:range xsd:xsd:decimal ;
+  rdfs:label "BaseUnit/Scale" ;
+  rdfs:comment "Scale of the base unit in the unit definition." .
+
+#########################################################
+# Class: Quantity
+#########################################################
+# Quantitative measurement with value and unit
+specification.
+#########################################################
+
+stbc:Quantity a owl:Class ;
+  rdfs:comment "Quantitative measurement with value and unit specification." .
+
+stbc:Quantity
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty Quantity:Value ;
+      owl:onDataRange xsd:xsd:decimal
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Quantity:Unit ;
+      owl:allValuesFrom stbc:UnitDefinition
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: Quantity:Value
+#########################################################
+
+Quantity:Value
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Quantity ;
+  rdfs:range xsd:xsd:decimal ;
+  rdfs:label "Quantity/Value" ;
+  rdfs:comment "Numerical value of the measurement." .
+
+#########################################################
+# Property: Quantity:Unit
+#########################################################
+
+Quantity:Unit
+  a owl:ObjectProperty;
+  rdfs:domain stbc:Quantity ;
+  rdfs:range stbc:UnitDefinition ;
+  rdfs:label "Quantity/Unit" ;
+  rdfs:comment "Unit of measurement for the value." .
+
+#########################################################
+# Class: StorageConditions
+#########################################################
+# Conditions under which materials (biocatalysts,
+components, etc.) are stored to maintain stability
+and integrity.
+#########################################################
+
+stbc:StorageConditions a owl:Class ;
+  rdfs:comment "Conditions under which materials (biocatalysts, components, etc.) are stored to maintain stability and integrity." .
+
+stbc:StorageConditions
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty StorageConditions:Temperature ;
+      owl:onDataRange xsd:xsd:decimal
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty StorageConditions:TemperatureUnit ;
+      owl:allValuesFrom stbc:UnitDefinition
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty StorageConditions:StorageStart ;
+      owl:onDataRange xsd:xsd:date
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty StorageConditions:Additives ;
+      owl:onDataRange xsd:xsd:string
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty StorageConditions:DryingMethod ;
+      owl:onDataRange xsd:xsd:string
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty StorageConditions:Notes ;
+      owl:onDataRange xsd:xsd:string
+    ] .
+
+#########################################################
+# Property: StorageConditions:Temperature
+#########################################################
+
+StorageConditions:Temperature
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:StorageConditions ;
+  rdfs:range xsd:xsd:decimal ;
+  rdfs:label "StorageConditions/Temperature" ;
+  rdfs:comment "Storage temperature value." .
+
+#########################################################
+# Property: StorageConditions:TemperatureUnit
+#########################################################
+
+StorageConditions:TemperatureUnit
+  a owl:ObjectProperty;
+  rdfs:domain stbc:StorageConditions ;
+  rdfs:range stbc:UnitDefinition ;
+  rdfs:label "StorageConditions/TemperatureUnit" ;
+  rdfs:comment "Unit for the storage temperature (e.g., °C, K)." .
+
+#########################################################
+# Property: StorageConditions:StorageStart
+#########################################################
+
+StorageConditions:StorageStart
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:StorageConditions ;
+  rdfs:range xsd:xsd:date ;
+  rdfs:label "StorageConditions/StorageStart" ;
+  rdfs:comment "Date when storage under these conditions began or material was received." .
+
+#########################################################
+# Property: StorageConditions:Additives
+#########################################################
+
+StorageConditions:Additives
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:StorageConditions ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "StorageConditions/Additives" ;
+  rdfs:comment "Any additives or stabilizers used during storage (e.g., glycerol, stabilizers, preservatives)." .
+
+#########################################################
+# Property: StorageConditions:DryingMethod
+#########################################################
+
+StorageConditions:DryingMethod
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:StorageConditions ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "StorageConditions/DryingMethod" ;
+  rdfs:comment "Method used to dry the material if stored in dry form (optional, primarily for biocatalysts)." .
+
+#########################################################
+# Property: StorageConditions:Notes
+#########################################################
+
+StorageConditions:Notes
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:StorageConditions ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "StorageConditions/Notes" ;
+  rdfs:comment "Additional notes about storage conditions or requirements." .
+
+#########################################################
+# Class: VesselAndMixing
+#########################################################
+# Specification of the vessel and mixing
+configuration for conducting biocatalytic
+reactions.
+#########################################################
+
+stbc:VesselAndMixing a owl:Class ;
+  rdfs:comment "Specification of the vessel and mixing configuration for conducting biocatalytic reactions." .
+
+stbc:VesselAndMixing
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty VesselAndMixing:Vessel ;
+      owl:allValuesFrom stbc:Vessel
+      ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty VesselAndMixing:Mixing ;
+      owl:allValuesFrom stbc:Mixing
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty VesselAndMixing:Notes ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: VesselAndMixing:Vessel
+#########################################################
+
+VesselAndMixing:Vessel
+  a owl:ObjectProperty;
+  rdfs:domain stbc:VesselAndMixing ;
+  rdfs:range stbc:Vessel ;
+  rdfs:label "VesselAndMixing/Vessel" ;
+  rdfs:comment "Physical container or reactor used for the enzymatic reaction." .
+
+#########################################################
+# Property: VesselAndMixing:Mixing
+#########################################################
+
+VesselAndMixing:Mixing
+  a owl:ObjectProperty;
+  rdfs:domain stbc:VesselAndMixing ;
+  rdfs:range stbc:Mixing ;
+  rdfs:label "VesselAndMixing/Mixing" ;
+  rdfs:comment "Mixing system and parameters employed during the reaction." .
+
+#########################################################
+# Property: VesselAndMixing:Notes
+#########################################################
+
+VesselAndMixing:Notes
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:VesselAndMixing ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "VesselAndMixing/Notes" ;
+  rdfs:comment "Additional notes or comments about the vessel and mixing setup." .
+
+#########################################################
+# Class: Vessel
+#########################################################
+# Physical container or reactor specification for
+enzymatic reactions.
+#########################################################
+
+stbc:Vessel a owl:Class ;
+  rdfs:comment "Physical container or reactor specification for enzymatic reactions." .
+
+stbc:Vessel
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty Vessel:VesselType ;
+      owl:onDataRange xsd:VesselType
+      ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Vessel:Material ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Vessel:Size ;
+      owl:allValuesFrom stbc:Quantity
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Vessel:Geometry ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Vessel:Closure ;
+      owl:allValuesFrom stbc:Closure
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Vessel:Supplier ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Vessel:LotNumber ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Vessel:ReactorSpecifics ;
+      owl:allValuesFrom stbc:ReactorSpecifics
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Vessel:Notes ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: Vessel:VesselType
+#########################################################
+
+Vessel:VesselType
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Vessel ;
+  rdfs:range xsd:VesselType ;
+  rdfs:label "Vessel/VesselType" ;
+  rdfs:comment "Type of vessel or reactor configuration used for the reaction." .
+
+#########################################################
+# Property: Vessel:Material
+#########################################################
+
+Vessel:Material
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Vessel ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "Vessel/Material" ;
+  rdfs:comment "Material composition of the vessel (e.g., glass, plastic, stainless steel)." .
+
+#########################################################
+# Property: Vessel:Size
+#########################################################
+
+Vessel:Size
+  a owl:ObjectProperty;
+  rdfs:domain stbc:Vessel ;
+  rdfs:range stbc:Quantity ;
+  rdfs:label "Vessel/Size" ;
+  rdfs:comment "Volume or capacity of the vessel." .
+
+#########################################################
+# Property: Vessel:Geometry
+#########################################################
+
+Vessel:Geometry
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Vessel ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "Vessel/Geometry" ;
+  rdfs:comment "Geometric shape and dimensions of the vessel." .
+
+#########################################################
+# Property: Vessel:Closure
+#########################################################
+
+Vessel:Closure
+  a owl:ObjectProperty;
+  rdfs:domain stbc:Vessel ;
+  rdfs:range stbc:Closure ;
+  rdfs:label "Vessel/Closure" ;
+  rdfs:comment "Sealing and closure system for the vessel." .
+
+#########################################################
+# Property: Vessel:Supplier
+#########################################################
+
+Vessel:Supplier
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Vessel ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "Vessel/Supplier" ;
+  rdfs:comment "Manufacturer or supplier of the vessel." .
+
+#########################################################
+# Property: Vessel:LotNumber
+#########################################################
+
+Vessel:LotNumber
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Vessel ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "Vessel/LotNumber" ;
+  rdfs:comment "Batch or lot number for traceability." .
+
+#########################################################
+# Property: Vessel:ReactorSpecifics
+#########################################################
+
+Vessel:ReactorSpecifics
+  a owl:ObjectProperty;
+  rdfs:domain stbc:Vessel ;
+  rdfs:range stbc:ReactorSpecifics ;
+  rdfs:label "Vessel/ReactorSpecifics" ;
+  rdfs:comment "Additional reactor-specific configurations and features." .
+
+#########################################################
+# Property: Vessel:Notes
+#########################################################
+
+Vessel:Notes
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Vessel ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "Vessel/Notes" ;
+  rdfs:comment "Additional notes about the vessel specifications." .
+
+#########################################################
+# Class: Closure
+#########################################################
+# Sealing and closure system for reaction vessels.
+#########################################################
+
+stbc:Closure a owl:Class ;
+  rdfs:comment "Sealing and closure system for reaction vessels." .
+
+stbc:Closure
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty Closure:ClosureType ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Closure:SealingMaterial ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Closure:Notes ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: Closure:ClosureType
+#########################################################
+
+Closure:ClosureType
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Closure ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "Closure/ClosureType" ;
+  rdfs:comment "Type of closure mechanism (e.g., screw cap, septum, crimp cap)." .
+
+#########################################################
+# Property: Closure:SealingMaterial
+#########################################################
+
+Closure:SealingMaterial
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Closure ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "Closure/SealingMaterial" ;
+  rdfs:comment "Material used for sealing (e.g., PTFE, silicone, rubber)." .
+
+#########################################################
+# Property: Closure:Notes
+#########################################################
+
+Closure:Notes
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Closure ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "Closure/Notes" ;
+  rdfs:comment "Additional notes about the closure system." .
+
+#########################################################
+# Class: ReactorSpecifics
+#########################################################
+# Specialized reactor configurations and
+operational features.
+#########################################################
+
+stbc:ReactorSpecifics a owl:Class ;
+  rdfs:comment "Specialized reactor configurations and operational features." .
+
+stbc:ReactorSpecifics
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty ReactorSpecifics:GasHandling ;
+      owl:allValuesFrom stbc:GasHandling
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ReactorSpecifics:Tubing ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ReactorSpecifics:CatalystLocalisation ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ReactorSpecifics:TemperatureControl ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: ReactorSpecifics:GasHandling
+#########################################################
+
+ReactorSpecifics:GasHandling
+  a owl:ObjectProperty;
+  rdfs:domain stbc:ReactorSpecifics ;
+  rdfs:range stbc:GasHandling ;
+  rdfs:label "ReactorSpecifics/GasHandling" ;
+  rdfs:comment "Gas supply and handling system for the reactor." .
+
+#########################################################
+# Property: ReactorSpecifics:Tubing
+#########################################################
+
+ReactorSpecifics:Tubing
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:ReactorSpecifics ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "ReactorSpecifics/Tubing" ;
+  rdfs:comment "Tubing specifications and connections used in the reactor setup." .
+
+#########################################################
+# Property: ReactorSpecifics:CatalystLocalisation
+#########################################################
+
+ReactorSpecifics:CatalystLocalisation
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:ReactorSpecifics ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "ReactorSpecifics/CatalystLocalisation" ;
+  rdfs:comment "Method or system for localizing or immobilizing the catalyst within the reactor." .
+
+#########################################################
+# Property: ReactorSpecifics:TemperatureControl
+#########################################################
+
+ReactorSpecifics:TemperatureControl
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:ReactorSpecifics ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "ReactorSpecifics/TemperatureControl" ;
+  rdfs:comment "Temperature control and regulation system employed." .
+
+#########################################################
+# Class: GasHandling
+#########################################################
+# Gas supply and handling system for reactor
+operations.
+#########################################################
+
+stbc:GasHandling a owl:Class ;
+  rdfs:comment "Gas supply and handling system for reactor operations." .
+
+stbc:GasHandling
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty GasHandling:GasType ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty GasHandling:SupplyMethod ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty GasHandling:SupplyRate ;
+      owl:allValuesFrom stbc:Quantity
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: GasHandling:GasType
+#########################################################
+
+GasHandling:GasType
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:GasHandling ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "GasHandling/GasType" ;
+  rdfs:comment "Type of gas used (e.g., nitrogen, oxygen, argon, air)." .
+
+#########################################################
+# Property: GasHandling:SupplyMethod
+#########################################################
+
+GasHandling:SupplyMethod
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:GasHandling ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "GasHandling/SupplyMethod" ;
+  rdfs:comment "Method of gas supply (e.g., continuous flow, headspace purging, bubbling)." .
+
+#########################################################
+# Property: GasHandling:SupplyRate
+#########################################################
+
+GasHandling:SupplyRate
+  a owl:ObjectProperty;
+  rdfs:domain stbc:GasHandling ;
+  rdfs:range stbc:Quantity ;
+  rdfs:label "GasHandling/SupplyRate" ;
+  rdfs:comment "Rate of gas supply or flow into the reactor." .
+
+#########################################################
+# Class: Mixing
+#########################################################
+# Mixing system and parameters for ensuring proper
+mass transfer and reaction homogeneity.
+#########################################################
+
+stbc:Mixing a owl:Class ;
+  rdfs:comment "Mixing system and parameters for ensuring proper mass transfer and reaction homogeneity." .
+
+stbc:Mixing
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty Mixing:MixingType ;
+      owl:onDataRange xsd:MixingType
+      ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Mixing:Shaking ;
+      owl:allValuesFrom stbc:ShakingMixing
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Mixing:Mechanical ;
+      owl:allValuesFrom stbc:MechanicalMixing
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Mixing:Fluid ;
+      owl:allValuesFrom stbc:FluidImpelledMixing
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Mixing:Notes ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: Mixing:MixingType
+#########################################################
+
+Mixing:MixingType
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Mixing ;
+  rdfs:range xsd:MixingType ;
+  rdfs:label "Mixing/MixingType" ;
+  rdfs:comment "Primary type of mixing employed in the reaction system." .
+
+#########################################################
+# Property: Mixing:Shaking
+#########################################################
+
+Mixing:Shaking
+  a owl:ObjectProperty;
+  rdfs:domain stbc:Mixing ;
+  rdfs:range stbc:ShakingMixing ;
+  rdfs:label "Mixing/Shaking" ;
+  rdfs:comment "Shaking-based mixing parameters and configuration." .
+
+#########################################################
+# Property: Mixing:Mechanical
+#########################################################
+
+Mixing:Mechanical
+  a owl:ObjectProperty;
+  rdfs:domain stbc:Mixing ;
+  rdfs:range stbc:MechanicalMixing ;
+  rdfs:label "Mixing/Mechanical" ;
+  rdfs:comment "Mechanical stirring parameters and equipment specifications." .
+
+#########################################################
+# Property: Mixing:Fluid
+#########################################################
+
+Mixing:Fluid
+  a owl:ObjectProperty;
+  rdfs:domain stbc:Mixing ;
+  rdfs:range stbc:FluidImpelledMixing ;
+  rdfs:label "Mixing/Fluid" ;
+  rdfs:comment "Fluid-driven mixing parameters for flow-based systems." .
+
+#########################################################
+# Property: Mixing:Notes
+#########################################################
+
+Mixing:Notes
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Mixing ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "Mixing/Notes" ;
+  rdfs:comment "Additional notes about the mixing strategy and implementation." .
+
+#########################################################
+# Class: ShakingMixing
+#########################################################
+# Parameters for shaking-based mixing systems.
+#########################################################
+
+stbc:ShakingMixing a owl:Class ;
+  rdfs:comment "Parameters for shaking-based mixing systems." .
+
+stbc:ShakingMixing
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty ShakingMixing:ShakingType ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ShakingMixing:Deflection ;
+      owl:allValuesFrom stbc:Quantity
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ShakingMixing:Speed ;
+      owl:allValuesFrom stbc:Quantity
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ShakingMixing:VesselPosition ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ShakingMixing:Notes ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: ShakingMixing:ShakingType
+#########################################################
+
+ShakingMixing:ShakingType
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:ShakingMixing ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "ShakingMixing/ShakingType" ;
+  rdfs:comment "Type of shaking motion (e.g., orbital, linear, reciprocal)." .
+
+#########################################################
+# Property: ShakingMixing:Deflection
+#########################################################
+
+ShakingMixing:Deflection
+  a owl:ObjectProperty;
+  rdfs:domain stbc:ShakingMixing ;
+  rdfs:range stbc:Quantity ;
+  rdfs:label "ShakingMixing/Deflection" ;
+  rdfs:comment "Amplitude or deflection distance of the shaking motion." .
+
+#########################################################
+# Property: ShakingMixing:Speed
+#########################################################
+
+ShakingMixing:Speed
+  a owl:ObjectProperty;
+  rdfs:domain stbc:ShakingMixing ;
+  rdfs:range stbc:Quantity ;
+  rdfs:label "ShakingMixing/Speed" ;
+  rdfs:comment "Frequency or speed of the shaking motion." .
+
+#########################################################
+# Property: ShakingMixing:VesselPosition
+#########################################################
+
+ShakingMixing:VesselPosition
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:ShakingMixing ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "ShakingMixing/VesselPosition" ;
+  rdfs:comment "Orientation or position of the vessel during shaking." .
+
+#########################################################
+# Property: ShakingMixing:Notes
+#########################################################
+
+ShakingMixing:Notes
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:ShakingMixing ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "ShakingMixing/Notes" ;
+  rdfs:comment "Additional notes about the shaking mixing setup." .
+
+#########################################################
+# Class: MechanicalMixing
+#########################################################
+# Parameters for mechanical stirring and agitation
+systems.
+#########################################################
+
+stbc:MechanicalMixing a owl:Class ;
+  rdfs:comment "Parameters for mechanical stirring and agitation systems." .
+
+stbc:MechanicalMixing
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty MechanicalMixing:StirringType ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty MechanicalMixing:StirrerMaterial ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty MechanicalMixing:Supplier ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty MechanicalMixing:NumberOfStirrers ;
+      owl:onDataRange xsd:xsd:integer
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty MechanicalMixing:StirrerGeometry ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty MechanicalMixing:BladePitchAngle ;
+      owl:onDataRange xsd:xsd:decimal
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty MechanicalMixing:BladeSize ;
+      owl:allValuesFrom stbc:Quantity
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty MechanicalMixing:StirrerSpeed ;
+      owl:allValuesFrom stbc:Quantity
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty MechanicalMixing:HeightAboveBase ;
+      owl:allValuesFrom stbc:Quantity
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty MechanicalMixing:PowerPerVolume ;
+      owl:allValuesFrom stbc:Quantity
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty MechanicalMixing:StirBar ;
+      owl:allValuesFrom stbc:StirBar
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty MechanicalMixing:Notes ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: MechanicalMixing:StirringType
+#########################################################
+
+MechanicalMixing:StirringType
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:MechanicalMixing ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "MechanicalMixing/StirringType" ;
+  rdfs:comment "Type of mechanical stirring (e.g., overhead, magnetic, impeller)." .
+
+#########################################################
+# Property: MechanicalMixing:StirrerMaterial
+#########################################################
+
+MechanicalMixing:StirrerMaterial
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:MechanicalMixing ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "MechanicalMixing/StirrerMaterial" ;
+  rdfs:comment "Material composition of the stirrer or impeller." .
+
+#########################################################
+# Property: MechanicalMixing:Supplier
+#########################################################
+
+MechanicalMixing:Supplier
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:MechanicalMixing ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "MechanicalMixing/Supplier" ;
+  rdfs:comment "Manufacturer or supplier of the stirring equipment." .
+
+#########################################################
+# Property: MechanicalMixing:NumberOfStirrers
+#########################################################
+
+MechanicalMixing:NumberOfStirrers
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:MechanicalMixing ;
+  rdfs:range xsd:xsd:integer ;
+  rdfs:label "MechanicalMixing/NumberOfStirrers" ;
+  rdfs:comment "Number of stirrers or impellers used in the system." .
+
+#########################################################
+# Property: MechanicalMixing:StirrerGeometry
+#########################################################
+
+MechanicalMixing:StirrerGeometry
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:MechanicalMixing ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "MechanicalMixing/StirrerGeometry" ;
+  rdfs:comment "Geometric design and shape of the stirrer or impeller." .
+
+#########################################################
+# Property: MechanicalMixing:BladePitchAngle
+#########################################################
+
+MechanicalMixing:BladePitchAngle
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:MechanicalMixing ;
+  rdfs:range xsd:xsd:decimal ;
+  rdfs:label "MechanicalMixing/BladePitchAngle" ;
+  rdfs:comment "Angle of the stirrer blades relative to the horizontal plane." .
+
+#########################################################
+# Property: MechanicalMixing:BladeSize
+#########################################################
+
+MechanicalMixing:BladeSize
+  a owl:ObjectProperty;
+  rdfs:domain stbc:MechanicalMixing ;
+  rdfs:range stbc:Quantity ;
+  rdfs:label "MechanicalMixing/BladeSize" ;
+  rdfs:comment "Dimensions or size of the stirrer blades." .
+
+#########################################################
+# Property: MechanicalMixing:StirrerSpeed
+#########################################################
+
+MechanicalMixing:StirrerSpeed
+  a owl:ObjectProperty;
+  rdfs:domain stbc:MechanicalMixing ;
+  rdfs:range stbc:Quantity ;
+  rdfs:label "MechanicalMixing/StirrerSpeed" ;
+  rdfs:comment "Rotational speed of the stirrer or impeller." .
+
+#########################################################
+# Property: MechanicalMixing:HeightAboveBase
+#########################################################
+
+MechanicalMixing:HeightAboveBase
+  a owl:ObjectProperty;
+  rdfs:domain stbc:MechanicalMixing ;
+  rdfs:range stbc:Quantity ;
+  rdfs:label "MechanicalMixing/HeightAboveBase" ;
+  rdfs:comment "Distance of the stirrer from the bottom of the vessel." .
+
+#########################################################
+# Property: MechanicalMixing:PowerPerVolume
+#########################################################
+
+MechanicalMixing:PowerPerVolume
+  a owl:ObjectProperty;
+  rdfs:domain stbc:MechanicalMixing ;
+  rdfs:range stbc:Quantity ;
+  rdfs:label "MechanicalMixing/PowerPerVolume" ;
+  rdfs:comment "Power input per unit volume of the reaction mixture." .
+
+#########################################################
+# Property: MechanicalMixing:StirBar
+#########################################################
+
+MechanicalMixing:StirBar
+  a owl:ObjectProperty;
+  rdfs:domain stbc:MechanicalMixing ;
+  rdfs:range stbc:StirBar ;
+  rdfs:label "MechanicalMixing/StirBar" ;
+  rdfs:comment "Magnetic stir bar specifications for magnetic stirring systems." .
+
+#########################################################
+# Property: MechanicalMixing:Notes
+#########################################################
+
+MechanicalMixing:Notes
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:MechanicalMixing ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "MechanicalMixing/Notes" ;
+  rdfs:comment "Additional notes about the mechanical mixing setup." .
+
+#########################################################
+# Class: StirBar
+#########################################################
+# Magnetic stir bar specifications for magnetic
+stirring systems.
+#########################################################
+
+stbc:StirBar a owl:Class ;
+  rdfs:comment "Magnetic stir bar specifications for magnetic stirring systems." .
+
+stbc:StirBar
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty StirBar:Size ;
+      owl:allValuesFrom stbc:Quantity
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty StirBar:Shape ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: StirBar:Size
+#########################################################
+
+StirBar:Size
+  a owl:ObjectProperty;
+  rdfs:domain stbc:StirBar ;
+  rdfs:range stbc:Quantity ;
+  rdfs:label "StirBar/Size" ;
+  rdfs:comment "Length and diameter of the magnetic stir bar." .
+
+#########################################################
+# Property: StirBar:Shape
+#########################################################
+
+StirBar:Shape
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:StirBar ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "StirBar/Shape" ;
+  rdfs:comment "Shape of the stir bar (e.g., cylindrical, octagonal, cross-shaped)." .
+
+#########################################################
+# Class: FluidImpelledMixing
+#########################################################
+# Parameters for fluid-driven mixing in flow-based
+reactor systems.
+#########################################################
+
+stbc:FluidImpelledMixing a owl:Class ;
+  rdfs:comment "Parameters for fluid-driven mixing in flow-based reactor systems." .
+
+stbc:FluidImpelledMixing
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty FluidImpelledMixing:PhaseVolumeDescription ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty FluidImpelledMixing:ResidenceTime ;
+      owl:allValuesFrom stbc:Quantity
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty FluidImpelledMixing:ReynoldsNumber ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty FluidImpelledMixing:PassiveMixing ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty FluidImpelledMixing:ActiveMixer ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty FluidImpelledMixing:Pulsing ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty FluidImpelledMixing:Notes ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: FluidImpelledMixing:PhaseVolumeDescription
+#########################################################
+
+FluidImpelledMixing:PhaseVolumeDescription
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:FluidImpelledMixing ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "FluidImpelledMixing/PhaseVolumeDescription" ;
+  rdfs:comment "Description of phase volumes and their distribution in the flow system." .
+
+#########################################################
+# Property: FluidImpelledMixing:ResidenceTime
+#########################################################
+
+FluidImpelledMixing:ResidenceTime
+  a owl:ObjectProperty;
+  rdfs:domain stbc:FluidImpelledMixing ;
+  rdfs:range stbc:Quantity ;
+  rdfs:label "FluidImpelledMixing/ResidenceTime" ;
+  rdfs:comment "Average residence time of the fluid in the mixing zone." .
+
+#########################################################
+# Property: FluidImpelledMixing:ReynoldsNumber
+#########################################################
+
+FluidImpelledMixing:ReynoldsNumber
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:FluidImpelledMixing ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "FluidImpelledMixing/ReynoldsNumber" ;
+  rdfs:comment "Reynolds number characterizing the flow regime and mixing intensity." .
+
+#########################################################
+# Property: FluidImpelledMixing:PassiveMixing
+#########################################################
+
+FluidImpelledMixing:PassiveMixing
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:FluidImpelledMixing ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "FluidImpelledMixing/PassiveMixing" ;
+  rdfs:comment "Description of passive mixing elements or structures used." .
+
+#########################################################
+# Property: FluidImpelledMixing:ActiveMixer
+#########################################################
+
+FluidImpelledMixing:ActiveMixer
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:FluidImpelledMixing ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "FluidImpelledMixing/ActiveMixer" ;
+  rdfs:comment "Description of active mixing devices or mechanisms employed." .
+
+#########################################################
+# Property: FluidImpelledMixing:Pulsing
+#########################################################
+
+FluidImpelledMixing:Pulsing
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:FluidImpelledMixing ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "FluidImpelledMixing/Pulsing" ;
+  rdfs:comment "Pulsing or oscillatory flow patterns used to enhance mixing." .
+
+#########################################################
+# Property: FluidImpelledMixing:Notes
+#########################################################
+
+FluidImpelledMixing:Notes
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:FluidImpelledMixing ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "FluidImpelledMixing/Notes" ;
+  rdfs:comment "Additional notes about the fluid-impelled mixing system." .
+
+#########################################################
+# Class: Biocatalyst
+#########################################################
+# A biocatalyst is an enzyme or enzyme-containing
+system used to catalyze biochemical reactions.
+This section defines the complete characterization
+of a biocatalyst including its identity, source,
+application conditions, immobilization status, and
+storage requirements.
+#########################################################
+
+stbc:Biocatalyst a owl:Class ;
+  rdfs:comment "A biocatalyst is an enzyme or enzyme-containing system used to catalyze biochemical reactions. This section defines the complete characterization of a biocatalyst including its identity, source, application conditions, immobilization status, and storage requirements." .
+
+stbc:Biocatalyst
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty Biocatalyst:Identity ;
+      owl:allValuesFrom stbc:BiocatalystIdentity
+      ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Biocatalyst:Source ;
+      owl:allValuesFrom stbc:BiocatalystSource
+      ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Biocatalyst:Application ;
+      owl:allValuesFrom stbc:BiocatalystApplication
+      ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Biocatalyst:Immobilization ;
+      owl:allValuesFrom stbc:Immobilization
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Biocatalyst:Storage ;
+      owl:allValuesFrom stbc:StorageConditions
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Biocatalyst:Notes ;
+      owl:onDataRange xsd:xsd:string
+    ] .
+
+#########################################################
+# Property: Biocatalyst:Identity
+#########################################################
+
+Biocatalyst:Identity
+  a owl:ObjectProperty;
+  rdfs:domain stbc:Biocatalyst ;
+  rdfs:range stbc:BiocatalystIdentity ;
+  rdfs:label "Biocatalyst/Identity" ;
+  rdfs:comment "Essential identifying information about the biocatalyst including name, EC number, molecular properties, and sequence data." .
+
+#########################################################
+# Property: Biocatalyst:Source
+#########################################################
+
+Biocatalyst:Source
+  a owl:ObjectProperty;
+  rdfs:domain stbc:Biocatalyst ;
+  rdfs:range stbc:BiocatalystSource ;
+  rdfs:label "Biocatalyst/Source" ;
+  rdfs:comment "Information about how the biocatalyst was obtained, whether purchased commercially or produced in-house." .
+
+#########################################################
+# Property: Biocatalyst:Application
+#########################################################
+
+Biocatalyst:Application
+  a owl:ObjectProperty;
+  rdfs:domain stbc:Biocatalyst ;
+  rdfs:range stbc:BiocatalystApplication ;
+  rdfs:label "Biocatalyst/Application" ;
+  rdfs:comment "Details about how the biocatalyst is applied in the reaction, including concentration, activity, and workflow specifics." .
+
+#########################################################
+# Property: Biocatalyst:Immobilization
+#########################################################
+
+Biocatalyst:Immobilization
+  a owl:ObjectProperty;
+  rdfs:domain stbc:Biocatalyst ;
+  rdfs:range stbc:Immobilization ;
+  rdfs:label "Biocatalyst/Immobilization" ;
+  rdfs:comment "Information about whether and how the biocatalyst is immobilized on a support material." .
+
+#########################################################
+# Property: Biocatalyst:Storage
+#########################################################
+
+Biocatalyst:Storage
+  a owl:ObjectProperty;
+  rdfs:domain stbc:Biocatalyst ;
+  rdfs:range stbc:StorageConditions ;
+  rdfs:label "Biocatalyst/Storage" ;
+  rdfs:comment "Conditions under which the biocatalyst is stored to maintain its activity and stability." .
+
+#########################################################
+# Property: Biocatalyst:Notes
+#########################################################
+
+Biocatalyst:Notes
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Biocatalyst ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "Biocatalyst/Notes" ;
+  rdfs:comment "Additional notes or comments about the biocatalyst that don't fit in other categories." .
+
+#########################################################
+# Class: BiocatalystIdentity
+#########################################################
+# Core identifying information and molecular
+characteristics of the biocatalyst enzyme.
+#########################################################
+
+stbc:BiocatalystIdentity a owl:Class ;
+  rdfs:comment "Core identifying information and molecular characteristics of the biocatalyst enzyme." .
+
+stbc:BiocatalystIdentity
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty BiocatalystIdentity:Name ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty BiocatalystIdentity:EcNumber ;
+      owl:onDataRange xsd:xsd:string
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty BiocatalystIdentity:MolecularWeight ;
+      owl:onDataRange xsd:xsd:decimal
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty BiocatalystIdentity:MolecularWeightUnit ;
+      owl:onDataRange xsd:MolecularWeightUnit
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty BiocatalystIdentity:CatalyzedReaction ;
+      owl:onDataRange xsd:xsd:string
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty BiocatalystIdentity:Sequences ;
+      owl:allValuesFrom stbc:SequenceInfo
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty BiocatalystIdentity:OriginOrganism ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty BiocatalystIdentity:ProductionOrganism ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty BiocatalystIdentity:PosttranslationalModification ;
+      owl:onDataRange xsd:xsd:string
+    ] .
+
+#########################################################
+# Property: BiocatalystIdentity:Name
+#########################################################
+
+BiocatalystIdentity:Name
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:BiocatalystIdentity ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "BiocatalystIdentity/Name" ;
+  rdfs:comment "The name of the biocatalyst, which can be the trivial name, systematic name, or trade name." .
+
+#########################################################
+# Property: BiocatalystIdentity:EcNumber
+#########################################################
+
+BiocatalystIdentity:EcNumber
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:BiocatalystIdentity ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "BiocatalystIdentity/EcNumber" ;
+  rdfs:comment "The Enzyme Commission (EC) number that classifies the enzyme according to the reaction it catalyzes." .
+
+#########################################################
+# Property: BiocatalystIdentity:MolecularWeight
+#########################################################
+
+BiocatalystIdentity:MolecularWeight
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:BiocatalystIdentity ;
+  rdfs:range xsd:xsd:decimal ;
+  rdfs:label "BiocatalystIdentity/MolecularWeight" ;
+  rdfs:comment "The molecular weight of the enzyme in the specified units." .
+
+#########################################################
+# Property: BiocatalystIdentity:MolecularWeightUnit
+#########################################################
+
+BiocatalystIdentity:MolecularWeightUnit
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:BiocatalystIdentity ;
+  rdfs:range xsd:MolecularWeightUnit ;
+  rdfs:label "BiocatalystIdentity/MolecularWeightUnit" ;
+  rdfs:comment "The unit of measurement for the molecular weight (e.g., kDa, Da)." .
+
+#########################################################
+# Property: BiocatalystIdentity:CatalyzedReaction
+#########################################################
+
+BiocatalystIdentity:CatalyzedReaction
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:BiocatalystIdentity ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "BiocatalystIdentity/CatalyzedReaction" ;
+  rdfs:comment "Description of the specific reaction or type of reaction catalyzed by this enzyme." .
+
+#########################################################
+# Property: BiocatalystIdentity:Sequences
+#########################################################
+
+BiocatalystIdentity:Sequences
+  a owl:ObjectProperty;
+  rdfs:domain stbc:BiocatalystIdentity ;
+  rdfs:range stbc:SequenceInfo ;
+  rdfs:label "BiocatalystIdentity/Sequences" ;
+  rdfs:comment "Amino acid and/or DNA sequence information for the enzyme." .
+
+#########################################################
+# Property: BiocatalystIdentity:OriginOrganism
+#########################################################
+
+BiocatalystIdentity:OriginOrganism
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:BiocatalystIdentity ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "BiocatalystIdentity/OriginOrganism" ;
+  rdfs:comment "The organism from which the enzyme was originally derived or isolated." .
+
+#########################################################
+# Property: BiocatalystIdentity:ProductionOrganism
+#########################################################
+
+BiocatalystIdentity:ProductionOrganism
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:BiocatalystIdentity ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "BiocatalystIdentity/ProductionOrganism" ;
+  rdfs:comment "The organism used to produce the enzyme (may differ from origin organism for recombinant enzymes)." .
+
+#########################################################
+# Property: BiocatalystIdentity:PosttranslationalModification
+#########################################################
+
+BiocatalystIdentity:PosttranslationalModification
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:BiocatalystIdentity ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "BiocatalystIdentity/PosttranslationalModification" ;
+  rdfs:comment "Any post-translational modifications present on the enzyme that may affect its activity or properties." .
+
+#########################################################
+# Class: SequenceInfo
+#########################################################
+# Sequence information for the biocatalyst at both
+the protein and nucleic acid levels.
+#########################################################
+
+stbc:SequenceInfo a owl:Class ;
+  rdfs:comment "Sequence information for the biocatalyst at both the protein and nucleic acid levels." .
+
+stbc:SequenceInfo
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty SequenceInfo:SequenceAminoAcid ;
+      owl:onDataRange xsd:xsd:string
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty SequenceInfo:SequenceDna ;
+      owl:onDataRange xsd:xsd:string
+    ] .
+
+#########################################################
+# Property: SequenceInfo:SequenceAminoAcid
+#########################################################
+
+SequenceInfo:SequenceAminoAcid
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:SequenceInfo ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "SequenceInfo/SequenceAminoAcid" ;
+  rdfs:comment "The amino acid sequence of the enzyme in single-letter code format." .
+
+#########################################################
+# Property: SequenceInfo:SequenceDna
+#########################################################
+
+SequenceInfo:SequenceDna
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:SequenceInfo ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "SequenceInfo/SequenceDna" ;
+  rdfs:comment "The DNA sequence encoding the enzyme." .
+
+#########################################################
+# Class: BiocatalystSource
+#########################################################
+# Information about the source and procurement of
+the biocatalyst.
+#########################################################
+
+stbc:BiocatalystSource a owl:Class ;
+  rdfs:comment "Information about the source and procurement of the biocatalyst." .
+
+stbc:BiocatalystSource
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty BiocatalystSource:SourceType ;
+      owl:onDataRange xsd:BiocatalystSourceType
+      ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty BiocatalystSource:Supplier ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty BiocatalystSource:PurchasedDetails ;
+      owl:allValuesFrom stbc:PurchasedDetails
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty BiocatalystSource:SelfProducedDetails ;
+      owl:allValuesFrom stbc:SelfProducedDetails
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: BiocatalystSource:SourceType
+#########################################################
+
+BiocatalystSource:SourceType
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:BiocatalystSource ;
+  rdfs:range xsd:BiocatalystSourceType ;
+  rdfs:label "BiocatalystSource/SourceType" ;
+  rdfs:comment "Whether the biocatalyst was purchased from a supplier or produced in-house." .
+
+#########################################################
+# Property: BiocatalystSource:Supplier
+#########################################################
+
+BiocatalystSource:Supplier
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:BiocatalystSource ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "BiocatalystSource/Supplier" ;
+  rdfs:comment "Name of the commercial supplier or source of the biocatalyst." .
+
+#########################################################
+# Property: BiocatalystSource:PurchasedDetails
+#########################################################
+
+BiocatalystSource:PurchasedDetails
+  a owl:ObjectProperty;
+  rdfs:domain stbc:BiocatalystSource ;
+  rdfs:range stbc:PurchasedDetails ;
+  rdfs:label "BiocatalystSource/PurchasedDetails" ;
+  rdfs:comment "Specific details relevant to commercially purchased biocatalysts." .
+
+#########################################################
+# Property: BiocatalystSource:SelfProducedDetails
+#########################################################
+
+BiocatalystSource:SelfProducedDetails
+  a owl:ObjectProperty;
+  rdfs:domain stbc:BiocatalystSource ;
+  rdfs:range stbc:SelfProducedDetails ;
+  rdfs:label "BiocatalystSource/SelfProducedDetails" ;
+  rdfs:comment "Specific details relevant to biocatalysts produced in-house." .
+
+#########################################################
+# Class: PurchasedDetails
+#########################################################
+# Detailed information for commercially purchased
+biocatalysts.
+#########################################################
+
+stbc:PurchasedDetails a owl:Class ;
+  rdfs:comment "Detailed information for commercially purchased biocatalysts." .
+
+stbc:PurchasedDetails
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty PurchasedDetails:Reference ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty PurchasedDetails:Purity ;
+      owl:onDataRange xsd:xsd:decimal
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty PurchasedDetails:PuritySpecification ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty PurchasedDetails:Formulation ;
+      owl:onDataRange xsd:FormulationType
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: PurchasedDetails:Reference
+#########################################################
+
+PurchasedDetails:Reference
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:PurchasedDetails ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "PurchasedDetails/Reference" ;
+  rdfs:comment "Product code, catalog number, or other reference identifier from the supplier." .
+
+#########################################################
+# Property: PurchasedDetails:Purity
+#########################################################
+
+PurchasedDetails:Purity
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:PurchasedDetails ;
+  rdfs:range xsd:xsd:decimal ;
+  rdfs:label "PurchasedDetails/Purity" ;
+  rdfs:comment "Purity of the purchased biocatalyst as specified by the supplier, typically as a percentage." .
+
+#########################################################
+# Property: PurchasedDetails:PuritySpecification
+#########################################################
+
+PurchasedDetails:PuritySpecification
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:PurchasedDetails ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "PurchasedDetails/PuritySpecification" ;
+  rdfs:comment "Method or specification used to determine the purity (e.g., SDS-PAGE, activity assay)." .
+
+#########################################################
+# Property: PurchasedDetails:Formulation
+#########################################################
+
+PurchasedDetails:Formulation
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:PurchasedDetails ;
+  rdfs:range xsd:FormulationType ;
+  rdfs:label "PurchasedDetails/Formulation" ;
+  rdfs:comment "Physical form of the purchased biocatalyst (dissolved, powder, etc.)." .
+
+#########################################################
+# Class: SelfProducedDetails
+#########################################################
+# Detailed information for biocatalysts produced
+in-house.
+#########################################################
+
+stbc:SelfProducedDetails a owl:Class ;
+  rdfs:comment "Detailed information for biocatalysts produced in-house." .
+
+stbc:SelfProducedDetails
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty SelfProducedDetails:SequencePlasmid ;
+      owl:onDataRange xsd:xsd:string
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty SelfProducedDetails:PlasmidSpecifications ;
+      owl:onDataRange xsd:xsd:string
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty SelfProducedDetails:PurificationMethod ;
+      owl:onDataRange xsd:xsd:string
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty SelfProducedDetails:Purity ;
+      owl:onDataRange xsd:xsd:decimal
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty SelfProducedDetails:PuritySpecification ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty SelfProducedDetails:Formulation ;
+      owl:onDataRange xsd:FormulationType
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: SelfProducedDetails:SequencePlasmid
+#########################################################
+
+SelfProducedDetails:SequencePlasmid
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:SelfProducedDetails ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "SelfProducedDetails/SequencePlasmid" ;
+  rdfs:comment "Sequence of the plasmid used for enzyme expression." .
+
+#########################################################
+# Property: SelfProducedDetails:PlasmidSpecifications
+#########################################################
+
+SelfProducedDetails:PlasmidSpecifications
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:SelfProducedDetails ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "SelfProducedDetails/PlasmidSpecifications" ;
+  rdfs:comment "Details about the plasmid construction, including vector backbone, promoter, and other relevant features." .
+
+#########################################################
+# Property: SelfProducedDetails:PurificationMethod
+#########################################################
+
+SelfProducedDetails:PurificationMethod
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:SelfProducedDetails ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "SelfProducedDetails/PurificationMethod" ;
+  rdfs:comment "Method(s) used to purify the enzyme after expression." .
+
+#########################################################
+# Property: SelfProducedDetails:Purity
+#########################################################
+
+SelfProducedDetails:Purity
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:SelfProducedDetails ;
+  rdfs:range xsd:xsd:decimal ;
+  rdfs:label "SelfProducedDetails/Purity" ;
+  rdfs:comment "Achieved purity of the self-produced biocatalyst, typically as a percentage." .
+
+#########################################################
+# Property: SelfProducedDetails:PuritySpecification
+#########################################################
+
+SelfProducedDetails:PuritySpecification
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:SelfProducedDetails ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "SelfProducedDetails/PuritySpecification" ;
+  rdfs:comment "Method used to determine the purity of the self-produced enzyme." .
+
+#########################################################
+# Property: SelfProducedDetails:Formulation
+#########################################################
+
+SelfProducedDetails:Formulation
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:SelfProducedDetails ;
+  rdfs:range xsd:FormulationType ;
+  rdfs:label "SelfProducedDetails/Formulation" ;
+  rdfs:comment "Physical form of the self-produced biocatalyst after purification and processing." .
+
+#########################################################
+# Class: BiocatalystApplication
+#########################################################
+# Details about how the biocatalyst is applied and
+used in the reaction system.
+#########################################################
+
+stbc:BiocatalystApplication a owl:Class ;
+  rdfs:comment "Details about how the biocatalyst is applied and used in the reaction system." .
+
+stbc:BiocatalystApplication
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty BiocatalystApplication:ApplicationType ;
+      owl:onDataRange xsd:BiocatalystApplicationType
+      ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty BiocatalystApplication:Concentration ;
+      owl:allValuesFrom stbc:Concentration
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty BiocatalystApplication:Activity ;
+      owl:allValuesFrom stbc:Activity
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty BiocatalystApplication:WorkflowDetails ;
+      owl:allValuesFrom stbc:ApplicationWorkflowDetails
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: BiocatalystApplication:ApplicationType
+#########################################################
+
+BiocatalystApplication:ApplicationType
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:BiocatalystApplication ;
+  rdfs:range xsd:BiocatalystApplicationType ;
+  rdfs:label "BiocatalystApplication/ApplicationType" ;
+  rdfs:comment "The form in which the biocatalyst is applied (purified enzyme, crude extract, whole cells, etc.)." .
+
+#########################################################
+# Property: BiocatalystApplication:Concentration
+#########################################################
+
+BiocatalystApplication:Concentration
+  a owl:ObjectProperty;
+  rdfs:domain stbc:BiocatalystApplication ;
+  rdfs:range stbc:Concentration ;
+  rdfs:label "BiocatalystApplication/Concentration" ;
+  rdfs:comment "Concentration of the biocatalyst in the reaction mixture." .
+
+#########################################################
+# Property: BiocatalystApplication:Activity
+#########################################################
+
+BiocatalystApplication:Activity
+  a owl:ObjectProperty;
+  rdfs:domain stbc:BiocatalystApplication ;
+  rdfs:range stbc:Activity ;
+  rdfs:label "BiocatalystApplication/Activity" ;
+  rdfs:comment "Measured enzymatic activity of the biocatalyst under the reaction conditions." .
+
+#########################################################
+# Property: BiocatalystApplication:WorkflowDetails
+#########################################################
+
+BiocatalystApplication:WorkflowDetails
+  a owl:ObjectProperty;
+  rdfs:domain stbc:BiocatalystApplication ;
+  rdfs:range stbc:ApplicationWorkflowDetails ;
+  rdfs:label "BiocatalystApplication/WorkflowDetails" ;
+  rdfs:comment "Specific workflow steps and methods used in applying the biocatalyst." .
+
+#########################################################
+# Class: Concentration
+#########################################################
+# Quantitative information about biocatalyst
+concentration in the reaction.
+#########################################################
+
+stbc:Concentration a owl:Class ;
+  rdfs:comment "Quantitative information about biocatalyst concentration in the reaction." .
+
+stbc:Concentration
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty Concentration:Value ;
+      owl:onDataRange xsd:xsd:decimal
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Concentration:Unit ;
+      owl:allValuesFrom stbc:UnitDefinition
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Concentration:DeterminationMethod ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: Concentration:Value
+#########################################################
+
+Concentration:Value
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Concentration ;
+  rdfs:range xsd:xsd:decimal ;
+  rdfs:label "Concentration/Value" ;
+  rdfs:comment "Numerical value of the concentration." .
+
+#########################################################
+# Property: Concentration:Unit
+#########################################################
+
+Concentration:Unit
+  a owl:ObjectProperty;
+  rdfs:domain stbc:Concentration ;
+  rdfs:range stbc:UnitDefinition ;
+  rdfs:label "Concentration/Unit" ;
+  rdfs:comment "Unit of measurement for the concentration (e.g., mg/mL, µM, U/mL)." .
+
+#########################################################
+# Property: Concentration:DeterminationMethod
+#########################################################
+
+Concentration:DeterminationMethod
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Concentration ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "Concentration/DeterminationMethod" ;
+  rdfs:comment "Method used to determine or calculate the concentration." .
+
+#########################################################
+# Class: Activity
+#########################################################
+# Enzymatic activity measurement of the
+biocatalyst.
+#########################################################
+
+stbc:Activity a owl:Class ;
+  rdfs:comment "Enzymatic activity measurement of the biocatalyst." .
+
+stbc:Activity
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty Activity:Value ;
+      owl:onDataRange xsd:xsd:decimal
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Activity:Unit ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Activity:DeterminationMethod ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: Activity:Value
+#########################################################
+
+Activity:Value
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Activity ;
+  rdfs:range xsd:xsd:decimal ;
+  rdfs:label "Activity/Value" ;
+  rdfs:comment "Numerical value of the measured activity." .
+
+#########################################################
+# Property: Activity:Unit
+#########################################################
+
+Activity:Unit
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Activity ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "Activity/Unit" ;
+  rdfs:comment "Unit of measurement for the activity (e.g., U/mg, µmol/min/mg)." .
+
+#########################################################
+# Property: Activity:DeterminationMethod
+#########################################################
+
+Activity:DeterminationMethod
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Activity ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "Activity/DeterminationMethod" ;
+  rdfs:comment "Assay method used to measure the enzymatic activity." .
+
+#########################################################
+# Class: ApplicationWorkflowDetails
+#########################################################
+# Specific workflow steps and procedures used when
+applying the biocatalyst.
+#########################################################
+
+stbc:ApplicationWorkflowDetails a owl:Class ;
+  rdfs:comment "Specific workflow steps and procedures used when applying the biocatalyst." .
+
+stbc:ApplicationWorkflowDetails
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty ApplicationWorkflowDetails:CellDisruptionProcess ;
+      owl:onDataRange xsd:xsd:string
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ApplicationWorkflowDetails:HarvestingMethod ;
+      owl:onDataRange xsd:xsd:string
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ApplicationWorkflowDetails:SeparationMethod ;
+      owl:onDataRange xsd:xsd:string
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ApplicationWorkflowDetails:SourceOfCellfreeExtract ;
+      owl:onDataRange xsd:xsd:string
+    ] .
+
+#########################################################
+# Property: ApplicationWorkflowDetails:CellDisruptionProcess
+#########################################################
+
+ApplicationWorkflowDetails:CellDisruptionProcess
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:ApplicationWorkflowDetails ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "ApplicationWorkflowDetails/CellDisruptionProcess" ;
+  rdfs:comment "Method used to disrupt cells if working with whole cell preparations." .
+
+#########################################################
+# Property: ApplicationWorkflowDetails:HarvestingMethod
+#########################################################
+
+ApplicationWorkflowDetails:HarvestingMethod
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:ApplicationWorkflowDetails ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "ApplicationWorkflowDetails/HarvestingMethod" ;
+  rdfs:comment "Method used to harvest cells or enzyme from the production system." .
+
+#########################################################
+# Property: ApplicationWorkflowDetails:SeparationMethod
+#########################################################
+
+ApplicationWorkflowDetails:SeparationMethod
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:ApplicationWorkflowDetails ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "ApplicationWorkflowDetails/SeparationMethod" ;
+  rdfs:comment "Method used to separate the biocatalyst from other components." .
+
+#########################################################
+# Property: ApplicationWorkflowDetails:SourceOfCellfreeExtract
+#########################################################
+
+ApplicationWorkflowDetails:SourceOfCellfreeExtract
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:ApplicationWorkflowDetails ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "ApplicationWorkflowDetails/SourceOfCellfreeExtract" ;
+  rdfs:comment "Details about the source and preparation of cell-free extracts if applicable." .
+
+#########################################################
+# Class: Immobilization
+#########################################################
+# Information about biocatalyst immobilization on
+solid supports.
+#########################################################
+
+stbc:Immobilization a owl:Class ;
+  rdfs:comment "Information about biocatalyst immobilization on solid supports." .
+
+stbc:Immobilization
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty Immobilization:Immobilized ;
+      owl:onDataRange xsd:xsd:boolean
+      ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Immobilization:BiocatalystState ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Immobilization:ImmobilisationChemistry ;
+      owl:onDataRange xsd:xsd:string
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Immobilization:CarrierMaterial ;
+      owl:onDataRange xsd:xsd:string
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Immobilization:Linkers ;
+      owl:onDataRange xsd:xsd:string
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Immobilization:ImmobilisationMethod ;
+      owl:onDataRange xsd:xsd:string
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Immobilization:PurificationMethod ;
+      owl:onDataRange xsd:xsd:string
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Immobilization:Loading ;
+      owl:allValuesFrom stbc:Concentration
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Immobilization:Notes ;
+      owl:onDataRange xsd:xsd:string
+    ] .
+
+#########################################################
+# Property: Immobilization:Immobilized
+#########################################################
+
+Immobilization:Immobilized
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Immobilization ;
+  rdfs:range xsd:xsd:boolean ;
+  rdfs:label "Immobilization/Immobilized" ;
+  rdfs:comment "Whether the biocatalyst is immobilized (true) or used in free form (false)." .
+
+#########################################################
+# Property: Immobilization:BiocatalystState
+#########################################################
+
+Immobilization:BiocatalystState
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Immobilization ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "Immobilization/BiocatalystState" ;
+  rdfs:comment "Physical state of the biocatalyst during immobilization (e.g., purified enzyme, crude extract)." .
+
+#########################################################
+# Property: Immobilization:ImmobilisationChemistry
+#########################################################
+
+Immobilization:ImmobilisationChemistry
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Immobilization ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "Immobilization/ImmobilisationChemistry" ;
+  rdfs:comment "Chemical method or mechanism used for immobilization (e.g., covalent binding, adsorption, entrapment)." .
+
+#########################################################
+# Property: Immobilization:CarrierMaterial
+#########################################################
+
+Immobilization:CarrierMaterial
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Immobilization ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "Immobilization/CarrierMaterial" ;
+  rdfs:comment "Material used as the solid support for immobilization." .
+
+#########################################################
+# Property: Immobilization:Linkers
+#########################################################
+
+Immobilization:Linkers
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Immobilization ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "Immobilization/Linkers" ;
+  rdfs:comment "Chemical linkers or spacers used between the enzyme and carrier material." .
+
+#########################################################
+# Property: Immobilization:ImmobilisationMethod
+#########################################################
+
+Immobilization:ImmobilisationMethod
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Immobilization ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "Immobilization/ImmobilisationMethod" ;
+  rdfs:comment "Detailed procedure used for the immobilization process." .
+
+#########################################################
+# Property: Immobilization:PurificationMethod
+#########################################################
+
+Immobilization:PurificationMethod
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Immobilization ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "Immobilization/PurificationMethod" ;
+  rdfs:comment "Method used to purify or wash the immobilized biocatalyst." .
+
+#########################################################
+# Property: Immobilization:Loading
+#########################################################
+
+Immobilization:Loading
+  a owl:ObjectProperty;
+  rdfs:domain stbc:Immobilization ;
+  rdfs:range stbc:Concentration ;
+  rdfs:label "Immobilization/Loading" ;
+  rdfs:comment "Amount of enzyme loaded onto the carrier material." .
+
+#########################################################
+# Property: Immobilization:Notes
+#########################################################
+
+Immobilization:Notes
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Immobilization ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "Immobilization/Notes" ;
+  rdfs:comment "Additional notes about the immobilization process or properties." .
+
+#########################################################
+# Class: ExperimentalResults
+#########################################################
+# Comprehensive collection of experimental results
+from enzymatic reactions.
+#########################################################
+
+stbc:ExperimentalResults a owl:Class ;
+  rdfs:comment "Comprehensive collection of experimental results from enzymatic reactions." .
+
+stbc:ExperimentalResults
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty ExperimentalResults:Kinetics ;
+      owl:allValuesFrom stbc:KineticResults
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ExperimentalResults:YieldAndConversion ;
+      owl:allValuesFrom stbc:YieldAndConversionResults
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ExperimentalResults:Activity ;
+      owl:allValuesFrom stbc:ActivityResults
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ExperimentalResults:Selectivity ;
+      owl:allValuesFrom stbc:SelectivityResults
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ExperimentalResults:Thermodynamics ;
+      owl:allValuesFrom stbc:ThermodynamicResults
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ExperimentalResults:Notes ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: ExperimentalResults:Kinetics
+#########################################################
+
+ExperimentalResults:Kinetics
+  a owl:ObjectProperty;
+  rdfs:domain stbc:ExperimentalResults ;
+  rdfs:range stbc:KineticResults ;
+  rdfs:label "ExperimentalResults/Kinetics" ;
+  rdfs:comment "Kinetic parameters and enzyme behavior characteristics." .
+
+#########################################################
+# Property: ExperimentalResults:YieldAndConversion
+#########################################################
+
+ExperimentalResults:YieldAndConversion
+  a owl:ObjectProperty;
+  rdfs:domain stbc:ExperimentalResults ;
+  rdfs:range stbc:YieldAndConversionResults ;
+  rdfs:label "ExperimentalResults/YieldAndConversion" ;
+  rdfs:comment "Product yield and substrate conversion measurements." .
+
+#########################################################
+# Property: ExperimentalResults:Activity
+#########################################################
+
+ExperimentalResults:Activity
+  a owl:ObjectProperty;
+  rdfs:domain stbc:ExperimentalResults ;
+  rdfs:range stbc:ActivityResults ;
+  rdfs:label "ExperimentalResults/Activity" ;
+  rdfs:comment "Enzyme activity and initial reaction rate data." .
+
+#########################################################
+# Property: ExperimentalResults:Selectivity
+#########################################################
+
+ExperimentalResults:Selectivity
+  a owl:ObjectProperty;
+  rdfs:domain stbc:ExperimentalResults ;
+  rdfs:range stbc:SelectivityResults ;
+  rdfs:label "ExperimentalResults/Selectivity" ;
+  rdfs:comment "Selectivity measurements including stereoselectivity and enantioselectivity." .
+
+#########################################################
+# Property: ExperimentalResults:Thermodynamics
+#########################################################
+
+ExperimentalResults:Thermodynamics
+  a owl:ObjectProperty;
+  rdfs:domain stbc:ExperimentalResults ;
+  rdfs:range stbc:ThermodynamicResults ;
+  rdfs:label "ExperimentalResults/Thermodynamics" ;
+  rdfs:comment "Thermodynamic parameters of the reaction." .
+
+#########################################################
+# Property: ExperimentalResults:Notes
+#########################################################
+
+ExperimentalResults:Notes
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:ExperimentalResults ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "ExperimentalResults/Notes" ;
+  rdfs:comment "Additional notes or comments about the experimental results." .
+
+#########################################################
+# Class: KineticResults
+#########################################################
+# Kinetic parameters characterizing enzyme
+behavior and reaction mechanisms.
+#########################################################
+
+stbc:KineticResults a owl:Class ;
+  rdfs:comment "Kinetic parameters characterizing enzyme behavior and reaction mechanisms." .
+
+stbc:KineticResults
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty KineticResults:MichaelisConstant ;
+      owl:allValuesFrom stbc:Quantity
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty KineticResults:MaximumReactionRate ;
+      owl:allValuesFrom stbc:Quantity
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty KineticResults:TurnoverNumber ;
+      owl:allValuesFrom stbc:Quantity
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty KineticResults:CatalyticEfficiency ;
+      owl:allValuesFrom stbc:Quantity
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty KineticResults:DissociationConstant ;
+      owl:allValuesFrom stbc:Quantity
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty KineticResults:Inhibition ;
+      owl:allValuesFrom stbc:InhibitionParameters
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty KineticResults:HillCoefficient ;
+      owl:onDataRange xsd:xsd:decimal
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty KineticResults:EnzymeStability ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty KineticResults:Notes ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: KineticResults:MichaelisConstant
+#########################################################
+
+KineticResults:MichaelisConstant
+  a owl:ObjectProperty;
+  rdfs:domain stbc:KineticResults ;
+  rdfs:range stbc:Quantity ;
+  rdfs:label "KineticResults/MichaelisConstant" ;
+  rdfs:comment "Michaelis constant (Km) representing the substrate concentration at half-maximum reaction rate." .
+
+#########################################################
+# Property: KineticResults:MaximumReactionRate
+#########################################################
+
+KineticResults:MaximumReactionRate
+  a owl:ObjectProperty;
+  rdfs:domain stbc:KineticResults ;
+  rdfs:range stbc:Quantity ;
+  rdfs:label "KineticResults/MaximumReactionRate" ;
+  rdfs:comment "Maximum reaction rate (Vmax) achieved under saturating substrate conditions." .
+
+#########################################################
+# Property: KineticResults:TurnoverNumber
+#########################################################
+
+KineticResults:TurnoverNumber
+  a owl:ObjectProperty;
+  rdfs:domain stbc:KineticResults ;
+  rdfs:range stbc:Quantity ;
+  rdfs:label "KineticResults/TurnoverNumber" ;
+  rdfs:comment "Turnover number (kcat) representing the maximum number of substrate molecules converted per enzyme molecule per unit time." .
+
+#########################################################
+# Property: KineticResults:CatalyticEfficiency
+#########################################################
+
+KineticResults:CatalyticEfficiency
+  a owl:ObjectProperty;
+  rdfs:domain stbc:KineticResults ;
+  rdfs:range stbc:Quantity ;
+  rdfs:label "KineticResults/CatalyticEfficiency" ;
+  rdfs:comment "Catalytic efficiency (kcat/Km) indicating the enzyme's effectiveness at low substrate concentrations." .
+
+#########################################################
+# Property: KineticResults:DissociationConstant
+#########################################################
+
+KineticResults:DissociationConstant
+  a owl:ObjectProperty;
+  rdfs:domain stbc:KineticResults ;
+  rdfs:range stbc:Quantity ;
+  rdfs:label "KineticResults/DissociationConstant" ;
+  rdfs:comment "Dissociation constant (Kd) for enzyme-substrate or enzyme-inhibitor binding." .
+
+#########################################################
+# Property: KineticResults:Inhibition
+#########################################################
+
+KineticResults:Inhibition
+  a owl:ObjectProperty;
+  rdfs:domain stbc:KineticResults ;
+  rdfs:range stbc:InhibitionParameters ;
+  rdfs:label "KineticResults/Inhibition" ;
+  rdfs:comment "Parameters describing enzyme inhibition characteristics." .
+
+#########################################################
+# Property: KineticResults:HillCoefficient
+#########################################################
+
+KineticResults:HillCoefficient
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:KineticResults ;
+  rdfs:range xsd:xsd:decimal ;
+  rdfs:label "KineticResults/HillCoefficient" ;
+  rdfs:comment "Hill coefficient indicating cooperativity in substrate binding or enzyme kinetics." .
+
+#########################################################
+# Property: KineticResults:EnzymeStability
+#########################################################
+
+KineticResults:EnzymeStability
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:KineticResults ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "KineticResults/EnzymeStability" ;
+  rdfs:comment "Qualitative or quantitative description of enzyme stability under reaction conditions." .
+
+#########################################################
+# Property: KineticResults:Notes
+#########################################################
+
+KineticResults:Notes
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:KineticResults ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "KineticResults/Notes" ;
+  rdfs:comment "Additional notes about kinetic measurements or observations." .
+
+#########################################################
+# Class: InhibitionParameters
+#########################################################
+# Parameters describing enzyme inhibition
+characteristics and mechanisms.
+#########################################################
+
+stbc:InhibitionParameters a owl:Class ;
+  rdfs:comment "Parameters describing enzyme inhibition characteristics and mechanisms." .
+
+stbc:InhibitionParameters
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty InhibitionParameters:InhibitionType ;
+      owl:onDataRange xsd:InhibitionType
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty InhibitionParameters:InhibitionConstant ;
+      owl:allValuesFrom stbc:Quantity
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: InhibitionParameters:InhibitionType
+#########################################################
+
+InhibitionParameters:InhibitionType
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:InhibitionParameters ;
+  rdfs:range xsd:InhibitionType ;
+  rdfs:label "InhibitionParameters/InhibitionType" ;
+  rdfs:comment "Type of inhibition mechanism observed." .
+
+#########################################################
+# Property: InhibitionParameters:InhibitionConstant
+#########################################################
+
+InhibitionParameters:InhibitionConstant
+  a owl:ObjectProperty;
+  rdfs:domain stbc:InhibitionParameters ;
+  rdfs:range stbc:Quantity ;
+  rdfs:label "InhibitionParameters/InhibitionConstant" ;
+  rdfs:comment "Inhibition constant (Ki) quantifying the strength of inhibitor binding." .
+
+#########################################################
+# Class: YieldAndConversionResults
+#########################################################
+# Product yield and substrate conversion
+measurements from enzymatic reactions.
+#########################################################
+
+stbc:YieldAndConversionResults a owl:Class ;
+  rdfs:comment "Product yield and substrate conversion measurements from enzymatic reactions." .
+
+stbc:YieldAndConversionResults
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty YieldAndConversionResults:Yield ;
+      owl:allValuesFrom stbc:Quantity
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty YieldAndConversionResults:SpaceTimeYield ;
+      owl:allValuesFrom stbc:Quantity
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty YieldAndConversionResults:Conversion ;
+      owl:allValuesFrom stbc:Quantity
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty YieldAndConversionResults:Notes ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: YieldAndConversionResults:Yield
+#########################################################
+
+YieldAndConversionResults:Yield
+  a owl:ObjectProperty;
+  rdfs:domain stbc:YieldAndConversionResults ;
+  rdfs:range stbc:Quantity ;
+  rdfs:label "YieldAndConversionResults/Yield" ;
+  rdfs:comment "Product yield as percentage or fraction of theoretical maximum." .
+
+#########################################################
+# Property: YieldAndConversionResults:SpaceTimeYield
+#########################################################
+
+YieldAndConversionResults:SpaceTimeYield
+  a owl:ObjectProperty;
+  rdfs:domain stbc:YieldAndConversionResults ;
+  rdfs:range stbc:Quantity ;
+  rdfs:label "YieldAndConversionResults/SpaceTimeYield" ;
+  rdfs:comment "Space-time yield representing product formation rate per unit reactor volume." .
+
+#########################################################
+# Property: YieldAndConversionResults:Conversion
+#########################################################
+
+YieldAndConversionResults:Conversion
+  a owl:ObjectProperty;
+  rdfs:domain stbc:YieldAndConversionResults ;
+  rdfs:range stbc:Quantity ;
+  rdfs:label "YieldAndConversionResults/Conversion" ;
+  rdfs:comment "Substrate conversion as percentage or fraction of initial substrate consumed." .
+
+#########################################################
+# Property: YieldAndConversionResults:Notes
+#########################################################
+
+YieldAndConversionResults:Notes
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:YieldAndConversionResults ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "YieldAndConversionResults/Notes" ;
+  rdfs:comment "Additional notes about yield and conversion measurements." .
+
+#########################################################
+# Class: ActivityResults
+#########################################################
+# Enzyme activity measurements and initial
+reaction rate data.
+#########################################################
+
+stbc:ActivityResults a owl:Class ;
+  rdfs:comment "Enzyme activity measurements and initial reaction rate data." .
+
+stbc:ActivityResults
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty ActivityResults:SpecificActivity ;
+      owl:allValuesFrom stbc:Quantity
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ActivityResults:InitialReactionRate ;
+      owl:allValuesFrom stbc:Quantity
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ActivityResults:Notes ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: ActivityResults:SpecificActivity
+#########################################################
+
+ActivityResults:SpecificActivity
+  a owl:ObjectProperty;
+  rdfs:domain stbc:ActivityResults ;
+  rdfs:range stbc:Quantity ;
+  rdfs:label "ActivityResults/SpecificActivity" ;
+  rdfs:comment "Specific activity representing enzyme activity per unit mass of enzyme protein." .
+
+#########################################################
+# Property: ActivityResults:InitialReactionRate
+#########################################################
+
+ActivityResults:InitialReactionRate
+  a owl:ObjectProperty;
+  rdfs:domain stbc:ActivityResults ;
+  rdfs:range stbc:Quantity ;
+  rdfs:label "ActivityResults/InitialReactionRate" ;
+  rdfs:comment "Initial reaction rate measured at the beginning of the reaction." .
+
+#########################################################
+# Property: ActivityResults:Notes
+#########################################################
+
+ActivityResults:Notes
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:ActivityResults ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "ActivityResults/Notes" ;
+  rdfs:comment "Additional notes about activity measurements." .
+
+#########################################################
+# Class: SelectivityResults
+#########################################################
+# Selectivity measurements including
+stereoselectivity, enantioselectivity, and other
+selectivity parameters.
+#########################################################
+
+stbc:SelectivityResults a owl:Class ;
+  rdfs:comment "Selectivity measurements including stereoselectivity, enantioselectivity, and other selectivity parameters." .
+
+stbc:SelectivityResults
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty SelectivityResults:Stereoselectivity ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty SelectivityResults:Enantioselectivity ;
+      owl:onDataRange xsd:xsd:decimal
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty SelectivityResults:EnantiomericExcess ;
+      owl:allValuesFrom stbc:Quantity
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty SelectivityResults:DiastereomericExcess ;
+      owl:allValuesFrom stbc:Quantity
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty SelectivityResults:IsomericContent ;
+      owl:allValuesFrom stbc:Quantity
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty SelectivityResults:Chemoselectivity ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty SelectivityResults:Regioselectivity ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty SelectivityResults:Notes ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: SelectivityResults:Stereoselectivity
+#########################################################
+
+SelectivityResults:Stereoselectivity
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:SelectivityResults ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "SelectivityResults/Stereoselectivity" ;
+  rdfs:comment "Qualitative or quantitative description of stereoselectivity in the reaction." .
+
+#########################################################
+# Property: SelectivityResults:Enantioselectivity
+#########################################################
+
+SelectivityResults:Enantioselectivity
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:SelectivityResults ;
+  rdfs:range xsd:xsd:decimal ;
+  rdfs:label "SelectivityResults/Enantioselectivity" ;
+  rdfs:comment "Enantioselectivity ratio (E-value) indicating preference for one enantiomer over another." .
+
+#########################################################
+# Property: SelectivityResults:EnantiomericExcess
+#########################################################
+
+SelectivityResults:EnantiomericExcess
+  a owl:ObjectProperty;
+  rdfs:domain stbc:SelectivityResults ;
+  rdfs:range stbc:Quantity ;
+  rdfs:label "SelectivityResults/EnantiomericExcess" ;
+  rdfs:comment "Enantiomeric excess (ee) as percentage indicating optical purity of the product." .
+
+#########################################################
+# Property: SelectivityResults:DiastereomericExcess
+#########################################################
+
+SelectivityResults:DiastereomericExcess
+  a owl:ObjectProperty;
+  rdfs:domain stbc:SelectivityResults ;
+  rdfs:range stbc:Quantity ;
+  rdfs:label "SelectivityResults/DiastereomericExcess" ;
+  rdfs:comment "Diastereomeric excess (de) as percentage for reactions producing diastereomers." .
+
+#########################################################
+# Property: SelectivityResults:IsomericContent
+#########################################################
+
+SelectivityResults:IsomericContent
+  a owl:ObjectProperty;
+  rdfs:domain stbc:SelectivityResults ;
+  rdfs:range stbc:Quantity ;
+  rdfs:label "SelectivityResults/IsomericContent" ;
+  rdfs:comment "Content or ratio of specific isomers in the product mixture." .
+
+#########################################################
+# Property: SelectivityResults:Chemoselectivity
+#########################################################
+
+SelectivityResults:Chemoselectivity
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:SelectivityResults ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "SelectivityResults/Chemoselectivity" ;
+  rdfs:comment "Description of chemoselectivity when multiple reaction pathways are possible." .
+
+#########################################################
+# Property: SelectivityResults:Regioselectivity
+#########################################################
+
+SelectivityResults:Regioselectivity
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:SelectivityResults ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "SelectivityResults/Regioselectivity" ;
+  rdfs:comment "Description of regioselectivity indicating preference for specific reaction sites." .
+
+#########################################################
+# Property: SelectivityResults:Notes
+#########################################################
+
+SelectivityResults:Notes
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:SelectivityResults ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "SelectivityResults/Notes" ;
+  rdfs:comment "Additional notes about selectivity measurements." .
+
+#########################################################
+# Class: ThermodynamicResults
+#########################################################
+# Thermodynamic parameters characterizing the
+energetics of the enzymatic reaction.
+#########################################################
+
+stbc:ThermodynamicResults a owl:Class ;
+  rdfs:comment "Thermodynamic parameters characterizing the energetics of the enzymatic reaction." .
+
+stbc:ThermodynamicResults
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty ThermodynamicResults:GibbsFreeEnergyChange ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ThermodynamicResults:EnthalpyChange ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ThermodynamicResults:EntropyChange ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ThermodynamicResults:Notes ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: ThermodynamicResults:GibbsFreeEnergyChange
+#########################################################
+
+ThermodynamicResults:GibbsFreeEnergyChange
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:ThermodynamicResults ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "ThermodynamicResults/GibbsFreeEnergyChange" ;
+  rdfs:comment "Gibbs free energy change (ΔG) for the reaction." .
+
+#########################################################
+# Property: ThermodynamicResults:EnthalpyChange
+#########################################################
+
+ThermodynamicResults:EnthalpyChange
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:ThermodynamicResults ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "ThermodynamicResults/EnthalpyChange" ;
+  rdfs:comment "Enthalpy change (ΔH) for the reaction." .
+
+#########################################################
+# Property: ThermodynamicResults:EntropyChange
+#########################################################
+
+ThermodynamicResults:EntropyChange
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:ThermodynamicResults ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "ThermodynamicResults/EntropyChange" ;
+  rdfs:comment "Entropy change (ΔS) for the reaction." .
+
+#########################################################
+# Property: ThermodynamicResults:Notes
+#########################################################
+
+ThermodynamicResults:Notes
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:ThermodynamicResults ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "ThermodynamicResults/Notes" ;
+  rdfs:comment "Additional notes about thermodynamic measurements." .
+
+#########################################################
+# Class: Sampling
+#########################################################
+# Specification for sampling procedures and sample
+collection during enzymatic reactions.
+#########################################################
+
+stbc:Sampling a owl:Class ;
+  rdfs:comment "Specification for sampling procedures and sample collection during enzymatic reactions." .
+
+stbc:Sampling
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty Sampling:SamplingApplied ;
+      owl:onDataRange xsd:xsd:boolean
+      ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Sampling:Strategy ;
+      owl:allValuesFrom stbc:SamplingStrategy
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Sampling:Samples ;
+      owl:allValuesFrom stbc:Sample
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Sampling:Notes ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: Sampling:SamplingApplied
+#########################################################
+
+Sampling:SamplingApplied
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Sampling ;
+  rdfs:range xsd:xsd:boolean ;
+  rdfs:label "Sampling/SamplingApplied" ;
+  rdfs:comment "Indicates whether physical sampling was performed at all." .
+
+#########################################################
+# Property: Sampling:Strategy
+#########################################################
+
+Sampling:Strategy
+  a owl:ObjectProperty;
+  rdfs:domain stbc:Sampling ;
+  rdfs:range stbc:SamplingStrategy ;
+  rdfs:label "Sampling/Strategy" ;
+  rdfs:comment "Details about the sampling strategy and methodology used." .
+
+#########################################################
+# Property: Sampling:Samples
+#########################################################
+
+Sampling:Samples
+  a owl:ObjectProperty;
+  rdfs:domain stbc:Sampling ;
+  rdfs:range stbc:Sample ;
+  rdfs:label "Sampling/Samples" ;
+  rdfs:comment "Collection of individual samples taken during the reaction." .
+
+#########################################################
+# Property: Sampling:Notes
+#########################################################
+
+Sampling:Notes
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Sampling ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "Sampling/Notes" ;
+  rdfs:comment "Additional notes or comments about the sampling procedure." .
+
+#########################################################
+# Class: SamplingStrategy
+#########################################################
+# Strategy and methodology for collecting samples
+during the reaction process.
+#########################################################
+
+stbc:SamplingStrategy a owl:Class ;
+  rdfs:comment "Strategy and methodology for collecting samples during the reaction process." .
+
+stbc:SamplingStrategy
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty SamplingStrategy:StrategyType ;
+      owl:onDataRange xsd:SamplingStrategyType
+      ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty SamplingStrategy:MixingDuringSampling ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty SamplingStrategy:VesselOpened ;
+      owl:onDataRange xsd:xsd:boolean
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty SamplingStrategy:GasPhase ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty SamplingStrategy:Notes ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: SamplingStrategy:StrategyType
+#########################################################
+
+SamplingStrategy:StrategyType
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:SamplingStrategy ;
+  rdfs:range xsd:SamplingStrategyType ;
+  rdfs:label "SamplingStrategy/StrategyType" ;
+  rdfs:comment "Type of sampling strategy employed (default or specialized)." .
+
+#########################################################
+# Property: SamplingStrategy:MixingDuringSampling
+#########################################################
+
+SamplingStrategy:MixingDuringSampling
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:SamplingStrategy ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "SamplingStrategy/MixingDuringSampling" ;
+  rdfs:comment "Description of mixing conditions maintained during sample collection." .
+
+#########################################################
+# Property: SamplingStrategy:VesselOpened
+#########################################################
+
+SamplingStrategy:VesselOpened
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:SamplingStrategy ;
+  rdfs:range xsd:xsd:boolean ;
+  rdfs:label "SamplingStrategy/VesselOpened" ;
+  rdfs:comment "Indicates whether the reaction vessel was opened during sampling." .
+
+#########################################################
+# Property: SamplingStrategy:GasPhase
+#########################################################
+
+SamplingStrategy:GasPhase
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:SamplingStrategy ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "SamplingStrategy/GasPhase" ;
+  rdfs:comment "Description of gas phase conditions or handling during sampling." .
+
+#########################################################
+# Property: SamplingStrategy:Notes
+#########################################################
+
+SamplingStrategy:Notes
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:SamplingStrategy ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "SamplingStrategy/Notes" ;
+  rdfs:comment "Additional notes about the sampling strategy." .
+
+#########################################################
+# Class: Sample
+#########################################################
+# Individual sample collected at a specific time
+point from a specific phase of the reaction.
+#########################################################
+
+stbc:Sample a owl:Class ;
+  rdfs:comment "Individual sample collected at a specific time point from a specific phase of the reaction." .
+
+stbc:Sample
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty Sample:Time ;
+      owl:onDataRange xsd:xsd:decimal
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Sample:TimeUnit ;
+      owl:allValuesFrom stbc:UnitDefinition
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Sample:Amount ;
+      owl:allValuesFrom stbc:Quantity
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Sample:Phase ;
+      owl:onDataRange xsd:PhaseType
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Sample:BiocatalystInSample ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Sample:Preprocessing ;
+      owl:allValuesFrom stbc:SamplePreprocessing
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty Sample:Notes ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: Sample:Time
+#########################################################
+
+Sample:Time
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Sample ;
+  rdfs:range xsd:xsd:decimal ;
+  rdfs:label "Sample/Time" ;
+  rdfs:comment "Time point at which the sample was collected." .
+
+#########################################################
+# Property: Sample:TimeUnit
+#########################################################
+
+Sample:TimeUnit
+  a owl:ObjectProperty;
+  rdfs:domain stbc:Sample ;
+  rdfs:range stbc:UnitDefinition ;
+  rdfs:label "Sample/TimeUnit" ;
+  rdfs:comment "Unit of measurement for the sampling time." .
+
+#########################################################
+# Property: Sample:Amount
+#########################################################
+
+Sample:Amount
+  a owl:ObjectProperty;
+  rdfs:domain stbc:Sample ;
+  rdfs:range stbc:Quantity ;
+  rdfs:label "Sample/Amount" ;
+  rdfs:comment "Amount or volume of sample collected." .
+
+#########################################################
+# Property: Sample:Phase
+#########################################################
+
+Sample:Phase
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Sample ;
+  rdfs:range xsd:PhaseType ;
+  rdfs:label "Sample/Phase" ;
+  rdfs:comment "Phase from which the sample was collected (liquid, solid, gas, etc.)." .
+
+#########################################################
+# Property: Sample:BiocatalystInSample
+#########################################################
+
+Sample:BiocatalystInSample
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Sample ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "Sample/BiocatalystInSample" ;
+  rdfs:comment "Description of biocatalyst presence or handling in the sample." .
+
+#########################################################
+# Property: Sample:Preprocessing
+#########################################################
+
+Sample:Preprocessing
+  a owl:ObjectProperty;
+  rdfs:domain stbc:Sample ;
+  rdfs:range stbc:SamplePreprocessing ;
+  rdfs:label "Sample/Preprocessing" ;
+  rdfs:comment "Any preprocessing steps applied to the sample before analysis." .
+
+#########################################################
+# Property: Sample:Notes
+#########################################################
+
+Sample:Notes
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Sample ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "Sample/Notes" ;
+  rdfs:comment "Additional notes about the individual sample." .
+
+#########################################################
+# Class: SamplePreprocessing
+#########################################################
+# Preprocessing steps applied to samples
+before analysis to preserve or prepare them for
+measurement.
+#########################################################
+
+stbc:SamplePreprocessing a owl:Class ;
+  rdfs:comment "Preprocessing steps applied to samples before analysis to preserve or prepare them for measurement." .
+
+stbc:SamplePreprocessing
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty SamplePreprocessing:QuenchingMethod ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty SamplePreprocessing:QuenchingRatio ;
+      owl:onDataRange xsd:xsd:decimal
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty SamplePreprocessing:TreatmentProcedure ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty SamplePreprocessing:Notes ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: SamplePreprocessing:QuenchingMethod
+#########################################################
+
+SamplePreprocessing:QuenchingMethod
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:SamplePreprocessing ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "SamplePreprocessing/QuenchingMethod" ;
+  rdfs:comment "Method used to quench or stop the reaction in the sample." .
+
+#########################################################
+# Property: SamplePreprocessing:QuenchingRatio
+#########################################################
+
+SamplePreprocessing:QuenchingRatio
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:SamplePreprocessing ;
+  rdfs:range xsd:xsd:decimal ;
+  rdfs:label "SamplePreprocessing/QuenchingRatio" ;
+  rdfs:comment "Ratio or proportion of quenching agent to sample." .
+
+#########################################################
+# Property: SamplePreprocessing:TreatmentProcedure
+#########################################################
+
+SamplePreprocessing:TreatmentProcedure
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:SamplePreprocessing ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "SamplePreprocessing/TreatmentProcedure" ;
+  rdfs:comment "Additional treatment procedures applied to the sample." .
+
+#########################################################
+# Property: SamplePreprocessing:Notes
+#########################################################
+
+SamplePreprocessing:Notes
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:SamplePreprocessing ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "SamplePreprocessing/Notes" ;
+  rdfs:comment "Additional notes about sample preprocessing." .
+
+#########################################################
+# Class: OperationMode
+#########################################################
+# Specification of the operational mode and
+configuration for conducting biocatalytic
+reactions.
+#########################################################
+
+stbc:OperationMode a owl:Class ;
+  rdfs:comment "Specification of the operational mode and configuration for conducting biocatalytic reactions." .
+
+stbc:OperationMode
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty OperationMode:Mode ;
+      owl:onDataRange xsd:OperationModeType
+      ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty OperationMode:ReactorType ;
+      owl:onDataRange xsd:ReactorType
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty OperationMode:Feeding ;
+      owl:allValuesFrom stbc:FeedingStrategy
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty OperationMode:Notes ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: OperationMode:Mode
+#########################################################
+
+OperationMode:Mode
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:OperationMode ;
+  rdfs:range xsd:OperationModeType ;
+  rdfs:label "OperationMode/Mode" ;
+  rdfs:comment "The fundamental operation mode defining how the reaction is conducted (batch, fed-batch, continuous, or combinatorial)." .
+
+#########################################################
+# Property: OperationMode:ReactorType
+#########################################################
+
+OperationMode:ReactorType
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:OperationMode ;
+  rdfs:range xsd:ReactorType ;
+  rdfs:label "OperationMode/ReactorType" ;
+  rdfs:comment "Type of reactor configuration used (well-mixed, tubular flow, or other)." .
+
+#########################################################
+# Property: OperationMode:Feeding
+#########################################################
+
+OperationMode:Feeding
+  a owl:ObjectProperty;
+  rdfs:domain stbc:OperationMode ;
+  rdfs:range stbc:FeedingStrategy ;
+  rdfs:label "OperationMode/Feeding" ;
+  rdfs:comment "Strategy for feeding reactants into the system during the reaction." .
+
+#########################################################
+# Property: OperationMode:Notes
+#########################################################
+
+OperationMode:Notes
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:OperationMode ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "OperationMode/Notes" ;
+  rdfs:comment "Additional notes or comments about the operation mode." .
+
+#########################################################
+# Class: FeedingStrategy
+#########################################################
+# Specification of the feeding strategy for
+introducing reactants during non-batch operations.
+#########################################################
+
+stbc:FeedingStrategy a owl:Class ;
+  rdfs:comment "Specification of the feeding strategy for introducing reactants during non-batch operations." .
+
+stbc:FeedingStrategy
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty FeedingStrategy:FeedingType ;
+      owl:onDataRange xsd:FeedingType
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty FeedingStrategy:Description ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: FeedingStrategy:FeedingType
+#########################################################
+
+FeedingStrategy:FeedingType
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:FeedingStrategy ;
+  rdfs:range xsd:FeedingType ;
+  rdfs:label "FeedingStrategy/FeedingType" ;
+  rdfs:comment "Type of feeding approach used (none, discrete, continuous, or variable)." .
+
+#########################################################
+# Property: FeedingStrategy:Description
+#########################################################
+
+FeedingStrategy:Description
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:FeedingStrategy ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "FeedingStrategy/Description" ;
+  rdfs:comment "Detailed description of the feeding strategy implementation." .
+
+#########################################################
+# Class: ReactionComponent
+#########################################################
+# Comprehensive specification of a single chemical
+component used in an enzymatic reaction, including
+its identity, role, quantity, source, and storage
+requirements.
+#########################################################
+
+stbc:ReactionComponent a owl:Class ;
+  rdfs:comment "Comprehensive specification of a single chemical component used in an enzymatic reaction, including its identity, role, quantity, source, and storage requirements." .
+
+stbc:ReactionComponent
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty ReactionComponent:Identity ;
+      owl:allValuesFrom stbc:ComponentIdentity
+      ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ReactionComponent:Role ;
+      owl:onDataRange xsd:ComponentRole
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ReactionComponent:Amount ;
+      owl:allValuesFrom stbc:AmountConcentration
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ReactionComponent:Provenance ;
+      owl:allValuesFrom stbc:Provenance
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ReactionComponent:Solubility ;
+      owl:allValuesFrom stbc:SolubilityLimit
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ReactionComponent:Storage ;
+      owl:allValuesFrom stbc:StorageConditions
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ReactionComponent:Notes ;
+      owl:onDataRange xsd:xsd:string
+    ] .
+
+#########################################################
+# Property: ReactionComponent:Identity
+#########################################################
+
+ReactionComponent:Identity
+  a owl:ObjectProperty;
+  rdfs:domain stbc:ReactionComponent ;
+  rdfs:range stbc:ComponentIdentity ;
+  rdfs:label "ReactionComponent/Identity" ;
+  rdfs:comment "Chemical identification and characterization of the component." .
+
+#########################################################
+# Property: ReactionComponent:Role
+#########################################################
+
+ReactionComponent:Role
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:ReactionComponent ;
+  rdfs:range xsd:ComponentRole ;
+  rdfs:label "ReactionComponent/Role" ;
+  rdfs:comment "What this component does in the reaction (substrate, cosubstrate, salt, ...)." .
+
+#########################################################
+# Property: ReactionComponent:Amount
+#########################################################
+
+ReactionComponent:Amount
+  a owl:ObjectProperty;
+  rdfs:domain stbc:ReactionComponent ;
+  rdfs:range stbc:AmountConcentration ;
+  rdfs:label "ReactionComponent/Amount" ;
+  rdfs:comment "Quantity or concentration of the component used in the reaction." .
+
+#########################################################
+# Property: ReactionComponent:Provenance
+#########################################################
+
+ReactionComponent:Provenance
+  a owl:ObjectProperty;
+  rdfs:domain stbc:ReactionComponent ;
+  rdfs:range stbc:Provenance ;
+  rdfs:label "ReactionComponent/Provenance" ;
+  rdfs:comment "Source and supplier information for the component." .
+
+#########################################################
+# Property: ReactionComponent:Solubility
+#########################################################
+
+ReactionComponent:Solubility
+  a owl:ObjectProperty;
+  rdfs:domain stbc:ReactionComponent ;
+  rdfs:range stbc:SolubilityLimit ;
+  rdfs:label "ReactionComponent/Solubility" ;
+  rdfs:comment "Solubility characteristics of the component under reaction conditions." .
+
+#########################################################
+# Property: ReactionComponent:Storage
+#########################################################
+
+ReactionComponent:Storage
+  a owl:ObjectProperty;
+  rdfs:domain stbc:ReactionComponent ;
+  rdfs:range stbc:StorageConditions ;
+  rdfs:label "ReactionComponent/Storage" ;
+  rdfs:comment "Storage requirements and conditions for the component." .
+
+#########################################################
+# Property: ReactionComponent:Notes
+#########################################################
+
+ReactionComponent:Notes
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:ReactionComponent ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "ReactionComponent/Notes" ;
+  rdfs:comment "Additional notes or comments about the component." .
+
+#########################################################
+# Class: ComponentIdentity
+#########################################################
+# Chemical identification and characterization
+information for a component, including names,
+structural identifiers, and physical properties.
+#########################################################
+
+stbc:ComponentIdentity a owl:Class ;
+  rdfs:comment "Chemical identification and characterization information for a component, including names, structural identifiers, and physical properties." .
+
+stbc:ComponentIdentity
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty ComponentIdentity:Name ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ComponentIdentity:Smiles ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ComponentIdentity:Identifiers ;
+      owl:onDataRange xsd:xsd:string
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ComponentIdentity:Purity ;
+      owl:onDataRange xsd:xsd:decimal
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty ComponentIdentity:Formulation ;
+      owl:onDataRange xsd:FormulationType
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: ComponentIdentity:Name
+#########################################################
+
+ComponentIdentity:Name
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:ComponentIdentity ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "ComponentIdentity/Name" ;
+  rdfs:comment "Common or systematic name of the component." .
+
+#########################################################
+# Property: ComponentIdentity:Smiles
+#########################################################
+
+ComponentIdentity:Smiles
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:ComponentIdentity ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "ComponentIdentity/Smiles" ;
+  rdfs:comment "SMILES (Simplified Molecular Input Line Entry System) notation for the chemical structure." .
+
+#########################################################
+# Property: ComponentIdentity:Identifiers
+#########################################################
+
+ComponentIdentity:Identifiers
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:ComponentIdentity ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "ComponentIdentity/Identifiers" ;
+  rdfs:comment "One or more identifiers like CAS, PubChem CID, InChI, etc." .
+
+#########################################################
+# Property: ComponentIdentity:Purity
+#########################################################
+
+ComponentIdentity:Purity
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:ComponentIdentity ;
+  rdfs:range xsd:xsd:decimal ;
+  rdfs:label "ComponentIdentity/Purity" ;
+  rdfs:comment "Purity of the component as a percentage or fraction." .
+
+#########################################################
+# Property: ComponentIdentity:Formulation
+#########################################################
+
+ComponentIdentity:Formulation
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:ComponentIdentity ;
+  rdfs:range xsd:FormulationType ;
+  rdfs:label "ComponentIdentity/Formulation" ;
+  rdfs:comment "Physical form or formulation of the component (powder, liquid, solution, etc.)." .
+
+#########################################################
+# Class: AmountConcentration
+#########################################################
+# Quantitative specification of component amount
+or concentration used in the reaction.
+#########################################################
+
+stbc:AmountConcentration a owl:Class ;
+  rdfs:comment "Quantitative specification of component amount or concentration used in the reaction." .
+
+stbc:AmountConcentration
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty AmountConcentration:Value ;
+      owl:onDataRange xsd:xsd:decimal
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty AmountConcentration:Unit ;
+      owl:allValuesFrom stbc:UnitDefinition
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: AmountConcentration:Value
+#########################################################
+
+AmountConcentration:Value
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:AmountConcentration ;
+  rdfs:range xsd:xsd:decimal ;
+  rdfs:label "AmountConcentration/Value" ;
+  rdfs:comment "Numerical value of the amount or concentration." .
+
+#########################################################
+# Property: AmountConcentration:Unit
+#########################################################
+
+AmountConcentration:Unit
+  a owl:ObjectProperty;
+  rdfs:domain stbc:AmountConcentration ;
+  rdfs:range stbc:UnitDefinition ;
+  rdfs:label "AmountConcentration/Unit" ;
+  rdfs:comment "Unit of measurement for the amount or concentration." .
+
+#########################################################
+# Class: Provenance
+#########################################################
+# Source and supplier information for component
+traceability and reproducibility.
+#########################################################
+
+stbc:Provenance a owl:Class ;
+  rdfs:comment "Source and supplier information for component traceability and reproducibility." .
+
+stbc:Provenance
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty Provenance:Supplier ;
+      owl:onDataRange xsd:xsd:string
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: Provenance:Supplier
+#########################################################
+
+Provenance:Supplier
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:Provenance ;
+  rdfs:range xsd:xsd:string ;
+  rdfs:label "Provenance/Supplier" ;
+  rdfs:comment "Supplier/manufacturer or \"prepared in lab\"; include product code or citation if applicable." .
+
+#########################################################
+# Class: SolubilityLimit
+#########################################################
+# Solubility characteristics of the component
+under specific conditions.
+#########################################################
+
+stbc:SolubilityLimit a owl:Class ;
+  rdfs:comment "Solubility characteristics of the component under specific conditions." .
+
+stbc:SolubilityLimit
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty SolubilityLimit:Value ;
+      owl:onDataRange xsd:xsd:decimal
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ],
+    [
+      a owl:Restriction ;
+      owl:onProperty SolubilityLimit:Unit ;
+      owl:allValuesFrom stbc:UnitDefinition
+      ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+#########################################################
+# Property: SolubilityLimit:Value
+#########################################################
+
+SolubilityLimit:Value
+  a owl:DatatypeProperty;
+  rdfs:domain stbc:SolubilityLimit ;
+  rdfs:range xsd:xsd:decimal ;
+  rdfs:label "SolubilityLimit/Value" ;
+  rdfs:comment "Numerical value of the solubility limit." .
+
+#########################################################
+# Property: SolubilityLimit:Unit
+#########################################################
+
+SolubilityLimit:Unit
+  a owl:ObjectProperty;
+  rdfs:domain stbc:SolubilityLimit ;
+  rdfs:range stbc:UnitDefinition ;
+  rdfs:label "SolubilityLimit/Unit" ;
+  rdfs:comment "Unit of measurement for the solubility limit." .
