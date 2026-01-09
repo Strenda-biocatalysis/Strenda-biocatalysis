@@ -1,728 +1,301 @@
 ---
-repo: "https://www.github.com/my/repo/"
+repo: "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis"
 prefix: "stbc"
+imports:
+    utils: ./utils.md
 ---
 
-[Landing Page](/Readme.md)
 
-<div align="justify">
+# Reaction Conditions Specification
 
-# Reaction conditions
+This specification defines the structure and properties of reaction conditions used in enzymatic reactions, providing comprehensive documentation for reactor setup, reaction system characteristics, temperature and pH profiles.
 
-The reaction conditions constitute a highly complex and extensive category. Reactions can be performed in aqueous reaction solutions, organic solvents, micro-aqueous reaction solutions, gassed reaction solutions and many more. The reaction conditions can be divided into two fundamental main categories: __monoliquid and multiphasic systems__.
+## Types
 
-<img src="https://github.com/user-attachments/assets/86ae95e4-0278-4f6c-b01f-a0d074c151f0" width="600">
+### Reaction Conditions
 
+Comprehensive specification of the physical and chemical conditions under which a biocatalytic reaction is performed, including reactor setup, reaction system characteristics, temperature and pH profiles.
 
-## Well-mixed reaction solutions
-
-## Monoliquid systems
-
-A single-phase system where only one liquid phase is present. All components are fully miscible, and there is no visible separation or boundary between different liquid phases.
-
-<details> <Summary>Monoliquid system description</Summary>
-
-### MonoliquidSystemDescription_WMRS
-
-To describe a monoliquid system, precise information about the solvent (mixture) used and the applied reaction system must be provided.
-
-- __solvent_description__
+- **reactor**
+  - Type: Reactor Setup
+  - Description: Configuration and specifications of the reactor used for the biocatalytic reaction.
+- **system**
+  - Type: Reaction System
+  - Description: Characterization of the reaction system as monoliquid or multiphasic.
+- phases
+  - Type: Phase[]
+  - Description: Individual phases present in the reaction system (liquid, solid, gas).
+- temperature
+  - Type: Temperature Profile
+  - Description: Temperature conditions throughout the reaction, which can be constant, event-based, or follow a gradient.
+- pH
+  - Type: pH Profile
+  - Description: pH conditions throughout the reaction, which can be constant, event-based, or follow a gradient.
+- notes
   - Type: string
-  - Description: The solvent used in the reaction system, e.g. a buffered aqueous solution or an organic solvent.
+  - Description: Additional notes or comments about the reaction conditions.
 
-- __ionic_strength__
+### Reactor Setup
+
+Configuration and operational parameters of the reactor system used for the biocatalytic reaction.
+
+- **reactor type**
+  - Type: Reactor Type
+  - Description: Type of reactor configuration used (well-mixed or tubular flow).
+- flow
+  - Type: Flow Conditions
+  - Description: Flow rate specifications for continuous or fed-batch operations.
+- notes
+  - Type: string
+  - Description: Additional notes about the reactor setup.
+
+### Flow Conditions
+
+Specifications for flow rates in continuous or fed-batch reactor operations.
+
+- flow rate
   - Type: float
   - Minimum: 0.0
-  - Description: Ionic strength calculated according to the dissolved ions in the solvent. The following formula can be used: $$I = \frac{1}{2} \sum_{i=1}^n C_i Z_i^2$$ where, I - ionic strength, C<sub>i</sub> - ionic concentration and Z<sub>i</sub> - ion charges. (__if_applicable__)
+  - Description: Numerical value of the flow rate.
+- flow rate unit
+  - Type: Unit Definition
+  - Description: Unit of measurement for the flow rate.
 
-- __ionic_strength_unit__
+---
+
+## Reaction system (mono vs multiphasic)
+
+### Reaction System
+
+Characterization of the reaction system based on the number and types of phases present.
+
+- **system type**
+  - Type: SystemType
+  - Description: Classification of the system as monoliquid or multiphasic.
+- monoliquid
+  - Type: Monoliquid System
+  - Description: Specifications for single-phase liquid systems.
+- multiphasic
+  - Type: Multiphasic System
+  - Description: Specifications for systems containing multiple phases.
+- notes
   - Type: string
-  - Description: The unit of ionic strength is usually expressed in mol/L (moles per liter), or in mmol/L (millimoles per liter). (__if_applicable__)
+  - Description: Additional notes about the reaction system.
 
-- __further_additives__
+### Monoliquid System
+
+Specifications for single-phase liquid reaction systems.
+
+- solvent description
   - Type: string
-  - Description: Further additive like cosolvents used to increase solubility of components, e.g. DMSO.
-
-<hr>
-
-- __special_treatment__
+  - Description: Detailed description of the solvent or solvent mixture used.
+- ionic strength
+  - Type: Quantity
+  - Description: Ionic strength of the solution, affecting enzyme activity and stability.
+- further additives
   - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the monoliquid system that are important for reproducibility and are not described by the aforementioned           metadata, they should be explained here.
+  - Description: Description of any additional additives present in the system.
+- notes
+  - Type: string
+  - Description: Additional notes about the monoliquid system.
 
-</details>
+### Multiphasic System
 
-<hr>
+Specifications for reaction systems containing multiple distinct phases.
 
-## Multiphasic systems
+- phases number
+  - Type: integer
+  - Minimum: 0
+  - Description: Total number of distinct phases present in the system.
+- notes
+  - Type: string
+  - Description: Additional notes about the multiphasic system.
 
-Two or more distinct phases coexist within the same reactor. The phases are often separated by interfaces or boundaries. Multiphasic systems can include combinations of gases, liquids, and solids.
+### Phase
 
-<details> <Summary>Multiphasic system description</Summary>
+Specification of individual phases within the reaction system.
 
-### MultiphasicSystemDescription_WMRS
+- **phase type**
+  - Type: Phase Type
+  - Description: Physical state of the phase (liquid, solid, or gas).
+- material description
+  - Type: string
+  - Description: Detailed description of the materials comprising this phase.
+- amount
+  - Type: Quantity
+  - Description: Quantity of material in this phase.
+- notes
+  - Type: string
+  - Description: Additional notes about this specific phase.
 
-To describe a multiphasic system, precise information about the phases used and the applied system must be provided.
+---
 
-- __phases_number__
+## Temperature profile (constant, event-based, dynamic, gradient)
+
+### Temperature Profile
+
+Specification of temperature conditions throughout the biocatalytic reaction, which can follow various patterns depending on the reaction requirements.
+
+- **profile type**
+  - Type: Profile Type
+  - Description: Type of temperature profile used (constant, event-based, multipoint, or gradient).
+- temperature unit
+  - Type: Unit Definition
+  - Description: Unit of measurement for temperature values.
+- constant temperature
   - Type: float
   - Minimum: 0.0
-  - Description: Number of phases present in the system, if there is an aqueous and a gas phase present, the number is 2.
-
-<hr>
-
-- __special_treatment__
+  - Description: Temperature value for constant temperature profiles.
+- profile points
+  - Type: Profile Point[]
+  - Description: Series of temperature points for event-based or multipoint profiles.
+- gradient
+  - Type: Gradient
+  - Description: Gradient specifications for temperature ramp profiles.
+- notes
   - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the multiphasic system that are important for reproducibility and are not described by the aforementioned           metadata, they should be explained here.
+  - Description: Additional notes about the temperature profile.
 
-</details>
+### Profile Point
 
-<hr/>
+Individual temperature measurement point in time-based temperature profiles.
 
-## Phase description
-
-Metadata to describe the individual phases of the multiphasic system in more detail. Each phase has to be descripted before mixing.
-
-<details> <Summary>Liquid phase</Summary>
-
-### LiquidPhase_WMRS
-
- If more then one liquid phase exists the metadata has to be recorded according to the number of liquid phases.
-
-- __liquid_type__
-  - Type: string
-  - Description: Information about the type of liquid used, whether it is an organic solvent,an aqueous buffer or are mixture of both.
-
-- __liquid_amount__
+- value
   - Type: float
   - Minimum: 0.0
-  - Description: Amount of the liquid added to the reaction.
-
-- __liquid_unit__
-  - Type: string
-  - Description: In case of aqueous liquids, mL (milliliter) is often used as unit, in case of organic solvents, volume percentage (Vol %) or volume fraction (Vol/Vol) is utilized.
-
-</details>
-
-
-<details> <Summary>Solid phase</Summary>
-
-### SolidPhase_WMRS
-
-Definition of the solid phase used in the reaction.
-
-- __solid_type__
-  - Type: string
-  - Description: Information about the type of solid used, whether it is a support material, solid catalyst, or any other solid compound.
-
-- __solid_amount__
+  - Description: Temperature value at this point.
+- time
   - Type: float
   - Minimum: 0.0
-  - Description: Mass of the solid compound used in the reaction solution.
-
-- __solid_unit__
+  - Description: Time at which this temperature is measured or set.
+- time unit
+  - Type: Unit Definition
+  - Description: Unit of measurement for the time value.
+- event description
   - Type: string
-  - Description: In the case of a solid compound, common units like grams, milligrams, or micrograms can be used.
+  - Description: Description of any specific event associated with this temperature point.
 
-</details>
+### Gradient
 
+Specification for temperature gradient profiles where temperature changes linearly over time or distance.
 
-<details> <Summary>Gas phase</Summary>
-
-### GasPhase_WMRS
-
-Definition of the gas phase used in the reaction. If a gas mixture is involved, this must be taken into account.
-
-- __gas_type__
+- start value
+  - Type: float
+  - Description: Initial temperature value at the beginning of the gradient.
+- end value
+  - Type: float
+  - Description: Final temperature value at the end of the gradient.
+- length
+  - Type: float
+  - Description: Duration or distance over which the gradient is applied.
+- length unit
+  - Type: Unit Definition
+  - Description: Unit of measurement for the gradient length (time or distance).
+- measurement points
   - Type: string
-  - Description: Information about the type of gas used, whether it is nitrogen, carbon dioxide, argon, oxygen or other gases.
+  - Description: Description of how temperature is measured along the gradient.
 
-- __gas_amount__
+---
+
+## pH profile (constant, event-based, dynamic, gradient)
+
+### pH Profile
+
+Specification of pH conditions throughout the biocatalytic reaction, which can follow various patterns to optimize enzyme activity and stability.
+
+- **profile type**
+  - Type: Profile Type
+  - Description: Type of pH profile used (constant, event-based, multipoint, or gradient).
+- constant pH
   - Type: float
   - Minimum: 0.0
-  - Description: Concentration of the gas in the gas phase.
-
-- __gas_unit__
+  - Description: pH value for constant pH profiles.
+- profile points
+  - Type: pH Point[]
+  - Description: Series of pH points for event-based or multipoint profiles.
+- gradient
+  - Type: pH Gradient
+  - Description: Gradient specifications for pH ramp profiles.
+- detection
+  - Type: pH Detection
+  - Description: Methods and conditions used for pH detection and measurement.
+- notes
   - Type: string
-  - Description: In the case of gases, common units are volume percentage (Vol %), volume fraction (Vol/Vol), mole percentage (Mol %) or molar fraction (Mol/Mol).
+  - Description: Additional notes about the pH profile.
 
-</details>
+### pH Point
 
-<hr />
+Individual pH measurement point in time-based pH profiles.
 
-## Temperature conditions
-
-Another crucial aspect is the temperature profile throughout the reaction. The temperature can stay constant or can change e.g. due to the addition of a substrate.
-
-<details> <Summary>Temperature constant</Summary>
-
-### TemperatureConstant_WMRS
-
-The temperature, if constant, must be clearly defined.
-
-- __temperature__
+- value
   - Type: float
   - Minimum: 0.0
-  - Description: Temperature during the reaction.
-
-- __temperature_unit__
-  - Type: string
-  - Description: The temperature can be specified in units such as K, °C, or °F.
-
-<hr>
-
-- __special_treatment__
-  - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the temperature that are important for reproducibility and are not described by the aforementioned                 metadata, they should be explained here.
-
-
-</details>
-
-<details> <Summary>Event-based temperature shift</Summary>
-
-### EventBasedTemperatureShift_WMRS
-
-If the temperature is changed during the course of the reaction or there is an event-based change, this must be documented precisely.
-
-- __temperature_unit__
-  - Type: string
-  - Description: The temperature can be specified in units such as K, °C, or °F.
-
-- __temperature_beginning__
+  - Description: pH value at this point.
+- time
   - Type: float
   - Minimum: 0.0
-  - Description: The initial temperature, prior to the start of the reaction, should be specified.
+  - Description: Time at which this pH is measured or set.
+- time unit
+  - Type: Unit Definition
+  - Description: Unit of measurement for the time value.
+- event description
+  - Type: string
+  - Description: Description of any specific event associated with this pH point.
 
-- __temperature_after_event__
+### pH Gradient
+
+Specification for pH gradient profiles where pH changes linearly over time.
+
+- start value
   - Type: float
-  - Minimum: 0.0
-  - Description: The temperature that is present after a specific event has occurred.
-
-- __event_description__
-  - Type: string
-  - Description: Information regarding the event that caused the temperature change. In the case of a fed-batch reaction protocol, this event can also be the planned adjustment of the temperature to another specific        value based on the current progress of the reaction process.
-
-- __temperature_at_XY__
+  - Description: Initial pH value at the beginning of the gradient.
+- end value
   - Type: float
-  - Minimum: 0.0
-  - Description: The temperature can also be measured at a variably chosen time point _XY_ during the reaction.
-
-- __time_at_XY__
+  - Description: Final pH value at the end of the gradient.
+- length
   - Type: float
-  - Minimum: 0.0
-  - Description: Specification of the exact time point _XY_ at which the temperature was measured.
+  - Description: Duration over which the pH gradient is applied.
+- length unit
+  - Type: Unit Definition
+  - Description: Unit of measurement for the gradient duration.
+- measurement points
+  - Type: float[]
+  - Description: Measurement points along the gradient.
 
-- __time_unit__
+### pH Detection
+
+Specifications for pH measurement methods and calibration conditions.
+
+- detected when
   - Type: string
-  - Description: Common units for specifying time can be s (seconds), min (minutes) or h (hours).
-
-<hr>
-
-- __special_treatment__
+  - Description: Timing or conditions under which pH is detected.
+- detected how
   - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the temperature that are important for reproducibility and are not described by the aforementioned                 metadata, they should be explained here.
-
-
-</details>
-
-<hr>
-
-## pH conditions
-
-Another critical factor to consider is the pH profile during the reaction. The pH level can remain stable or can be adapted during the course of the reaction, etc.
-
-<details> <Summary>pH constant</Summary>
-
-### pHConstant_WMRS
-
-Information about the pH value in the system, if the pH is constant over the course of the reaction.
-
-- __pH_value__
+  - Description: Method or instrument used for pH detection.
+- temperature
   - Type: float
-  - Minimum: 0.0
-  - Description: Value of the pH.
-
-- __detected_when__
+  - Description: Temperature at which pH measurements are calibrated or performed.
+- temperature unit
+  - Type: Unit Definition
+  - Description: Unit of measurement for the calibration temperature.
+- calibration pH electrode
   - Type: string
-  - Description: Specification of the timepoint at which the pH was measured. It includes whether the pH value was measured before, during, or after the reaction and whether all components of the reaction solution were     already present or if some were added after the measurement.
+  - Description: Details about pH electrode calibration procedures and standards.
 
-- __detected_how__
-  - Type: string
-  - Description: The pH value of a reaction can be determined in various ways, such as using a pH meter, pH paper, titration, electrochemical sensors, or other methods.
+## Enumerations
 
-- __temperature__
-  - Type: float
-  - Minimum: 0.0
-  - Description: The temperature at the time of pH measurement.
+### System Type
 
-- __temperature_unit__
-  - Type: string
-  - Description: The temperature can be specified in units such as K, °C, or °F.
+```python
+MONOLIQUID = "monoliquid"
+MULTIPHASIC = "multiphasic"
+```
 
-- __calibration_pH_electrode__
-  - Type: string
-  - Description: Usually, a pH electrode is calibrated using standard buffers at 20-25 °C. If the conditions in the reaction mixture differ from this, it should be specified. (__if_applicable__)
+### Profile Type
 
-<hr>
-
-- __special_treatment__
-  - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the pH value that are important for reproducibility and are not described by the aforementioned                    metadata, they should be explained here.
-
-</details>
-
-<details> <Summary>Event-based pH shift</Summary>
-
-### EventBasedpHShift_WMRS
-
-If the pH is changed during the course of the reaction or there is an event-based change, this must be documented precisely. Depending on the buffer chosen, a temperature shift may also result in a pH shift.
-
-- __pH_beginning__
-  - Type: float
-  - Minimum: 0.0
-  - Description: The initial pH, prior to the start of the reaction, should be specified.
-
-- __pH_after_event__
-  - Type: float
-  - Minimum: 0.0
-  - Description: The pH that is present after a specific event has occurred.
-
-- __event_description__
-  - Type: string
-  - Description: Information regarding the event that caused the pH change. In the case of a fed-batch reaction protocol, this event can also be the planned adjustment of the pH value to another specific value based on     the current progress of the reaction process.
-
-- __pH_at_XY__
-  - Type: float
-  - Minimum: 0.0
-  - Description: The pH can also be measured at a variably chosen time point _XY_ during the reaction.
-
-- __time_at_XY__
-  - Type: float
-  - Minimum: 0.0
-  - Description: Specification of the exact time point _XY_ at which the pH was measured.
-
-- __time_unit__
-  - Type: string
-  - Description: Common units for specifying time can be s (seconds) or min (minutes).
-
-- __detected_when__
-  - Type: string
-  - Description: Specification whether all components of the reaction solution were already present or if some were added after the measurement at the timepoint of the pH measurement.
-
-- __detected_how__
-  - Type: string
-  - Description: The pH value of a reaction can be determined in various ways, such as using a pH meter, pH paper, titration, electrochemical sensors, or other methods.
-
-- __temperature__
-  - Type: float
-  - Minimum: 0.0
-  - Description: The temperature at the time of pH measurement.
-
-- __temperature_unit__
-  - Type: string
-  - Description: The temperature can be specified in units such as K, °C, or °F.
-
-- __calibration_pH_electrode__
-  - Type: string
-  - Description: Usually, a pH electrode is calibrated using standard buffers at 20-25 °C. If the conditions in the reaction mixture differ from this, it should be specified. (__if_applicable__)
-
-<hr>
-
-- __special_treatment__
-  - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the pH value that are important for reproducibility and are not described by the aforementioned                    metadata, they should be explained here.
-
-
-</details>
-
-<hr>
-
-## Tubular flow/continuous reactor
-
-## Monoliquid systems
-
-A single-phase system in which only one liquid phase is present. All components are fully miscible, and there is no visible separation or boundary between different liquid phases.
-
-<details> <Summary>Monoliquid system description</Summary>
-
-### MonoliquidSystemDescription_TFCR
-
-To describe a monoliquid system, precise information about the solvent used and the applied system must be provided.
-
-- __solvent_description__
-  - Type: string
-  - Description: The solvent used in the reaction system, e.g. a buffered aqueous solution or an organic solvent.
-
-- __ionic_strength__
-  - Type: float
-  - Minimum: 0.0
-  - Description: Ionic strength calculated according to the dissolved ions in the solvent. The following formula can be used: $$I = \frac{1}{2} \sum_{1}^n C_i Z_i^2$$ where, I - ionic strength, C<sub>i</sub> - ionic concentration and Z<sub>i</sub> - ion charges (__if_applicable__)
-
-- __ionic_strength_unit__
-  - Type: string
-  - Description: The unit of ionic strength is usually expressed in mol/L (moles per liter), or in mmol/L (millimoles per liter). (__if_applicable__)
-
-- __further_additives__
-  - Type: string
-  - Description: Further additive like cosolvents used to increase solubility of reactants, e.g. DMSO.
-
-- __Flow_rate__
-  - Type: float
-  - Description: The flow rate must be specified to determine how fast a liquid or gas is flowing through a reactor or system.
-
-- __Flow_rate_unit__
-  - Type: string
-  - Description: Common units for describing flow rate include L/min (liters per minute), mL/h (milliliters per hour), m³/h (cubic meters per hour), or other volume units per unit of time.
-
-<hr>
-
-- __special_treatment__
-  - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the monoliquid system that are important for reproducibility and are not described by the aforementioned           metadata, they should be explained here.
-
-
-</details>
-
-<hr>
-
-## Multiphasic systems
-
-Two or more distinct phases coexist within the same reactor. The phases are often separated by interfaces or boundaries. Multiphasic systems can include combinations of gases, liquids, and solids.
-
-<details> <Summary>Multiphasic system description</Summary>
-
-### MultiphasicSystemDescription_TFCR
-
-To describe a multiphasic system, precise information about the phases used and the applied system must be provided.
-
-- __phases_number__
-  - Type: float
-  - Minimum: 0.0
-  - Description: Number of phases present in the system, if there is an aqueous and a gas phase present, the number is 2.
-
-- __Flow_rate__
-  - Type: float
-  - Description: The flow rate must be specified to determine how fast a liquid or gas is flowing through a reactor or system.
-
-- __Flow_rate_unit__
-  - Type: string
-  - Description: Common units for describing flow rate include L/min (liters per minute), mL/h (milliliters per hour), m³/h (cubic meters per hour), or other volume units per unit of time.
-
-<hr>
-
-- __special_treatment__
-  - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the multiphasic system that are important for reproducibility and are not described by the aforementioned           metadata, they should be explained here.
-
-
-</details>
-
-
-<hr>
-
-
-## Phase description
-
-Metadata for describing the individual phases of the multiphasic system in more detail. Each phase has to be descripted before mixing.
-
-
-<details> <Summary>Liquid phase</Summary>
-
-### LiquidPhase_TFCR
-
- If more then one liquid phase exists the metadata has to be recorded according to the number of liquid phases.
-
-- __liquid_type__
-  - Type: string
-  - Description: Information about the type of liquid used, whether it is an organic solvent, an aqueous buffer or a mixture of both.
-
-- __liquid_amount__
-  - Type: float
-  - Minimum: 0.0
-  - Description: Amount of the liquid added to the reaction.
-
-- __liquid_unit__
-  - Type: string
-  - Description: In case of aqueous liquids, mL (milliliter) is often used as unit, in case of organic solvents, volume percentage (Vol %) or volume fraction (Vol/Vol) is utilized.
-
-</details>
-
-
-<details> <Summary>Solid phase</Summary>
-
-### SolidPhase_TFCR
-
-Definition of the solid phase used in the reaction.
-
-- __solid_type__
-  - Type: string
-  - Description: Information about the type of solid used, whether it is a support material, solid catalyst, or any other solid compound.
-
-- __solid_amount__
-  - Type: float
-  - Minimum: 0.0
-  - Description: Mass of the solid used in the reaction solution.
-
-- __solid_unit__
-  - Type: string
-  - Description: In the case of solids, common units like grams, milligrams, or micrograms can be used.
-
-
-</details>
-
-
-<details> <Summary>Gas phase</Summary>
-
-### GasPhase_TFCR
-
-Definition of the gas phase used in the reaction. If a gas mixture is involved, this must be taken into account.
-
-- __gas_type__
-  - Type: string
-  - Description: Information about the type of gas used, whether it's nitrogen dioxide, argon, oxygen or other gases.
-
-- __gas_amount__
-  - Type: float
-  - Minimum: 0.0
-  - Description: Concentration of the gas in the gas phase.
-
-- __gas_unit__
-  - Type: string
-  - Description: In the case of gases, common units are volume percentage (Vol %), volume fraction (Vol/Vol), mole percentage (Mol %) or molar fraction (Mol/Mol).
-
-
-</details>
-
-<hr />
-
-
-## Temperature conditions
-
-<details> <Summary>Temperature constant</Summary>
-
-### TemperatureConstant_TFCR
-
-The temperature, if constant, must be clearly defined.
-
-- __temperature__
-  - Type: float
-  - Minimum: 0.0
-  - Description: Temperature during the reaction.
-
-- __temperature_unit__
-  - Type: string
-  - Description: The temperature can be specified in units such as K, °C, or °F.
-
-<hr>
-
-- __special_treatment__
-  - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the temperature that are important for reproducibility and are not described by the aforementioned                 metadata, they should be explained here.
-
-
-</details>
-
-
-<details> <Summary>Dynamic temperature</Summary>
-
-### DynamicTemperature_TFCR
-
-If there is a temperature gradient or different temperatures are measured in the system, these must be described as well as possible.
-
-- __temperature_beginning__
-  - Type: float
-  - Minimum: 0.0
-  - Description: The initial temperature, prior to the start of the reaction, should be specified.
-
-- __temperature_after_event__
-  - Type: float
-  - Minimum: 0.0
-  - Description: The temperature that is present after a specific event has occurred.
-
-- __event_description__
-  - Type: string
-  - Description: Information regarding the event that caused the temperature change. In the case of a fed-batch reaction protocol, this event can also be the planned adjustment of the temperature to another specific        value based on the current progress of the reaction process.
-
-- __temperature_at_XY__
-  - Type: float
-  - Minimum: 0.0
-  - Description: The temperature can also be measured at a variably chosen time point _XY_ during the reaction.
-
-- __time_at_XY__
-  - Type: float
-  - Minimum: 0.0
-  - Description: Specification of the exact time point _XY_ at which the temperature was measured.
-
-- __time_unit__
-  - Type: string
-  - Description: Common units for specifying time can be s (seconds), min (minutes) h (hours).
-
-- __temperature_unit__
-  - Type: string
-  - Description: The temperature can be specified in units such as K, °C, or °F.
-
-- __temperature_gradient_beginning__
-  - Type: float
-  - Minimum: 0.0
-  - Description: The initial temperature from which the temperature gradient begins. (__if_applicable__)
-
-- __temperature_gradient_end__
-  - Type: float
-  - Minimum: 0.0
-  - Description: The target temperature reached after the temperature gradient is applied. (__if_applicable__)
-
-- __gradient_length__
-  - Type: float
-  - Minimum: 0.0
-  - Description: The distance or time span over which the temperature gradient is applied. (__if_applicable__)
-
-- __gradient_length_unit__
-  - Type: string
-  - Description: The gradient length can be specified either as the physical distance (e.g. in meters) or as the time span (e.g. in minutes). (__if_applicable__)
-
-- __measurement_points__
-  - Type: string
-  - Description: Information about the locations or time points where temperature measurements are taken to monitor the gradient. This can be important to ensure that the gradient behaves as intended.                       (__if_applicable__)
-
-<hr>
-
-- __special_treatment__
-  - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the temperature profile that are important for reproducibility and are not described by the aforementioned         metadata, they should be explained here.
-
-
-</details>
-
-<hr>
-
-## pH conditions
-
-<details> <Summary>pH constant</Summary>
-
-### pHConstant_TFCR
-
-Information about the pH value in the system, if the pH is constant over the course of the reaction.
-
-- __pH_value__
-  - Type: float
-  - Minimum: 0.0
-  - Description: The value of the pH.
-
-- __detected_when__
-  - Type: string
-  - Description: Specification of the timepoint at which the pH was measured. It includes whether the pH value was measured before, during, or after the reaction and whether all components of the reaction solution were     already present or if some were added after the measurement.
-
-- __detected_how__
-  - Type: string
-  - Description: The pH value of a reaction can be determined in various ways, such as using a pH meter, pH paper, titration, electrochemical sensors, or other methods.
-
-- __temperature__
-  - Type: float
-  - Minimum: 0.0
-  - Description: The temperature at the time of pH measurement.
-
-- __temperature_unit__
-  - Type: string
-  - Description: The temperature can be specified in units such as K, °C, or °F.
-
-- __calibration_pH_electrode__
-  - Type: string
-  - Description: Usually, a pH electrode is calibrated using standard buffers at 20-25 °C. If the conditions in the reaction mixture differ from this, it should be specified. (__if_applicable__)
-
-<hr>
-
-- __special_treatment__
-  - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the pH value that are important for reproducibility and are not described by the aforementioned                    metadata, they should be explained here.
-
-</details>
-
-
-<details> <Summary>Dynamic pH</Summary>
-
-### DynamicpH_TFCR
-
-If there is a pH gradient or different pHs are measured in the system, these must be described as detailed as possible. Depending on the buffer chosen, a temperature shift may also result in a pH shift.
-
-- __pH_beginning__
-  - Type: float
-  - Minimum: 0.0
-  - Description: The initial pH, prior to the start of the reaction, should be specified.
-
-- __pH_after_event__
-  - Type: float
-  - Minimum: 0.0
-  - Description: The pH that is present after a specific event has occurred.
-
-- __event_description__
-  - Type: string
-  - Description: Information regarding the event that caused the pH change. In the case of a fed-batch reaction protocol, this event can also be the planned adjustment of the pH value to another specific value based on     the current progress of the reaction process.
-
-- __pH_at_XY__
-  - Type: float
-  - Minimum: 0.0
-  - Description: The pH can also be measured at a variably chosen time point _XY_ during the reaction.
-
-- __time_at_XY__
-  - Type: float
-  - Minimum: 0.0
-  - Description: Specification of the exact time point _XY_ at which the pH was measured.
-
-- __time_unit__
-  - Type: string
-  - Description: Common units for specifying time can be s (seconds) or min (minutes).
-
-- __detected_when__
-  - Type: string
-  - Description: Specification whether all components of the reaction solution were already present or if some were added after the measurement at the timepoint of the pH measurement.
-
-- __detected_how__
-  - Type: string
-  - Description: The pH value of a reaction can be determined in various ways, such as using a pH meter, pH paper, titration, electrochemical sensors, or other methods.
-
-- __temperature__
-  - Type: float
-  - Minimum: 0.0
-  - Description: The temperature at the time of pH measurement.
-
-- __temperature_unit__
-  - Type: string
-  - Description: The temperature can be specified in units such as K, °C, or °F.
-
-- __calibration_pH_electrode__
-  - Type: string
-  - Description: Usually, a pH electrode is calibrated using standard buffers at 20-25 °C. If the conditions in the reaction mixture differ from this, it should be specified. (__if_applicable__)
-
-- __pH_gradient_beginning__
-  - Type: float
-  - Minimum: 0.0
-  - Description: The initial pH from which the pH gradient begins. (__if_applicable__)
-
-- __pH_gradient_end__
-  - Type: float
-  - Minimum: 0.0
-  - Description: The target pH reached after the pH gradient is applied. (__if_applicable__)
-
-- __gradient_length__
-  - Type: float
-  - Minimum: 0.0
-  - Description: The distance or time span over which the pH gradient is applied. (__if_applicable__)
-
-- __gradient_length_unit__
-  - Type: string
-  - Description: The gradient length can be specified either as the physical distance (e.g. in meters) or as the time span (e.g. in minutes). (__if_applicable__)
-
-- __measurement_points__
-  - Type: string
-  - Description: Information about the locations or time points where pH measurements are taken to monitor the gradient. This can be important to ensure that the gradient behaves as intended. (__if_applicable__)
-
-<hr>
-
-- __special_treatment__
-  - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the pH value that are important for reproducibility and are not described by the aforementioned                    metadata, they should be explained here.
-
-</details>
-
-<hr>
-
-</div>
+```python
+CONSTANT = "constant"
+EVENT_BASED = "event_based"
+MULTIPOINT = "multipoint"
+GRADIENT = "gradient"
+```

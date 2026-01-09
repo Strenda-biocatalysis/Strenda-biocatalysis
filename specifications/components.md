@@ -1,95 +1,106 @@
 ---
-repo: "https://www.github.com/my/repo/"
+repo: "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis"
 prefix: "stbc"
+imports:
+    utils: ./utils.md
 ---
 
-[Landing Page](/Readme.md)
+# Components Specification
 
-<div align="justify">
+This specification defines the structure and properties of components used in enzymatic reactions, providing comprehensive documentation for component characterization, sourcing, application, and storage conditions.
 
-# Components
+## Types
 
-__Each additive__ of a reaction must be defined like substrate, cosubstrate, coenzyme, salts, ions, etc. The [biocatalyst](https://github.com/StephanM87/Strenda-biocatalysis/blob/main/ModelExamples/Biocatalyst/Readme.md) and comprehensive description of the [various states or conditions](https://github.com/StephanM87/Strenda-biocatalysis/tree/main/ModelExamples/Reaction_conditions) during the reaction are not included among the listed reaction components.
+### Reaction Component
 
-<img src="https://github.com/user-attachments/assets/a290033a-03f0-412b-b905-ea8c472c523a" width="600">
+Comprehensive specification of a single chemical component used in an enzymatic reaction, including its identity, role, quantity, source, and storage requirements.
 
+- **identity**
+  - Type: Component Identity
+  - Description: Chemical identification and characterization of the component.
+- role
+  - Type: Component Role
+  - Description: What this component does in the reaction (substrate, cosubstrate, salt, ...).
+- amount
+  - Type: Amount Concentration
+  - Description: Quantity or concentration of the component used in the reaction.
+- provenance
+  - Type: Provenance
+  - Description: Source and supplier information for the component.
+- solubility
+  - Type: Solubility Limit
+  - Description: Solubility characteristics of the component under reaction conditions.
+- storage
+  - Type: Storage Conditions
+  - Description: Storage requirements and conditions for the component.
+- notes
+  - Type: string[]
+  - Description: Additional notes or comments about the component.
 
-### Components
+### Component Identity
 
-Each component present in the planned reaction must be defined.
+Chemical identification and characterization information for a component, including names, structural identifiers, and physical properties.
 
-- __name__
+- **name**
   - Type: string
-  - Description: The name of the component can be either the trivial or trade name, the systematic designation according to IUPAC nomenclature, or any other means of identifying the substance.
-
-- __smiles__
+  - Description: Common or systematic name of the component.
+- smiles
   - Type: string
-  - Description: SMILES (Simplified Molecular Input Line Entry System) is a chemical notation used to represent and describe molecular structures in a simplified and human-readable format.
-
-- __persistent_identifier_PID__
-  - Type: string
-  - Description: One or more identifiers that refer to the compound, such as CAS number, PubChem code, InChI code, etc.
-
-- __concentration__
+  - Description: SMILES (Simplified Molecular Input Line Entry System) notation for the chemical structure.
+- identifiers
+  - Type: Identifier[]
+  - Description: One or more identifiers like CAS, PubChem CID, InChI, etc.
+- purity
   - Type: float
-  - Minimum: 0.0
-  - Description: Concentration of the component.
+  - Description: Purity of the component as a percentage or fraction.
+- formulation
+  - Type: Formulation Type
+  - Description: Physical form or formulation of the component (powder, liquid, solution, etc.).
 
-- __concentration_unit__
-  - Type: string
-  - Description: The concentration of the component is typically expressed in M (Molar), mmol/L (millimoles per liter), or µmol/L (micromoles per liter).
+### Amount Concentration
 
-- __supplier__
-  - Type: string
-  - Description: Information about the source of the compound, usually a commercial supplier with perhaps product code, but could be preparation in a research lab. Should the component have been synthesized internally,      please include a literature reference detailing its synthesis.
+Quantitative specification of component amount or concentration used in the reaction.
 
-- __purity__
+- value
   - Type: float
-  - Description: Purity of a substance typically expressed in percentage (%). It is commonly defined as the percentage of the pure or desired compound relative to the total mass or volume of the substance.
+  - minimum: 0.0
+  - Description: Numerical value of the amount or concentration.
+- unit
+  - Type: Unit Definition
+  - Description: Unit of measurement for the amount or concentration.
 
-- __formulation__
+### Provenance
+
+Source and supplier information for component traceability and reproducibility.
+
+- supplier
   - Type: string
-  - Description: The formulation encompass the nature of the component, whether it is in powder, liquid, gaseous form, or any other form, as well as the specific conditions under which it is presented.
+  - Description: Supplier/manufacturer or "prepared in lab"; include product code or citation if applicable.
 
-- __solubility_limit__
+### Solubility Limit
+
+Solubility characteristics of the component under specific conditions.
+
+- value
   - Type: float
-  - Minimum: 0.0
-  - Description: This limit represents the maximum concentration of a component, which might include gases, that can dissolve in a solution or gas phase. (__if_applicable__)
+  - minimum: 0.0
+  - Description: Numerical value of the solubility limit.
+- unit
+  - Type: Unit Definition
+  - Description: Unit of measurement for the solubility limit.
 
-- __solubility_limit_unit__
-  - Type: string
-  - Description: The solubility limit of a component can be expressed in various units, including M (moles per liter), g/L (grams per liter), % (percentage concentration), or particles per volume, depending on the         type of component and the solvent used. (__if_applicable__)
+## Enumerations
 
-<hr>
+### Component Role
 
-## Storage conditions
-
-Describing the components in the reaction mixture involve specifying their storage conditions before use in the reaction.
-
-### StorageConditions
-
-- __temperature__
-  - Type: float
-  - Description: Temperature at which the component is stored.
-
-- __temperature_unit__
-  - Type: string
-  - Description: The temperature can be specified in units such as K, °C, or °F.
-
-- __storage_start__
-  - Type: date
-  - Description: The date since the component has been stored.
-
-- __additives__
-  - Type: string
-  - Description: Additives for the storage of components can include antioxidants, stabilizers, drying agent, or even inert gases (argon, nitrogen), among others.
-
-<hr>
-
-- __special_treatment__
-  - Type: string
-  - Description: If there are any other specific characteristics or aspects related to a component that are important for reproducibility and are not described by the aforementioned metadata, they should be explained       here.
-
- <hr>
-
-</div>
+```python
+SUBSTRATE = "substrate"
+COSUBSTRATE = "cosubstrate"
+COENZYME = "coenzyme"
+COFACTOR = "cofactor"
+SALT = "salt"
+ION = "ion"
+SOLVENT = "solvent"
+BUFFER = "buffer"
+OTHER = "other"
+```

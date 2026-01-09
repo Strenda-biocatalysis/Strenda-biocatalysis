@@ -1,109 +1,103 @@
 ---
-repo: "https://www.github.com/my/repo/"
+repo: "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis"
 prefix: "stbc"
+imports:
+    utils: ./utils.md
 ---
 
-[Landing Page](/Readme.md)
+# Sampling Specification
 
-<div align="justify">
+This specification defines the structure and properties of sampling procedures and sample collection during enzymatic reactions, providing comprehensive documentation for sampling strategy, sample collection, and additional notes.
 
-# Sampling
+## Types
 
-The categorisation of sampling into the two main categories, __default sampling__ and __specialised sampling__, enables the capture and documentation of either standard sampling information and/or specialised sampling data, depending on specific needs.
+### Sampling
 
-<img src="https://github.com/user-attachments/assets/bc54b453-996a-412d-9faa-560e849a66ab" width="400">
+Specification for sampling procedures and sample collection during enzymatic reactions.
 
+- **sampling applied**
+  - Type: boolean
+  - Description: Indicates whether physical sampling was performed at all.
+- strategy
+  - Type: Sampling Strategy
+  - Description: Details about the sampling strategy and methodology used.
+- samples
+  - Type: Sample[]
+  - Description: Collection of individual samples taken during the reaction.
+- notes
+  - Type: string
+  - Description: Additional notes or comments about the sampling procedure.
 
-## Default sampling
+### Sampling Strategy
 
-Default sampling refers to the standard methods and procedures commonly used for sample collection in enzymatic reactions.
+Strategy and methodology for collecting samples during the reaction process.
 
-<details> <Summary>Sampling description</Summary>
+- **strategy type**
+  - Type: Sampling Strategy Type
+  - Description: Type of sampling strategy employed (default or specialized).
+- mixing during sampling
+  - Type: string
+  - Description: Description of mixing conditions maintained during sample collection.
+- vessel opened
+  - Type: boolean
+  - Description: Indicates whether the reaction vessel was opened during sampling.
+- gas phase
+  - Type: string
+  - Description: Description of gas phase conditions or handling during sampling.
+- notes
+  - Type: string
+  - Description: Additional notes about the sampling strategy.
 
-### SamplingDescription
+## Individual sample (time-resolved, phase-aware)
 
-Information about the sampling process, used during the experiment. In some experiments no sampling is taking place at all, for example, if an experiment is monitored via a photospectrometer in a 96-well plate over time.
+### Sample
 
-- __volume_per_sample__
+Individual sample collected at a specific time point from a specific phase of the reaction.
+
+- time
   - Type: float
-  - Minimum: 0.0
-  - Description: Volume of the collected sample.
-
-- __volume_per_sample_unit__
+  - Description: Time point at which the sample was collected.
+- time unit
+  - Type: Unit Definition
+  - Description: Unit of measurement for the sampling time.
+- amount
+  - Type: Quantity
+  - Description: Amount or volume of sample collected.
+- phase
+  - Type: Phase Type
+  - Description: Phase from which the sample was collected (liquid, solid, gas, etc.).
+- biocatalyst in sample
   - Type: string
-  - Description: Common units include mL (milliliters), μl (microliters), g (grams), or other volume units, depending on whether the samples are liquid or solid.
-
-- __mixing_during_sampling__
+  - Description: Description of biocatalyst presence or handling in the sample.
+- preprocessing
+  - Type: Sample Preprocessing
+  - Description: Any preprocessing steps applied to the sample before analysis.
+- notes
   - Type: string
-  - Description: Provide information about whether the reaction was mixed during sampling, as this can affect the representativeness of the collected sample.
+  - Description: Additional notes about the individual sample.
 
-- __vessel_opened_for_sampling__
+### Sample Preprocessing
+
+Preprocessing steps applied to samples before analysis to preserve or prepare them for measurement.
+
+- quenching method
   - Type: string
-  - Description: Information about whether the reaction vessel was opened for sampling or not.
-
-- __gas_phase__
-  - Type: string
-  - Description: Information about the composition of the gas phase above the reaction solution, including gases such as nitrogen, carbon dioxide, argon, oxygen or other gases.
-
-- __time__
+  - Description: Method used to quench or stop the reaction in the sample.
+- quenching ratio
   - Type: float
-  - Description: The time at which the sample was taken.
-
-
-</details>
-
-<hr>
-
-## Specialised sampling
-
-If the sampling procedure is more complex than just the plain procedure of taking a sample from the reaction vessel, further details need to be provided.
-
-<details> <Summary>Sampling from heterogeneous reaction solutions</Summary>
-
-### SamplingFromHeterogeneousReactionSolutions
-
-- __phase__
+  - Description: Ratio or proportion of quenching agent to sample.
+- treatment procedure
   - Type: string
-  - Description: Information about which phase the sample was taken from must be provided.
-
-- __biocatalyst_in_phase__
+  - Description: Additional treatment procedures applied to the sample.
+- notes
   - Type: string
-  - Description: Information on whether the collected sample may be contaminated with the (bio)catalyst.
+  - Description: Additional notes about sample preprocessing.
 
-<hr>
+## Enumerations
 
-- __special_treatment__
-  - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the sampling that are important for reproducibility and are not described by the aforementioned                     metadata, they should be explained here.
+### Sampling Strategy Type
 
-</details>
-
-<details> <Summary>Sample preprocessing</Summary>
-
-### SamplePreprocessing
-
-Sample preprocessing involves the necessary steps taken to prepare and treat collected samples before analysis or further experimentation.
-
-- __quenching_method__
-  - Type: string
-  - Description: Techniques or methods used to halt the reaction, including the chemicals or procedures employed (e.g., heat treatment). Accurate documentation of quenching methods in enzymatic reactions is vital as        these methods can significantly impact subsequent analytical procedures. For instance, opting for an organic solvent as a quenching reagent can notably enhance the solubility of substrates or products, directly         influencing downstream analyses.
-
-- __quenching_ratio__
-  - Type: string
-  - Description: Information about the precise ratio or volume of the quenching solution in relation to the reaction mixture. (__if_applicable__)
-
-- __treatment_procedure__
-  - Type: string
-  - Description: Any further details regarding the sample processing steps that were carried out after it was collected from the reaction vessel (e.g., filtering samples).
-
-<hr>
-
-- __special_treatment__
-  - Type: string
-  - Description: If there are any other specific methods, procedures, characteristics or aspects related to the sampling that are important for reproducibility and are not described by the aforementioned                     metadata, they should be explained here.
-
-</details>
-
-<hr>
-
-</div>
+```python
+DEFAULT = "default"
+SPECIALISED = "specialised"
+```

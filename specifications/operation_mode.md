@@ -1,55 +1,60 @@
 ---
-repo: "https://www.github.com/my/repo/"
+repo: "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis"
 prefix: "stbc"
+imports:
+    utils: ./utils.md
 ---
 
-[Landing Page](/Readme.md)
+# Operation Mode Specification
 
-<div align="justify">
+This specification defines the structure and properties of operation modes used in enzymatic reactions, providing comprehensive documentation for reactor setup, feeding strategy, and additional notes.
 
-# Operation Mode
+## Types
 
-The careful selection of the appropriate operation mode at the beginning of the experimental planning is crucial, as it significantly influences reaction conditions, reaction kinetics, and ultimately, product quality. Considering parameters such as substrate concentration, reaction time, and temperature within the respective mode allows for optimal reaction control, directly impacting the process efficiency and purity of the final product. Furthermore, choosing a scalable mode not only facilitates potential upscaling of the reaction but also streamlines resource management, contributing to overall process efficiency.
+### Operation Mode
 
-<img src="https://github.com/user-attachments/assets/a95c509d-535b-4cc3-9dc7-7daa74c3cf23" width="550">
+Specification of the operational mode and configuration for conducting biocatalytic reactions.
 
-<hr>
+- **mode**
+  - Type: Operation Mode Type
+  - Description: The fundamental operation mode defining how the reaction is conducted (batch, fed-batch, continuous, or combinatorial).
+- reactor type
+  - Type: Reactor Type
+  - Description: Type of reactor configuration used (well-mixed, tubular flow, or other).
+- feeding
+  - Type: Feeding Strategy
+  - Description: Strategy for feeding reactants into the system during the reaction.
+- notes
+  - Type: string
+  - Description: Additional notes or comments about the operation mode.
 
-### Batch
+### Feeding Strategy
 
-The batch operation mode represents a fundamental approach in biocatalysis, where all reaction components are mixed simultaneously within a closed system, and the reaction proceeds until a predetermined endpoint is reached. This mode is easy to control and well-suited for producing small batches of products.
+Specification of the feeding strategy for introducing reactants during non-batch operations.
 
-- __reactor_type__
-    - Type: string
+- feeding type
+  - Type: Feeding Type
+  - Description: Type of feeding approach used (none, discrete, continuous, or variable).
+- description
+  - Type: string
+  - Description: Detailed description of the feeding strategy implementation.
 
----
+## Enumerations
 
-### FedBatch
+### Operation Mode Type
 
-In the fed-batch operation mode, additional compounds (e.g., substrates, acid/base for pH regulation, etc.) are gradually added during the reaction to control reaction conditions or enhance product formation. This mode allows for better control of the reaction progress and can increase productivity.
+```python
+BATCH = "batch"
+FED_BATCH = "fed_batch"
+CONTINUOUS = "continuous"
+COMBINATORIAL = "combinatorial"
+```
 
-- __reactor_type__
-    - Type: string
+### Feeding Type
 
----
-
-### Continuous
-
-In the continuous operation mode, the reaction operates continuously with substrates continuously supplied and products continuously removed. This mode enables uniform product formation and is particularly suitable for large-scale production.
-
-- __reactor_type__
-    - Type: string
-
----
-
-### CombinatorialMode
-
-A combinatorial mode does not clearly fit into any of the aforementioned subcategories and thus represents a mixture of operation modes. This kind of experiment design could be used to systematically explore various reaction conditions or components in a combined manner. This approach allows the exploration of multiple options, such as varying substrate concentrations, catalysts, or reaction conditions. The goal is to identify the optimal conditions or combinations that most efficiently facilitate desired reactions in biocatalysis.
-
-- __reactor_type__
-    - Type: string
-
----
-
-
-</div>
+```python
+NONE = "none"
+DISCRETE = "discrete"
+CONTINUOUS = "continuous"
+VARIABLE = "variable"
+```
