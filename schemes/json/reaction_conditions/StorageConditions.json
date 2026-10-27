@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "StorageConditions",
+  "type": "object",
+  "description": "Conditions under which materials (biocatalysts, components, etc.) are stored to maintain stability and integrity.",
+  "properties": {
+    "additives": {
+      "title": "additives",
+      "type": "array",
+      "description": "Any additives or stabilizers used during storage (e.g., glycerol, stabilizers, preservatives).",
+      "items": {
+        "type": "string"
+      }
+    },
+    "drying_method": {
+      "title": "drying_method",
+      "type": "array",
+      "description": "Method used to dry the material if stored in dry form (optional, primarily for biocatalysts).",
+      "items": {
+        "type": "string"
+      }
+    },
+    "notes": {
+      "title": "notes",
+      "type": "string",
+      "description": "Additional notes about storage conditions or requirements."
+    },
+    "storage_start": {
+      "title": "storage_start",
+      "type": "object",
+      "description": "Date when storage under these conditions began or material was received.",
+      "$ref": "#/$defs/date"
+    },
+    "temperature": {
+      "title": "temperature",
+      "type": "number",
+      "description": "Storage temperature value."
+    },
+    "temperature_unit": {
+      "title": "temperature_unit",
+      "type": "string",
+      "description": "Unit for the storage temperature (e.g., °C, K)."
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

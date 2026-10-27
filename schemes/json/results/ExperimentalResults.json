@@ -1,0 +1,269 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "ExperimentalResults",
+  "type": "object",
+  "description": "Comprehensive collection of experimental results from enzymatic reactions.",
+  "properties": {
+    "activity": {
+      "title": "activity",
+      "type": "object",
+      "description": "Enzyme activity and initial reaction rate data.",
+      "$ref": "#/$defs/ActivityResults"
+    },
+    "kinetics": {
+      "title": "kinetics",
+      "type": "object",
+      "description": "Kinetic parameters and enzyme behavior characteristics.",
+      "$ref": "#/$defs/KineticResults"
+    },
+    "notes": {
+      "title": "notes",
+      "type": "string",
+      "description": "Additional notes or comments about the experimental results."
+    },
+    "selectivity": {
+      "title": "selectivity",
+      "type": "object",
+      "description": "Selectivity measurements including stereoselectivity and enantioselectivity.",
+      "$ref": "#/$defs/SelectivityResults"
+    },
+    "thermodynamics": {
+      "title": "thermodynamics",
+      "type": "object",
+      "description": "Thermodynamic parameters of the reaction.",
+      "$ref": "#/$defs/ThermodynamicResults"
+    },
+    "yield_and_conversion": {
+      "title": "yield_and_conversion",
+      "type": "object",
+      "description": "Product yield and substrate conversion measurements.",
+      "$ref": "#/$defs/YieldAndConversionResults"
+    }
+  },
+  "$defs": {
+    "ActivityResults": {
+      "title": "ActivityResults",
+      "type": "object",
+      "description": "Enzyme activity measurements and initial reaction rate data.",
+      "properties": {
+        "initial_reaction_rate": {
+          "title": "initial_reaction_rate",
+          "type": "number",
+          "description": "Initial reaction rate measured at the beginning of the reaction."
+        },
+        "notes": {
+          "title": "notes",
+          "type": "string",
+          "description": "Additional notes about activity measurements."
+        },
+        "specific_activity": {
+          "title": "specific_activity",
+          "type": "number",
+          "description": "Specific activity representing enzyme activity per unit mass of enzyme protein."
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "InhibitionParameters": {
+      "title": "InhibitionParameters",
+      "type": "object",
+      "description": "Parameters describing enzyme inhibition characteristics and mechanisms.",
+      "properties": {
+        "inhibition_constant": {
+          "title": "inhibition_constant",
+          "type": "number",
+          "description": "Inhibition constant (Ki) quantifying the strength of inhibitor binding."
+        },
+        "inhibition_type": {
+          "title": "inhibition_type",
+          "type": "string",
+          "description": "Type of inhibition mechanism observed.",
+          "$ref": "#/$defs/InhibitionType"
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "InhibitionType": {
+      "title": "InhibitionType",
+      "type": "string",
+      "enum": [
+        "competitive",
+        "irreversible",
+        "mixed",
+        "non_competitive",
+        "other",
+        "uncompetitive"
+      ]
+    },
+    "KineticResults": {
+      "title": "KineticResults",
+      "type": "object",
+      "description": "Kinetic parameters characterizing enzyme behavior and reaction mechanisms.",
+      "properties": {
+        "catalytic_efficiency": {
+          "title": "catalytic_efficiency",
+          "type": "number",
+          "description": "Catalytic efficiency (kcat/Km) indicating the enzyme's effectiveness at low substrate concentrations."
+        },
+        "dissociation_constant": {
+          "title": "dissociation_constant",
+          "type": "number",
+          "description": "Dissociation constant (Kd) for enzyme-substrate or enzyme-inhibitor binding."
+        },
+        "enzyme_stability": {
+          "title": "enzyme_stability",
+          "type": "string",
+          "description": "Qualitative or quantitative description of enzyme stability under reaction conditions."
+        },
+        "hill_coefficient": {
+          "title": "hill_coefficient",
+          "type": "number",
+          "description": "Hill coefficient indicating cooperativity in substrate binding or enzyme kinetics."
+        },
+        "inhibition": {
+          "title": "inhibition",
+          "type": "object",
+          "description": "Parameters describing enzyme inhibition characteristics.",
+          "$ref": "#/$defs/InhibitionParameters"
+        },
+        "maximum_reaction_rate": {
+          "title": "maximum_reaction_rate",
+          "type": "number",
+          "description": "Maximum reaction rate (Vmax) achieved under saturating substrate conditions."
+        },
+        "michaelis_constant": {
+          "title": "michaelis_constant",
+          "type": "number",
+          "description": "Michaelis constant (Km) representing the substrate concentration at half-maximum reaction rate."
+        },
+        "notes": {
+          "title": "notes",
+          "type": "string",
+          "description": "Additional notes about kinetic measurements or observations."
+        },
+        "turnover_number": {
+          "title": "turnover_number",
+          "type": "number",
+          "description": "Turnover number (kcat) representing the maximum number of substrate molecules converted per enzyme molecule per unit time."
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "SelectivityResults": {
+      "title": "SelectivityResults",
+      "type": "object",
+      "description": "Selectivity measurements including stereoselectivity, enantioselectivity, and other selectivity parameters.",
+      "properties": {
+        "chemoselectivity": {
+          "title": "chemoselectivity",
+          "type": "string",
+          "description": "Description of chemoselectivity when multiple reaction pathways are possible."
+        },
+        "diastereomeric_excess": {
+          "title": "diastereomeric_excess",
+          "type": "number",
+          "description": "Diastereomeric excess (de) as percentage for reactions producing diastereomers."
+        },
+        "enantiomeric_excess": {
+          "title": "enantiomeric_excess",
+          "type": "number",
+          "description": "Enantiomeric excess (ee) as percentage indicating optical purity of the product."
+        },
+        "enantioselectivity": {
+          "title": "enantioselectivity",
+          "type": "number",
+          "description": "Enantioselectivity ratio (E-value) indicating preference for one enantiomer over another."
+        },
+        "isomeric_content": {
+          "title": "isomeric_content",
+          "type": "number",
+          "description": "Content or ratio of specific isomers in the product mixture."
+        },
+        "notes": {
+          "title": "notes",
+          "type": "string",
+          "description": "Additional notes about selectivity measurements."
+        },
+        "regioselectivity": {
+          "title": "regioselectivity",
+          "type": "string",
+          "description": "Description of regioselectivity indicating preference for specific reaction sites."
+        },
+        "stereoselectivity": {
+          "title": "stereoselectivity",
+          "type": "string",
+          "description": "Qualitative or quantitative description of stereoselectivity in the reaction."
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "ThermodynamicResults": {
+      "title": "ThermodynamicResults",
+      "type": "object",
+      "description": "Thermodynamic parameters characterizing the energetics of the enzymatic reaction.",
+      "properties": {
+        "enthalpy_change": {
+          "title": "enthalpy_change",
+          "type": "string",
+          "description": "Enthalpy change (ΔH) for the reaction."
+        },
+        "entropy_change": {
+          "title": "entropy_change",
+          "type": "string",
+          "description": "Entropy change (ΔS) for the reaction."
+        },
+        "gibbs_free_energy_change": {
+          "title": "gibbs_free_energy_change",
+          "type": "string",
+          "description": "Gibbs free energy change (ΔG) for the reaction."
+        },
+        "notes": {
+          "title": "notes",
+          "type": "string",
+          "description": "Additional notes about thermodynamic measurements."
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "YieldAndConversionResults": {
+      "title": "YieldAndConversionResults",
+      "type": "object",
+      "description": "Product yield and substrate conversion measurements from enzymatic reactions.",
+      "properties": {
+        "conversion": {
+          "title": "conversion",
+          "type": "number",
+          "description": "Substrate conversion as percentage or fraction of initial substrate consumed."
+        },
+        "notes": {
+          "title": "notes",
+          "type": "string",
+          "description": "Additional notes about yield and conversion measurements."
+        },
+        "product_yield": {
+          "title": "product_yield",
+          "type": "array",
+          "description": "Product yield as percentage or fraction of theoretical maximum.",
+          "items": {
+            "type": "number"
+          }
+        },
+        "space_time_yield": {
+          "title": "space_time_yield",
+          "type": "number",
+          "description": "Space-time yield representing product formation rate per unit reactor volume."
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "ComponentIdentity",
+  "type": "object",
+  "description": "Chemical identification and characterization information for a component, including names, structural identifiers, and physical properties.",
+  "properties": {
+    "formulation": {
+      "title": "formulation",
+      "type": "string",
+      "description": "Physical form or formulation of the component (powder, liquid, solution, etc.).",
+      "$ref": "#/$defs/FormulationType"
+    },
+    "identifiers": {
+      "title": "identifiers",
+      "type": "array",
+      "description": "One or more identifiers like CAS, PubChem CID, InChI, etc.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "name": {
+      "title": "name",
+      "type": "string",
+      "description": "Common or systematic name of the component."
+    },
+    "purity": {
+      "title": "purity",
+      "type": "number",
+      "description": "Purity of the component as a percentage or fraction."
+    },
+    "smiles": {
+      "title": "smiles",
+      "type": "string",
+      "description": "SMILES (Simplified Molecular Input Line Entry System) notation for the chemical structure."
+    }
+  },
+  "$defs": {
+    "FormulationType": {
+      "title": "FormulationType",
+      "type": "string",
+      "enum": [
+        "dissolved",
+        "gas",
+        "liquid",
+        "other",
+        "powder",
+        "solution"
+      ]
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "additionalProperties": false
+}

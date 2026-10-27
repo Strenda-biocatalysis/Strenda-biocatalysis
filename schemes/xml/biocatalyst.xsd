@@ -2,548 +2,516 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
     <!-- Roots -->
-    <xs:element name="BiocatalystPurchased" type="BiocatalystPurchasedType"/>
-    <xs:element name="BiocatalystSelfProduced" type="BiocatalystSelfProducedType"/>
-    <xs:element name="PurifiedBiocatalyst" type="PurifiedBiocatalystType"/>
-    <xs:element name="CrudeCellExtract" type="CrudeCellExtractType"/>
-    <xs:element name="WholeCellBiocatalyst" type="WholeCellBiocatalystType"/>
-    <xs:element name="SecretedEnzyme" type="SecretedEnzymeType"/>
-    <xs:element name="CellFreeProduction" type="CellFreeProductionType"/>
-    <xs:element name="Immobilised" type="ImmobilisedType"/>
+    <xs:element name="Biocatalyst" type="BiocatalystType"/>
+    <xs:element name="BiocatalystIdentity" type="BiocatalystIdentityType"/>
+    <xs:element name="SequenceInfo" type="SequenceInfoType"/>
+    <xs:element name="BiocatalystSource" type="BiocatalystSourceType"/>
+    <xs:element name="PurchasedDetails" type="PurchasedDetailsType"/>
+    <xs:element name="SelfProducedDetails" type="SelfProducedDetailsType"/>
+    <xs:element name="BiocatalystApplication" type="BiocatalystApplicationType"/>
+    <xs:element name="Concentration" type="ConcentrationType"/>
+    <xs:element name="Activity" type="ActivityType"/>
+    <xs:element name="ApplicationWorkflowDetails" type="ApplicationWorkflowDetailsType"/>
+    <xs:element name="Immobilization" type="ImmobilizationType"/>
+    <xs:element name="Quantity" type="QuantityType"/>
     <xs:element name="StorageConditions" type="StorageConditionsType"/>
 
-    <!-- BiocatalystPurchased Definition -->
-    <xs:complexType name="BiocatalystPurchasedType">
+    <!-- Biocatalyst Definition -->
+    <xs:complexType name="BiocatalystType">
+        <xs:sequence>
+            <xs:element name="identity" type="BiocatalystIdentityType">
+                <xs:annotation>
+                    <xs:documentation>
+                        Essential identifying information about the biocatalyst including
+                        name, EC number, molecular properties, and
+                        sequence data.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="source_type" type="BiocatalystSourceTypeType"/>
+            <xs:element name="source" type="BiocatalystSourceType">
+                <xs:annotation>
+                    <xs:documentation>
+                        Information about how the biocatalyst was obtained, whether purchased
+                        commercially or produced in-house.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="application" type="BiocatalystApplicationType">
+                <xs:annotation>
+                    <xs:documentation>
+                        Details about how the biocatalyst is applied in the reaction,
+                        including concentration, activity, and
+                        workflow specifics.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="immobilization" type="ImmobilizationType">
+                <xs:annotation>
+                    <xs:documentation>
+                        Information about whether and how the biocatalyst is immobilized on a
+                        support material.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="storage" type="StorageConditionsType">
+                <xs:annotation>
+                    <xs:documentation>
+                        Conditions under which the biocatalyst is stored to maintain its
+                        activity and stability.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="notes" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Additional notes or comments about the biocatalyst that don&apos;t fit
+                        in other categories.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- BiocatalystIdentity Definition -->
+    <xs:complexType name="BiocatalystIdentityType">
         <xs:sequence>
             <xs:element name="name" type="xs:string">
                 <xs:annotation>
                     <xs:documentation>
-                        The name of the biocatalyst can be either generic based on the catalyzed reaction, for example, 'lipase' or more specifically by describing the genus and species, such as '
+                        The name of the biocatalyst, which can be the trivial name, systematic
+                        name, or trade name.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="ec_number" type="xs:string">
+            <xs:element name="ec_number" type="xs:string"  minOccurs="0" maxOccurs="unbounded">
                 <xs:annotation>
                     <xs:documentation>
-                        Numerical classification system that categorizes enzymes based on their biochemical function and reaction mechanism, such as EC 3.1.4.12.
+                        The Enzyme Commission (EC) number that classifies the enzyme according
+                        to the reaction it catalyzes.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name="molecular_weight" type="xs:float">
                 <xs:annotation>
                     <xs:documentation>
-                        The molecular weight (MW) refer to the sum of the atomic weights of the atoms in a molecule and therefore describes the mass of an enzyme.
+                        The molecular weight of the enzyme in the specified units.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="molecular_weight_unit" type="xs:string">
+            <xs:element name="molecular_weight_unit" type="MolecularWeightUnitType">
                 <xs:annotation>
                     <xs:documentation>
-                        The enzyme size or molar weight is typically expressed in kDa (kilodaltons).
+                        The unit of measurement for the molecular weight (e.g., kDa, Da).
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="catalyzed_reaction" type="xs:string">
+            <xs:element name="catalyzed_reaction" type="xs:string"  minOccurs="0" maxOccurs="unbounded">
                 <xs:annotation>
                     <xs:documentation>
-                        The reaction catalyzed by the biocatalyst.
+                        Description of the specific reaction or type of reaction catalyzed by
+                        this enzyme.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="sequence_amino_acid" type="xs:string">
+            <xs:element name="sequences" type="SequenceInfoType">
                 <xs:annotation>
                     <xs:documentation>
-                        The amino acid sequence of the biocatalyst. The amino acid sequence can be represented in either a three-letter or one-letter code. For instance, "Ala-Ser-Gly" corresponds to the three-letter code, while "ASG" represents the same sequence in the one-letter code. One of the databases commonly used for storing and retrieving amino acid sequences is the UniProt database (https://www.uniprot.org/). UniProt provides extensive information on protein sequences, including their one-letter and three-letter amino acid codes, allowing researchers to access and analyze various protein sequences.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="sequence_DNA" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        The DNA sequence of the biocatalyst including any tags and linkers.
+                        Amino acid and/or DNA sequence information for the enzyme.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name="origin_organism" type="xs:string">
                 <xs:annotation>
                     <xs:documentation>
-                        The specific species or source from which the enzyme is derived or isolated. It includes information about the genus and species of the organism. However, the cell type from which the biocatalyst is        derived could be bacterial, as well as plant, animal, or other sources. (
+                        The organism from which the enzyme was originally derived or isolated.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="production_organism" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        The organism used to produce the enzyme (may differ from origin
+                        organism for recombinant enzymes).
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="posttranslational_modification" type="xs:string"  minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>
+                        Any post-translational modifications present on the enzyme that may
+                        affect its activity or properties.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- SequenceInfo Definition -->
+    <xs:complexType name="SequenceInfoType">
+        <xs:sequence>
+            <xs:element name="sequence_amino_acid" type="xs:string"  minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>
+                        The amino acid sequence of the enzyme in single-letter code format.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="sequence_dna" type="xs:string"  minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>
+                        The DNA sequence encoding the enzyme.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- BiocatalystSource Definition -->
+    <xs:complexType name="BiocatalystSourceType">
+        <xs:sequence>
+            <xs:element name="source_type" type="BiocatalystSourceTypeType">
+                <xs:annotation>
+                    <xs:documentation>
+                        Whether the biocatalyst was purchased from a supplier or produced
+                        in-house.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name="supplier" type="xs:string">
                 <xs:annotation>
                     <xs:documentation>
-                        Information about the supplier from which the enzyme was purchased. If possible, a reference for the purchased biocatalyst should also be provided.
+                        Name of the commercial supplier or source of the biocatalyst.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="production_organism" type="xs:string">
+            <xs:element name="purchased_details" type="PurchasedDetailsType">
                 <xs:annotation>
                     <xs:documentation>
-                        Information about the organism in which the biocatalyst was produced is crucial in the context of heterologous gene expression.
+                        Specific details relevant to commercially purchased biocatalysts.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="posttranslational_modification" type="xs:string">
+            <xs:element name="self_produced_details" type="SelfProducedDetailsType">
                 <xs:annotation>
                     <xs:documentation>
-                        Information about any chemical modifications or alterations that occur to the biocatalyst's protein structure after translation, such as phosphorylation, glycosylation, acetylation,               methylation, ubiquitination and other modifications.
+                        Specific details relevant to biocatalysts produced in-house.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- PurchasedDetails Definition -->
+    <xs:complexType name="PurchasedDetailsType">
+        <xs:sequence>
+            <xs:element name="reference" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Product code, catalog number, or other reference identifier from the
+                        supplier.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name="purity" type="xs:float">
                 <xs:annotation>
                     <xs:documentation>
-                        Purity of enzymes typically expressed in percentage (%). It is usually stated as the percentage of the pure enzyme or active component relative to the total mass of the enzyme preparation.
+                        Purity of the purchased biocatalyst as specified by the supplier,
+                        typically as a percentage.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name="purity_specification" type="xs:string">
                 <xs:annotation>
                     <xs:documentation>
-                        Description of how the purity of the biocatalyst was determined. In case of purchased enzymes, this information is often available from the product specification sheet.
+                        Method or specification used to determine the purity (e.g., SDS-PAGE,
+                        activity assay).
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="formulation" type="xs:string">
+            <xs:element name="formulation" type="FormulationTypeType">
                 <xs:annotation>
                     <xs:documentation>
-                        Depending on the formulation, the biocatalyst can exist either in a dissolved state within a solvent or as a solid powder. It defines the physical state in which the biocatalyst is used. Additional information regarding the application or formulation in the experiment should be entered in the next subcategory.
+                        Physical form of the purchased biocatalyst (dissolved, powder, etc.).
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
     </xs:complexType>
 
-    <!-- BiocatalystSelfProduced Definition -->
-    <xs:complexType name="BiocatalystSelfProducedType">
+    <!-- SelfProducedDetails Definition -->
+    <xs:complexType name="SelfProducedDetailsType">
         <xs:sequence>
-            <xs:element name="name" type="xs:string">
+            <xs:element name="sequence_plasmid" type="xs:string"  minOccurs="0" maxOccurs="unbounded">
                 <xs:annotation>
                     <xs:documentation>
-                        The name of the biocatalyst can be either generic based on the catalyzed reaction, for example, 'lipase' or more specifically by describing the genus and species, such as '
+                        Sequence of the plasmid used for enzyme expression.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="ec_number" type="xs:string">
+            <xs:element name="plasmid_specifications" type="xs:string"  minOccurs="0" maxOccurs="unbounded">
                 <xs:annotation>
                     <xs:documentation>
-                        Numerical classification system that categorizes enzymes based on their biochemical function and reaction mechanism, such as EC 3.1.4.12.
+                        Details about the plasmid construction, including vector backbone,
+                        promoter, and other relevant features.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="molecular_weight" type="xs:float">
+            <xs:element name="purification_method" type="xs:string"  minOccurs="0" maxOccurs="unbounded">
                 <xs:annotation>
                     <xs:documentation>
-                        The molecular weight (MW) refer to the sum of the atomic weights of the atoms in a molecule and therefore describes the mass of an enzyme.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="molecular_weight_unit" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        The enzyme size or molar weight is typically expressed in kDa (kilodaltons).
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="catalyzed_reaction" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        The reaction catalyzed by the biocatalyst.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="sequence_amino_acid" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        The amino acid sequence of the biocatalyst. The amino acid sequence can be represented in either a three-letter or one-letter code. For instance, "Ala-Ser-Gly" corresponds to the three-letter code, while "ASG" represents the same sequence in the one-letter code. One of the databases commonly used for storing and retrieving amino acid sequences is the UniProt database (https://www.uniprot.org/). UniProt provides extensive information on protein sequences, including their one-letter and three-letter amino acid codes, allowing researchers to access and analyze various protein sequences.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="sequence_DNA" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        The DNA sequence of the biocatalyst including any tags and linkers.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="sequence_plasmid" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        The DNA sequence of the plasmid used to produce the biocatalyst. The sequence can be provided in plain text or as a database ID.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="plasmid_specifications" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        All DNA sequence changes (e.g. codon optimization for
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="origin_organism" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        The specific species or source from which the enzyme is derived or isolated. It includes information about the genus and species of the organism. (
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="production_organism" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        Information about the organism in which the biocatalyst was produced is crucial in the context of heterologous gene expression. If the production strain was purchased, more detailed information on the manufacturer and the organism should be provided.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="posttranslational_modification" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        Information about any chemical modifications or alterations that occur to the biocatalyst's protein structure after translation, such as phosphorylation, glycosylation, acetylation,               methylation, ubiquitination and other modifications.
+                        Method(s) used to purify the enzyme after expression.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name="purity" type="xs:float">
                 <xs:annotation>
                     <xs:documentation>
-                        Purity of enzymes typically expressed in percentage (%). It is usually stated as the percentage of the pure enzyme or active component relative to the total mass of the enzyme preparation.
+                        Achieved purity of the self-produced biocatalyst, typically as a
+                        percentage.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name="purity_specification" type="xs:string">
                 <xs:annotation>
                     <xs:documentation>
-                        The choice of method for the purity determination depends on the type of enzyme and the available resources and may include gel electrophoresis, HPLC, ELISA, Western blotting, etc.
+                        Method used to determine the purity of the self-produced enzyme.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="purification_method" type="xs:string">
+            <xs:element name="formulation" type="FormulationTypeType">
                 <xs:annotation>
                     <xs:documentation>
-                        The choice of purification methods is diverse and can impact the enzyme, with possible methods including chromatographic techniques, precipitation, HPLC, ultrafiltration, dialysis, salt fractionation,      etc.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="formulation" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        Depending on the formulation, the biocatalyst can exist either in a dissolved state within a solvent or as a solid powder. It defines the physical state in which the biocatalyst is used. Additional information regarding the application or formulation in the experiment should be entered in the next subcategory.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="special_treatment" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
+                        Physical form of the self-produced biocatalyst after purification
+                        and processing.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
     </xs:complexType>
 
-    <!-- PurifiedBiocatalyst Definition -->
-    <xs:complexType name="PurifiedBiocatalystType">
+    <!-- BiocatalystApplication Definition -->
+    <xs:complexType name="BiocatalystApplicationType">
         <xs:sequence>
-            <xs:element name="concentration" type="xs:float">
+            <xs:element name="application_type" type="BiocatalystApplicationTypeType">
                 <xs:annotation>
                     <xs:documentation>
-                        Concentration of the biocatalyst.
+                        The form in which the biocatalyst is applied (purified enzyme, crude
+                        extract, whole cells, etc.).
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="concentration_unit" type="xs:string">
+            <xs:element name="concentration">
                 <xs:annotation>
                     <xs:documentation>
-                        Concentration of the biocatalyst is typically expressed in g/L (grams per liter).
+                        Concentration of the biocatalyst in the reaction mixture.
                     </xs:documentation>
                 </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Concentration" type="ConcentrationType" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
             </xs:element>
-            <xs:element name="concentration_determination_method" type="xs:string">
+            <xs:element name="activity">
                 <xs:annotation>
                     <xs:documentation>
-                        It is important to specify the method used for concentration determination. There are various methods available for the determination of the enzyme concentration in solution e.g., the Bradford method, Lowry method, UV absorption, activity assays, ELISA, etc.
+                        Measured enzymatic activity of the biocatalyst under the reaction
+                        conditions.
                     </xs:documentation>
                 </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Activity" type="ActivityType" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
             </xs:element>
-            <xs:element name="activity" type="xs:float">
+            <xs:element name="workflow_details" type="ApplicationWorkflowDetailsType">
                 <xs:annotation>
                     <xs:documentation>
-                        The activity of the biocatalyst can be expressed either as volumetric activity, which considers the total activity of the enzyme in the solution, or as specific activity, which takes into account the       enzyme's purity and indicates the activity of an enzyme per unit of enzyme protein or enzyme mass. If the biocatalyst has been purchased, it is advisable to look up more precise information (e.g. via an SOP)            regarding the activities specified by the manufacturer, as these may differ from the values determined by yourself (different activity assays can lead to different activity values). In addition, the loss of activity of the biocatalyst over the storage period should be taken into account.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="activity_unit" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        The enzyme's activity can be expressed either as specific activity [][][]
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="activity_determination_method" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        Enzyme activity can be measured in various ways, including spectrophotometrically, colorimetrically, fluorometrically, assays and using biosensors, etc.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="formulation" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        Depending on the formulation, the biocatalyst can be applied dissolved in a solvent or as a dried powder. It defines the physical state in which the biocatalyst is applied in the reaction.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="special_treatment" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
+                        Specific workflow steps and methods used in applying the biocatalyst.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
     </xs:complexType>
 
-    <!-- CrudeCellExtract Definition -->
-    <xs:complexType name="CrudeCellExtractType">
+    <!-- Concentration Definition -->
+    <xs:complexType name="ConcentrationType">
+        <xs:sequence>
+            <xs:element name="value" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation>
+                        Numerical value of the concentration.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="unit" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Unit of measurement for the concentration (e.g., mg/mL, µM, U/mL).
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="determination_method" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Method used to determine or calculate the concentration.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Activity Definition -->
+    <xs:complexType name="ActivityType">
+        <xs:sequence>
+            <xs:element name="value" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation>
+                        Numerical value of the measured activity.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="unit" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Unit of measurement for the activity (e.g., U/mg, µmol/min/mg).
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="determination_method" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Assay method used to measure the enzymatic activity.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ApplicationWorkflowDetails Definition -->
+    <xs:complexType name="ApplicationWorkflowDetailsType">
         <xs:sequence>
             <xs:element name="cell_disruption_process" type="xs:string">
                 <xs:annotation>
                     <xs:documentation>
-                        Cell disruption processes and methods include various techniques such as mechanical disruption (e.g., grinding, homogenization, ultrasonication, french press), chemical disruption (e.g., detergents, enzymes), physical techniques (e.g., electroporation, high-pressure homogenization, thermal treatment) to break cell walls and release cell contents.
+                        Method used to disrupt cells if working with whole cell preparations.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="concentration" type="xs:float">
-                <xs:annotation>
-                    <xs:documentation>
-                        Concentration of the biocatalyst.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="concentration_unit" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        Concentration of the biocatalyst is typically expressed in g/L (grams per liter).
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="concentration_determination_method" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        It is important to specify the type of concentration determination. There are numerous methods available to determine protein content, yet only a few are suitable for estimating or determining the protein content of the target protein within a mixture. Some of these methods include activity assays or the Western blotting technique, which relies on prior SDS-PAGE and antibody binding for detection.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="special_treatment" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-        </xs:sequence>
-    </xs:complexType>
-
-    <!-- WholeCellBiocatalyst Definition -->
-    <xs:complexType name="WholeCellBiocatalystType">
-        <xs:sequence>
             <xs:element name="harvesting_method" type="xs:string">
                 <xs:annotation>
                     <xs:documentation>
-                        In biotechnological processes, there are various methods for harvesting cells, including centrifugation, filtration, precipitation, etc.
+                        Method used to harvest cells or enzyme from the production system.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="concentration" type="xs:float">
-                <xs:annotation>
-                    <xs:documentation>
-                        In the case of whole-cell catalysts, the cell concentration or cell mass is commonly used as a measure.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="concentration_unit" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        In case of lyophilized cells, the quantity of lyophilized cells can be specified in g (grams) or kg (kilograms). If wet cells are used, the cell concentration can be indicated in cells/mL (cells per milliliter) or cells/g (cells per gram) of wet cell weight. Other common indications of the concentration of wet cells as biocatalysts are the cell concentration in g/L (grams per liter) or OD (optical density).
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="concentration_determination_method" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        Specify the method for cell number per cell weight determination (e.g., flow cytometry, weight of dry biomass, spectrophotometry).
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="formulation" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        When applying a whole cell biocatalyst, there are various options. Cultivated cells can be lyophilized or used as wet cells after separation from the medium.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="special_treatment" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-        </xs:sequence>
-    </xs:complexType>
-
-    <!-- SecretedEnzyme Definition -->
-    <xs:complexType name="SecretedEnzymeType">
-        <xs:sequence>
             <xs:element name="separation_method" type="xs:string">
                 <xs:annotation>
                     <xs:documentation>
-                        There are various methods to separate the supernatant from the cells, common methods include centrifugation, filtration, sedimentation, etc.
+                        Method used to separate the biocatalyst from other components.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="concentration" type="xs:float">
-                <xs:annotation>
-                    <xs:documentation>
-                        Concentration of the biocatalyst.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="concentration_unit" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        Concentration of the biocatalyst is typically expressed in g/L (grams per liter).
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="concentration_determination_method" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        It is important to specify the type of concentration determination. There are numerous methods available to determine protein content, yet only a few are suitable for estimating or determining the protein content of the target protein within a mixture. Some of these methods include activity assays or the Western blotting technique, which relies on prior SDS-PAGE and antibody binding for detection.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="special_treatment" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-        </xs:sequence>
-    </xs:complexType>
-
-    <!-- CellFreeProduction Definition -->
-    <xs:complexType name="CellFreeProductionType">
-        <xs:sequence>
             <xs:element name="source_of_cellfree_extract" type="xs:string">
                 <xs:annotation>
                     <xs:documentation>
-                        Specifiy the organism or cell type from which the cell-free extract is derived (e.g., by describing the genus and species). These could be bacterial, plant, animal, or another sources. If available, reference can be made to an appropriate database entry.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="concentration" type="xs:float">
-                <xs:annotation>
-                    <xs:documentation>
-                        Concentration of the biocatalyst.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="concentration_unit" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        Concentration of the biocatalyst is typically expressed in g/L (grams per liter).
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="concentration_determination_method" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        It is important to specify the type of concentration determination. There are numerous methods available to determine protein content, yet only a few are suitable for estimating or determining the protein content of the target protein within a mixture. Some of these methods include activity assays or the Western blotting technique, which relies on prior SDS-PAGE and antibody binding for detection.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="special_treatment" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
+                        Details about the source and preparation of cell-free extracts if
+                        applicable.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
     </xs:complexType>
 
-    <!-- Immobilised Definition -->
-    <xs:complexType name="ImmobilisedType">
+    <!-- Immobilization Definition -->
+    <xs:complexType name="ImmobilizationType">
         <xs:sequence>
-            <xs:element name="biocatalyst" type="xs:string">
+            <xs:element name="immobilized" type="xs:boolean">
                 <xs:annotation>
                     <xs:documentation>
-                        When it comes to the immobilization method, it is also important to mention how the biocatalyst to be immobilized is present (for example, as a purified enzyme, or as a crude cell extract, etc.).
+                        Whether the biocatalyst is immobilized (true) or used in free form
+                        (false).
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="immobilisation_chemistry" type="xs:string">
+            <xs:element name="biocatalyst_state" type="xs:string">
                 <xs:annotation>
                     <xs:documentation>
-                        This aspect denotes the specific chemical methods or techniques used to attach the enzymes onto the chosen base material. Different immobilization chemistries involve various covalent or non-covalent       bonding strategies, including crosslinking, adsorption, covalent bonding, encapsulation, specific binding via (affinity)tag, or entrapment.
+                        Physical state of the biocatalyst during immobilization (e.g.,
+                        purified enzyme, crude extract).
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="carrier_material" type="xs:string">
+            <xs:element name="immobilisation_chemistry" type="xs:string"  minOccurs="0" maxOccurs="unbounded">
                 <xs:annotation>
                     <xs:documentation>
-                        If a support material, base, or carrier was utilized, it is necessary to specify the material's name (e.g., gel, membrane, particle) along with the supplier and further product details (
+                        Chemical method or mechanism used for immobilization (e.g., covalent
+                        binding, adsorption, entrapment).
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="linkers" type="xs:string">
+            <xs:element name="carrier_material" type="xs:string"  minOccurs="0" maxOccurs="unbounded">
                 <xs:annotation>
                     <xs:documentation>
-                        Linkers are chemical compounds used to establish a connection or bridge between the enzymes and the carrier material. These linkers play a vital role in stabilizing the immobilized enzymes and can           influence the efficiency and functionality of the immobilization process. They facilitate binding between the enzymes and the carrier material, promoting a stable and active biocatalyst structure. Common and            widespread linkers are spacer molecules, crosslinkers, avidin-biotin or silane coupling agents. (
+                        Material used as the solid support for immobilization.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="immobilisation_method" type="xs:string">
+            <xs:element name="linkers" type="xs:string"  minOccurs="0" maxOccurs="unbounded">
                 <xs:annotation>
                     <xs:documentation>
-                        Specify further details regarding the immobilisation method of the enzyme. For a comprehensive report around the technical key data of the immobilization process or method, see literature for further              information, e.g. Ansorge-Schumacher2.
+                        Chemical linkers or spacers used between the enzyme and carrier
+                        material.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="purification_method" type="xs:string">
+            <xs:element name="immobilisation_method" type="xs:string"  minOccurs="0" maxOccurs="unbounded">
                 <xs:annotation>
                     <xs:documentation>
-                        The purification methods can vary depending on whether it involves whole cells or free enzymes. In the case of whole cells, methods such as centrifugation, filtration, or flow cytometry can be              employed. In the case of free enzymes, methods like cell lysis, filtration, chromatography, and precipitation, among others, may be used.
+                        Detailed procedure used for the immobilization process.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="concentration" type="xs:float">
+            <xs:element name="purification_method" type="xs:string"  minOccurs="0" maxOccurs="unbounded">
                 <xs:annotation>
                     <xs:documentation>
-                        Concentration of the biocatalyst or the whole cells on the immobilised phase.
+                        Method used to purify or wash the immobilized biocatalyst.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="concentration_unit" type="xs:string">
+            <xs:element name="loading" type="ConcentrationType">
                 <xs:annotation>
                     <xs:documentation>
-                        For immobilized enzymes, the concentration is often quantified in terms of enzyme activity per volume (e.g., units per milliliter, U/mL) or weight measurements such as milligrams or grams per liter (mg/L or g/L). When referring to immobilized cells (not the enzymes themselves), units of cells/mL (cells per milliliter) or cells/g (cells per gram) are commonly utilized.
+                        Amount of enzyme loaded onto the carrier material.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="concentration_determination_method" type="xs:string">
+            <xs:element name="notes" type="xs:string">
                 <xs:annotation>
                     <xs:documentation>
-                        Various methods are available to determine the concentration of immobilized enzymes or cells. For immobilized enzymes, methods such as protein measurement or enzymatic activity assays can be used. The protein determination can be determined on the carrier material using a BCA test or as a differential measurement using the Bradford method, $\Delta$280 or also after detachment of the enzyme from the carrier material. An activity measurement is best suited as it provides the activity per gram of immobilized material. For immobilized cells, methods like flow cytometry or biomass measurement are applicable.
+                        Additional notes about the immobilization process or properties.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="special_treatment" type="xs:string">
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Quantity Definition -->
+    <xs:complexType name="QuantityType">
+        <xs:sequence>
+            <xs:element name="value" type="xs:float">
                 <xs:annotation>
                     <xs:documentation>
-                        If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
+                        Numerical value of the measurement.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="unit" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Unit of measurement for the value.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
@@ -556,47 +524,104 @@
             <xs:element name="temperature" type="xs:float">
                 <xs:annotation>
                     <xs:documentation>
-                        The temperature at which the reactant is stored.
+                        Storage temperature value.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name="temperature_unit" type="xs:string">
                 <xs:annotation>
                     <xs:documentation>
-                        The temperature can be specified in units such as K, °C, or °F.
+                        Unit for the storage temperature (e.g., °C, K).
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name="storage_start" type="xs:date">
                 <xs:annotation>
                     <xs:documentation>
-                        The date since the biocatalyst has been stored.
+                        Date when storage under these conditions began or material was
+                        received.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="additives" type="xs:string">
+            <xs:element name="additives" type="xs:string"  minOccurs="0" maxOccurs="unbounded">
                 <xs:annotation>
                     <xs:documentation>
-                        Additives for the storage of biocatalyst can include antioxidants, stabilizers, drying agent, or even inert gases (argon, nitrogen), among others.
+                        Any additives or stabilizers used during storage (e.g., glycerol,
+                        stabilizers, preservatives).
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="drying_method" type="xs:string">
+            <xs:element name="drying_method" type="xs:string"  minOccurs="0" maxOccurs="unbounded">
                 <xs:annotation>
                     <xs:documentation>
-                        For biocatalysts, various drying methods are employed (e.g., freeze-drying, also known as lyophilization, spray-drying, a method that involves atomizing a solution into small particles before drying, or vacuum drying, which removes moisture through low-pressure conditions). (
+                        Method used to dry the material if stored in dry form (optional,
+                        primarily for biocatalysts).
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="special_treatment" type="xs:string">
+            <xs:element name="notes" type="xs:string">
                 <xs:annotation>
                     <xs:documentation>
-                        If there are any other specific characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata, they should be             explained here.
+                        Additional notes about storage conditions or requirements.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
     </xs:complexType>
 
+    <!-- Enum BiocatalystSourceType Definition -->
+    <xs:simpleType name="BiocatalystSourceTypeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="purchased"/>
+            <xs:enumeration value="self_produced"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- Enum BiocatalystApplicationType Definition -->
+    <xs:simpleType name="BiocatalystApplicationTypeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="cell_free"/>
+            <xs:enumeration value="crude_cell_extract"/>
+            <xs:enumeration value="purified"/>
+            <xs:enumeration value="secreted"/>
+            <xs:enumeration value="whole_cell"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- Enum MolecularWeightUnit Definition -->
+    <xs:simpleType name="MolecularWeightUnitType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Da"/>
+            <xs:enumeration value="kDa"/>
+            <xs:enumeration value="other"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- Enum FormulationType Definition -->
+    <xs:simpleType name="FormulationTypeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="dissolved"/>
+            <xs:enumeration value="gas"/>
+            <xs:enumeration value="liquid"/>
+            <xs:enumeration value="other"/>
+            <xs:enumeration value="powder"/>
+            <xs:enumeration value="solution"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- Enum PhaseType Definition -->
+    <xs:simpleType name="PhaseTypeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="gas"/>
+            <xs:enumeration value="liquid"/>
+            <xs:enumeration value="mixed"/>
+            <xs:enumeration value="other"/>
+            <xs:enumeration value="solid"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- Enum ReactorType Definition -->
+    <xs:simpleType name="ReactorTypeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="other"/>
+            <xs:enumeration value="tubular_flow"/>
+            <xs:enumeration value="well_mixed"/>
+        </xs:restriction>
+    </xs:simpleType>
 
 </xs:schema>

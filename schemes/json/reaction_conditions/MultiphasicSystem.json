@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "MultiphasicSystem",
+  "type": "object",
+  "description": "Specifications for reaction systems containing multiple distinct phases.",
+  "properties": {
+    "notes": {
+      "title": "notes",
+      "type": "string",
+      "description": "Additional notes about the multiphasic system."
+    },
+    "phases_number": {
+      "title": "phases_number",
+      "type": "integer",
+      "description": "Total number of distinct phases present in the system.",
+      "minimum": 0.0
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

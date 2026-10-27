@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "InhibitionParameters",
+  "type": "object",
+  "description": "Parameters describing enzyme inhibition characteristics and mechanisms.",
+  "properties": {
+    "inhibition_constant": {
+      "title": "inhibition_constant",
+      "type": "number",
+      "description": "Inhibition constant (Ki) quantifying the strength of inhibitor binding."
+    },
+    "inhibition_type": {
+      "title": "inhibition_type",
+      "type": "string",
+      "description": "Type of inhibition mechanism observed.",
+      "$ref": "#/$defs/InhibitionType"
+    }
+  },
+  "$defs": {
+    "InhibitionType": {
+      "title": "InhibitionType",
+      "type": "string",
+      "enum": [
+        "competitive",
+        "irreversible",
+        "mixed",
+        "non_competitive",
+        "other",
+        "uncompetitive"
+      ]
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

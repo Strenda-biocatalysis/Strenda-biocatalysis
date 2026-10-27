@@ -1,28 +1,31 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
   "title": "SamplePreprocessing",
   "type": "object",
+  "description": "Preprocessing steps applied to samples before analysis to preserve or prepare them for measurement.",
   "properties": {
+    "notes": {
+      "title": "notes",
+      "type": "string",
+      "description": "Additional notes about sample preprocessing."
+    },
     "quenching_method": {
       "title": "quenching_method",
-      "description": "Techniques or methods used to halt the reaction, including the chemicals or procedures employed (e.g., heat treatment). Accurate documentation of quenching methods in enzymatic reactions is vital as        these methods can significantly impact subsequent analytical procedures. For instance, opting for an organic solvent as a quenching reagent can notably enhance the solubility of substrates or products, directly         influencing downstream analyses.",
-      "type": "string"
+      "type": "string",
+      "description": "Method used to quench or stop the reaction in the sample."
     },
     "quenching_ratio": {
       "title": "quenching_ratio",
-      "description": "Information about the precise ratio or volume of the quenching solution in relation to the reaction mixture. (",
-      "type": "string"
+      "type": "number",
+      "description": "Ratio or proportion of quenching agent to sample."
     },
     "treatment_procedure": {
       "title": "treatment_procedure",
-      "description": "Any further details regarding the sample processing steps that were carried out after it was collected from the reaction vessel (e.g., filtering samples).",
-      "type": "string"
-    },
-    "special_treatment": {
-      "title": "special_treatment",
-      "description": "If there are any other specific methods, procedures, characteristics or aspects related to the sampling that are important for reproducibility and are not described by the aforementioned                     metadata, they should be explained here.",
-      "type": "string"
+      "type": "string",
+      "description": "Additional treatment procedures applied to the sample."
     }
   },
-  "description": "Sample preprocessing involves the necessary steps taken to prepare and treat collected samples before analysis or further experimentation."
+  "required": [],
+  "additionalProperties": false
 }

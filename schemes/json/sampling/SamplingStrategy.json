@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "SamplingStrategy",
+  "type": "object",
+  "description": "Strategy and methodology for collecting samples during the reaction process.",
+  "properties": {
+    "gas_phase": {
+      "title": "gas_phase",
+      "type": "string",
+      "description": "Description of gas phase conditions or handling during sampling."
+    },
+    "mixing_during_sampling": {
+      "title": "mixing_during_sampling",
+      "type": "string",
+      "description": "Description of mixing conditions maintained during sample collection."
+    },
+    "notes": {
+      "title": "notes",
+      "type": "string",
+      "description": "Additional notes about the sampling strategy."
+    },
+    "strategy_type": {
+      "title": "strategy_type",
+      "type": "string",
+      "description": "Type of sampling strategy employed (default or specialized).",
+      "$ref": "#/$defs/SamplingStrategyType"
+    },
+    "vessel_opened": {
+      "title": "vessel_opened",
+      "type": "boolean",
+      "description": "Indicates whether the reaction vessel was opened during sampling."
+    }
+  },
+  "$defs": {
+    "SamplingStrategyType": {
+      "title": "SamplingStrategyType",
+      "type": "string",
+      "enum": [
+        "default",
+        "specialised"
+      ]
+    }
+  },
+  "required": [
+    "strategy_type"
+  ],
+  "additionalProperties": false
+}

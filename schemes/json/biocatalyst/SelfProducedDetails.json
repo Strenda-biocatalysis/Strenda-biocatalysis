@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "SelfProducedDetails",
+  "type": "object",
+  "description": "Detailed information for biocatalysts produced in-house.",
+  "properties": {
+    "formulation": {
+      "title": "formulation",
+      "type": "string",
+      "description": "Physical form of the self-produced biocatalyst after purification and processing.",
+      "$ref": "#/$defs/FormulationType"
+    },
+    "plasmid_specifications": {
+      "title": "plasmid_specifications",
+      "type": "array",
+      "description": "Details about the plasmid construction, including vector backbone, promoter, and other relevant features.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "purification_method": {
+      "title": "purification_method",
+      "type": "array",
+      "description": "Method(s) used to purify the enzyme after expression.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "purity": {
+      "title": "purity",
+      "type": "number",
+      "description": "Achieved purity of the self-produced biocatalyst, typically as a percentage."
+    },
+    "purity_specification": {
+      "title": "purity_specification",
+      "type": "string",
+      "description": "Method used to determine the purity of the self-produced enzyme."
+    },
+    "sequence_plasmid": {
+      "title": "sequence_plasmid",
+      "type": "array",
+      "description": "Sequence of the plasmid used for enzyme expression.",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "$defs": {
+    "FormulationType": {
+      "title": "FormulationType",
+      "type": "string",
+      "enum": [
+        "dissolved",
+        "gas",
+        "liquid",
+        "other",
+        "powder",
+        "solution"
+      ]
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

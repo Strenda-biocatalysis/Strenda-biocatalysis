@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "AmountConcentration",
+  "type": "object",
+  "description": "Quantitative specification of component amount or concentration used in the reaction.",
+  "properties": {
+    "unit": {
+      "title": "unit",
+      "type": "string",
+      "description": "Unit of measurement for the amount or concentration."
+    },
+    "value": {
+      "title": "value",
+      "type": "number",
+      "description": "Numerical value of the amount or concentration.",
+      "minimum": 0.0
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

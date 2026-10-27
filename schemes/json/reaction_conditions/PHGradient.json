@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "PHGradient",
+  "type": "object",
+  "description": "Specification for pH gradient profiles where pH changes linearly over time.",
+  "properties": {
+    "end_value": {
+      "title": "end_value",
+      "type": "number",
+      "description": "Final pH value at the end of the gradient."
+    },
+    "length": {
+      "title": "length",
+      "type": "number",
+      "description": "Duration over which the pH gradient is applied."
+    },
+    "length_unit": {
+      "title": "length_unit",
+      "type": "string",
+      "description": "Unit of measurement for the gradient duration."
+    },
+    "measurement_points": {
+      "title": "measurement_points",
+      "type": "array",
+      "description": "Measurement points along the gradient.",
+      "items": {
+        "type": "number"
+      }
+    },
+    "start_value": {
+      "title": "start_value",
+      "type": "number",
+      "description": "Initial pH value at the beginning of the gradient."
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

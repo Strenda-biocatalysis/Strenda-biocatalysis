@@ -1,0 +1,224 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "ReactionComponent",
+  "type": "object",
+  "description": "Comprehensive specification of a single chemical component used in an enzymatic reaction, including its identity, role, quantity, source, and storage requirements.",
+  "properties": {
+    "amount": {
+      "title": "amount",
+      "type": "object",
+      "description": "Quantity or concentration of the component used in the reaction.",
+      "$ref": "#/$defs/AmountConcentration"
+    },
+    "identity": {
+      "title": "identity",
+      "type": "object",
+      "description": "Chemical identification and characterization of the component.",
+      "$ref": "#/$defs/ComponentIdentity"
+    },
+    "notes": {
+      "title": "notes",
+      "type": "string",
+      "description": "Additional notes or comments about the component."
+    },
+    "provenance": {
+      "title": "provenance",
+      "type": "object",
+      "description": "Source and supplier information for the component.",
+      "$ref": "#/$defs/Provenance"
+    },
+    "role": {
+      "title": "role",
+      "type": "string",
+      "description": "What this component does in the reaction (substrate, cosubstrate, salt, ...).",
+      "$ref": "#/$defs/ComponentRole"
+    },
+    "solubility": {
+      "title": "solubility",
+      "type": "object",
+      "description": "Solubility characteristics of the component under reaction conditions.",
+      "$ref": "#/$defs/SolubilityLimit"
+    },
+    "storage": {
+      "title": "storage",
+      "type": "object",
+      "description": "Storage requirements and conditions for the component.",
+      "$ref": "#/$defs/StorageConditions"
+    }
+  },
+  "$defs": {
+    "AmountConcentration": {
+      "title": "AmountConcentration",
+      "type": "object",
+      "description": "Quantitative specification of component amount or concentration used in the reaction.",
+      "properties": {
+        "unit": {
+          "title": "unit",
+          "type": "string",
+          "description": "Unit of measurement for the amount or concentration."
+        },
+        "value": {
+          "title": "value",
+          "type": "number",
+          "description": "Numerical value of the amount or concentration.",
+          "minimum": 0.0
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "ComponentIdentity": {
+      "title": "ComponentIdentity",
+      "type": "object",
+      "description": "Chemical identification and characterization information for a component, including names, structural identifiers, and physical properties.",
+      "properties": {
+        "formulation": {
+          "title": "formulation",
+          "type": "string",
+          "description": "Physical form or formulation of the component (powder, liquid, solution, etc.).",
+          "$ref": "#/$defs/FormulationType"
+        },
+        "identifiers": {
+          "title": "identifiers",
+          "type": "array",
+          "description": "One or more identifiers like CAS, PubChem CID, InChI, etc.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "name": {
+          "title": "name",
+          "type": "string",
+          "description": "Common or systematic name of the component."
+        },
+        "purity": {
+          "title": "purity",
+          "type": "number",
+          "description": "Purity of the component as a percentage or fraction."
+        },
+        "smiles": {
+          "title": "smiles",
+          "type": "string",
+          "description": "SMILES (Simplified Molecular Input Line Entry System) notation for the chemical structure."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ComponentRole": {
+      "title": "ComponentRole",
+      "type": "string",
+      "enum": [
+        "buffer",
+        "coenzyme",
+        "cofactor",
+        "cosubstrate",
+        "ion",
+        "other",
+        "product",
+        "salt",
+        "solvent",
+        "substrate"
+      ]
+    },
+    "FormulationType": {
+      "title": "FormulationType",
+      "type": "string",
+      "enum": [
+        "dissolved",
+        "gas",
+        "liquid",
+        "other",
+        "powder",
+        "solution"
+      ]
+    },
+    "Provenance": {
+      "title": "Provenance",
+      "type": "object",
+      "description": "Source and supplier information for component traceability and reproducibility.",
+      "properties": {
+        "supplier": {
+          "title": "supplier",
+          "type": "string",
+          "description": "Supplier/manufacturer or \"prepared in lab\"; include product code or citation if applicable."
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "SolubilityLimit": {
+      "title": "SolubilityLimit",
+      "type": "object",
+      "description": "Solubility characteristics of the component under specific conditions.",
+      "properties": {
+        "unit": {
+          "title": "unit",
+          "type": "string",
+          "description": "Unit of measurement for the solubility limit."
+        },
+        "value": {
+          "title": "value",
+          "type": "number",
+          "description": "Numerical value of the solubility limit.",
+          "minimum": 0.0
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "StorageConditions": {
+      "title": "StorageConditions",
+      "type": "object",
+      "description": "Conditions under which materials (biocatalysts, components, etc.) are stored to maintain stability and integrity.",
+      "properties": {
+        "additives": {
+          "title": "additives",
+          "type": "array",
+          "description": "Any additives or stabilizers used during storage (e.g., glycerol, stabilizers, preservatives).",
+          "items": {
+            "type": "string"
+          }
+        },
+        "drying_method": {
+          "title": "drying_method",
+          "type": "array",
+          "description": "Method used to dry the material if stored in dry form (optional, primarily for biocatalysts).",
+          "items": {
+            "type": "string"
+          }
+        },
+        "notes": {
+          "title": "notes",
+          "type": "string",
+          "description": "Additional notes about storage conditions or requirements."
+        },
+        "storage_start": {
+          "title": "storage_start",
+          "type": "object",
+          "description": "Date when storage under these conditions began or material was received.",
+          "$ref": "#/$defs/date"
+        },
+        "temperature": {
+          "title": "temperature",
+          "type": "number",
+          "description": "Storage temperature value."
+        },
+        "temperature_unit": {
+          "title": "temperature_unit",
+          "type": "string",
+          "description": "Unit for the storage temperature (e.g., °C, K)."
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "identity"
+  ],
+  "additionalProperties": false
+}

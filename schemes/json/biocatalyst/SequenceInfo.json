@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "SequenceInfo",
+  "type": "object",
+  "description": "Sequence information for the biocatalyst at both the protein and nucleic acid levels.",
+  "properties": {
+    "sequence_amino_acid": {
+      "title": "sequence_amino_acid",
+      "type": "array",
+      "description": "The amino acid sequence of the enzyme in single-letter code format.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sequence_dna": {
+      "title": "sequence_dna",
+      "type": "array",
+      "description": "The DNA sequence encoding the enzyme.",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

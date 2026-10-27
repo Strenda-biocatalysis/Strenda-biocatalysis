@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "ReactorSetup",
+  "type": "object",
+  "description": "Configuration and operational parameters of the reactor system used for the biocatalytic reaction.",
+  "properties": {
+    "flow": {
+      "title": "flow",
+      "type": "object",
+      "description": "Flow rate specifications for continuous or fed-batch operations.",
+      "$ref": "#/$defs/FlowConditions"
+    },
+    "notes": {
+      "title": "notes",
+      "type": "string",
+      "description": "Additional notes about the reactor setup."
+    },
+    "reactor_type": {
+      "title": "reactor_type",
+      "type": "string",
+      "description": "Type of reactor configuration used (well-mixed or tubular flow).",
+      "$ref": "#/$defs/ReactorType"
+    }
+  },
+  "$defs": {
+    "FlowConditions": {
+      "title": "FlowConditions",
+      "type": "object",
+      "description": "Specifications for flow rates in continuous or fed-batch reactor operations.",
+      "properties": {
+        "flow_rate": {
+          "title": "flow_rate",
+          "type": "number",
+          "description": "Numerical value of the flow rate.",
+          "minimum": 0.0
+        },
+        "flow_rate_unit": {
+          "title": "flow_rate_unit",
+          "type": "string",
+          "description": "Unit of measurement for the flow rate."
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "ReactorType": {
+      "title": "ReactorType",
+      "type": "string",
+      "enum": [
+        "other",
+        "tubular_flow",
+        "well_mixed"
+      ]
+    }
+  },
+  "required": [
+    "reactor_type"
+  ],
+  "additionalProperties": false
+}

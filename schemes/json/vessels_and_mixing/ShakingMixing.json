@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "ShakingMixing",
+  "type": "object",
+  "description": "Parameters for shaking-based mixing systems.",
+  "properties": {
+    "deflection": {
+      "title": "deflection",
+      "type": "number",
+      "description": "Amplitude or deflection distance of the shaking motion."
+    },
+    "notes": {
+      "title": "notes",
+      "type": "string",
+      "description": "Additional notes about the shaking mixing setup."
+    },
+    "shaking_type": {
+      "title": "shaking_type",
+      "type": "string",
+      "description": "Type of shaking motion (e.g., orbital, linear, reciprocal)."
+    },
+    "speed": {
+      "title": "speed",
+      "type": "number",
+      "description": "Frequency or speed of the shaking motion."
+    },
+    "vessel_position": {
+      "title": "vessel_position",
+      "type": "string",
+      "description": "Orientation or position of the vessel during shaking."
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

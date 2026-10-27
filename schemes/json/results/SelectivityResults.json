@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "SelectivityResults",
+  "type": "object",
+  "description": "Selectivity measurements including stereoselectivity, enantioselectivity, and other selectivity parameters.",
+  "properties": {
+    "chemoselectivity": {
+      "title": "chemoselectivity",
+      "type": "string",
+      "description": "Description of chemoselectivity when multiple reaction pathways are possible."
+    },
+    "diastereomeric_excess": {
+      "title": "diastereomeric_excess",
+      "type": "number",
+      "description": "Diastereomeric excess (de) as percentage for reactions producing diastereomers."
+    },
+    "enantiomeric_excess": {
+      "title": "enantiomeric_excess",
+      "type": "number",
+      "description": "Enantiomeric excess (ee) as percentage indicating optical purity of the product."
+    },
+    "enantioselectivity": {
+      "title": "enantioselectivity",
+      "type": "number",
+      "description": "Enantioselectivity ratio (E-value) indicating preference for one enantiomer over another."
+    },
+    "isomeric_content": {
+      "title": "isomeric_content",
+      "type": "number",
+      "description": "Content or ratio of specific isomers in the product mixture."
+    },
+    "notes": {
+      "title": "notes",
+      "type": "string",
+      "description": "Additional notes about selectivity measurements."
+    },
+    "regioselectivity": {
+      "title": "regioselectivity",
+      "type": "string",
+      "description": "Description of regioselectivity indicating preference for specific reaction sites."
+    },
+    "stereoselectivity": {
+      "title": "stereoselectivity",
+      "type": "string",
+      "description": "Qualitative or quantitative description of stereoselectivity in the reaction."
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

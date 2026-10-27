@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "BiocatalystApplication",
+  "type": "object",
+  "description": "Details about how the biocatalyst is applied and used in the reaction system.",
+  "properties": {
+    "activity": {
+      "title": "activity",
+      "type": "array",
+      "description": "Measured enzymatic activity of the biocatalyst under the reaction conditions.",
+      "items": {
+        "$ref": "#/$defs/Activity"
+      }
+    },
+    "application_type": {
+      "title": "application_type",
+      "type": "string",
+      "description": "The form in which the biocatalyst is applied (purified enzyme, crude extract, whole cells, etc.).",
+      "$ref": "#/$defs/BiocatalystApplicationType"
+    },
+    "concentration": {
+      "title": "concentration",
+      "type": "array",
+      "description": "Concentration of the biocatalyst in the reaction mixture.",
+      "items": {
+        "$ref": "#/$defs/Concentration"
+      }
+    },
+    "workflow_details": {
+      "title": "workflow_details",
+      "type": "object",
+      "description": "Specific workflow steps and methods used in applying the biocatalyst.",
+      "$ref": "#/$defs/ApplicationWorkflowDetails"
+    }
+  },
+  "$defs": {
+    "Activity": {
+      "title": "Activity",
+      "type": "object",
+      "description": "Enzymatic activity measurement of the biocatalyst.",
+      "properties": {
+        "determination_method": {
+          "title": "determination_method",
+          "type": "string",
+          "description": "Assay method used to measure the enzymatic activity."
+        },
+        "unit": {
+          "title": "unit",
+          "type": "string",
+          "description": "Unit of measurement for the activity (e.g., U/mg, µmol/min/mg)."
+        },
+        "value": {
+          "title": "value",
+          "type": "number",
+          "description": "Numerical value of the measured activity."
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "ApplicationWorkflowDetails": {
+      "title": "ApplicationWorkflowDetails",
+      "type": "object",
+      "description": "Specific workflow steps and procedures used when applying the biocatalyst.",
+      "properties": {
+        "cell_disruption_process": {
+          "title": "cell_disruption_process",
+          "type": "string",
+          "description": "Method used to disrupt cells if working with whole cell preparations."
+        },
+        "harvesting_method": {
+          "title": "harvesting_method",
+          "type": "string",
+          "description": "Method used to harvest cells or enzyme from the production system."
+        },
+        "separation_method": {
+          "title": "separation_method",
+          "type": "string",
+          "description": "Method used to separate the biocatalyst from other components."
+        },
+        "source_of_cellfree_extract": {
+          "title": "source_of_cellfree_extract",
+          "type": "string",
+          "description": "Details about the source and preparation of cell-free extracts if applicable."
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "BiocatalystApplicationType": {
+      "title": "BiocatalystApplicationType",
+      "type": "string",
+      "enum": [
+        "cell_free",
+        "crude_cell_extract",
+        "purified",
+        "secreted",
+        "whole_cell"
+      ]
+    },
+    "Concentration": {
+      "title": "Concentration",
+      "type": "object",
+      "description": "Quantitative information about biocatalyst concentration in the reaction.",
+      "properties": {
+        "determination_method": {
+          "title": "determination_method",
+          "type": "string",
+          "description": "Method used to determine or calculate the concentration."
+        },
+        "unit": {
+          "title": "unit",
+          "type": "string",
+          "description": "Unit of measurement for the concentration (e.g., mg/mL, µM, U/mL)."
+        },
+        "value": {
+          "title": "value",
+          "type": "number",
+          "description": "Numerical value of the concentration.",
+          "minimum": 0.0
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "application_type"
+  ],
+  "additionalProperties": false
+}

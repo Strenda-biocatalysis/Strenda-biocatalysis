@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "KineticResults",
+  "type": "object",
+  "description": "Kinetic parameters characterizing enzyme behavior and reaction mechanisms.",
+  "properties": {
+    "catalytic_efficiency": {
+      "title": "catalytic_efficiency",
+      "type": "number",
+      "description": "Catalytic efficiency (kcat/Km) indicating the enzyme's effectiveness at low substrate concentrations."
+    },
+    "dissociation_constant": {
+      "title": "dissociation_constant",
+      "type": "number",
+      "description": "Dissociation constant (Kd) for enzyme-substrate or enzyme-inhibitor binding."
+    },
+    "enzyme_stability": {
+      "title": "enzyme_stability",
+      "type": "string",
+      "description": "Qualitative or quantitative description of enzyme stability under reaction conditions."
+    },
+    "hill_coefficient": {
+      "title": "hill_coefficient",
+      "type": "number",
+      "description": "Hill coefficient indicating cooperativity in substrate binding or enzyme kinetics."
+    },
+    "inhibition": {
+      "title": "inhibition",
+      "type": "object",
+      "description": "Parameters describing enzyme inhibition characteristics.",
+      "$ref": "#/$defs/InhibitionParameters"
+    },
+    "maximum_reaction_rate": {
+      "title": "maximum_reaction_rate",
+      "type": "number",
+      "description": "Maximum reaction rate (Vmax) achieved under saturating substrate conditions."
+    },
+    "michaelis_constant": {
+      "title": "michaelis_constant",
+      "type": "number",
+      "description": "Michaelis constant (Km) representing the substrate concentration at half-maximum reaction rate."
+    },
+    "notes": {
+      "title": "notes",
+      "type": "string",
+      "description": "Additional notes about kinetic measurements or observations."
+    },
+    "turnover_number": {
+      "title": "turnover_number",
+      "type": "number",
+      "description": "Turnover number (kcat) representing the maximum number of substrate molecules converted per enzyme molecule per unit time."
+    }
+  },
+  "$defs": {
+    "InhibitionParameters": {
+      "title": "InhibitionParameters",
+      "type": "object",
+      "description": "Parameters describing enzyme inhibition characteristics and mechanisms.",
+      "properties": {
+        "inhibition_constant": {
+          "title": "inhibition_constant",
+          "type": "number",
+          "description": "Inhibition constant (Ki) quantifying the strength of inhibitor binding."
+        },
+        "inhibition_type": {
+          "title": "inhibition_type",
+          "type": "string",
+          "description": "Type of inhibition mechanism observed.",
+          "$ref": "#/$defs/InhibitionType"
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "InhibitionType": {
+      "title": "InhibitionType",
+      "type": "string",
+      "enum": [
+        "competitive",
+        "irreversible",
+        "mixed",
+        "non_competitive",
+        "other",
+        "uncompetitive"
+      ]
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

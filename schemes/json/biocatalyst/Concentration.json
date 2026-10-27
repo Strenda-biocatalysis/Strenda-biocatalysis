@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "Concentration",
+  "type": "object",
+  "description": "Quantitative information about biocatalyst concentration in the reaction.",
+  "properties": {
+    "determination_method": {
+      "title": "determination_method",
+      "type": "string",
+      "description": "Method used to determine or calculate the concentration."
+    },
+    "unit": {
+      "title": "unit",
+      "type": "string",
+      "description": "Unit of measurement for the concentration (e.g., mg/mL, µM, U/mL)."
+    },
+    "value": {
+      "title": "value",
+      "type": "number",
+      "description": "Numerical value of the concentration.",
+      "minimum": 0.0
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

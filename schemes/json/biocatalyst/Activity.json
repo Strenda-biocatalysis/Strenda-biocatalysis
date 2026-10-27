@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "Activity",
+  "type": "object",
+  "description": "Enzymatic activity measurement of the biocatalyst.",
+  "properties": {
+    "determination_method": {
+      "title": "determination_method",
+      "type": "string",
+      "description": "Assay method used to measure the enzymatic activity."
+    },
+    "unit": {
+      "title": "unit",
+      "type": "string",
+      "description": "Unit of measurement for the activity (e.g., U/mg, µmol/min/mg)."
+    },
+    "value": {
+      "title": "value",
+      "type": "number",
+      "description": "Numerical value of the measured activity."
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

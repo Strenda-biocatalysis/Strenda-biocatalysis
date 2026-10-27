@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "Phase",
+  "type": "object",
+  "description": "Specification of individual phases within the reaction system.",
+  "properties": {
+    "amount": {
+      "title": "amount",
+      "type": "number",
+      "description": "Quantity of material in this phase."
+    },
+    "amount_unit": {
+      "title": "amount_unit",
+      "type": "string",
+      "description": "Unit of measurement for the amount."
+    },
+    "material_description": {
+      "title": "material_description",
+      "type": "string",
+      "description": "Detailed description of the materials comprising this phase."
+    },
+    "notes": {
+      "title": "notes",
+      "type": "string",
+      "description": "Additional notes about this specific phase."
+    },
+    "phase_type": {
+      "title": "phase_type",
+      "type": "string",
+      "description": "Physical state of the phase (liquid, solid, or gas).",
+      "$ref": "#/$defs/PhaseType"
+    }
+  },
+  "$defs": {
+    "PhaseType": {
+      "title": "PhaseType",
+      "type": "string",
+      "enum": [
+        "gas",
+        "liquid",
+        "mixed",
+        "other",
+        "solid"
+      ]
+    }
+  },
+  "required": [
+    "phase_type"
+  ],
+  "additionalProperties": false
+}

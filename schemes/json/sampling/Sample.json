@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "Sample",
+  "type": "object",
+  "description": "Individual sample collected at a specific time point from a specific phase of the reaction.",
+  "properties": {
+    "amount": {
+      "title": "amount",
+      "type": "number",
+      "description": "Amount or volume of sample collected."
+    },
+    "amount_unit": {
+      "title": "amount_unit",
+      "type": "string",
+      "description": "Unit of measurement for the amount."
+    },
+    "biocatalyst_in_sample": {
+      "title": "biocatalyst_in_sample",
+      "type": "string",
+      "description": "Description of biocatalyst presence or handling in the sample."
+    },
+    "notes": {
+      "title": "notes",
+      "type": "string",
+      "description": "Additional notes about the individual sample."
+    },
+    "phase": {
+      "title": "phase",
+      "type": "string",
+      "description": "Phase from which the sample was collected (liquid, solid, gas, etc.).",
+      "$ref": "#/$defs/PhaseType"
+    },
+    "preprocessing": {
+      "title": "preprocessing",
+      "type": "object",
+      "description": "Any preprocessing steps applied to the sample before analysis.",
+      "$ref": "#/$defs/SamplePreprocessing"
+    },
+    "time": {
+      "title": "time",
+      "type": "number",
+      "description": "Time point at which the sample was collected."
+    },
+    "time_unit": {
+      "title": "time_unit",
+      "type": "string",
+      "description": "Unit of measurement for the sampling time."
+    }
+  },
+  "$defs": {
+    "PhaseType": {
+      "title": "PhaseType",
+      "type": "string",
+      "enum": [
+        "gas",
+        "liquid",
+        "mixed",
+        "other",
+        "solid"
+      ]
+    },
+    "SamplePreprocessing": {
+      "title": "SamplePreprocessing",
+      "type": "object",
+      "description": "Preprocessing steps applied to samples before analysis to preserve or prepare them for measurement.",
+      "properties": {
+        "notes": {
+          "title": "notes",
+          "type": "string",
+          "description": "Additional notes about sample preprocessing."
+        },
+        "quenching_method": {
+          "title": "quenching_method",
+          "type": "string",
+          "description": "Method used to quench or stop the reaction in the sample."
+        },
+        "quenching_ratio": {
+          "title": "quenching_ratio",
+          "type": "number",
+          "description": "Ratio or proportion of quenching agent to sample."
+        },
+        "treatment_procedure": {
+          "title": "treatment_procedure",
+          "type": "string",
+          "description": "Additional treatment procedures applied to the sample."
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

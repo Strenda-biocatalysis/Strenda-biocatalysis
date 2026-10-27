@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "PHPoint",
+  "type": "object",
+  "description": "Individual pH measurement point in time-based pH profiles.",
+  "properties": {
+    "event_description": {
+      "title": "event_description",
+      "type": "string",
+      "description": "Description of any specific event associated with this pH point."
+    },
+    "time": {
+      "title": "time",
+      "type": "number",
+      "description": "Time at which this pH is measured or set.",
+      "minimum": 0.0
+    },
+    "time_unit": {
+      "title": "time_unit",
+      "type": "string",
+      "description": "Unit of measurement for the time value."
+    },
+    "value": {
+      "title": "value",
+      "type": "number",
+      "description": "pH value at this point.",
+      "minimum": 0.0
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

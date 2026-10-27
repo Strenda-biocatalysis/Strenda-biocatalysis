@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "Quantity",
+  "type": "object",
+  "description": "Quantitative measurement with value and unit specification.",
+  "properties": {
+    "unit": {
+      "title": "unit",
+      "type": "string",
+      "description": "Unit of measurement for the value."
+    },
+    "value": {
+      "title": "value",
+      "type": "number",
+      "description": "Numerical value of the measurement.",
+      "minimum": 0.0
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

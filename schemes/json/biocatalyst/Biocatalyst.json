@@ -1,0 +1,536 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "Biocatalyst",
+  "type": "object",
+  "description": "A biocatalyst is an enzyme or enzyme-containing system used to catalyze biochemical reactions. This section defines the complete characterization of a biocatalyst including its identity, source, application conditions, immobilization status, and storage requirements.",
+  "properties": {
+    "application": {
+      "title": "application",
+      "type": "object",
+      "description": "Details about how the biocatalyst is applied in the reaction, including concentration, activity, and workflow specifics.",
+      "$ref": "#/$defs/BiocatalystApplication"
+    },
+    "identity": {
+      "title": "identity",
+      "type": "object",
+      "description": "Essential identifying information about the biocatalyst including name, EC number, molecular properties, and sequence data.",
+      "$ref": "#/$defs/BiocatalystIdentity"
+    },
+    "immobilization": {
+      "title": "immobilization",
+      "type": "object",
+      "description": "Information about whether and how the biocatalyst is immobilized on a support material.",
+      "$ref": "#/$defs/Immobilization"
+    },
+    "notes": {
+      "title": "notes",
+      "type": "string",
+      "description": "Additional notes or comments about the biocatalyst that don't fit in other categories."
+    },
+    "source": {
+      "title": "source",
+      "type": "object",
+      "description": "Information about how the biocatalyst was obtained, whether purchased commercially or produced in-house.",
+      "$ref": "#/$defs/BiocatalystSource"
+    },
+    "source_type": {
+      "title": "source_type",
+      "type": "string",
+      "$ref": "#/$defs/BiocatalystSourceType"
+    },
+    "storage": {
+      "title": "storage",
+      "type": "object",
+      "description": "Conditions under which the biocatalyst is stored to maintain its activity and stability.",
+      "$ref": "#/$defs/StorageConditions"
+    }
+  },
+  "$defs": {
+    "Activity": {
+      "title": "Activity",
+      "type": "object",
+      "description": "Enzymatic activity measurement of the biocatalyst.",
+      "properties": {
+        "determination_method": {
+          "title": "determination_method",
+          "type": "string",
+          "description": "Assay method used to measure the enzymatic activity."
+        },
+        "unit": {
+          "title": "unit",
+          "type": "string",
+          "description": "Unit of measurement for the activity (e.g., U/mg, µmol/min/mg)."
+        },
+        "value": {
+          "title": "value",
+          "type": "number",
+          "description": "Numerical value of the measured activity."
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "ApplicationWorkflowDetails": {
+      "title": "ApplicationWorkflowDetails",
+      "type": "object",
+      "description": "Specific workflow steps and procedures used when applying the biocatalyst.",
+      "properties": {
+        "cell_disruption_process": {
+          "title": "cell_disruption_process",
+          "type": "string",
+          "description": "Method used to disrupt cells if working with whole cell preparations."
+        },
+        "harvesting_method": {
+          "title": "harvesting_method",
+          "type": "string",
+          "description": "Method used to harvest cells or enzyme from the production system."
+        },
+        "separation_method": {
+          "title": "separation_method",
+          "type": "string",
+          "description": "Method used to separate the biocatalyst from other components."
+        },
+        "source_of_cellfree_extract": {
+          "title": "source_of_cellfree_extract",
+          "type": "string",
+          "description": "Details about the source and preparation of cell-free extracts if applicable."
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "BiocatalystApplication": {
+      "title": "BiocatalystApplication",
+      "type": "object",
+      "description": "Details about how the biocatalyst is applied and used in the reaction system.",
+      "properties": {
+        "activity": {
+          "title": "activity",
+          "type": "array",
+          "description": "Measured enzymatic activity of the biocatalyst under the reaction conditions.",
+          "items": {
+            "$ref": "#/$defs/Activity"
+          }
+        },
+        "application_type": {
+          "title": "application_type",
+          "type": "string",
+          "description": "The form in which the biocatalyst is applied (purified enzyme, crude extract, whole cells, etc.).",
+          "$ref": "#/$defs/BiocatalystApplicationType"
+        },
+        "concentration": {
+          "title": "concentration",
+          "type": "array",
+          "description": "Concentration of the biocatalyst in the reaction mixture.",
+          "items": {
+            "$ref": "#/$defs/Concentration"
+          }
+        },
+        "workflow_details": {
+          "title": "workflow_details",
+          "type": "object",
+          "description": "Specific workflow steps and methods used in applying the biocatalyst.",
+          "$ref": "#/$defs/ApplicationWorkflowDetails"
+        }
+      },
+      "required": [
+        "application_type"
+      ],
+      "additionalProperties": false
+    },
+    "BiocatalystApplicationType": {
+      "title": "BiocatalystApplicationType",
+      "type": "string",
+      "enum": [
+        "cell_free",
+        "crude_cell_extract",
+        "purified",
+        "secreted",
+        "whole_cell"
+      ]
+    },
+    "BiocatalystIdentity": {
+      "title": "BiocatalystIdentity",
+      "type": "object",
+      "description": "Core identifying information and molecular characteristics of the biocatalyst enzyme.",
+      "properties": {
+        "catalyzed_reaction": {
+          "title": "catalyzed_reaction",
+          "type": "array",
+          "description": "Description of the specific reaction or type of reaction catalyzed by this enzyme.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ec_number": {
+          "title": "ec_number",
+          "type": "array",
+          "description": "The Enzyme Commission (EC) number that classifies the enzyme according to the reaction it catalyzes.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "molecular_weight": {
+          "title": "molecular_weight",
+          "type": "number",
+          "description": "The molecular weight of the enzyme in the specified units.",
+          "minimum": 0.0
+        },
+        "molecular_weight_unit": {
+          "title": "molecular_weight_unit",
+          "type": "string",
+          "description": "The unit of measurement for the molecular weight (e.g., kDa, Da).",
+          "$ref": "#/$defs/MolecularWeightUnit"
+        },
+        "name": {
+          "title": "name",
+          "type": "string",
+          "description": "The name of the biocatalyst, which can be the trivial name, systematic name, or trade name."
+        },
+        "origin_organism": {
+          "title": "origin_organism",
+          "type": "string",
+          "description": "The organism from which the enzyme was originally derived or isolated."
+        },
+        "posttranslational_modification": {
+          "title": "posttranslational_modification",
+          "type": "array",
+          "description": "Any post-translational modifications present on the enzyme that may affect its activity or properties.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "production_organism": {
+          "title": "production_organism",
+          "type": "string",
+          "description": "The organism used to produce the enzyme (may differ from origin organism for recombinant enzymes)."
+        },
+        "sequences": {
+          "title": "sequences",
+          "type": "object",
+          "description": "Amino acid and/or DNA sequence information for the enzyme.",
+          "$ref": "#/$defs/SequenceInfo"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "BiocatalystSource": {
+      "title": "BiocatalystSource",
+      "type": "object",
+      "description": "Information about the source and procurement of the biocatalyst.",
+      "properties": {
+        "purchased_details": {
+          "title": "purchased_details",
+          "type": "object",
+          "description": "Specific details relevant to commercially purchased biocatalysts.",
+          "$ref": "#/$defs/PurchasedDetails"
+        },
+        "self_produced_details": {
+          "title": "self_produced_details",
+          "type": "object",
+          "description": "Specific details relevant to biocatalysts produced in-house.",
+          "$ref": "#/$defs/SelfProducedDetails"
+        },
+        "source_type": {
+          "title": "source_type",
+          "type": "string",
+          "description": "Whether the biocatalyst was purchased from a supplier or produced in-house.",
+          "$ref": "#/$defs/BiocatalystSourceType"
+        },
+        "supplier": {
+          "title": "supplier",
+          "type": "string",
+          "description": "Name of the commercial supplier or source of the biocatalyst."
+        }
+      },
+      "required": [
+        "source_type"
+      ],
+      "additionalProperties": false
+    },
+    "BiocatalystSourceType": {
+      "title": "BiocatalystSourceType",
+      "type": "string",
+      "enum": [
+        "purchased",
+        "self_produced"
+      ]
+    },
+    "Concentration": {
+      "title": "Concentration",
+      "type": "object",
+      "description": "Quantitative information about biocatalyst concentration in the reaction.",
+      "properties": {
+        "determination_method": {
+          "title": "determination_method",
+          "type": "string",
+          "description": "Method used to determine or calculate the concentration."
+        },
+        "unit": {
+          "title": "unit",
+          "type": "string",
+          "description": "Unit of measurement for the concentration (e.g., mg/mL, µM, U/mL)."
+        },
+        "value": {
+          "title": "value",
+          "type": "number",
+          "description": "Numerical value of the concentration.",
+          "minimum": 0.0
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "FormulationType": {
+      "title": "FormulationType",
+      "type": "string",
+      "enum": [
+        "dissolved",
+        "gas",
+        "liquid",
+        "other",
+        "powder",
+        "solution"
+      ]
+    },
+    "Immobilization": {
+      "title": "Immobilization",
+      "type": "object",
+      "description": "Information about biocatalyst immobilization on solid supports.",
+      "properties": {
+        "biocatalyst_state": {
+          "title": "biocatalyst_state",
+          "type": "string",
+          "description": "Physical state of the biocatalyst during immobilization (e.g., purified enzyme, crude extract)."
+        },
+        "carrier_material": {
+          "title": "carrier_material",
+          "type": "array",
+          "description": "Material used as the solid support for immobilization.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "immobilisation_chemistry": {
+          "title": "immobilisation_chemistry",
+          "type": "array",
+          "description": "Chemical method or mechanism used for immobilization (e.g., covalent binding, adsorption, entrapment).",
+          "items": {
+            "type": "string"
+          }
+        },
+        "immobilisation_method": {
+          "title": "immobilisation_method",
+          "type": "array",
+          "description": "Detailed procedure used for the immobilization process.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "immobilized": {
+          "title": "immobilized",
+          "type": "boolean",
+          "description": "Whether the biocatalyst is immobilized (true) or used in free form (false)."
+        },
+        "linkers": {
+          "title": "linkers",
+          "type": "array",
+          "description": "Chemical linkers or spacers used between the enzyme and carrier material.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "loading": {
+          "title": "loading",
+          "type": "object",
+          "description": "Amount of enzyme loaded onto the carrier material.",
+          "$ref": "#/$defs/Concentration"
+        },
+        "notes": {
+          "title": "notes",
+          "type": "string",
+          "description": "Additional notes about the immobilization process or properties."
+        },
+        "purification_method": {
+          "title": "purification_method",
+          "type": "array",
+          "description": "Method used to purify or wash the immobilized biocatalyst.",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "immobilized"
+      ],
+      "additionalProperties": false
+    },
+    "MolecularWeightUnit": {
+      "title": "MolecularWeightUnit",
+      "type": "string",
+      "enum": [
+        "Da",
+        "kDa",
+        "other"
+      ]
+    },
+    "PurchasedDetails": {
+      "title": "PurchasedDetails",
+      "type": "object",
+      "description": "Detailed information for commercially purchased biocatalysts.",
+      "properties": {
+        "formulation": {
+          "title": "formulation",
+          "type": "string",
+          "description": "Physical form of the purchased biocatalyst (dissolved, powder, etc.).",
+          "$ref": "#/$defs/FormulationType"
+        },
+        "purity": {
+          "title": "purity",
+          "type": "number",
+          "description": "Purity of the purchased biocatalyst as specified by the supplier, typically as a percentage."
+        },
+        "purity_specification": {
+          "title": "purity_specification",
+          "type": "string",
+          "description": "Method or specification used to determine the purity (e.g., SDS-PAGE, activity assay)."
+        },
+        "reference": {
+          "title": "reference",
+          "type": "string",
+          "description": "Product code, catalog number, or other reference identifier from the supplier."
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "SelfProducedDetails": {
+      "title": "SelfProducedDetails",
+      "type": "object",
+      "description": "Detailed information for biocatalysts produced in-house.",
+      "properties": {
+        "formulation": {
+          "title": "formulation",
+          "type": "string",
+          "description": "Physical form of the self-produced biocatalyst after purification and processing.",
+          "$ref": "#/$defs/FormulationType"
+        },
+        "plasmid_specifications": {
+          "title": "plasmid_specifications",
+          "type": "array",
+          "description": "Details about the plasmid construction, including vector backbone, promoter, and other relevant features.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "purification_method": {
+          "title": "purification_method",
+          "type": "array",
+          "description": "Method(s) used to purify the enzyme after expression.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "purity": {
+          "title": "purity",
+          "type": "number",
+          "description": "Achieved purity of the self-produced biocatalyst, typically as a percentage."
+        },
+        "purity_specification": {
+          "title": "purity_specification",
+          "type": "string",
+          "description": "Method used to determine the purity of the self-produced enzyme."
+        },
+        "sequence_plasmid": {
+          "title": "sequence_plasmid",
+          "type": "array",
+          "description": "Sequence of the plasmid used for enzyme expression.",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "SequenceInfo": {
+      "title": "SequenceInfo",
+      "type": "object",
+      "description": "Sequence information for the biocatalyst at both the protein and nucleic acid levels.",
+      "properties": {
+        "sequence_amino_acid": {
+          "title": "sequence_amino_acid",
+          "type": "array",
+          "description": "The amino acid sequence of the enzyme in single-letter code format.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sequence_dna": {
+          "title": "sequence_dna",
+          "type": "array",
+          "description": "The DNA sequence encoding the enzyme.",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "StorageConditions": {
+      "title": "StorageConditions",
+      "type": "object",
+      "description": "Conditions under which materials (biocatalysts, components, etc.) are stored to maintain stability and integrity.",
+      "properties": {
+        "additives": {
+          "title": "additives",
+          "type": "array",
+          "description": "Any additives or stabilizers used during storage (e.g., glycerol, stabilizers, preservatives).",
+          "items": {
+            "type": "string"
+          }
+        },
+        "drying_method": {
+          "title": "drying_method",
+          "type": "array",
+          "description": "Method used to dry the material if stored in dry form (optional, primarily for biocatalysts).",
+          "items": {
+            "type": "string"
+          }
+        },
+        "notes": {
+          "title": "notes",
+          "type": "string",
+          "description": "Additional notes about storage conditions or requirements."
+        },
+        "storage_start": {
+          "title": "storage_start",
+          "type": "object",
+          "description": "Date when storage under these conditions began or material was received.",
+          "$ref": "#/$defs/date"
+        },
+        "temperature": {
+          "title": "temperature",
+          "type": "number",
+          "description": "Storage temperature value."
+        },
+        "temperature_unit": {
+          "title": "temperature_unit",
+          "type": "string",
+          "description": "Unit for the storage temperature (e.g., °C, K)."
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "identity"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "Gradient",
+  "type": "object",
+  "description": "Specification for temperature gradient profiles where temperature changes linearly over time or distance.",
+  "properties": {
+    "end_value": {
+      "title": "end_value",
+      "type": "number",
+      "description": "Final temperature value at the end of the gradient."
+    },
+    "length": {
+      "title": "length",
+      "type": "number",
+      "description": "Duration or distance over which the gradient is applied."
+    },
+    "length_unit": {
+      "title": "length_unit",
+      "type": "string",
+      "description": "Unit of measurement for the gradient length (time or distance)."
+    },
+    "measurement_points": {
+      "title": "measurement_points",
+      "type": "string",
+      "description": "Description of how temperature is measured along the gradient."
+    },
+    "start_value": {
+      "title": "start_value",
+      "type": "number",
+      "description": "Initial temperature value at the beginning of the gradient."
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

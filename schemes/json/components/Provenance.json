@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "Provenance",
+  "type": "object",
+  "description": "Source and supplier information for component traceability and reproducibility.",
+  "properties": {
+    "supplier": {
+      "title": "supplier",
+      "type": "string",
+      "description": "Supplier/manufacturer or \"prepared in lab\"; include product code or citation if applicable."
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

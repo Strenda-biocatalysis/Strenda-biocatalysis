@@ -1,0 +1,521 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "ReactionConditions",
+  "type": "object",
+  "description": "Comprehensive specification of the physical and chemical conditions under which a biocatalytic reaction is performed, including reactor setup, reaction system characteristics, temperature and pH profiles.",
+  "properties": {
+    "notes": {
+      "title": "notes",
+      "type": "string",
+      "description": "Additional notes or comments about the reaction conditions."
+    },
+    "pH": {
+      "title": "pH",
+      "type": "object",
+      "description": "pH conditions throughout the reaction, which can be constant, event-based, or follow a gradient.",
+      "$ref": "#/$defs/PHProfile"
+    },
+    "phases": {
+      "title": "phases",
+      "type": "array",
+      "description": "Individual phases present in the reaction system (liquid, solid, gas).",
+      "items": {
+        "$ref": "#/$defs/Phase"
+      }
+    },
+    "reactor": {
+      "title": "reactor",
+      "type": "object",
+      "description": "Configuration and specifications of the reactor used for the biocatalytic reaction.",
+      "$ref": "#/$defs/ReactorSetup"
+    },
+    "system": {
+      "title": "system",
+      "type": "object",
+      "description": "Characterization of the reaction system as monoliquid or multiphasic.",
+      "$ref": "#/$defs/ReactionSystem"
+    },
+    "temperature": {
+      "title": "temperature",
+      "type": "object",
+      "description": "Temperature conditions throughout the reaction, which can be constant, event-based, or follow a gradient.",
+      "$ref": "#/$defs/TemperatureProfile"
+    }
+  },
+  "$defs": {
+    "FlowConditions": {
+      "title": "FlowConditions",
+      "type": "object",
+      "description": "Specifications for flow rates in continuous or fed-batch reactor operations.",
+      "properties": {
+        "flow_rate": {
+          "title": "flow_rate",
+          "type": "number",
+          "description": "Numerical value of the flow rate.",
+          "minimum": 0.0
+        },
+        "flow_rate_unit": {
+          "title": "flow_rate_unit",
+          "type": "string",
+          "description": "Unit of measurement for the flow rate."
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "Gradient": {
+      "title": "Gradient",
+      "type": "object",
+      "description": "Specification for temperature gradient profiles where temperature changes linearly over time or distance.",
+      "properties": {
+        "end_value": {
+          "title": "end_value",
+          "type": "number",
+          "description": "Final temperature value at the end of the gradient."
+        },
+        "length": {
+          "title": "length",
+          "type": "number",
+          "description": "Duration or distance over which the gradient is applied."
+        },
+        "length_unit": {
+          "title": "length_unit",
+          "type": "string",
+          "description": "Unit of measurement for the gradient length (time or distance)."
+        },
+        "measurement_points": {
+          "title": "measurement_points",
+          "type": "string",
+          "description": "Description of how temperature is measured along the gradient."
+        },
+        "start_value": {
+          "title": "start_value",
+          "type": "number",
+          "description": "Initial temperature value at the beginning of the gradient."
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "MonoliquidSystem": {
+      "title": "MonoliquidSystem",
+      "type": "object",
+      "description": "Specifications for single-phase liquid reaction systems.",
+      "properties": {
+        "further_additives": {
+          "title": "further_additives",
+          "type": "string",
+          "description": "Description of any additional additives present in the system."
+        },
+        "ionic_strength": {
+          "title": "ionic_strength",
+          "type": "number",
+          "description": "Ionic strength of the solution, affecting enzyme activity and stability."
+        },
+        "notes": {
+          "title": "notes",
+          "type": "string",
+          "description": "Additional notes about the monoliquid system."
+        },
+        "solvent_description": {
+          "title": "solvent_description",
+          "type": "string",
+          "description": "Detailed description of the solvent or solvent mixture used."
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "MultiphasicSystem": {
+      "title": "MultiphasicSystem",
+      "type": "object",
+      "description": "Specifications for reaction systems containing multiple distinct phases.",
+      "properties": {
+        "notes": {
+          "title": "notes",
+          "type": "string",
+          "description": "Additional notes about the multiphasic system."
+        },
+        "phases_number": {
+          "title": "phases_number",
+          "type": "integer",
+          "description": "Total number of distinct phases present in the system.",
+          "minimum": 0.0
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "PHDetection": {
+      "title": "PHDetection",
+      "type": "object",
+      "description": "Specifications for pH measurement methods and calibration conditions.",
+      "properties": {
+        "calibration_pH_electrode": {
+          "title": "calibration_pH_electrode",
+          "type": "string",
+          "description": "Details about pH electrode calibration procedures and standards."
+        },
+        "detected_how": {
+          "title": "detected_how",
+          "type": "string",
+          "description": "Method or instrument used for pH detection."
+        },
+        "detected_when": {
+          "title": "detected_when",
+          "type": "string",
+          "description": "Timing or conditions under which pH is detected."
+        },
+        "temperature": {
+          "title": "temperature",
+          "type": "number",
+          "description": "Temperature at which pH measurements are calibrated or performed."
+        },
+        "temperature_unit": {
+          "title": "temperature_unit",
+          "type": "string",
+          "description": "Unit of measurement for the calibration temperature."
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "PHGradient": {
+      "title": "PHGradient",
+      "type": "object",
+      "description": "Specification for pH gradient profiles where pH changes linearly over time.",
+      "properties": {
+        "end_value": {
+          "title": "end_value",
+          "type": "number",
+          "description": "Final pH value at the end of the gradient."
+        },
+        "length": {
+          "title": "length",
+          "type": "number",
+          "description": "Duration over which the pH gradient is applied."
+        },
+        "length_unit": {
+          "title": "length_unit",
+          "type": "string",
+          "description": "Unit of measurement for the gradient duration."
+        },
+        "measurement_points": {
+          "title": "measurement_points",
+          "type": "array",
+          "description": "Measurement points along the gradient.",
+          "items": {
+            "type": "number"
+          }
+        },
+        "start_value": {
+          "title": "start_value",
+          "type": "number",
+          "description": "Initial pH value at the beginning of the gradient."
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "PHPoint": {
+      "title": "PHPoint",
+      "type": "object",
+      "description": "Individual pH measurement point in time-based pH profiles.",
+      "properties": {
+        "event_description": {
+          "title": "event_description",
+          "type": "string",
+          "description": "Description of any specific event associated with this pH point."
+        },
+        "time": {
+          "title": "time",
+          "type": "number",
+          "description": "Time at which this pH is measured or set.",
+          "minimum": 0.0
+        },
+        "time_unit": {
+          "title": "time_unit",
+          "type": "string",
+          "description": "Unit of measurement for the time value."
+        },
+        "value": {
+          "title": "value",
+          "type": "number",
+          "description": "pH value at this point.",
+          "minimum": 0.0
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "PHProfile": {
+      "title": "PHProfile",
+      "type": "object",
+      "description": "Specification of pH conditions throughout the biocatalytic reaction, which can follow various patterns to optimize enzyme activity and stability.",
+      "properties": {
+        "constant_pH": {
+          "title": "constant_pH",
+          "type": "number",
+          "description": "pH value for constant pH profiles.",
+          "minimum": 0.0
+        },
+        "detection": {
+          "title": "detection",
+          "type": "object",
+          "description": "Methods and conditions used for pH detection and measurement.",
+          "$ref": "#/$defs/PHDetection"
+        },
+        "gradient": {
+          "title": "gradient",
+          "type": "object",
+          "description": "Gradient specifications for pH ramp profiles.",
+          "$ref": "#/$defs/PHGradient"
+        },
+        "notes": {
+          "title": "notes",
+          "type": "string",
+          "description": "Additional notes about the pH profile."
+        },
+        "profile_points": {
+          "title": "profile_points",
+          "type": "array",
+          "description": "Series of pH points for event-based or multipoint profiles.",
+          "items": {
+            "$ref": "#/$defs/PHPoint"
+          }
+        },
+        "profile_type": {
+          "title": "profile_type",
+          "type": "string",
+          "description": "Type of pH profile used (constant, event-based, multipoint, or gradient).",
+          "$ref": "#/$defs/ProfileType"
+        }
+      },
+      "required": [
+        "profile_type"
+      ],
+      "additionalProperties": false
+    },
+    "Phase": {
+      "title": "Phase",
+      "type": "object",
+      "description": "Specification of individual phases within the reaction system.",
+      "properties": {
+        "amount": {
+          "title": "amount",
+          "type": "number",
+          "description": "Quantity of material in this phase."
+        },
+        "amount_unit": {
+          "title": "amount_unit",
+          "type": "string",
+          "description": "Unit of measurement for the amount."
+        },
+        "material_description": {
+          "title": "material_description",
+          "type": "string",
+          "description": "Detailed description of the materials comprising this phase."
+        },
+        "notes": {
+          "title": "notes",
+          "type": "string",
+          "description": "Additional notes about this specific phase."
+        },
+        "phase_type": {
+          "title": "phase_type",
+          "type": "string",
+          "description": "Physical state of the phase (liquid, solid, or gas).",
+          "$ref": "#/$defs/PhaseType"
+        }
+      },
+      "required": [
+        "phase_type"
+      ],
+      "additionalProperties": false
+    },
+    "PhaseType": {
+      "title": "PhaseType",
+      "type": "string",
+      "enum": [
+        "gas",
+        "liquid",
+        "mixed",
+        "other",
+        "solid"
+      ]
+    },
+    "ProfilePoint": {
+      "title": "ProfilePoint",
+      "type": "object",
+      "description": "Individual temperature measurement point in time-based temperature profiles.",
+      "properties": {
+        "event_description": {
+          "title": "event_description",
+          "type": "string",
+          "description": "Description of any specific event associated with this temperature point."
+        },
+        "time": {
+          "title": "time",
+          "type": "number",
+          "description": "Time at which this temperature is measured or set.",
+          "minimum": 0.0
+        },
+        "time_unit": {
+          "title": "time_unit",
+          "type": "string",
+          "description": "Unit of measurement for the time value."
+        },
+        "value": {
+          "title": "value",
+          "type": "number",
+          "description": "Temperature value at this point.",
+          "minimum": 0.0
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "ProfileType": {
+      "title": "ProfileType",
+      "type": "string",
+      "enum": [
+        "constant",
+        "event_based",
+        "gradient",
+        "multipoint"
+      ]
+    },
+    "ReactionSystem": {
+      "title": "ReactionSystem",
+      "type": "object",
+      "description": "Characterization of the reaction system based on the number and types of phases present.",
+      "properties": {
+        "monoliquid": {
+          "title": "monoliquid",
+          "type": "object",
+          "description": "Specifications for single-phase liquid systems.",
+          "$ref": "#/$defs/MonoliquidSystem"
+        },
+        "multiphasic": {
+          "title": "multiphasic",
+          "type": "object",
+          "description": "Specifications for systems containing multiple phases.",
+          "$ref": "#/$defs/MultiphasicSystem"
+        },
+        "notes": {
+          "title": "notes",
+          "type": "string",
+          "description": "Additional notes about the reaction system."
+        },
+        "system_type": {
+          "title": "system_type",
+          "type": "string",
+          "description": "Classification of the system as monoliquid or multiphasic.",
+          "$ref": "#/$defs/SystemType"
+        }
+      },
+      "required": [
+        "system_type"
+      ],
+      "additionalProperties": false
+    },
+    "ReactorSetup": {
+      "title": "ReactorSetup",
+      "type": "object",
+      "description": "Configuration and operational parameters of the reactor system used for the biocatalytic reaction.",
+      "properties": {
+        "flow": {
+          "title": "flow",
+          "type": "object",
+          "description": "Flow rate specifications for continuous or fed-batch operations.",
+          "$ref": "#/$defs/FlowConditions"
+        },
+        "notes": {
+          "title": "notes",
+          "type": "string",
+          "description": "Additional notes about the reactor setup."
+        },
+        "reactor_type": {
+          "title": "reactor_type",
+          "type": "string",
+          "description": "Type of reactor configuration used (well-mixed or tubular flow).",
+          "$ref": "#/$defs/ReactorType"
+        }
+      },
+      "required": [
+        "reactor_type"
+      ],
+      "additionalProperties": false
+    },
+    "ReactorType": {
+      "title": "ReactorType",
+      "type": "string",
+      "enum": [
+        "other",
+        "tubular_flow",
+        "well_mixed"
+      ]
+    },
+    "SystemType": {
+      "title": "SystemType",
+      "type": "string",
+      "enum": [
+        "monoliquid",
+        "multiphasic"
+      ]
+    },
+    "TemperatureProfile": {
+      "title": "TemperatureProfile",
+      "type": "object",
+      "description": "Specification of temperature conditions throughout the biocatalytic reaction, which can follow various patterns depending on the reaction requirements.",
+      "properties": {
+        "constant_temperature": {
+          "title": "constant_temperature",
+          "type": "number",
+          "description": "Temperature value for constant temperature profiles.",
+          "minimum": 0.0
+        },
+        "gradient": {
+          "title": "gradient",
+          "type": "object",
+          "description": "Gradient specifications for temperature ramp profiles.",
+          "$ref": "#/$defs/Gradient"
+        },
+        "notes": {
+          "title": "notes",
+          "type": "string",
+          "description": "Additional notes about the temperature profile."
+        },
+        "profile_points": {
+          "title": "profile_points",
+          "type": "array",
+          "description": "Series of temperature points for event-based or multipoint profiles.",
+          "items": {
+            "$ref": "#/$defs/ProfilePoint"
+          }
+        },
+        "profile_type": {
+          "title": "profile_type",
+          "type": "string",
+          "description": "Type of temperature profile used (constant, event-based, multipoint, or gradient).",
+          "$ref": "#/$defs/ProfileType"
+        },
+        "temperature_unit": {
+          "title": "temperature_unit",
+          "type": "string",
+          "description": "Unit of measurement for temperature values."
+        }
+      },
+      "required": [
+        "profile_type"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "reactor",
+    "system"
+  ],
+  "additionalProperties": false
+}

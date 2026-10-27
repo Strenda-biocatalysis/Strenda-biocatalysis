@@ -1,0 +1,164 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "PHProfile",
+  "type": "object",
+  "description": "Specification of pH conditions throughout the biocatalytic reaction, which can follow various patterns to optimize enzyme activity and stability.",
+  "properties": {
+    "constant_pH": {
+      "title": "constant_pH",
+      "type": "number",
+      "description": "pH value for constant pH profiles.",
+      "minimum": 0.0
+    },
+    "detection": {
+      "title": "detection",
+      "type": "object",
+      "description": "Methods and conditions used for pH detection and measurement.",
+      "$ref": "#/$defs/PHDetection"
+    },
+    "gradient": {
+      "title": "gradient",
+      "type": "object",
+      "description": "Gradient specifications for pH ramp profiles.",
+      "$ref": "#/$defs/PHGradient"
+    },
+    "notes": {
+      "title": "notes",
+      "type": "string",
+      "description": "Additional notes about the pH profile."
+    },
+    "profile_points": {
+      "title": "profile_points",
+      "type": "array",
+      "description": "Series of pH points for event-based or multipoint profiles.",
+      "items": {
+        "$ref": "#/$defs/PHPoint"
+      }
+    },
+    "profile_type": {
+      "title": "profile_type",
+      "type": "string",
+      "description": "Type of pH profile used (constant, event-based, multipoint, or gradient).",
+      "$ref": "#/$defs/ProfileType"
+    }
+  },
+  "$defs": {
+    "PHDetection": {
+      "title": "PHDetection",
+      "type": "object",
+      "description": "Specifications for pH measurement methods and calibration conditions.",
+      "properties": {
+        "calibration_pH_electrode": {
+          "title": "calibration_pH_electrode",
+          "type": "string",
+          "description": "Details about pH electrode calibration procedures and standards."
+        },
+        "detected_how": {
+          "title": "detected_how",
+          "type": "string",
+          "description": "Method or instrument used for pH detection."
+        },
+        "detected_when": {
+          "title": "detected_when",
+          "type": "string",
+          "description": "Timing or conditions under which pH is detected."
+        },
+        "temperature": {
+          "title": "temperature",
+          "type": "number",
+          "description": "Temperature at which pH measurements are calibrated or performed."
+        },
+        "temperature_unit": {
+          "title": "temperature_unit",
+          "type": "string",
+          "description": "Unit of measurement for the calibration temperature."
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "PHGradient": {
+      "title": "PHGradient",
+      "type": "object",
+      "description": "Specification for pH gradient profiles where pH changes linearly over time.",
+      "properties": {
+        "end_value": {
+          "title": "end_value",
+          "type": "number",
+          "description": "Final pH value at the end of the gradient."
+        },
+        "length": {
+          "title": "length",
+          "type": "number",
+          "description": "Duration over which the pH gradient is applied."
+        },
+        "length_unit": {
+          "title": "length_unit",
+          "type": "string",
+          "description": "Unit of measurement for the gradient duration."
+        },
+        "measurement_points": {
+          "title": "measurement_points",
+          "type": "array",
+          "description": "Measurement points along the gradient.",
+          "items": {
+            "type": "number"
+          }
+        },
+        "start_value": {
+          "title": "start_value",
+          "type": "number",
+          "description": "Initial pH value at the beginning of the gradient."
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "PHPoint": {
+      "title": "PHPoint",
+      "type": "object",
+      "description": "Individual pH measurement point in time-based pH profiles.",
+      "properties": {
+        "event_description": {
+          "title": "event_description",
+          "type": "string",
+          "description": "Description of any specific event associated with this pH point."
+        },
+        "time": {
+          "title": "time",
+          "type": "number",
+          "description": "Time at which this pH is measured or set.",
+          "minimum": 0.0
+        },
+        "time_unit": {
+          "title": "time_unit",
+          "type": "string",
+          "description": "Unit of measurement for the time value."
+        },
+        "value": {
+          "title": "value",
+          "type": "number",
+          "description": "pH value at this point.",
+          "minimum": 0.0
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "ProfileType": {
+      "title": "ProfileType",
+      "type": "string",
+      "enum": [
+        "constant",
+        "event_based",
+        "gradient",
+        "multipoint"
+      ]
+    }
+  },
+  "required": [
+    "profile_type"
+  ],
+  "additionalProperties": false
+}

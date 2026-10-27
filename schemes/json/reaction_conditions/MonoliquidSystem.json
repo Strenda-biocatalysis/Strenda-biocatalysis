@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "MonoliquidSystem",
+  "type": "object",
+  "description": "Specifications for single-phase liquid reaction systems.",
+  "properties": {
+    "further_additives": {
+      "title": "further_additives",
+      "type": "string",
+      "description": "Description of any additional additives present in the system."
+    },
+    "ionic_strength": {
+      "title": "ionic_strength",
+      "type": "number",
+      "description": "Ionic strength of the solution, affecting enzyme activity and stability."
+    },
+    "notes": {
+      "title": "notes",
+      "type": "string",
+      "description": "Additional notes about the monoliquid system."
+    },
+    "solvent_description": {
+      "title": "solvent_description",
+      "type": "string",
+      "description": "Detailed description of the solvent or solvent mixture used."
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

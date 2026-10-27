@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "ActivityResults",
+  "type": "object",
+  "description": "Enzyme activity measurements and initial reaction rate data.",
+  "properties": {
+    "initial_reaction_rate": {
+      "title": "initial_reaction_rate",
+      "type": "number",
+      "description": "Initial reaction rate measured at the beginning of the reaction."
+    },
+    "notes": {
+      "title": "notes",
+      "type": "string",
+      "description": "Additional notes about activity measurements."
+    },
+    "specific_activity": {
+      "title": "specific_activity",
+      "type": "number",
+      "description": "Specific activity representing enzyme activity per unit mass of enzyme protein."
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

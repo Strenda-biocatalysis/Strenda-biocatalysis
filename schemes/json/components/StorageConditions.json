@@ -1,32 +1,48 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
   "title": "StorageConditions",
   "type": "object",
+  "description": "Conditions under which materials (biocatalysts, components, etc.) are stored to maintain stability and integrity.",
   "properties": {
-    "temperature": {
-      "title": "temperature",
-      "description": "Temperature at which the component is stored.",
-      "type": "number"
+    "additives": {
+      "title": "additives",
+      "type": "array",
+      "description": "Any additives or stabilizers used during storage (e.g., glycerol, stabilizers, preservatives).",
+      "items": {
+        "type": "string"
+      }
     },
-    "temperature_unit": {
-      "title": "temperature_unit",
-      "description": "The temperature can be specified in units such as K, °C, or °F.",
-      "type": "string"
+    "drying_method": {
+      "title": "drying_method",
+      "type": "array",
+      "description": "Method used to dry the material if stored in dry form (optional, primarily for biocatalysts).",
+      "items": {
+        "type": "string"
+      }
+    },
+    "notes": {
+      "title": "notes",
+      "type": "string",
+      "description": "Additional notes about storage conditions or requirements."
     },
     "storage_start": {
       "title": "storage_start",
-      "description": "The date since the component has been stored.",
-      "type": "string"
+      "type": "object",
+      "description": "Date when storage under these conditions began or material was received.",
+      "$ref": "#/$defs/date"
     },
-    "additives": {
-      "title": "additives",
-      "description": "Additives for the storage of components can include antioxidants, stabilizers, drying agent, or even inert gases (argon, nitrogen), among others.",
-      "type": "string"
+    "temperature": {
+      "title": "temperature",
+      "type": "number",
+      "description": "Storage temperature value."
     },
-    "special_treatment": {
-      "title": "special_treatment",
-      "description": "If there are any other specific characteristics or aspects related to a component that are important for reproducibility and are not described by the aforementioned metadata, they should be explained       here.",
-      "type": "string"
+    "temperature_unit": {
+      "title": "temperature_unit",
+      "type": "string",
+      "description": "Unit for the storage temperature (e.g., °C, K)."
     }
-  }
+  },
+  "required": [],
+  "additionalProperties": false
 }

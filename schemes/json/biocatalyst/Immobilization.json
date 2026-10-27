@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "Immobilization",
+  "type": "object",
+  "description": "Information about biocatalyst immobilization on solid supports.",
+  "properties": {
+    "biocatalyst_state": {
+      "title": "biocatalyst_state",
+      "type": "string",
+      "description": "Physical state of the biocatalyst during immobilization (e.g., purified enzyme, crude extract)."
+    },
+    "carrier_material": {
+      "title": "carrier_material",
+      "type": "array",
+      "description": "Material used as the solid support for immobilization.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "immobilisation_chemistry": {
+      "title": "immobilisation_chemistry",
+      "type": "array",
+      "description": "Chemical method or mechanism used for immobilization (e.g., covalent binding, adsorption, entrapment).",
+      "items": {
+        "type": "string"
+      }
+    },
+    "immobilisation_method": {
+      "title": "immobilisation_method",
+      "type": "array",
+      "description": "Detailed procedure used for the immobilization process.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "immobilized": {
+      "title": "immobilized",
+      "type": "boolean",
+      "description": "Whether the biocatalyst is immobilized (true) or used in free form (false)."
+    },
+    "linkers": {
+      "title": "linkers",
+      "type": "array",
+      "description": "Chemical linkers or spacers used between the enzyme and carrier material.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "loading": {
+      "title": "loading",
+      "type": "object",
+      "description": "Amount of enzyme loaded onto the carrier material.",
+      "$ref": "#/$defs/Concentration"
+    },
+    "notes": {
+      "title": "notes",
+      "type": "string",
+      "description": "Additional notes about the immobilization process or properties."
+    },
+    "purification_method": {
+      "title": "purification_method",
+      "type": "array",
+      "description": "Method used to purify or wash the immobilized biocatalyst.",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "$defs": {
+    "Concentration": {
+      "title": "Concentration",
+      "type": "object",
+      "description": "Quantitative information about biocatalyst concentration in the reaction.",
+      "properties": {
+        "determination_method": {
+          "title": "determination_method",
+          "type": "string",
+          "description": "Method used to determine or calculate the concentration."
+        },
+        "unit": {
+          "title": "unit",
+          "type": "string",
+          "description": "Unit of measurement for the concentration (e.g., mg/mL, µM, U/mL)."
+        },
+        "value": {
+          "title": "value",
+          "type": "number",
+          "description": "Numerical value of the concentration.",
+          "minimum": 0.0
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "immobilized"
+  ],
+  "additionalProperties": false
+}

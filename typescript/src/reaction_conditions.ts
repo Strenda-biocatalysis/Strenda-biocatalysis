@@ -21,672 +21,482 @@ export interface JsonLd {
   '@type'?: string;
 }
 
-// Reaction conditions Type definitions
+// Reaction Conditions Specification Type definitions
 /**
-    To describe a monoliquid system, precise information about the solvent
-    (mixture) used and the applied reaction system must be provided.
+    Comprehensive specification of the physical and chemical conditions
+    under which a biocatalytic reaction is performed, including
+    reactor setup, reaction system characteristics, temperature and
+    pH profiles.
 
-    * @param solvent_description - The solvent used in the reaction system, e.g. a buffered aqueous
-             solution or an organic solvent.
-    * @param ionic_strength - Ionic strength calculated according to the dissolved ions in the
-             solvent. The following formula can be used: $$I =
-             \frac{1}{2} \sum
-    * @param ionic_strength_unit - The unit of ionic strength is usually expressed in mol/L (moles per
-             liter), or in mmol/L (millimoles per liter). (
-    * @param further_additives - Further additive like cosolvents used to increase solubility of
-             components, e.g. DMSO.
-    * @param special_treatment - If there are any other specific methods, procedures, characteristics
-             or aspects related to the monoliquid system that are
-             important for reproducibility and are not described by
-             the aforementioned metadata, they should be explained
-             here.
+    * @param reactor - Configuration and specifications of the reactor used for the
+             biocatalytic reaction.
+    * @param system - Characterization of the reaction system as monoliquid or multiphasic.
+    * @param phases - Individual phases present in the reaction system (liquid, solid, gas).
+    * @param temperature - Temperature conditions throughout the reaction, which can be constant,
+             event-based, or follow a gradient.
+    * @param pH - pH conditions throughout the reaction, which can be constant, event-
+             based, or follow a gradient.
+    * @param notes - Additional notes or comments about the reaction conditions.
 **/
-export interface MonoliquidSystemDescription_WMRS extends JsonLd {
-  solvent_description: string;
-  ionic_strength: number;
-  ionic_strength_unit: string;
-  further_additives: string;
-  special_treatment: string;
+export interface ReactionConditions extends JsonLd {
+  reactor: ReactorSetup;
+  system: ReactionSystem;
+  phases?: Phase[] | null;
+  temperature?: TemperatureProfile | null;
+  pH?: PHProfile | null;
+  notes?: string | null;
 }
 
-export const MonoliquidSystemDescription_WMRSCodec = D.lazy("MonoliquidSystemDescription_WMRS", () => D.struct({
-    solvent_description: D.string,
-    ionic_strength: D.number,
-    ionic_strength_unit: D.string,
-    further_additives: D.string,
-    special_treatment: D.string,
+export const ReactionConditionsCodec = D.lazy("ReactionConditions", () => D.struct({
+    reactor: ReactorSetupCodec,
+    system: ReactionSystemCodec,
+    phases: D.array(PhaseCodec),
+    temperature: D.nullable(TemperatureProfileCodec),
+    pH: D.nullable(PHProfileCodec),
+    notes: D.nullable(D.string),
 }));
 
 
 /**
-    To describe a multiphasic system, precise information about the phases
-    used and the applied system must be provided.
+    Configuration and operational parameters of the reactor system used
+    for the biocatalytic reaction.
 
-    * @param phases_number - Number of phases present in the system, if there is an aqueous and a
-             gas phase present, the number is 2.
-    * @param special_treatment - If there are any other specific methods, procedures, characteristics
-             or aspects related to the multiphasic system that are
-             important for reproducibility and are not described by
-             the aforementioned metadata, they should be explained
-             here.
+    * @param reactor_type - Type of reactor configuration used (well-mixed or tubular flow).
+    * @param flow - Flow rate specifications for continuous or fed-batch operations.
+    * @param notes - Additional notes about the reactor setup.
 **/
-export interface MultiphasicSystemDescription_WMRS extends JsonLd {
-  phases_number: number;
-  special_treatment: string;
+export interface ReactorSetup extends JsonLd {
+  reactor_type: ReactorType;
+  flow?: FlowConditions | null;
+  notes?: string | null;
 }
 
-export const MultiphasicSystemDescription_WMRSCodec = D.lazy("MultiphasicSystemDescription_WMRS", () => D.struct({
-    phases_number: D.number,
-    special_treatment: D.string,
+export const ReactorSetupCodec = D.lazy("ReactorSetup", () => D.struct({
+    reactor_type: ReactorTypeCodec,
+    flow: D.nullable(FlowConditionsCodec),
+    notes: D.nullable(D.string),
 }));
 
 
 /**
-    If more then one liquid phase exists the metadata has to be recorded
-    according to the number of liquid phases.Solid phase
+    Specifications for flow rates in continuous or fed-batch reactor
+    operations.
 
-    * @param liquid_type - Information about the type of liquid used, whether it is an organic
-             solvent,an aqueous buffer or are mixture of both.
-    * @param liquid_amount - Amount of the liquid added to the reaction.
-    * @param liquid_unit - In case of aqueous liquids, mL (milliliter) is often used as unit, in
-             case of organic solvents, volume percentage (Vol %) or
-             volume fraction (Vol/Vol) is utilized.
+    * @param flow_rate - Numerical value of the flow rate.
+    * @param flow_rate_unit - Unit of measurement for the flow rate.
 **/
-export interface LiquidPhase_WMRS extends JsonLd {
-  liquid_type: string;
-  liquid_amount: number;
-  liquid_unit: string;
+export interface FlowConditions extends JsonLd {
+  flow_rate?: number | null;
+  flow_rate_unit?: string | null;
 }
 
-export const LiquidPhase_WMRSCodec = D.lazy("LiquidPhase_WMRS", () => D.struct({
-    liquid_type: D.string,
-    liquid_amount: D.number,
-    liquid_unit: D.string,
+export const FlowConditionsCodec = D.lazy("FlowConditions", () => D.struct({
+    flow_rate: D.nullable(D.number),
+    flow_rate_unit: D.nullable(D.string),
 }));
 
 
 /**
-    Definition of the solid phase used in the reaction.Gas phase
+    Characterization of the reaction system based on the number and types
+    of phases present.
 
-    * @param solid_type - Information about the type of solid used, whether it is a support
-             material, solid catalyst, or any other solid compound.
-    * @param solid_amount - Mass of the solid compound used in the reaction solution.
-    * @param solid_unit - In the case of a solid compound, common units like grams, milligrams,
-             or micrograms can be used.
+    * @param system_type - Classification of the system as monoliquid or multiphasic.
+    * @param monoliquid - Specifications for single-phase liquid systems.
+    * @param multiphasic - Specifications for systems containing multiple phases.
+    * @param notes - Additional notes about the reaction system.
 **/
-export interface SolidPhase_WMRS extends JsonLd {
-  solid_type: string;
-  solid_amount: number;
-  solid_unit: string;
+export interface ReactionSystem extends JsonLd {
+  system_type: SystemType;
+  monoliquid?: MonoliquidSystem | null;
+  multiphasic?: MultiphasicSystem | null;
+  notes?: string | null;
 }
 
-export const SolidPhase_WMRSCodec = D.lazy("SolidPhase_WMRS", () => D.struct({
-    solid_type: D.string,
-    solid_amount: D.number,
-    solid_unit: D.string,
+export const ReactionSystemCodec = D.lazy("ReactionSystem", () => D.struct({
+    system_type: SystemTypeCodec,
+    monoliquid: D.nullable(MonoliquidSystemCodec),
+    multiphasic: D.nullable(MultiphasicSystemCodec),
+    notes: D.nullable(D.string),
 }));
 
 
 /**
-    Definition of the gas phase used in the reaction. If a gas mixture is
-    involved, this must be taken into account.
+    Specifications for single-phase liquid reaction systems.
 
-    * @param gas_type - Information about the type of gas used, whether it is nitrogen, carbon
-             dioxide, argon, oxygen or other gases.
-    * @param gas_amount - Concentration of the gas in the gas phase.
-    * @param gas_unit - In the case of gases, common units are volume percentage (Vol %),
-             volume fraction (Vol/Vol), mole percentage (Mol %) or
-             molar fraction (Mol/Mol).
+    * @param solvent_description - Detailed description of the solvent or solvent mixture used.
+    * @param ionic_strength - Ionic strength of the solution, affecting enzyme activity and
+             stability.
+    * @param further_additives - Description of any additional additives present in the system.
+    * @param notes - Additional notes about the monoliquid system.
 **/
-export interface GasPhase_WMRS extends JsonLd {
-  gas_type: string;
-  gas_amount: number;
-  gas_unit: string;
+export interface MonoliquidSystem extends JsonLd {
+  solvent_description?: string | null;
+  ionic_strength?: number | null;
+  further_additives?: string | null;
+  notes?: string | null;
 }
 
-export const GasPhase_WMRSCodec = D.lazy("GasPhase_WMRS", () => D.struct({
-    gas_type: D.string,
-    gas_amount: D.number,
-    gas_unit: D.string,
+export const MonoliquidSystemCodec = D.lazy("MonoliquidSystem", () => D.struct({
+    solvent_description: D.nullable(D.string),
+    ionic_strength: D.nullable(D.number),
+    further_additives: D.nullable(D.string),
+    notes: D.nullable(D.string),
 }));
 
 
 /**
-    The temperature, if constant, must be clearly defined.Event-based
-    temperature shift
+    Specifications for reaction systems containing multiple distinct
+    phases.
 
-    * @param temperature - Temperature during the reaction.
-    * @param temperature_unit - The temperature can be specified in units such as K, °C, or °F.
-    * @param special_treatment - If there are any other specific methods, procedures, characteristics
-             or aspects related to the temperature that are important
-             for reproducibility and are not described by the
-             aforementioned metadata, they should be explained here.
+    * @param phases_number - Total number of distinct phases present in the system.
+    * @param notes - Additional notes about the multiphasic system.
 **/
-export interface TemperatureConstant_WMRS extends JsonLd {
-  temperature: number;
-  temperature_unit: string;
-  special_treatment: string;
+export interface MultiphasicSystem extends JsonLd {
+  phases_number?: number | null;
+  notes?: string | null;
 }
 
-export const TemperatureConstant_WMRSCodec = D.lazy("TemperatureConstant_WMRS", () => D.struct({
-    temperature: D.number,
-    temperature_unit: D.string,
-    special_treatment: D.string,
+export const MultiphasicSystemCodec = D.lazy("MultiphasicSystem", () => D.struct({
+    phases_number: D.nullable(D.number),
+    notes: D.nullable(D.string),
 }));
 
 
 /**
-    If the temperature is changed during the course of the reaction or
-    there is an event-based change, this must be documented precisely.
+    Specification of individual phases within the reaction system.
 
-    * @param temperature_unit - The temperature can be specified in units such as K, °C, or °F.
-    * @param temperature_beginning - The initial temperature, prior to the start of the reaction, should
-             be specified.
-    * @param temperature_after_event - The temperature that is present after a specific event has occurred.
-    * @param event_description - Information regarding the event that caused the temperature change.
-             In the case of a fed-batch reaction protocol, this event
-             can also be the planned adjustment of the temperature to
-             another specific value based on the current progress of
-             the reaction process.
-    * @param temperature_at_XY - The temperature can also be measured at a variably chosen time point
-    * @param time_at_XY - Specification of the exact time point
-    * @param time_unit - Common units for specifying time can be s (seconds), min (minutes) or
-             h (hours).
-    * @param special_treatment - If there are any other specific methods, procedures, characteristics
-             or aspects related to the temperature that are important
-             for reproducibility and are not described by the
-             aforementioned metadata, they should be explained here.
+    * @param phase_type - Physical state of the phase (liquid, solid, or gas).
+    * @param material_description - Detailed description of the materials comprising this phase.
+    * @param amount - Quantity of material in this phase.
+    * @param amount_unit - Unit of measurement for the amount.
+    * @param notes - Additional notes about this specific phase.
 **/
-export interface EventBasedTemperatureShift_WMRS extends JsonLd {
-  temperature_unit: string;
-  temperature_beginning: number;
-  temperature_after_event: number;
-  event_description: string;
-  temperature_at_XY: number;
-  time_at_XY: number;
-  time_unit: string;
-  special_treatment: string;
+export interface Phase extends JsonLd {
+  phase_type: PhaseType;
+  material_description?: string | null;
+  amount?: number | null;
+  amount_unit?: string | null;
+  notes?: string | null;
 }
 
-export const EventBasedTemperatureShift_WMRSCodec = D.lazy("EventBasedTemperatureShift_WMRS", () => D.struct({
-    temperature_unit: D.string,
-    temperature_beginning: D.number,
-    temperature_after_event: D.number,
-    event_description: D.string,
-    temperature_at_XY: D.number,
-    time_at_XY: D.number,
-    time_unit: D.string,
-    special_treatment: D.string,
+export const PhaseCodec = D.lazy("Phase", () => D.struct({
+    phase_type: PhaseTypeCodec,
+    material_description: D.nullable(D.string),
+    amount: D.nullable(D.number),
+    amount_unit: D.nullable(D.string),
+    notes: D.nullable(D.string),
 }));
 
 
 /**
-    Information about the pH value in the system, if the pH is constant
-    over the course of the reaction.Event-based pH shift
+    Specification of temperature conditions throughout the biocatalytic
+    reaction, which can follow various patterns depending on the
+    reaction requirements.
 
-    * @param pH_value - Value of the pH.
-    * @param detected_when - Specification of the timepoint at which the pH was measured. It
-             includes whether the pH value was measured before,
-             during, or after the reaction and whether all components
-             of the reaction solution were already present or if some
-             were added after the measurement.
-    * @param detected_how - The pH value of a reaction can be determined in various ways, such as
-             using a pH meter, pH paper, titration, electrochemical
-             sensors, or other methods.
-    * @param temperature - The temperature at the time of pH measurement.
-    * @param temperature_unit - The temperature can be specified in units such as K, °C, or °F.
-    * @param calibration_pH_electrode - Usually, a pH electrode is calibrated using standard buffers at 20-25
-             °C. If the conditions in the reaction mixture differ from
-             this, it should be specified. (
-    * @param special_treatment - If there are any other specific methods, procedures, characteristics
-             or aspects related to the pH value that are important
-             for reproducibility and are not described by the
-             aforementioned metadata, they should be explained here.
+    * @param profile_type - Type of temperature profile used (constant, event-based, multipoint,
+             or gradient).
+    * @param temperature_unit - Unit of measurement for temperature values.
+    * @param constant_temperature - Temperature value for constant temperature profiles.
+    * @param profile_points - Series of temperature points for event-based or multipoint profiles.
+    * @param gradient - Gradient specifications for temperature ramp profiles.
+    * @param notes - Additional notes about the temperature profile.
 **/
-export interface pHConstant_WMRS extends JsonLd {
-  pH_value: number;
-  detected_when: string;
-  detected_how: string;
-  temperature: number;
-  temperature_unit: string;
-  calibration_pH_electrode: string;
-  special_treatment: string;
+export interface TemperatureProfile extends JsonLd {
+  profile_type: ProfileType;
+  temperature_unit?: string | null;
+  constant_temperature?: number | null;
+  profile_points?: ProfilePoint[] | null;
+  gradient?: Gradient | null;
+  notes?: string | null;
 }
 
-export const pHConstant_WMRSCodec = D.lazy("pHConstant_WMRS", () => D.struct({
-    pH_value: D.number,
-    detected_when: D.string,
-    detected_how: D.string,
-    temperature: D.number,
-    temperature_unit: D.string,
-    calibration_pH_electrode: D.string,
-    special_treatment: D.string,
+export const TemperatureProfileCodec = D.lazy("TemperatureProfile", () => D.struct({
+    profile_type: ProfileTypeCodec,
+    temperature_unit: D.nullable(D.string),
+    constant_temperature: D.nullable(D.number),
+    profile_points: D.array(ProfilePointCodec),
+    gradient: D.nullable(GradientCodec),
+    notes: D.nullable(D.string),
 }));
 
 
 /**
-    If the pH is changed during the course of the reaction or there is an
-    event-based change, this must be documented precisely. Depending
-    on the buffer chosen, a temperature shift may also result in a
-    pH shift.
+    Individual temperature measurement point in time-based temperature
+    profiles.
 
-    * @param pH_beginning - The initial pH, prior to the start of the reaction, should be
-             specified.
-    * @param pH_after_event - The pH that is present after a specific event has occurred.
-    * @param event_description - Information regarding the event that caused the pH change. In the
-             case of a fed-batch reaction protocol, this event can
-             also be the planned adjustment of the pH value to another
-             specific value based on the current progress of the
-             reaction process.
-    * @param pH_at_XY - The pH can also be measured at a variably chosen time point
-    * @param time_at_XY - Specification of the exact time point
-    * @param time_unit - Common units for specifying time can be s (seconds) or min (minutes).
-    * @param detected_when - Specification whether all components of the reaction solution
-             were already present or if some were added after the
-             measurement at the timepoint of the pH measurement.
-    * @param detected_how - The pH value of a reaction can be determined in various ways, such as
-             using a pH meter, pH paper, titration, electrochemical
-             sensors, or other methods.
-    * @param temperature - The temperature at the time of pH measurement.
-    * @param temperature_unit - The temperature can be specified in units such as K, °C, or °F.
-    * @param calibration_pH_electrode - Usually, a pH electrode is calibrated using standard buffers at 20-25
-             °C. If the conditions in the reaction mixture differ from
-             this, it should be specified. (
-    * @param special_treatment - If there are any other specific methods, procedures, characteristics
-             or aspects related to the pH value that are important
-             for reproducibility and are not described by the
-             aforementioned metadata, they should be explained here.
+    * @param value - Temperature value at this point.
+    * @param time - Time at which this temperature is measured or set.
+    * @param time_unit - Unit of measurement for the time value.
+    * @param event_description - Description of any specific event associated with this temperature
+             point.
 **/
-export interface EventBasedpHShift_WMRS extends JsonLd {
-  pH_beginning: number;
-  pH_after_event: number;
-  event_description: string;
-  pH_at_XY: number;
-  time_at_XY: number;
-  time_unit: string;
-  detected_when: string;
-  detected_how: string;
-  temperature: number;
-  temperature_unit: string;
-  calibration_pH_electrode: string;
-  special_treatment: string;
+export interface ProfilePoint extends JsonLd {
+  value?: number | null;
+  time?: number | null;
+  time_unit?: string | null;
+  event_description?: string | null;
 }
 
-export const EventBasedpHShift_WMRSCodec = D.lazy("EventBasedpHShift_WMRS", () => D.struct({
-    pH_beginning: D.number,
-    pH_after_event: D.number,
-    event_description: D.string,
-    pH_at_XY: D.number,
-    time_at_XY: D.number,
-    time_unit: D.string,
-    detected_when: D.string,
-    detected_how: D.string,
-    temperature: D.number,
-    temperature_unit: D.string,
-    calibration_pH_electrode: D.string,
-    special_treatment: D.string,
+export const ProfilePointCodec = D.lazy("ProfilePoint", () => D.struct({
+    value: D.nullable(D.number),
+    time: D.nullable(D.number),
+    time_unit: D.nullable(D.string),
+    event_description: D.nullable(D.string),
 }));
 
 
 /**
-    To describe a monoliquid system, precise information about the solvent
-    used and the applied system must be provided.
+    Specification for temperature gradient profiles where temperature
+    changes linearly over time or distance.
 
-    * @param solvent_description - The solvent used in the reaction system, e.g. a buffered aqueous
-             solution or an organic solvent.
-    * @param ionic_strength - Ionic strength calculated according to the dissolved ions in the
-             solvent. The following formula can be used: $$I =
-             \frac{1}{2} \sum
-    * @param ionic_strength_unit - The unit of ionic strength is usually expressed in mol/L (moles per
-             liter), or in mmol/L (millimoles per liter). (
-    * @param further_additives - Further additive like cosolvents used to increase solubility of
-             reactants, e.g. DMSO.
-    * @param Flow_rate - The flow rate must be specified to determine how fast a liquid or gas
-             is flowing through a reactor or system.
-    * @param Flow_rate_unit - Common units for describing flow rate include L/min (liters per
-             minute), mL/h (milliliters per hour), m³/h (cubic meters
-             per hour), or other volume units per unit of time.
-    * @param special_treatment - If there are any other specific methods, procedures, characteristics
-             or aspects related to the monoliquid system that are
-             important for reproducibility and are not described by
-             the aforementioned metadata, they should be explained
-             here.
+    * @param start_value - Initial temperature value at the beginning of the gradient.
+    * @param end_value - Final temperature value at the end of the gradient.
+    * @param length - Duration or distance over which the gradient is applied.
+    * @param length_unit - Unit of measurement for the gradient length (time or distance).
+    * @param measurement_points - Description of how temperature is measured along the gradient.
 **/
-export interface MonoliquidSystemDescription_TFCR extends JsonLd {
-  solvent_description: string;
-  ionic_strength: number;
-  ionic_strength_unit: string;
-  further_additives: string;
-  Flow_rate: number;
-  Flow_rate_unit: string;
-  special_treatment: string;
+export interface Gradient extends JsonLd {
+  start_value?: number | null;
+  end_value?: number | null;
+  length?: number | null;
+  length_unit?: string | null;
+  measurement_points?: string | null;
 }
 
-export const MonoliquidSystemDescription_TFCRCodec = D.lazy("MonoliquidSystemDescription_TFCR", () => D.struct({
-    solvent_description: D.string,
-    ionic_strength: D.number,
-    ionic_strength_unit: D.string,
-    further_additives: D.string,
-    Flow_rate: D.number,
-    Flow_rate_unit: D.string,
-    special_treatment: D.string,
+export const GradientCodec = D.lazy("Gradient", () => D.struct({
+    start_value: D.nullable(D.number),
+    end_value: D.nullable(D.number),
+    length: D.nullable(D.number),
+    length_unit: D.nullable(D.string),
+    measurement_points: D.nullable(D.string),
 }));
 
 
 /**
-    To describe a multiphasic system, precise information about the phases
-    used and the applied system must be provided.
+    Specification of pH conditions throughout the biocatalytic reaction,
+    which can follow various patterns to optimize enzyme activity
+    and stability.
 
-    * @param phases_number - Number of phases present in the system, if there is an aqueous and a
-             gas phase present, the number is 2.
-    * @param Flow_rate - The flow rate must be specified to determine how fast a liquid or gas
-             is flowing through a reactor or system.
-    * @param Flow_rate_unit - Common units for describing flow rate include L/min (liters per
-             minute), mL/h (milliliters per hour), m³/h (cubic meters
-             per hour), or other volume units per unit of time.
-    * @param special_treatment - If there are any other specific methods, procedures, characteristics
-             or aspects related to the multiphasic system that are
-             important for reproducibility and are not described by
-             the aforementioned metadata, they should be explained
-             here.
+    * @param profile_type - Type of pH profile used (constant, event-based, multipoint, or
+             gradient).
+    * @param constant_pH - pH value for constant pH profiles.
+    * @param profile_points - Series of pH points for event-based or multipoint profiles.
+    * @param gradient - Gradient specifications for pH ramp profiles.
+    * @param detection - Methods and conditions used for pH detection and measurement.
+    * @param notes - Additional notes about the pH profile.
 **/
-export interface MultiphasicSystemDescription_TFCR extends JsonLd {
-  phases_number: number;
-  Flow_rate: number;
-  Flow_rate_unit: string;
-  special_treatment: string;
+export interface PHProfile extends JsonLd {
+  profile_type: ProfileType;
+  constant_pH?: number | null;
+  profile_points?: PHPoint[] | null;
+  gradient?: PHGradient | null;
+  detection?: PHDetection | null;
+  notes?: string | null;
 }
 
-export const MultiphasicSystemDescription_TFCRCodec = D.lazy("MultiphasicSystemDescription_TFCR", () => D.struct({
-    phases_number: D.number,
-    Flow_rate: D.number,
-    Flow_rate_unit: D.string,
-    special_treatment: D.string,
+export const PHProfileCodec = D.lazy("PHProfile", () => D.struct({
+    profile_type: ProfileTypeCodec,
+    constant_pH: D.nullable(D.number),
+    profile_points: D.array(PHPointCodec),
+    gradient: D.nullable(PHGradientCodec),
+    detection: D.nullable(PHDetectionCodec),
+    notes: D.nullable(D.string),
 }));
 
 
 /**
-    If more then one liquid phase exists the metadata has to be recorded
-    according to the number of liquid phases.Solid phase
+    Individual pH measurement point in time-based pH profiles.
 
-    * @param liquid_type - Information about the type of liquid used, whether it is an organic
-             solvent, an aqueous buffer or a mixture of both.
-    * @param liquid_amount - Amount of the liquid added to the reaction.
-    * @param liquid_unit - In case of aqueous liquids, mL (milliliter) is often used as unit, in
-             case of organic solvents, volume percentage (Vol %) or
-             volume fraction (Vol/Vol) is utilized.
+    * @param value - pH value at this point.
+    * @param time - Time at which this pH is measured or set.
+    * @param time_unit - Unit of measurement for the time value.
+    * @param event_description - Description of any specific event associated with this pH point.
 **/
-export interface LiquidPhase_TFCR extends JsonLd {
-  liquid_type: string;
-  liquid_amount: number;
-  liquid_unit: string;
+export interface PHPoint extends JsonLd {
+  value?: number | null;
+  time?: number | null;
+  time_unit?: string | null;
+  event_description?: string | null;
 }
 
-export const LiquidPhase_TFCRCodec = D.lazy("LiquidPhase_TFCR", () => D.struct({
-    liquid_type: D.string,
-    liquid_amount: D.number,
-    liquid_unit: D.string,
+export const PHPointCodec = D.lazy("PHPoint", () => D.struct({
+    value: D.nullable(D.number),
+    time: D.nullable(D.number),
+    time_unit: D.nullable(D.string),
+    event_description: D.nullable(D.string),
 }));
 
 
 /**
-    Definition of the solid phase used in the reaction.Gas phase
+    Specification for pH gradient profiles where pH changes linearly over
+    time.
 
-    * @param solid_type - Information about the type of solid used, whether it is a support
-             material, solid catalyst, or any other solid compound.
-    * @param solid_amount - Mass of the solid used in the reaction solution.
-    * @param solid_unit - In the case of solids, common units like grams, milligrams, or
-             micrograms can be used.
+    * @param start_value - Initial pH value at the beginning of the gradient.
+    * @param end_value - Final pH value at the end of the gradient.
+    * @param length - Duration over which the pH gradient is applied.
+    * @param length_unit - Unit of measurement for the gradient duration.
+    * @param measurement_points - Measurement points along the gradient.
 **/
-export interface SolidPhase_TFCR extends JsonLd {
-  solid_type: string;
-  solid_amount: number;
-  solid_unit: string;
+export interface PHGradient extends JsonLd {
+  start_value?: number | null;
+  end_value?: number | null;
+  length?: number | null;
+  length_unit?: string | null;
+  measurement_points?: number[] | null;
 }
 
-export const SolidPhase_TFCRCodec = D.lazy("SolidPhase_TFCR", () => D.struct({
-    solid_type: D.string,
-    solid_amount: D.number,
-    solid_unit: D.string,
+export const PHGradientCodec = D.lazy("PHGradient", () => D.struct({
+    start_value: D.nullable(D.number),
+    end_value: D.nullable(D.number),
+    length: D.nullable(D.number),
+    length_unit: D.nullable(D.string),
+    measurement_points: D.array(D.number),
 }));
 
 
 /**
-    Definition of the gas phase used in the reaction. If a gas mixture is
-    involved, this must be taken into account.
+    Specifications for pH measurement methods and calibration conditions.
 
-    * @param gas_type - Information about the type of gas used, whether it's nitrogen dioxide,
-             argon, oxygen or other gases.
-    * @param gas_amount - Concentration of the gas in the gas phase.
-    * @param gas_unit - In the case of gases, common units are volume percentage (Vol %),
-             volume fraction (Vol/Vol), mole percentage (Mol %) or
-             molar fraction (Mol/Mol).
+    * @param detected_when - Timing or conditions under which pH is detected.
+    * @param detected_how - Method or instrument used for pH detection.
+    * @param temperature - Temperature at which pH measurements are calibrated or performed.
+    * @param temperature_unit - Unit of measurement for the calibration temperature.
+    * @param calibration_pH_electrode - Details about pH electrode calibration procedures and standards.
 **/
-export interface GasPhase_TFCR extends JsonLd {
-  gas_type: string;
-  gas_amount: number;
-  gas_unit: string;
+export interface PHDetection extends JsonLd {
+  detected_when?: string | null;
+  detected_how?: string | null;
+  temperature?: number | null;
+  temperature_unit?: string | null;
+  calibration_pH_electrode?: string | null;
 }
 
-export const GasPhase_TFCRCodec = D.lazy("GasPhase_TFCR", () => D.struct({
-    gas_type: D.string,
-    gas_amount: D.number,
-    gas_unit: D.string,
+export const PHDetectionCodec = D.lazy("PHDetection", () => D.struct({
+    detected_when: D.nullable(D.string),
+    detected_how: D.nullable(D.string),
+    temperature: D.nullable(D.number),
+    temperature_unit: D.nullable(D.string),
+    calibration_pH_electrode: D.nullable(D.string),
 }));
 
 
 /**
-    The temperature, if constant, must be clearly defined.Dynamic
-    temperature
+    Quantitative measurement with value and unit specification.
 
-    * @param temperature - Temperature during the reaction.
-    * @param temperature_unit - The temperature can be specified in units such as K, °C, or °F.
-    * @param special_treatment - If there are any other specific methods, procedures, characteristics
-             or aspects related to the temperature that are important
-             for reproducibility and are not described by the
-             aforementioned metadata, they should be explained here.
+    * @param value - Numerical value of the measurement.
+    * @param unit - Unit of measurement for the value.
 **/
-export interface TemperatureConstant_TFCR extends JsonLd {
-  temperature: number;
-  temperature_unit: string;
-  special_treatment: string;
+export interface Quantity extends JsonLd {
+  value?: number | null;
+  unit?: string | null;
 }
 
-export const TemperatureConstant_TFCRCodec = D.lazy("TemperatureConstant_TFCR", () => D.struct({
-    temperature: D.number,
-    temperature_unit: D.string,
-    special_treatment: D.string,
+export const QuantityCodec = D.lazy("Quantity", () => D.struct({
+    value: D.nullable(D.number),
+    unit: D.nullable(D.string),
 }));
 
 
 /**
-    If there is a temperature gradient or different temperatures are
-    measured in the system, these must be described as well as
-    possible.
+    Conditions under which materials (biocatalysts, components, etc.) are
+    stored to maintain stability and integrity.
 
-    * @param temperature_beginning - The initial temperature, prior to the start of the reaction, should
-             be specified.
-    * @param temperature_after_event - The temperature that is present after a specific event has occurred.
-    * @param event_description - Information regarding the event that caused the temperature change.
-             In the case of a fed-batch reaction protocol, this event
-             can also be the planned adjustment of the temperature to
-             another specific value based on the current progress of
-             the reaction process.
-    * @param temperature_at_XY - The temperature can also be measured at a variably chosen time point
-    * @param time_at_XY - Specification of the exact time point
-    * @param time_unit - Common units for specifying time can be s (seconds), min (minutes)
-             h (hours).
-    * @param temperature_unit - The temperature can be specified in units such as K, °C, or °F.
-    * @param temperature_gradient_beginning - The initial temperature from which the temperature gradient begins. (
-    * @param temperature_gradient_end - The target temperature reached after the temperature gradient is
-             applied. (
-    * @param gradient_length - The distance or time span over which the temperature gradient is
-             applied. (
-    * @param gradient_length_unit - The gradient length can be specified either as the physical distance
-             (e.g. in meters) or as the time span (e.g. in minutes). (
-    * @param measurement_points - Information about the locations or time points where temperature
-             measurements are taken to monitor the gradient. This
-             can be important to ensure that the gradient behaves as
-             intended. (
-    * @param special_treatment - If there are any other specific methods, procedures, characteristics
-             or aspects related to the temperature profile that are
-             important for reproducibility and are not described by
-             the aforementioned metadata, they should be explained
-             here.
+    * @param temperature - Storage temperature value.
+    * @param temperature_unit - Unit for the storage temperature (e.g., °C, K).
+    * @param storage_start - Date when storage under these conditions began or material was
+             received.
+    * @param additives - Any additives or stabilizers used during storage (e.g., glycerol,
+             stabilizers, preservatives).
+    * @param drying_method - Method used to dry the material if stored in dry form (optional,
+             primarily for biocatalysts).
+    * @param notes - Additional notes about storage conditions or requirements.
 **/
-export interface DynamicTemperature_TFCR extends JsonLd {
-  temperature_beginning: number;
-  temperature_after_event: number;
-  event_description: string;
-  temperature_at_XY: number;
-  time_at_XY: number;
-  time_unit: string;
-  temperature_unit: string;
-  temperature_gradient_beginning: number;
-  temperature_gradient_end: number;
-  gradient_length: number;
-  gradient_length_unit: string;
-  measurement_points: string;
-  special_treatment: string;
+export interface StorageConditions extends JsonLd {
+  temperature?: number | null;
+  temperature_unit?: string | null;
+  storage_start?: string | null;
+  additives?: string[] | null;
+  drying_method?: string[] | null;
+  notes?: string | null;
 }
 
-export const DynamicTemperature_TFCRCodec = D.lazy("DynamicTemperature_TFCR", () => D.struct({
-    temperature_beginning: D.number,
-    temperature_after_event: D.number,
-    event_description: D.string,
-    temperature_at_XY: D.number,
-    time_at_XY: D.number,
-    time_unit: D.string,
-    temperature_unit: D.string,
-    temperature_gradient_beginning: D.number,
-    temperature_gradient_end: D.number,
-    gradient_length: D.number,
-    gradient_length_unit: D.string,
-    measurement_points: D.string,
-    special_treatment: D.string,
+export const StorageConditionsCodec = D.lazy("StorageConditions", () => D.struct({
+    temperature: D.nullable(D.number),
+    temperature_unit: D.nullable(D.string),
+    storage_start: D.nullable(D.string),
+    additives: D.array(D.string),
+    drying_method: D.array(D.string),
+    notes: D.nullable(D.string),
 }));
 
 
-/**
-    Information about the pH value in the system, if the pH is constant
-    over the course of the reaction.Dynamic pH
-
-    * @param pH_value - The value of the pH.
-    * @param detected_when - Specification of the timepoint at which the pH was measured. It
-             includes whether the pH value was measured before,
-             during, or after the reaction and whether all components
-             of the reaction solution were already present or if some
-             were added after the measurement.
-    * @param detected_how - The pH value of a reaction can be determined in various ways, such as
-             using a pH meter, pH paper, titration, electrochemical
-             sensors, or other methods.
-    * @param temperature - The temperature at the time of pH measurement.
-    * @param temperature_unit - The temperature can be specified in units such as K, °C, or °F.
-    * @param calibration_pH_electrode - Usually, a pH electrode is calibrated using standard buffers at 20-25
-             °C. If the conditions in the reaction mixture differ from
-             this, it should be specified. (
-    * @param special_treatment - If there are any other specific methods, procedures, characteristics
-             or aspects related to the pH value that are important
-             for reproducibility and are not described by the
-             aforementioned metadata, they should be explained here.
-**/
-export interface pHConstant_TFCR extends JsonLd {
-  pH_value: number;
-  detected_when: string;
-  detected_how: string;
-  temperature: number;
-  temperature_unit: string;
-  calibration_pH_electrode: string;
-  special_treatment: string;
+// Reaction Conditions Specification Enum definitions
+export enum SystemType {
+  MONOLIQUID = 'monoliquid',
+  MULTIPHASIC = 'multiphasic',
 }
 
-export const pHConstant_TFCRCodec = D.lazy("pHConstant_TFCR", () => D.struct({
-    pH_value: D.number,
-    detected_when: D.string,
-    detected_how: D.string,
-    temperature: D.number,
-    temperature_unit: D.string,
-    calibration_pH_electrode: D.string,
-    special_treatment: D.string,
-}));
+export const SystemTypeCodec = D.union(
+  D.literal(SystemType.MONOLIQUID),
+  D.literal(SystemType.MULTIPHASIC),
+);
 
-
-/**
-    If there is a pH gradient or different pHs are measured in the system,
-    these must be described as detailed as possible. Depending on the
-    buffer chosen, a temperature shift may also result in a pH shift.
-
-    * @param pH_beginning - The initial pH, prior to the start of the reaction, should be
-             specified.
-    * @param pH_after_event - The pH that is present after a specific event has occurred.
-    * @param event_description - Information regarding the event that caused the pH change. In the
-             case of a fed-batch reaction protocol, this event can
-             also be the planned adjustment of the pH value to another
-             specific value based on the current progress of the
-             reaction process.
-    * @param pH_at_XY - The pH can also be measured at a variably chosen time point
-    * @param time_at_XY - Specification of the exact time point
-    * @param time_unit - Common units for specifying time can be s (seconds) or min (minutes).
-    * @param detected_when - Specification whether all components of the reaction solution
-             were already present or if some were added after the
-             measurement at the timepoint of the pH measurement.
-    * @param detected_how - The pH value of a reaction can be determined in various ways, such as
-             using a pH meter, pH paper, titration, electrochemical
-             sensors, or other methods.
-    * @param temperature - The temperature at the time of pH measurement.
-    * @param temperature_unit - The temperature can be specified in units such as K, °C, or °F.
-    * @param calibration_pH_electrode - Usually, a pH electrode is calibrated using standard buffers at 20-25
-             °C. If the conditions in the reaction mixture differ from
-             this, it should be specified. (
-    * @param pH_gradient_beginning - The initial pH from which the pH gradient begins. (
-    * @param pH_gradient_end - The target pH reached after the pH gradient is applied. (
-    * @param gradient_length - The distance or time span over which the pH gradient is applied. (
-    * @param gradient_length_unit - The gradient length can be specified either as the physical distance
-             (e.g. in meters) or as the time span (e.g. in minutes). (
-    * @param measurement_points - Information about the locations or time points where pH measurements
-             are taken to monitor the gradient. This can be important
-             to ensure that the gradient behaves as intended. (
-    * @param special_treatment - If there are any other specific methods, procedures, characteristics
-             or aspects related to the pH value that are important
-             for reproducibility and are not described by the
-             aforementioned metadata, they should be explained here.
-**/
-export interface DynamicpH_TFCR extends JsonLd {
-  pH_beginning: number;
-  pH_after_event: number;
-  event_description: string;
-  pH_at_XY: number;
-  time_at_XY: number;
-  time_unit: string;
-  detected_when: string;
-  detected_how: string;
-  temperature: number;
-  temperature_unit: string;
-  calibration_pH_electrode: string;
-  pH_gradient_beginning: number;
-  pH_gradient_end: number;
-  gradient_length: number;
-  gradient_length_unit: string;
-  measurement_points: string;
-  special_treatment: string;
+export enum ProfileType {
+  CONSTANT = 'constant',
+  EVENT_BASED = 'event_based',
+  GRADIENT = 'gradient',
+  MULTIPOINT = 'multipoint',
 }
 
-export const DynamicpH_TFCRCodec = D.lazy("DynamicpH_TFCR", () => D.struct({
-    pH_beginning: D.number,
-    pH_after_event: D.number,
-    event_description: D.string,
-    pH_at_XY: D.number,
-    time_at_XY: D.number,
-    time_unit: D.string,
-    detected_when: D.string,
-    detected_how: D.string,
-    temperature: D.number,
-    temperature_unit: D.string,
-    calibration_pH_electrode: D.string,
-    pH_gradient_beginning: D.number,
-    pH_gradient_end: D.number,
-    gradient_length: D.number,
-    gradient_length_unit: D.string,
-    measurement_points: D.string,
-    special_treatment: D.string,
-}));
+export const ProfileTypeCodec = D.union(
+  D.literal(ProfileType.CONSTANT),
+  D.literal(ProfileType.EVENT_BASED),
+  D.literal(ProfileType.GRADIENT),
+  D.literal(ProfileType.MULTIPOINT),
+);
+
+export enum FormulationType {
+  DISSOLVED = 'dissolved',
+  GAS = 'gas',
+  LIQUID = 'liquid',
+  OTHER = 'other',
+  POWDER = 'powder',
+  SOLUTION = 'solution',
+}
+
+export const FormulationTypeCodec = D.union(
+  D.literal(FormulationType.DISSOLVED),
+  D.literal(FormulationType.GAS),
+  D.literal(FormulationType.LIQUID),
+  D.literal(FormulationType.OTHER),
+  D.literal(FormulationType.POWDER),
+  D.literal(FormulationType.SOLUTION),
+);
+
+export enum PhaseType {
+  GAS = 'gas',
+  LIQUID = 'liquid',
+  MIXED = 'mixed',
+  OTHER = 'other',
+  SOLID = 'solid',
+}
+
+export const PhaseTypeCodec = D.union(
+  D.literal(PhaseType.GAS),
+  D.literal(PhaseType.LIQUID),
+  D.literal(PhaseType.MIXED),
+  D.literal(PhaseType.OTHER),
+  D.literal(PhaseType.SOLID),
+);
+
+export enum ReactorType {
+  OTHER = 'other',
+  TUBULAR_FLOW = 'tubular_flow',
+  WELL_MIXED = 'well_mixed',
+}
+
+export const ReactorTypeCodec = D.union(
+  D.literal(ReactorType.OTHER),
+  D.literal(ReactorType.TUBULAR_FLOW),
+  D.literal(ReactorType.WELL_MIXED),
+);

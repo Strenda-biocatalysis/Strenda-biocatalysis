@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "BiocatalystIdentity",
+  "type": "object",
+  "description": "Core identifying information and molecular characteristics of the biocatalyst enzyme.",
+  "properties": {
+    "catalyzed_reaction": {
+      "title": "catalyzed_reaction",
+      "type": "array",
+      "description": "Description of the specific reaction or type of reaction catalyzed by this enzyme.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ec_number": {
+      "title": "ec_number",
+      "type": "array",
+      "description": "The Enzyme Commission (EC) number that classifies the enzyme according to the reaction it catalyzes.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "molecular_weight": {
+      "title": "molecular_weight",
+      "type": "number",
+      "description": "The molecular weight of the enzyme in the specified units.",
+      "minimum": 0.0
+    },
+    "molecular_weight_unit": {
+      "title": "molecular_weight_unit",
+      "type": "string",
+      "description": "The unit of measurement for the molecular weight (e.g., kDa, Da).",
+      "$ref": "#/$defs/MolecularWeightUnit"
+    },
+    "name": {
+      "title": "name",
+      "type": "string",
+      "description": "The name of the biocatalyst, which can be the trivial name, systematic name, or trade name."
+    },
+    "origin_organism": {
+      "title": "origin_organism",
+      "type": "string",
+      "description": "The organism from which the enzyme was originally derived or isolated."
+    },
+    "posttranslational_modification": {
+      "title": "posttranslational_modification",
+      "type": "array",
+      "description": "Any post-translational modifications present on the enzyme that may affect its activity or properties.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "production_organism": {
+      "title": "production_organism",
+      "type": "string",
+      "description": "The organism used to produce the enzyme (may differ from origin organism for recombinant enzymes)."
+    },
+    "sequences": {
+      "title": "sequences",
+      "type": "object",
+      "description": "Amino acid and/or DNA sequence information for the enzyme.",
+      "$ref": "#/$defs/SequenceInfo"
+    }
+  },
+  "$defs": {
+    "MolecularWeightUnit": {
+      "title": "MolecularWeightUnit",
+      "type": "string",
+      "enum": [
+        "Da",
+        "kDa",
+        "other"
+      ]
+    },
+    "SequenceInfo": {
+      "title": "SequenceInfo",
+      "type": "object",
+      "description": "Sequence information for the biocatalyst at both the protein and nucleic acid levels.",
+      "properties": {
+        "sequence_amino_acid": {
+          "title": "sequence_amino_acid",
+          "type": "array",
+          "description": "The amino acid sequence of the enzyme in single-letter code format.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sequence_dna": {
+          "title": "sequence_dna",
+          "type": "array",
+          "description": "The DNA sequence encoding the enzyme.",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "additionalProperties": false
+}

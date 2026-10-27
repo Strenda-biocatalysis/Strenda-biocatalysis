@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "TemperatureProfile",
+  "type": "object",
+  "description": "Specification of temperature conditions throughout the biocatalytic reaction, which can follow various patterns depending on the reaction requirements.",
+  "properties": {
+    "constant_temperature": {
+      "title": "constant_temperature",
+      "type": "number",
+      "description": "Temperature value for constant temperature profiles.",
+      "minimum": 0.0
+    },
+    "gradient": {
+      "title": "gradient",
+      "type": "object",
+      "description": "Gradient specifications for temperature ramp profiles.",
+      "$ref": "#/$defs/Gradient"
+    },
+    "notes": {
+      "title": "notes",
+      "type": "string",
+      "description": "Additional notes about the temperature profile."
+    },
+    "profile_points": {
+      "title": "profile_points",
+      "type": "array",
+      "description": "Series of temperature points for event-based or multipoint profiles.",
+      "items": {
+        "$ref": "#/$defs/ProfilePoint"
+      }
+    },
+    "profile_type": {
+      "title": "profile_type",
+      "type": "string",
+      "description": "Type of temperature profile used (constant, event-based, multipoint, or gradient).",
+      "$ref": "#/$defs/ProfileType"
+    },
+    "temperature_unit": {
+      "title": "temperature_unit",
+      "type": "string",
+      "description": "Unit of measurement for temperature values."
+    }
+  },
+  "$defs": {
+    "Gradient": {
+      "title": "Gradient",
+      "type": "object",
+      "description": "Specification for temperature gradient profiles where temperature changes linearly over time or distance.",
+      "properties": {
+        "end_value": {
+          "title": "end_value",
+          "type": "number",
+          "description": "Final temperature value at the end of the gradient."
+        },
+        "length": {
+          "title": "length",
+          "type": "number",
+          "description": "Duration or distance over which the gradient is applied."
+        },
+        "length_unit": {
+          "title": "length_unit",
+          "type": "string",
+          "description": "Unit of measurement for the gradient length (time or distance)."
+        },
+        "measurement_points": {
+          "title": "measurement_points",
+          "type": "string",
+          "description": "Description of how temperature is measured along the gradient."
+        },
+        "start_value": {
+          "title": "start_value",
+          "type": "number",
+          "description": "Initial temperature value at the beginning of the gradient."
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "ProfilePoint": {
+      "title": "ProfilePoint",
+      "type": "object",
+      "description": "Individual temperature measurement point in time-based temperature profiles.",
+      "properties": {
+        "event_description": {
+          "title": "event_description",
+          "type": "string",
+          "description": "Description of any specific event associated with this temperature point."
+        },
+        "time": {
+          "title": "time",
+          "type": "number",
+          "description": "Time at which this temperature is measured or set.",
+          "minimum": 0.0
+        },
+        "time_unit": {
+          "title": "time_unit",
+          "type": "string",
+          "description": "Unit of measurement for the time value."
+        },
+        "value": {
+          "title": "value",
+          "type": "number",
+          "description": "Temperature value at this point.",
+          "minimum": 0.0
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "ProfileType": {
+      "title": "ProfileType",
+      "type": "string",
+      "enum": [
+        "constant",
+        "event_based",
+        "gradient",
+        "multipoint"
+      ]
+    }
+  },
+  "required": [
+    "profile_type"
+  ],
+  "additionalProperties": false
+}

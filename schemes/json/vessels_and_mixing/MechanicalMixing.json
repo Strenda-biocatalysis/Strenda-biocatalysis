@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "MechanicalMixing",
+  "type": "object",
+  "description": "Parameters for mechanical stirring and agitation systems.",
+  "properties": {
+    "blade_pitch_angle": {
+      "title": "blade_pitch_angle",
+      "type": "number",
+      "description": "Angle of the stirrer blades relative to the horizontal plane."
+    },
+    "blade_size": {
+      "title": "blade_size",
+      "type": "number",
+      "description": "Dimensions or size of the stirrer blades."
+    },
+    "height_above_base": {
+      "title": "height_above_base",
+      "type": "number",
+      "description": "Distance of the stirrer from the bottom of the vessel."
+    },
+    "notes": {
+      "title": "notes",
+      "type": "string",
+      "description": "Additional notes about the mechanical mixing setup."
+    },
+    "number_of_stirrers": {
+      "title": "number_of_stirrers",
+      "type": "integer",
+      "description": "Number of stirrers or impellers used in the system."
+    },
+    "power_per_volume": {
+      "title": "power_per_volume",
+      "type": "number",
+      "description": "Power input per unit volume of the reaction mixture."
+    },
+    "stir_bar": {
+      "title": "stir_bar",
+      "type": "object",
+      "description": "Magnetic stir bar specifications for magnetic stirring systems.",
+      "$ref": "#/$defs/StirBar"
+    },
+    "stirrer_geometry": {
+      "title": "stirrer_geometry",
+      "type": "string",
+      "description": "Geometric design and shape of the stirrer or impeller."
+    },
+    "stirrer_material": {
+      "title": "stirrer_material",
+      "type": "string",
+      "description": "Material composition of the stirrer or impeller."
+    },
+    "stirrer_speed": {
+      "title": "stirrer_speed",
+      "type": "number",
+      "description": "Rotational speed of the stirrer or impeller."
+    },
+    "stirring_type": {
+      "title": "stirring_type",
+      "type": "string",
+      "description": "Type of mechanical stirring (e.g., overhead, magnetic, impeller)."
+    },
+    "supplier": {
+      "title": "supplier",
+      "type": "string",
+      "description": "Manufacturer or supplier of the stirring equipment."
+    }
+  },
+  "$defs": {
+    "StirBar": {
+      "title": "StirBar",
+      "type": "object",
+      "description": "Magnetic stir bar specifications for magnetic stirring systems.",
+      "properties": {
+        "shape": {
+          "title": "shape",
+          "type": "string",
+          "description": "Shape of the stir bar (e.g., cylindrical, octagonal, cross-shaped)."
+        },
+        "size": {
+          "title": "size",
+          "type": "number",
+          "description": "Length and diameter of the magnetic stir bar."
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

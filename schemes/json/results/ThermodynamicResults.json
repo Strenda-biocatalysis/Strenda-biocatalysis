@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "ThermodynamicResults",
+  "type": "object",
+  "description": "Thermodynamic parameters characterizing the energetics of the enzymatic reaction.",
+  "properties": {
+    "enthalpy_change": {
+      "title": "enthalpy_change",
+      "type": "string",
+      "description": "Enthalpy change (ΔH) for the reaction."
+    },
+    "entropy_change": {
+      "title": "entropy_change",
+      "type": "string",
+      "description": "Entropy change (ΔS) for the reaction."
+    },
+    "gibbs_free_energy_change": {
+      "title": "gibbs_free_energy_change",
+      "type": "string",
+      "description": "Gibbs free energy change (ΔG) for the reaction."
+    },
+    "notes": {
+      "title": "notes",
+      "type": "string",
+      "description": "Additional notes about thermodynamic measurements."
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

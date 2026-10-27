@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "BiocatalystSource",
+  "type": "object",
+  "description": "Information about the source and procurement of the biocatalyst.",
+  "properties": {
+    "purchased_details": {
+      "title": "purchased_details",
+      "type": "object",
+      "description": "Specific details relevant to commercially purchased biocatalysts.",
+      "$ref": "#/$defs/PurchasedDetails"
+    },
+    "self_produced_details": {
+      "title": "self_produced_details",
+      "type": "object",
+      "description": "Specific details relevant to biocatalysts produced in-house.",
+      "$ref": "#/$defs/SelfProducedDetails"
+    },
+    "source_type": {
+      "title": "source_type",
+      "type": "string",
+      "description": "Whether the biocatalyst was purchased from a supplier or produced in-house.",
+      "$ref": "#/$defs/BiocatalystSourceType"
+    },
+    "supplier": {
+      "title": "supplier",
+      "type": "string",
+      "description": "Name of the commercial supplier or source of the biocatalyst."
+    }
+  },
+  "$defs": {
+    "BiocatalystSourceType": {
+      "title": "BiocatalystSourceType",
+      "type": "string",
+      "enum": [
+        "purchased",
+        "self_produced"
+      ]
+    },
+    "FormulationType": {
+      "title": "FormulationType",
+      "type": "string",
+      "enum": [
+        "dissolved",
+        "gas",
+        "liquid",
+        "other",
+        "powder",
+        "solution"
+      ]
+    },
+    "PurchasedDetails": {
+      "title": "PurchasedDetails",
+      "type": "object",
+      "description": "Detailed information for commercially purchased biocatalysts.",
+      "properties": {
+        "formulation": {
+          "title": "formulation",
+          "type": "string",
+          "description": "Physical form of the purchased biocatalyst (dissolved, powder, etc.).",
+          "$ref": "#/$defs/FormulationType"
+        },
+        "purity": {
+          "title": "purity",
+          "type": "number",
+          "description": "Purity of the purchased biocatalyst as specified by the supplier, typically as a percentage."
+        },
+        "purity_specification": {
+          "title": "purity_specification",
+          "type": "string",
+          "description": "Method or specification used to determine the purity (e.g., SDS-PAGE, activity assay)."
+        },
+        "reference": {
+          "title": "reference",
+          "type": "string",
+          "description": "Product code, catalog number, or other reference identifier from the supplier."
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "SelfProducedDetails": {
+      "title": "SelfProducedDetails",
+      "type": "object",
+      "description": "Detailed information for biocatalysts produced in-house.",
+      "properties": {
+        "formulation": {
+          "title": "formulation",
+          "type": "string",
+          "description": "Physical form of the self-produced biocatalyst after purification and processing.",
+          "$ref": "#/$defs/FormulationType"
+        },
+        "plasmid_specifications": {
+          "title": "plasmid_specifications",
+          "type": "array",
+          "description": "Details about the plasmid construction, including vector backbone, promoter, and other relevant features.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "purification_method": {
+          "title": "purification_method",
+          "type": "array",
+          "description": "Method(s) used to purify the enzyme after expression.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "purity": {
+          "title": "purity",
+          "type": "number",
+          "description": "Achieved purity of the self-produced biocatalyst, typically as a percentage."
+        },
+        "purity_specification": {
+          "title": "purity_specification",
+          "type": "string",
+          "description": "Method used to determine the purity of the self-produced enzyme."
+        },
+        "sequence_plasmid": {
+          "title": "sequence_plasmid",
+          "type": "array",
+          "description": "Sequence of the plasmid used for enzyme expression.",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "source_type"
+  ],
+  "additionalProperties": false
+}

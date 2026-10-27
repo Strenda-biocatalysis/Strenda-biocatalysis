@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "Closure",
+  "type": "object",
+  "description": "Sealing and closure system for reaction vessels.",
+  "properties": {
+    "closure_type": {
+      "title": "closure_type",
+      "type": "string",
+      "description": "Type of closure mechanism (e.g., screw cap, septum, crimp cap)."
+    },
+    "notes": {
+      "title": "notes",
+      "type": "string",
+      "description": "Additional notes about the closure system."
+    },
+    "sealing_material": {
+      "title": "sealing_material",
+      "type": "string",
+      "description": "Material used for sealing (e.g., PTFE, silicone, rubber)."
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

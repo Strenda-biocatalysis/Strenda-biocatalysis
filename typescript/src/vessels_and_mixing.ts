@@ -21,438 +21,410 @@ export interface JsonLd {
   '@type'?: string;
 }
 
-// Vessels and mixing Type definitions
+// Vessels and Mixing Specification Type definitions
 /**
-    Vials are sealable containers available in various sizes and
-    materials, playing a crucial role in sample storage and handling,
-    as well as serving as reaction vessels.Plate
+    Specification of the vessel and mixing configuration for conducting
+    biocatalytic reactions.
 
-    * @param vial_size - The vial's size, which can be its volume or its dimensions.
-    * @param vial_size_unit - For describing the vial size, you can use mL (milliliters) as the
-             unit when referring to volume or cm (centimeters) when
-             referring to dimensions.
-    * @param vial_material - Specify the material of the vial, such as glass or plastic, as it can
-             influence the reaction.
-    * @param closure_type - Indicate the type of closure or stopper used for the vial, as it
-             affects sealing and the course of the reaction. If no
-             closure or seal was used for the vial, this should be
-             noted as well.
-    * @param special_treatment - If there are any other specific methods, procedures, characteristics
-             or aspects related to the vial or its preparation for the
-             reaction that are important for reproducibility and are
-             not described by the aforementioned metadata, they should
-             be explained here.
+    * @param vessel - Physical container or reactor used for the enzymatic reaction.
+    * @param mixing - Mixing system and parameters employed during the reaction.
+    * @param notes - Additional notes or comments about the vessel and mixing setup.
 **/
-export interface Vial extends JsonLd {
-  vial_size: number;
-  vial_size_unit: string;
-  vial_material: string;
-  closure_type: string;
-  special_treatment: string;
+export interface VesselAndMixing extends JsonLd {
+  vessel: Vessel;
+  mixing?: Mixing | null;
+  notes?: string | null;
 }
 
-export const VialCodec = D.lazy("Vial", () => D.struct({
-    vial_size: D.number,
-    vial_size_unit: D.string,
-    vial_material: D.string,
-    closure_type: D.string,
-    special_treatment: D.string,
+export const VesselAndMixingCodec = D.lazy("VesselAndMixing", () => D.struct({
+    vessel: VesselCodec,
+    mixing: D.nullable(MixingCodec),
+    notes: D.nullable(D.string),
 }));
 
 
 /**
-    It's crucial to provide detailed information about the plate type,
-    material, well configuration, and other relevant specifications
-    to ensure reproducibility and accuracy of the experimental
-    setup.Stirred Tank Reactor
+    Physical container or reactor specification for enzymatic reactions.
 
-    * @param plate_type - The type of plate, such as microtiter plate, deep-well plate, or
-             others.
-    * @param plate_material - The material from which the plate is made, such as plastic
-             (polystyrene), glass, or metal.
-    * @param number_of_wells - The total number of wells or cavities in the plate.
-    * @param well_shape
-    * @param well_volume - The volume of each well is, usually expressed in µL (microliters).
-    * @param well_arrangement - The arrangement of the wells in the plate, for example, in rows and
-             columns.
-    * @param supplier - Information about the supplier from which the plate was purchased.
-    * @param lot_number - The lot number, also known as a batch number or code, is a unique
-             identifier assigned to a specific batch of a product.
-             This makes it possible to check or track information
-             on production.
-    * @param sealing_method - Indicate if the wells were sealed with a sealing film or lid. (
-    * @param sealing_material - The material of the sealing film or lid. (
-    * @param special_treatment - If there are any other specific methods, procedures, characteristics
-             or aspects related to the plate or its preparation for
-             the reaction that are important for reproducibility and
-             are not described by the aforementioned metadata, they
-             should be explained here.
+    * @param vessel_type - Type of vessel or reactor configuration used for the reaction.
+    * @param material - Material composition of the vessel (e.g., glass, plastic, stainless
+             steel).
+    * @param size - Volume or capacity of the vessel.
+    * @param size_unit - Unit of measurement for the size.
+    * @param geometry - Geometric shape and dimensions of the vessel.
+    * @param closure - Sealing and closure system for the vessel.
+    * @param supplier - Manufacturer or supplier of the vessel.
+    * @param lot_number - Batch or lot number for traceability.
+    * @param reactor_specifics - Additional reactor-specific configurations and features.
+    * @param notes - Additional notes about the vessel specifications.
 **/
-export interface Plate extends JsonLd {
-  plate_type: string;
-  plate_material: string;
-  number_of_wells: string;
-  well_shape: string;
-  well_volume: string;
-  well_arrangement: string;
-  supplier: string;
-  lot_number: number;
-  sealing_method: string;
-  sealing_material: string;
-  special_treatment: string;
+export interface Vessel extends JsonLd {
+  vessel_type: VesselType;
+  material?: string | null;
+  size?: number | null;
+  size_unit?: string | null;
+  geometry?: string | null;
+  closure?: Closure | null;
+  supplier?: string | null;
+  lot_number?: string | null;
+  reactor_specifics?: ReactorSpecifics | null;
+  notes?: string | null;
 }
 
-export const PlateCodec = D.lazy("Plate", () => D.struct({
-    plate_type: D.string,
-    plate_material: D.string,
-    number_of_wells: D.string,
-    well_shape: D.string,
-    well_volume: D.string,
-    well_arrangement: D.string,
-    supplier: D.string,
-    lot_number: D.number,
-    sealing_method: D.string,
-    sealing_material: D.string,
-    special_treatment: D.string,
+export const VesselCodec = D.lazy("Vessel", () => D.struct({
+    vessel_type: VesselTypeCodec,
+    material: D.nullable(D.string),
+    size: D.nullable(D.number),
+    size_unit: D.nullable(D.string),
+    geometry: D.nullable(D.string),
+    closure: D.nullable(ClosureCodec),
+    supplier: D.nullable(D.string),
+    lot_number: D.nullable(D.string),
+    reactor_specifics: D.nullable(ReactorSpecificsCodec),
+    notes: D.nullable(D.string),
 }));
 
 
 /**
-    Stirred Tank Reactors (STRs) are frequently employed as versatile
-    and controlled vessels, allowing for precise regulation of key
-    parameters like temperature, pH, and stirring speed. All relevant
-    specifications or attributes need to be described.Tubular flow/
-    continuous reactor
+    Sealing and closure system for reaction vessels.
 
-    * @param type - There are several types of Stirred Tank Reactors, differing in design
-             and intended use. A detailed description is required.
-    * @param material - Material the reactor is made of, e.g. glass, polypropylene etc.
-    * @param volume - Indicate the total volume capacity of the Stirred Tank Reactor.
-    * @param volume_unit - The volume is typically expressed in L (liters).
-    * @param geometry - The geometry of the reactor, in particular of interest is the ratio of
-             height to width.
-    * @param bottom_type - Shape of the bottom of the reactor, e.g. a round bottom or a flat
-             bottom.
-    * @param gas_consumption - Common gases that are supplied to the reactor include, e.g., air,
-             oxygen, hydrogen, etc.
-    * @param gas_supply - Gas can be supplied to a Stirred Tank Reactor in various ways, such
-             as through sparging using a tube or an aeration basket,
-             bubbling, or direct injection into the reactor vessel.
-    * @param gas_supply_rate - Specification of the gas supply rate.
-    * @param gas_supply_rate_unit - The units for the gas supply rate in a Stirred Tank Reactor can be L/
-             min (liters per minute), m³/h (cubic meters per hour), or
-             other volume units per unit of time.
-    * @param temperature_control - The temperature in a Stirred Tank Reactor can be controlled through
-             various methods, typically using external heat sources or
-             cooling systems such as heating jackets, cooling coils,
-             or external temperature control units.
-    * @param special_treatment - If there are any other specific methods, procedures, characteristics
-             or aspects related to the Stirred Tank Reactor or
-             its preparation for the reaction that are important
-             for reproducibility and are not described by the
-             aforementioned metadata, they should be explained here.
+    * @param closure_type - Type of closure mechanism (e.g., screw cap, septum, crimp cap).
+    * @param sealing_material - Material used for sealing (e.g., PTFE, silicone, rubber).
+    * @param notes - Additional notes about the closure system.
 **/
-export interface StirredTankReactor extends JsonLd {
-  type: string;
-  material: string;
-  volume: number;
-  volume_unit: string;
-  geometry: string;
-  bottom_type: string;
-  gas_consumption: string;
-  gas_supply: string;
-  gas_supply_rate: number;
-  gas_supply_rate_unit: string;
-  temperature_control: string;
-  special_treatment: string;
+export interface Closure extends JsonLd {
+  closure_type?: string | null;
+  sealing_material?: string | null;
+  notes?: string | null;
 }
 
-export const StirredTankReactorCodec = D.lazy("StirredTankReactor", () => D.struct({
-    type: D.string,
-    material: D.string,
-    volume: D.number,
-    volume_unit: D.string,
-    geometry: D.string,
-    bottom_type: D.string,
-    gas_consumption: D.string,
-    gas_supply: D.string,
-    gas_supply_rate: D.number,
-    gas_supply_rate_unit: D.string,
-    temperature_control: D.string,
-    special_treatment: D.string,
+export const ClosureCodec = D.lazy("Closure", () => D.struct({
+    closure_type: D.nullable(D.string),
+    sealing_material: D.nullable(D.string),
+    notes: D.nullable(D.string),
 }));
 
 
 /**
-    When conducting enzymatic reactions in tubular flow or continuous
-    reactors, it is essential to provide detailed information
-    about the reactor setup, e.g. plug flow reactor, and operating
-    conditions to ensure reproducibility and transparency in reporting
-    the experimental process.
+    Specialized reactor configurations and operational features.
 
-    * @param volume - Indicate the total volume capacity of the tubular flow/continuous
-             reactor.
-    * @param volume_unit - The volume is typically expressed in L (liters).
-    * @param geometry - The exact geometry of the tubular flow/continuous reactor.
-    * @param reactor_type - There are several types of tubular flow/continuous reactors, e.g.
-             packed bed reactor, or a plug flow reactor, differing
-             in design and intended use. A detailed description is
-             required.
-    * @param material - Material the reactor is made of, e.g. glass, stainless steel or other
-             materials.
-    * @param tubing - When using tubing in a tubular flow/continuous reactor, various pieces
-             of information can be provided, such as tubing material,
-             diameter, length, connections, etc.
-    * @param localisation_of_the_catalyst - Specify the exact location of the catalyst in the tubular flow/
-             continuous reactor. The biocatalyst is typically present
-             in the liquid phase or immobilized on a support matrix
-             (such as particles or membranes).
-    * @param special_treatment - If there are any other specific methods, procedures, characteristics
-             or aspects related to the tubular flow/continuous reactor
-             or its preparation for the reaction that are important
-             for reproducibility and are not described by the
-             aforementioned metadata, they should be explained here.
+    * @param gas_handling - Gas supply and handling system for the reactor.
+    * @param tubing - Tubing specifications and connections used in the reactor setup.
+    * @param catalyst_localisation - Method or system for localizing or immobilizing the catalyst within
+             the reactor.
+    * @param temperature_control - Temperature control and regulation system employed.
 **/
-export interface TubularFlowContinuousReactor extends JsonLd {
-  volume: number;
-  volume_unit: string;
-  geometry: string;
-  reactor_type: string;
-  material: string;
-  tubing: string;
-  localisation_of_the_catalyst: string;
-  special_treatment: string;
+export interface ReactorSpecifics extends JsonLd {
+  gas_handling?: GasHandling | null;
+  tubing?: string | null;
+  catalyst_localisation?: string | null;
+  temperature_control?: string | null;
 }
 
-export const TubularFlowContinuousReactorCodec = D.lazy("TubularFlowContinuousReactor", () => D.struct({
-    volume: D.number,
-    volume_unit: D.string,
-    geometry: D.string,
-    reactor_type: D.string,
-    material: D.string,
-    tubing: D.string,
-    localisation_of_the_catalyst: D.string,
-    special_treatment: D.string,
+export const ReactorSpecificsCodec = D.lazy("ReactorSpecifics", () => D.struct({
+    gas_handling: D.nullable(GasHandlingCodec),
+    tubing: D.nullable(D.string),
+    catalyst_localisation: D.nullable(D.string),
+    temperature_control: D.nullable(D.string),
 }));
 
 
 /**
-    Shaking is an essential method for ensuring uniform mixing and,
-    consequently, recording relevant metadata is crucial for
-    maintaining consistent reaction conditions.Mechanically impelled
-    mixing (stirring)
+    Gas supply and handling system for reactor operations.
 
-    * @param shaking_type - The type of shaking used to mix the reaction (e.g., horizontal,
-             vertical, back-and-forth or circulatory).
-    * @param deflection - Information about the extent of deflection or bending of the agitator
-             from its original position of the horizontal shaking
+    * @param gas_type - Type of gas used (e.g., nitrogen, oxygen, argon, air).
+    * @param supply_method - Method of gas supply (e.g., continuous flow, headspace purging,
+             bubbling).
+    * @param supply_rate - Rate of gas supply or flow into the reactor.
+**/
+export interface GasHandling extends JsonLd {
+  gas_type?: string | null;
+  supply_method?: string | null;
+  supply_rate?: number | null;
+}
+
+export const GasHandlingCodec = D.lazy("GasHandling", () => D.struct({
+    gas_type: D.nullable(D.string),
+    supply_method: D.nullable(D.string),
+    supply_rate: D.nullable(D.number),
+}));
+
+
+/**
+    Mixing system and parameters for ensuring proper mass transfer and
+    reaction homogeneity.
+
+    * @param mixing_type - Primary type of mixing employed in the reaction system.
+    * @param shaking - Shaking-based mixing parameters and configuration.
+    * @param mechanical - Mechanical stirring parameters and equipment specifications.
+    * @param fluid - Fluid-driven mixing parameters for flow-based systems.
+    * @param notes - Additional notes about the mixing strategy and implementation.
+**/
+export interface Mixing extends JsonLd {
+  mixing_type: MixingType;
+  shaking?: ShakingMixing | null;
+  mechanical?: MechanicalMixing | null;
+  fluid?: FluidImpelledMixing | null;
+  notes?: string | null;
+}
+
+export const MixingCodec = D.lazy("Mixing", () => D.struct({
+    mixing_type: MixingTypeCodec,
+    shaking: D.nullable(ShakingMixingCodec),
+    mechanical: D.nullable(MechanicalMixingCodec),
+    fluid: D.nullable(FluidImpelledMixingCodec),
+    notes: D.nullable(D.string),
+}));
+
+
+/**
+    Parameters for shaking-based mixing systems.
+
+    * @param shaking_type - Type of shaking motion (e.g., orbital, linear, reciprocal).
+    * @param deflection - Amplitude or deflection distance of the shaking motion.
+    * @param speed - Frequency or speed of the shaking motion.
+    * @param vessel_position - Orientation or position of the vessel during shaking.
+    * @param notes - Additional notes about the shaking mixing setup.
+**/
+export interface ShakingMixing extends JsonLd {
+  shaking_type?: string | null;
+  deflection?: number | null;
+  speed?: number | null;
+  vessel_position?: string | null;
+  notes?: string | null;
+}
+
+export const ShakingMixingCodec = D.lazy("ShakingMixing", () => D.struct({
+    shaking_type: D.nullable(D.string),
+    deflection: D.nullable(D.number),
+    speed: D.nullable(D.number),
+    vessel_position: D.nullable(D.string),
+    notes: D.nullable(D.string),
+}));
+
+
+/**
+    Parameters for mechanical stirring and agitation systems.
+
+    * @param stirring_type - Type of mechanical stirring (e.g., overhead, magnetic, impeller).
+    * @param stirrer_material - Material composition of the stirrer or impeller.
+    * @param supplier - Manufacturer or supplier of the stirring equipment.
+    * @param number_of_stirrers - Number of stirrers or impellers used in the system.
+    * @param stirrer_geometry - Geometric design and shape of the stirrer or impeller.
+    * @param blade_pitch_angle - Angle of the stirrer blades relative to the horizontal plane.
+    * @param blade_size - Dimensions or size of the stirrer blades.
+    * @param stirrer_speed - Rotational speed of the stirrer or impeller.
+    * @param height_above_base - Distance of the stirrer from the bottom of the vessel.
+    * @param power_per_volume - Power input per unit volume of the reaction mixture.
+    * @param stir_bar - Magnetic stir bar specifications for magnetic stirring systems.
+    * @param notes - Additional notes about the mechanical mixing setup.
+**/
+export interface MechanicalMixing extends JsonLd {
+  stirring_type?: string | null;
+  stirrer_material?: string | null;
+  supplier?: string | null;
+  number_of_stirrers?: number | null;
+  stirrer_geometry?: string | null;
+  blade_pitch_angle?: number | null;
+  blade_size?: number | null;
+  stirrer_speed?: number | null;
+  height_above_base?: number | null;
+  power_per_volume?: number | null;
+  stir_bar?: StirBar | null;
+  notes?: string | null;
+}
+
+export const MechanicalMixingCodec = D.lazy("MechanicalMixing", () => D.struct({
+    stirring_type: D.nullable(D.string),
+    stirrer_material: D.nullable(D.string),
+    supplier: D.nullable(D.string),
+    number_of_stirrers: D.nullable(D.number),
+    stirrer_geometry: D.nullable(D.string),
+    blade_pitch_angle: D.nullable(D.number),
+    blade_size: D.nullable(D.number),
+    stirrer_speed: D.nullable(D.number),
+    height_above_base: D.nullable(D.number),
+    power_per_volume: D.nullable(D.number),
+    stir_bar: D.nullable(StirBarCodec),
+    notes: D.nullable(D.string),
+}));
+
+
+/**
+    Magnetic stir bar specifications for magnetic stirring systems.
+
+    * @param size - Length and diameter of the magnetic stir bar.
+    * @param shape - Shape of the stir bar (e.g., cylindrical, octagonal, cross-shaped).
+**/
+export interface StirBar extends JsonLd {
+  size?: number | null;
+  shape?: string | null;
+}
+
+export const StirBarCodec = D.lazy("StirBar", () => D.struct({
+    size: D.nullable(D.number),
+    shape: D.nullable(D.string),
+}));
+
+
+/**
+    Parameters for fluid-driven mixing in flow-based reactor systems.
+
+    * @param phase_volume_description - Description of phase volumes and their distribution in the flow
              system.
-    * @param deflection_unit - Units such as mm (millimeters) or μm (micrometers) could be used to
-             describe deflection in relation to the movement of the
-             shaking system.
-    * @param speed - Specify the speed or frequency at which the shaking was conducted.
-    * @param speed_unit - The shaking speed or frequency could be expressed in units such as rpm
-             (rounds per minute) or Hz (cycles per second).
-    * @param position - Information regarding the orientation of the vessel in the shaking
-             system relative to deflection.
-    * @param special_treatment - If there are any other specific methods, procedures, characteristics
-             or aspects related to the shaking that are important
-             for reproducibility and are not described by the
-             aforementioned metadata, they should be explained here.
+    * @param residence_time - Average residence time of the fluid in the mixing zone.
+    * @param reynolds_number - Reynolds number characterizing the flow regime and mixing intensity.
+    * @param passive_mixing - Description of passive mixing elements or structures used.
+    * @param active_mixer - Description of active mixing devices or mechanisms employed.
+    * @param pulsing - Pulsing or oscillatory flow patterns used to enhance mixing.
+    * @param notes - Additional notes about the fluid-impelled mixing system.
 **/
-export interface Shaking extends JsonLd {
-  shaking_type: string;
-  deflection: number;
-  deflection_unit: string;
-  speed: number;
-  speed_unit: string;
-  position: string;
-  special_treatment: string;
+export interface FluidImpelledMixing extends JsonLd {
+  phase_volume_description?: string | null;
+  residence_time?: number | null;
+  reynolds_number?: string | null;
+  passive_mixing?: string | null;
+  active_mixer?: string | null;
+  pulsing?: string | null;
+  notes?: string | null;
 }
 
-export const ShakingCodec = D.lazy("Shaking", () => D.struct({
-    shaking_type: D.string,
-    deflection: D.number,
-    deflection_unit: D.string,
-    speed: D.number,
-    speed_unit: D.string,
-    position: D.string,
-    special_treatment: D.string,
+export const FluidImpelledMixingCodec = D.lazy("FluidImpelledMixing", () => D.struct({
+    phase_volume_description: D.nullable(D.string),
+    residence_time: D.nullable(D.number),
+    reynolds_number: D.nullable(D.string),
+    passive_mixing: D.nullable(D.string),
+    active_mixer: D.nullable(D.string),
+    pulsing: D.nullable(D.string),
+    notes: D.nullable(D.string),
 }));
 
 
 /**
-    When utilizing mechanically impelled mixing in enzymatic reactions,
-    it is essential to provide information about the mixing method and
-    related parameters.Liquid or gas impelled mixing
+    Quantitative measurement with value and unit specification.
 
-    * @param stirring_type - There are several types of stirring methods used in laboratory and
-             industrial settings, including magnetic stirring (from
-             vessel bottom), mechanical stirring, overhead stirring
-             and other methods.
-    * @param stirrer_material - The specific composition or nature of the material should be
-             indicated, e.g. whether it is made of magnetic material,
-             a PTFE (polytetrafluoroethylene) coating, stainless steel
-             or other relevant features that determine its structural
-             or functional properties within the experimental setup.
-    * @param supplier - If available, details of the specific designation or manufacturer's
-             name of the stirrer should be provided for precise
-             identification.
-    * @param number_of_stirrers - The number of stirrers available in the system.
-    * @param distance_between_stirrers - Information about the distance, spacing or separation between the
-             stirring rods or impellers within a reaction vessel or
-             container.
-    * @param distance_between_stirrers_unit - The distance between stirrers can be specified in mm (millimeters), cm
-             (centimeters), or m (meters), depending on the size and
-             scale of the stirring system.
-    * @param stirrer_blade_pitch_angle - The pitch angle at which the blades or paddles of a stirring mechanism
-             are positioned relative to the plane of rotation. It's
-             typically expressed in ° (degrees).
-    * @param number_of_stirrer_blades - The number of blades on each stirrer.
-    * @param stirrer_blade_size - The size of the impeller blades in a stirred tank reactor.
-    * @param stirrer_blade_size_unit - In the case of impellers in a stirred tank reactor, the diameter of
-             the impeller blades is typically specified. This diameter
-             can be measured in millimeters (mm) or centimeters (cm).
-    * @param stirrer_geometry - There are various morphologies or geometries, such as radial
-             impellers, axial impellers, helical ribbon impellers,
-             paddle impellers, and more, depending on its design and
-             intended purpose.
-    * @param stirrer_speed - Specify the speed or frequency at which the stirring was conducted.
-    * @param speed_unit - The unit for stirring speed can be expressed in RPM (revolutions
-             per minute), Hz (Hertz), or rad/s (radians per second),
-             depending on the measurement instruments and scientific
-             conventions used.
-    * @param height_of_stirrer_above_vessel_base - The vertical distance between the bottom of the vessel or container
-             (where the reaction takes place) and the lowest point of
-             the stirring element or stirrer, which is usually located
-             just above the vessel base.
-    * @param height_of_stirrer_above_vessel_base_unit - Common units for defining the vertical distance between the bottom of
-             the vessel and the lowest point of the stirrer include:
-             mm (millimeters), cm (centimeters) and m (meters).
-    * @param power_per_volume - The amount of stirring power or energy input into a system per unit
-             volume.
-    * @param power_per_volume_unit - The units commonly used for expressing the stirring power are W/L
-             (watts per liter) or kW/m³ (kilowatts per cubic meter).
-    * @param stir_bar_size
-    * @param stir_bar_size_unit
-    * @param stir_bar_shape - The shape or configuration of the stir bar, whether it's cylindrical,
-             octagonal, oval, or another shape. Different shapes
-             can interact with the reaction mixture differently,
-             influencing mixing patterns and efficiency.
-    * @param special_treatment - If there are any other specific methods, procedures, characteristics
-             or aspects related to the mechanically impelled mixing
-             (stirring) that are important for reproducibility and are
-             not described by the aforementioned metadata, they should
-             be explained here.
+    * @param value - Numerical value of the measurement.
+    * @param unit - Unit of measurement for the value.
 **/
-export interface MechanicallyImpelledMixing extends JsonLd {
-  stirring_type: string;
-  stirrer_material: string;
-  supplier: string;
-  number_of_stirrers: number;
-  distance_between_stirrers: number;
-  distance_between_stirrers_unit: string;
-  stirrer_blade_pitch_angle: number;
-  number_of_stirrer_blades: number;
-  stirrer_blade_size: number;
-  stirrer_blade_size_unit: string;
-  stirrer_geometry: string;
-  stirrer_speed: number;
-  speed_unit: string;
-  height_of_stirrer_above_vessel_base: number;
-  height_of_stirrer_above_vessel_base_unit: string;
-  power_per_volume: number;
-  power_per_volume_unit: string;
-  stir_bar_size: number;
-  stir_bar_size_unit: number;
-  stir_bar_shape: string;
-  special_treatment: string;
+export interface Quantity extends JsonLd {
+  value?: number | null;
+  unit?: string | null;
 }
 
-export const MechanicallyImpelledMixingCodec = D.lazy("MechanicallyImpelledMixing", () => D.struct({
-    stirring_type: D.string,
-    stirrer_material: D.string,
-    supplier: D.string,
-    number_of_stirrers: D.number,
-    distance_between_stirrers: D.number,
-    distance_between_stirrers_unit: D.string,
-    stirrer_blade_pitch_angle: D.number,
-    number_of_stirrer_blades: D.number,
-    stirrer_blade_size: D.number,
-    stirrer_blade_size_unit: D.string,
-    stirrer_geometry: D.string,
-    stirrer_speed: D.number,
-    speed_unit: D.string,
-    height_of_stirrer_above_vessel_base: D.number,
-    height_of_stirrer_above_vessel_base_unit: D.string,
-    power_per_volume: D.number,
-    power_per_volume_unit: D.string,
-    stir_bar_size: D.number,
-    stir_bar_size_unit: D.number,
-    stir_bar_shape: D.string,
-    special_treatment: D.string,
+export const QuantityCodec = D.lazy("Quantity", () => D.struct({
+    value: D.nullable(D.number),
+    unit: D.nullable(D.string),
 }));
 
 
 /**
-    Detailed information about the mixing mode used, whether it involves
-    liquid or gas impelled mixing, is essential for ensuring the
-    reproducibility and understanding of enzymatic reactions.
+    Conditions under which materials (biocatalysts, components, etc.) are
+    stored to maintain stability and integrity.
 
-    * @param volume_of_liquid_solid_phase - In the context of enzymatic reactions or any chemical processes
-             involving heterogeneous mixtures like a liquid and solid
-             phase, essential parameters for describing the system
-             involve the composition of the phases, the percentage or
-             fraction of the total volume occupied by the liquid-solid
-             phase mixture, and further information.
-    * @param residence_time - The residence time, often denoted as "τ" (tau), refers to the average
-             amount of time a substance or component spends inside a
-             specific system or reactor and is to be specified.
-    * @param residence_time_unit - The units for residence time can vary depending on the system and the
-             units used for volume and flow rate. Common units include
-             s (seconds), min (minutes), h (hours), or any time-
-             related units.
-    * @param reynolds_number - The Reynolds number (Re) is a dimensionless quantity used in fluid
-             dynamics to predict the flow regime of a fluid within a
-             specific system. It helps to determine whether the flow
-             is laminar, turbulent, or somewhere in between.
-    * @param passive_mixing - The design of the coils and the flow patterns created by the geometry
-             of the tubing can lead to passive mixing as the fluid
-             flows through the reactor without the need for external
-             agitation. More detailed information must be provided to
-             describe the process.
-    * @param active_T_or_Y_mixer - Key features for describing an active Y or T mixer can include inlet
-             ports, mixer chamber, outlet port, control, materials
-             amon others.
-    * @param pulsing - The pulsing process involves periodically injecting or introducing
-             specific components, such as reactants or additives, into
-             a reaction system at regular intervals or in a pulsatile
-             manner. More detailed information must be provided to
-             describe the process.
-    * @param special_treatment - If there are any other specific methods, procedures, characteristics
-             or aspects related to the liquid or gas impelled mixing
-             that are important for reproducibility and are not
-             described by the aforementioned metadata, they should be
-             explained here.
+    * @param temperature - Storage temperature value.
+    * @param temperature_unit - Unit for the storage temperature (e.g., °C, K).
+    * @param storage_start - Date when storage under these conditions began or material was
+             received.
+    * @param additives - Any additives or stabilizers used during storage (e.g., glycerol,
+             stabilizers, preservatives).
+    * @param drying_method - Method used to dry the material if stored in dry form (optional,
+             primarily for biocatalysts).
+    * @param notes - Additional notes about storage conditions or requirements.
 **/
-export interface LiquidOrGasImpelledMixing extends JsonLd {
-  volume_of_liquid_solid_phase: string;
-  residence_time: number;
-  residence_time_unit: string;
-  reynolds_number: string;
-  passive_mixing: string;
-  active_T_or_Y_mixer: string;
-  pulsing: string;
-  special_treatment: string;
+export interface StorageConditions extends JsonLd {
+  temperature?: number | null;
+  temperature_unit?: string | null;
+  storage_start?: string | null;
+  additives?: string[] | null;
+  drying_method?: string[] | null;
+  notes?: string | null;
 }
 
-export const LiquidOrGasImpelledMixingCodec = D.lazy("LiquidOrGasImpelledMixing", () => D.struct({
-    volume_of_liquid_solid_phase: D.string,
-    residence_time: D.number,
-    residence_time_unit: D.string,
-    reynolds_number: D.string,
-    passive_mixing: D.string,
-    active_T_or_Y_mixer: D.string,
-    pulsing: D.string,
-    special_treatment: D.string,
+export const StorageConditionsCodec = D.lazy("StorageConditions", () => D.struct({
+    temperature: D.nullable(D.number),
+    temperature_unit: D.nullable(D.string),
+    storage_start: D.nullable(D.string),
+    additives: D.array(D.string),
+    drying_method: D.array(D.string),
+    notes: D.nullable(D.string),
 }));
+
+
+// Vessels and Mixing Specification Enum definitions
+export enum VesselType {
+  OTHER = 'other',
+  PLATE = 'plate',
+  STIRRED_TANK = 'stirred_tank',
+  TUBULAR_FLOW = 'tubular_flow',
+  VIAL = 'vial',
+}
+
+export const VesselTypeCodec = D.union(
+  D.literal(VesselType.OTHER),
+  D.literal(VesselType.PLATE),
+  D.literal(VesselType.STIRRED_TANK),
+  D.literal(VesselType.TUBULAR_FLOW),
+  D.literal(VesselType.VIAL),
+);
+
+export enum MixingType {
+  COMBINED = 'combined',
+  FLUID_IMPELLED = 'fluid_impelled',
+  MECHANICAL = 'mechanical',
+  NONE = 'none',
+  SHAKING = 'shaking',
+}
+
+export const MixingTypeCodec = D.union(
+  D.literal(MixingType.COMBINED),
+  D.literal(MixingType.FLUID_IMPELLED),
+  D.literal(MixingType.MECHANICAL),
+  D.literal(MixingType.NONE),
+  D.literal(MixingType.SHAKING),
+);
+
+export enum FormulationType {
+  DISSOLVED = 'dissolved',
+  GAS = 'gas',
+  LIQUID = 'liquid',
+  OTHER = 'other',
+  POWDER = 'powder',
+  SOLUTION = 'solution',
+}
+
+export const FormulationTypeCodec = D.union(
+  D.literal(FormulationType.DISSOLVED),
+  D.literal(FormulationType.GAS),
+  D.literal(FormulationType.LIQUID),
+  D.literal(FormulationType.OTHER),
+  D.literal(FormulationType.POWDER),
+  D.literal(FormulationType.SOLUTION),
+);
+
+export enum PhaseType {
+  GAS = 'gas',
+  LIQUID = 'liquid',
+  MIXED = 'mixed',
+  OTHER = 'other',
+  SOLID = 'solid',
+}
+
+export const PhaseTypeCodec = D.union(
+  D.literal(PhaseType.GAS),
+  D.literal(PhaseType.LIQUID),
+  D.literal(PhaseType.MIXED),
+  D.literal(PhaseType.OTHER),
+  D.literal(PhaseType.SOLID),
+);
+
+export enum ReactorType {
+  OTHER = 'other',
+  TUBULAR_FLOW = 'tubular_flow',
+  WELL_MIXED = 'well_mixed',
+}
+
+export const ReactorTypeCodec = D.union(
+  D.literal(ReactorType.OTHER),
+  D.literal(ReactorType.TUBULAR_FLOW),
+  D.literal(ReactorType.WELL_MIXED),
+);

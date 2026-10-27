@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "FlowConditions",
+  "type": "object",
+  "description": "Specifications for flow rates in continuous or fed-batch reactor operations.",
+  "properties": {
+    "flow_rate": {
+      "title": "flow_rate",
+      "type": "number",
+      "description": "Numerical value of the flow rate.",
+      "minimum": 0.0
+    },
+    "flow_rate_unit": {
+      "title": "flow_rate_unit",
+      "type": "string",
+      "description": "Unit of measurement for the flow rate."
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

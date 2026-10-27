@@ -1,0 +1,222 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "Mixing",
+  "type": "object",
+  "description": "Mixing system and parameters for ensuring proper mass transfer and reaction homogeneity.",
+  "properties": {
+    "fluid": {
+      "title": "fluid",
+      "type": "object",
+      "description": "Fluid-driven mixing parameters for flow-based systems.",
+      "$ref": "#/$defs/FluidImpelledMixing"
+    },
+    "mechanical": {
+      "title": "mechanical",
+      "type": "object",
+      "description": "Mechanical stirring parameters and equipment specifications.",
+      "$ref": "#/$defs/MechanicalMixing"
+    },
+    "mixing_type": {
+      "title": "mixing_type",
+      "type": "string",
+      "description": "Primary type of mixing employed in the reaction system.",
+      "$ref": "#/$defs/MixingType"
+    },
+    "notes": {
+      "title": "notes",
+      "type": "string",
+      "description": "Additional notes about the mixing strategy and implementation."
+    },
+    "shaking": {
+      "title": "shaking",
+      "type": "object",
+      "description": "Shaking-based mixing parameters and configuration.",
+      "$ref": "#/$defs/ShakingMixing"
+    }
+  },
+  "$defs": {
+    "FluidImpelledMixing": {
+      "title": "FluidImpelledMixing",
+      "type": "object",
+      "description": "Parameters for fluid-driven mixing in flow-based reactor systems.",
+      "properties": {
+        "active_mixer": {
+          "title": "active_mixer",
+          "type": "string",
+          "description": "Description of active mixing devices or mechanisms employed."
+        },
+        "notes": {
+          "title": "notes",
+          "type": "string",
+          "description": "Additional notes about the fluid-impelled mixing system."
+        },
+        "passive_mixing": {
+          "title": "passive_mixing",
+          "type": "string",
+          "description": "Description of passive mixing elements or structures used."
+        },
+        "phase_volume_description": {
+          "title": "phase_volume_description",
+          "type": "string",
+          "description": "Description of phase volumes and their distribution in the flow system."
+        },
+        "pulsing": {
+          "title": "pulsing",
+          "type": "string",
+          "description": "Pulsing or oscillatory flow patterns used to enhance mixing."
+        },
+        "residence_time": {
+          "title": "residence_time",
+          "type": "number",
+          "description": "Average residence time of the fluid in the mixing zone."
+        },
+        "reynolds_number": {
+          "title": "reynolds_number",
+          "type": "string",
+          "description": "Reynolds number characterizing the flow regime and mixing intensity."
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "MechanicalMixing": {
+      "title": "MechanicalMixing",
+      "type": "object",
+      "description": "Parameters for mechanical stirring and agitation systems.",
+      "properties": {
+        "blade_pitch_angle": {
+          "title": "blade_pitch_angle",
+          "type": "number",
+          "description": "Angle of the stirrer blades relative to the horizontal plane."
+        },
+        "blade_size": {
+          "title": "blade_size",
+          "type": "number",
+          "description": "Dimensions or size of the stirrer blades."
+        },
+        "height_above_base": {
+          "title": "height_above_base",
+          "type": "number",
+          "description": "Distance of the stirrer from the bottom of the vessel."
+        },
+        "notes": {
+          "title": "notes",
+          "type": "string",
+          "description": "Additional notes about the mechanical mixing setup."
+        },
+        "number_of_stirrers": {
+          "title": "number_of_stirrers",
+          "type": "integer",
+          "description": "Number of stirrers or impellers used in the system."
+        },
+        "power_per_volume": {
+          "title": "power_per_volume",
+          "type": "number",
+          "description": "Power input per unit volume of the reaction mixture."
+        },
+        "stir_bar": {
+          "title": "stir_bar",
+          "type": "object",
+          "description": "Magnetic stir bar specifications for magnetic stirring systems.",
+          "$ref": "#/$defs/StirBar"
+        },
+        "stirrer_geometry": {
+          "title": "stirrer_geometry",
+          "type": "string",
+          "description": "Geometric design and shape of the stirrer or impeller."
+        },
+        "stirrer_material": {
+          "title": "stirrer_material",
+          "type": "string",
+          "description": "Material composition of the stirrer or impeller."
+        },
+        "stirrer_speed": {
+          "title": "stirrer_speed",
+          "type": "number",
+          "description": "Rotational speed of the stirrer or impeller."
+        },
+        "stirring_type": {
+          "title": "stirring_type",
+          "type": "string",
+          "description": "Type of mechanical stirring (e.g., overhead, magnetic, impeller)."
+        },
+        "supplier": {
+          "title": "supplier",
+          "type": "string",
+          "description": "Manufacturer or supplier of the stirring equipment."
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "MixingType": {
+      "title": "MixingType",
+      "type": "string",
+      "enum": [
+        "combined",
+        "fluid_impelled",
+        "mechanical",
+        "none",
+        "shaking"
+      ]
+    },
+    "ShakingMixing": {
+      "title": "ShakingMixing",
+      "type": "object",
+      "description": "Parameters for shaking-based mixing systems.",
+      "properties": {
+        "deflection": {
+          "title": "deflection",
+          "type": "number",
+          "description": "Amplitude or deflection distance of the shaking motion."
+        },
+        "notes": {
+          "title": "notes",
+          "type": "string",
+          "description": "Additional notes about the shaking mixing setup."
+        },
+        "shaking_type": {
+          "title": "shaking_type",
+          "type": "string",
+          "description": "Type of shaking motion (e.g., orbital, linear, reciprocal)."
+        },
+        "speed": {
+          "title": "speed",
+          "type": "number",
+          "description": "Frequency or speed of the shaking motion."
+        },
+        "vessel_position": {
+          "title": "vessel_position",
+          "type": "string",
+          "description": "Orientation or position of the vessel during shaking."
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "StirBar": {
+      "title": "StirBar",
+      "type": "object",
+      "description": "Magnetic stir bar specifications for magnetic stirring systems.",
+      "properties": {
+        "shape": {
+          "title": "shape",
+          "type": "string",
+          "description": "Shape of the stir bar (e.g., cylindrical, octagonal, cross-shaped)."
+        },
+        "size": {
+          "title": "size",
+          "type": "number",
+          "description": "Length and diameter of the magnetic stir bar."
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "mixing_type"
+  ],
+  "additionalProperties": false
+}

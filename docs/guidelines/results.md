@@ -1,255 +1,356 @@
-# Results documentation
+---
+hide:
+    - navigation
+---
+
+# Results Specification
 
 This page provides comprehensive information about the structure and components of the data model, including detailed descriptions of the types and their properties, information on enumerations, and an overview of the ontologies used and their associated prefixes. Below, you will find a graph that visually represents the overall structure of the data model.
 
 ??? quote "Graph"
     ``` mermaid
     flowchart TB
-        kineticparameters(KineticParameters)
-        yieldandconversion(YieldAndConversion)
-        activityandinitialreactionrate(ActivityAndInitialReactionRate)
-        selectivityandspecificity(SelectivityAndSpecificity)
-        thermodynamicparameters(ThermodynamicParameters)
+        experimentalresults(ExperimentalResults)
+        kineticresults(KineticResults)
+        inhibitionparameters(InhibitionParameters)
+        yieldandconversionresults(YieldAndConversionResults)
+        activityresults(ActivityResults)
+        selectivityresults(SelectivityResults)
+        thermodynamicresults(ThermodynamicResults)
+        quantity(Quantity)
+        storageconditions(StorageConditions)
+        inhibitiontype(InhibitionType)
+        formulationtype(FormulationType)
+        phasetype(PhaseType)
+        reactortype(ReactorType)
+        experimentalresults(ExperimentalResults) --> kineticresults(KineticResults)
+        experimentalresults(ExperimentalResults) --> yieldandconversionresults(YieldAndConversionResults)
+        experimentalresults(ExperimentalResults) --> activityresults(ActivityResults)
+        experimentalresults(ExperimentalResults) --> selectivityresults(SelectivityResults)
+        experimentalresults(ExperimentalResults) --> thermodynamicresults(ThermodynamicResults)
+        kineticresults(KineticResults) --> inhibitionparameters(InhibitionParameters)
+        inhibitionparameters(InhibitionParameters) --> inhibitiontype(InhibitionType)
 
-        click kineticparameters "#kineticparameters" "Go to KineticParameters"
-        click yieldandconversion "#yieldandconversion" "Go to YieldAndConversion"
-        click activityandinitialreactionrate "#activityandinitialreactionrate" "Go to ActivityAndInitialReactionRate"
-        click selectivityandspecificity "#selectivityandspecificity" "Go to SelectivityAndSpecificity"
-        click thermodynamicparameters "#thermodynamicparameters" "Go to ThermodynamicParameters"
+        click experimentalresults "#experimentalresults" "Go to ExperimentalResults"
+        click kineticresults "#kineticresults" "Go to KineticResults"
+        click inhibitionparameters "#inhibitionparameters" "Go to InhibitionParameters"
+        click yieldandconversionresults "#yieldandconversionresults" "Go to YieldAndConversionResults"
+        click activityresults "#activityresults" "Go to ActivityResults"
+        click selectivityresults "#selectivityresults" "Go to SelectivityResults"
+        click thermodynamicresults "#thermodynamicresults" "Go to ThermodynamicResults"
+        click quantity "#quantity" "Go to Quantity"
+        click storageconditions "#storageconditions" "Go to StorageConditions"
+        click inhibitiontype "#inhibitiontype" "Go to InhibitionType"
+        click formulationtype "#formulationtype" "Go to FormulationType"
+        click phasetype "#phasetype" "Go to PhaseType"
+        click reactortype "#reactortype" "Go to ReactorType"
     ```
 
 
 ## Types
 
 
-### KineticParameters
-These parameters serve as benchmarks for understanding enzyme kinetics. The Km and kcat value is determined by all substrates involved in the reaction and not just one. Therefore, the concentrations of all substrates must be varied and the Km and kcat values calculated to obtain a common value instead of apparent values. For a comprehensive report around the technical key data of the kinetic parameters, see literature for further information, e.g. Pesci _et al._1, Bisswanger 2 .
+### ExperimentalResults
+Comprehensive collection of experimental results from enzymatic reactions.
 
-__michaelis_constant__* `float`
+__kinetics__ [`KineticResults`](#kineticresults)
 
-- The Michaelis-Menten constant (Km​) represents the substrate concentration at which an enzyme achieves half of its maximum reaction rate.
-
-
-__michaelis_constant_unit__* `string`
-
-- The unit of the Michaelis-Menten constant (Km​) is typically expressed as moles per liter (M or mM).
+- Kinetic parameters and enzyme behavior characteristics.
 
 
-__maximum_reaction_rate__* `float`
+__yield_and_conversion__ [`YieldAndConversionResults`](#yieldandconversionresults)
 
-- Vmax, the maximum reaction rate, represents the speed at which an enzyme-catalyzed reaction reaches saturation, indicating the maximum achievable rate of product formation under optimal substrate concentration (where enzymes are predominantly saturated with substrates).
-
-
-__maximum_reaction_rate_unit__* `string`
-
-- The unit of Vmax (maximum reaction rate) is typically represented as concentration per time, such as moles per liter per second (mol/L/s or mM/s).
+- Product yield and substrate conversion measurements.
 
 
-__turnover_number__* `float`
+__activity__ [`ActivityResults`](#activityresults)
 
-- The turnover number (kcat) measures the number of substrate molecules converted to product per active site of an enzyme per unit time when the enzyme is fully saturated with substrate.
-
-
-__turnover_number_unit__* `string`
-
-- The unit of turnover number (kcat) is typically expressed as moles of product per mole of enzyme per second or per minute (time-1).
+- Enzyme activity and initial reaction rate data.
 
 
-__catalytic_efficiency__* `float`
+__selectivity__ [`SelectivityResults`](#selectivityresults)
 
-- Catalytic efficiency (kcat/Km) is a measure of how effectively an enzyme converts substrate into product, often quantified as the ratio of the turnover number (kcat) to the Michaelis-Menten constant (Km).
-
-
-__catalytic_efficiency_unit__* `string`
-
-- The typical unit for catalytic efficiency (kcat/Km) is M-1s-1.
+- Selectivity measurements including stereoselectivity and enantioselectivity.
 
 
-__dissociation_constant__* `float`
+__thermodynamics__ [`ThermodynamicResults`](#thermodynamicresults)
 
-- The dissociation constant (Kd) is a measure that represents the equilibrium between a complex and its dissociated components.
-
-
-__dissociation_constant_unit__* `string`
-
-- The dissociation constant (Kd) is typically expressed in M (mol per liter) or its derivatives, such as nM (nanomoles per liter).
+- Thermodynamic parameters of the reaction.
 
 
-__inhibition_type__* `string`
+__notes__ `string`
 
-- Enzyme inhibition encompasses various forms, including competitive, non-competitive, uncompetitive, mixed, and irreversible inhibition. Each type has different effects on the enzyme's function and plays a crucial role in regulating biochemical processes.
-
-
-__inhibition_constant__* `float`
-
-- The inhibition constant (Ki) describes the affinity of an inhibitor for an enzyme. It indicates how effectively an inhibitor influences enzyme activity. A lower Ki value suggests a strong binding of the inhibitor to the enzyme.
-
-
-__inhibition_constant_unit__* `string`
-
-- The units for the inhibition constant (Ki) are commonly expressed in M (mol per liter) or related units.
-
-
-__hill_coefficient__* `float`
-
-- The Hill coefficient is a parameter used to describe cooperativity in the binding of molecules to proteins. It is employed in enzyme reactions, e.g. oxygen binding to hemoglobin, to indicate whether there is positive (cooperative) or negative (anticooperative) binding. A Hill coefficient greater than 1 indicates positive cooperativity, while a value less than 1 indicates negative cooperativity. A value of exactly 1 indicates no cooperativity.
-
-
-__enzyme_stability__* `string`
-
-- The stability of enzymes is often characterized by various parameters such as the enzyme's half-life under specific conditions, the decline in activity over time, or the preservation of catalytic activity under different environmental conditions.
-
-
-__special_treatment__* `string`
-
-- If there are any other specific metrics, parameters, characteristics or aspects related to the kinetics that are important to document the results accurately and are not described by the aforementioned metadata, they should be explained here.
+- Additional notes or comments about the experimental results.
 
 
 ------
 
-### YieldAndConversion
-These metrics are vital for evaluating the success of a process, optimizing reaction conditions, and ensuring the production of high-quality products in biocatalytic applications. For a comprehensive report around the technical key data of yield and conversion, see literature for further information, e.g. Lies _et al._3.
+### KineticResults
+Kinetic parameters characterizing enzyme behavior and reaction mechanisms.
 
-__c_yield__* `float`
+__michaelis_constant__ `float`
 
-- Yield represents the amount of the desired product obtained from a reaction. It is the number of synthesized molecules of product per number of starting molecules. The following formula can be used:
-- `Minimum`: 0.0
-
-__yield_unit__* `string`
-
-- The yield is typically expressed in percentages (%), reflecting the ratio of the actual obtained product quantity to the theoretical maximum product quantity that could be obtained under ideal conditions.
+- Michaelis constant (Km) representing the substrate concentration at half-maximum reaction rate.
 
 
-__space_time_yield__* `float`
+__maximum_reaction_rate__ `float`
 
-- Space-time yield in biocatalysis refers to the mass of product obtained per unit volume of the reactor per unit time. Other terms commonly used in the literature are
-- `Minimum`: 0.0
-
-__space_time_yield_unit__* `string`
-
-- Space-time yield is commonly expressed in g/L/h (grams per liter per hour) or mol/L/h (moles per liter per hour).
+- Maximum reaction rate (Vmax) achieved under saturating substrate conditions.
 
 
-__conversion__* `float`
+__turnover_number__ `float`
 
-- The term "conversion" refers to the percentage of substrate that undergoes transformation into the desired product during a reaction. It is the number of converted molecules per number of starting molecules. The following formula can be used:
-
-
-__conversion_unit__* `string`
-
-- The conversion is commonly expressed as a percentage (%) to indicate the proportion of substrate converted to the desired product during a specific reaction.
+- Turnover number (kcat) representing the maximum number of substrate molecules converted per enzyme molecule per unit time.
 
 
-__special_treatment__* `string`
+__catalytic_efficiency__ `float`
 
-- If there are any other specific metrics, parameters, characteristics or aspects related to the conversion or yield that are important to document the results accurately and are not described by the aforementioned attributes, they should be explained here.
-
-
-------
-
-### ActivityAndInitialReactionRate
+- Catalytic efficiency (kcat/Km) indicating the enzyme's effectiveness at low substrate concentrations.
 
 
-__specific_activity__* `float`
+__dissociation_constant__ `float`
 
-- The specific activity refers to the amount of product formed or substrate consumed per unit of enzyme per unit of time.
-- `Minimum`: 0.0
-
-__specific_activity_unit__* `string`
-
-- The specific activity is typically expressed in µmol/min/mg (micromoles per minute per milligram of protein).
+- Dissociation constant (Kd) for enzyme-substrate or enzyme-inhibitor binding.
 
 
-__initial_reaction_rate__* `float`
+__inhibition__ [`InhibitionParameters`](#inhibitionparameters)
 
-- The initial reaction rate refers to the rate at which the product is formed in the first 10% of the enzymatic reaction under specific initial substrate concentrations and reaction conditions.
-
-
-__initial_reaction_rate_unit__* `string`
-
-- Typically, the initial reaction rate is expressed as mol/L/min (moles per liter per minute) or µmol/mL/min (micromoles per milliliter per minute).
+- Parameters describing enzyme inhibition characteristics.
 
 
-__special_treatment__* `string`
+__hill_coefficient__ `float`
 
-- If there are any other specific metrics, parameters, characteristics or aspects related to the activity or initial reaction rate that are important to document the results accurately and are not described by the aforementioned attributes, they should be explained here.
+- Hill coefficient indicating cooperativity in substrate binding or enzyme kinetics.
+
+
+__enzyme_stability__ `string`
+
+- Qualitative or quantitative description of enzyme stability under reaction conditions.
+
+
+__notes__ `string`
+
+- Additional notes about kinetic measurements or observations.
 
 
 ------
 
-### SelectivityAndSpecificity
-These parameters directly assess a catalyst's precision in converting specific substrates to desired products. For a comprehensive report around the technical key data of the selectivity and specificity, see literature for further information, e.g. Faber4, Liese _et al._3, Schurig5.
+### InhibitionParameters
+Parameters describing enzyme inhibition characteristics and mechanisms.
 
-__stereoselectivity__* `string`
+__inhibition_type__ [`InhibitionType`](#inhibitiontype)
 
-- Stereoselectivity refers to the preference of a chemical reaction to produce a specific stereoisomer or a particular spatial arrangement of atoms within a molecule. It describes the ability of a reaction to favor the formation of one stereoisomer over others or to create a specific stereochemical outcome.
-
-
-__enantioselectivity__* `float`
-
-- Enantioselectivity, or enantiomeric ratio (E), defines the enzyme's capability to preferentially catalyze the transformation of one enantiomer over its mirror-image counterpart. This trait highlights the enzyme's ability to favor a specific enantiomer either as a product or as the preferred substrate for a reaction.
-- `Minimum`: 0.0
-
-__enantiomeric_excess__* `float`
-
-- The enantiomeric excess (
-- `Minimum`: 0.0
-
-__enantiomeric_excess_unit__* `string`
-
-- The primary unit used for enantiomeric excess (
+- Type of inhibition mechanism observed.
 
 
-__diastereomeric_excess__* `float`
+__inhibition_constant__ `float`
 
-- The diasteriomeric excess (
-- `Minimum`: 0.0
-
-__diasteriomeric_excess_unit__* `string`
-
-- The primary unit used for diasteriomeric excess (
-
-
-__isomeric_content__* `float`
-
-- The isomeric content (
-- `Minimum`: 0.0
-
-__isomeric_content_unit__* `string`
-
-- The primary unit used for isomeric content (
-
-
-__chemoselectivity__* `string`
-
-- Chemoselectivity refers to the ability of a chemical reaction to target a specific functional group or site within a molecule without affecting other reactive groups present. It highlights the preference of a reaction for one type of chemical bond or functional group over others in a molecule.
-
-
-__regioselectivity__* `string`
-
-- Regioselectivity refers to the preference of a reaction to occur at a specific site within a molecule or compound that has multiple potential reaction sites. It describes the tendency of a reaction to selectively take place at a particular position of the molecule, considering its structural arrangement of atoms or functional groups, rather than at other possible sites.
-
-
-__special_treatment__* `string`
-
-- If there are any other specific metrics, parameters, characteristics or aspects related to the selectivity and specificity that are important to document the results accurately and are not described by the aforementioned attributes, they should be explained here.
+- Inhibition constant (Ki) quantifying the strength of inhibitor binding.
 
 
 ------
 
-### ThermodynamicParameters
-Understanding the energy dynamics and spontaneity of reactions through thermodynamic parameters is essential for efficient biocatalysis. For a comprehensive report around the technical key data of the kinetic parameters, see literature for further information, e.g. Heintz6.
+### YieldAndConversionResults
+Product yield and substrate conversion measurements from enzymatic reactions.
 
-__gibbs_free_energy_change__* `string`
+__product_yield__ `list[float]`
 
-- The Gibbs free energy (
-
-
-__enthalpy_change__* `string`
-
-- The enthalpy (
+- Product yield as percentage or fraction of theoretical maximum.
 
 
-__special_treatment__* `string`
+__space_time_yield__ `float`
 
-- If there are any other specific metrics, parameters, characteristics or aspects related to the thermodynamic parameters that are important to document the results accurately and are not described by the aforementioned attributes, they should be explained here.
+- Space-time yield representing product formation rate per unit reactor volume.
+
+
+__conversion__ `float`
+
+- Substrate conversion as percentage or fraction of initial substrate consumed.
+
+
+__notes__ `string`
+
+- Additional notes about yield and conversion measurements.
+
+
+------
+
+### ActivityResults
+Enzyme activity measurements and initial reaction rate data.
+
+__specific_activity__ `float`
+
+- Specific activity representing enzyme activity per unit mass of enzyme protein.
+
+
+__initial_reaction_rate__ `float`
+
+- Initial reaction rate measured at the beginning of the reaction.
+
+
+__notes__ `string`
+
+- Additional notes about activity measurements.
+
+
+------
+
+### SelectivityResults
+Selectivity measurements including stereoselectivity, enantioselectivity, and other selectivity parameters.
+
+__stereoselectivity__ `string`
+
+- Qualitative or quantitative description of stereoselectivity in the reaction.
+
+
+__enantioselectivity__ `float`
+
+- Enantioselectivity ratio (E-value) indicating preference for one enantiomer over another.
+
+
+__enantiomeric_excess__ `float`
+
+- Enantiomeric excess (ee) as percentage indicating optical purity of the product.
+
+
+__diastereomeric_excess__ `float`
+
+- Diastereomeric excess (de) as percentage for reactions producing diastereomers.
+
+
+__isomeric_content__ `float`
+
+- Content or ratio of specific isomers in the product mixture.
+
+
+__chemoselectivity__ `string`
+
+- Description of chemoselectivity when multiple reaction pathways are possible.
+
+
+__regioselectivity__ `string`
+
+- Description of regioselectivity indicating preference for specific reaction sites.
+
+
+__notes__ `string`
+
+- Additional notes about selectivity measurements.
+
+
+------
+
+### ThermodynamicResults
+Thermodynamic parameters characterizing the energetics of the enzymatic reaction.
+
+__gibbs_free_energy_change__ `string`
+
+- Gibbs free energy change (ΔG) for the reaction.
+
+
+__enthalpy_change__ `string`
+
+- Enthalpy change (ΔH) for the reaction.
+
+
+__entropy_change__ `string`
+
+- Entropy change (ΔS) for the reaction.
+
+
+__notes__ `string`
+
+- Additional notes about thermodynamic measurements.
+
+
+------
+
+### Quantity
+Quantitative measurement with value and unit specification.
+
+__value__ `float`
+
+- Numerical value of the measurement.
+- `Minimum`: 0
+
+__unit__ `string`
+
+- Unit of measurement for the value.
+
+
+------
+
+### StorageConditions
+Conditions under which materials (biocatalysts, components, etc.) are stored to maintain stability and integrity.
+
+__temperature__ `float`
+
+- Storage temperature value.
+
+
+__temperature_unit__ `string`
+
+- Unit for the storage temperature (e.g., °C, K).
+
+
+__storage_start__ `date`
+
+- Date when storage under these conditions began or material was received.
+
+
+__additives__ `list[string]`
+
+- Any additives or stabilizers used during storage (e.g., glycerol, stabilizers, preservatives).
+
+
+__drying_method__ `list[string]`
+
+- Method used to dry the material if stored in dry form (optional, primarily for biocatalysts).
+
+
+__notes__ `string`
+
+- Additional notes about storage conditions or requirements.
+
+
+## Enumerations
+
+### InhibitionType
+
+| Alias | Value |
+|-------|-------|
+| `COMPETITIVE` | competitive |
+| `IRREVERSIBLE` | irreversible |
+| `MIXED` | mixed |
+| `NONCOMPETITIVE` | non_competitive |
+| `OTHER` | other |
+| `UNCOMPETITIVE` | uncompetitive |
+
+### FormulationType
+
+| Alias | Value |
+|-------|-------|
+| `DISSOLVED` | dissolved |
+| `GAS` | gas |
+| `LIQUID` | liquid |
+| `OTHER` | other |
+| `POWDER` | powder |
+| `SOLUTION` | solution |
+
+### PhaseType
+
+| Alias | Value |
+|-------|-------|
+| `GAS` | gas |
+| `LIQUID` | liquid |
+| `MIXED` | mixed |
+| `OTHER` | other |
+| `SOLID` | solid |
+
+### ReactorType
+
+| Alias | Value |
+|-------|-------|
+| `OTHER` | other |
+| `TUBULAR_FLOW` | tubular_flow |
+| `WELL_MIXED` | well_mixed |

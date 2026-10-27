@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "FluidImpelledMixing",
+  "type": "object",
+  "description": "Parameters for fluid-driven mixing in flow-based reactor systems.",
+  "properties": {
+    "active_mixer": {
+      "title": "active_mixer",
+      "type": "string",
+      "description": "Description of active mixing devices or mechanisms employed."
+    },
+    "notes": {
+      "title": "notes",
+      "type": "string",
+      "description": "Additional notes about the fluid-impelled mixing system."
+    },
+    "passive_mixing": {
+      "title": "passive_mixing",
+      "type": "string",
+      "description": "Description of passive mixing elements or structures used."
+    },
+    "phase_volume_description": {
+      "title": "phase_volume_description",
+      "type": "string",
+      "description": "Description of phase volumes and their distribution in the flow system."
+    },
+    "pulsing": {
+      "title": "pulsing",
+      "type": "string",
+      "description": "Pulsing or oscillatory flow patterns used to enhance mixing."
+    },
+    "residence_time": {
+      "title": "residence_time",
+      "type": "number",
+      "description": "Average residence time of the fluid in the mixing zone."
+    },
+    "reynolds_number": {
+      "title": "reynolds_number",
+      "type": "string",
+      "description": "Reynolds number characterizing the flow regime and mixing intensity."
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

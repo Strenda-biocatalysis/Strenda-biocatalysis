@@ -21,304 +21,327 @@ export interface JsonLd {
   '@type'?: string;
 }
 
-// Results documentation Type definitions
+// Results Specification Type definitions
 /**
-    These parameters serve as benchmarks for understanding enzyme
-    kinetics. The Km and kcat value is determined by all substrates
-    involved in the reaction and not just one. Therefore, the
-    concentrations of all substrates must be varied and the Km
-    and kcat values calculated to obtain a common value instead of
-    apparent values. For a comprehensive report around the technical
-    key data of the kinetic parameters, see literature for further
-    information, e.g. Pesci _et al._1, Bisswanger 2 .
+    Comprehensive collection of experimental results from enzymatic
+    reactions.
 
-    * @param michaelis_constant - The Michaelis-Menten constant (Km​) represents the substrate
-             concentration at which an enzyme achieves half of its
-             maximum reaction rate.
-    * @param michaelis_constant_unit - The unit of the Michaelis-Menten constant (Km​) is typically expressed
-             as moles per liter (M or mM).
-    * @param maximum_reaction_rate - Vmax, the maximum reaction rate, represents the speed at which an
-             enzyme-catalyzed reaction reaches saturation, indicating
-             the maximum achievable rate of product formation under
-             optimal substrate concentration (where enzymes are
-             predominantly saturated with substrates).
-    * @param maximum_reaction_rate_unit - The unit of Vmax (maximum reaction rate) is typically represented
-             as concentration per time, such as moles per liter per
-             second (mol/L/s or mM/s).
-    * @param turnover_number - The turnover number (kcat) measures the number of substrate molecules
-             converted to product per active site of an enzyme
-             per unit time when the enzyme is fully saturated with
-             substrate.
-    * @param turnover_number_unit - The unit of turnover number (kcat) is typically expressed as moles
-             of product per mole of enzyme per second or per minute
-             (time-1).
-    * @param catalytic_efficiency - Catalytic efficiency (kcat/Km) is a measure of how effectively an
-             enzyme converts substrate into product, often quantified
-             as the ratio of the turnover number (kcat) to the
-             Michaelis-Menten constant (Km).
-    * @param catalytic_efficiency_unit - The typical unit for catalytic efficiency (kcat/Km) is M-1s-1.
-    * @param dissociation_constant - The dissociation constant (Kd) is a measure that represents the
-             equilibrium between a complex and its dissociated
-             components.
-    * @param dissociation_constant_unit - The dissociation constant (Kd) is typically expressed in M (mol per
-             liter) or its derivatives, such as nM (nanomoles per
-             liter).
-    * @param inhibition_type - Enzyme inhibition encompasses various forms, including competitive,
-             non-competitive, uncompetitive, mixed, and irreversible
-             inhibition. Each type has different effects on the
-             enzyme's function and plays a crucial role in regulating
-             biochemical processes.
-    * @param inhibition_constant - The inhibition constant (Ki) describes the affinity of an inhibitor
-             for an enzyme. It indicates how effectively an inhibitor
-             influences enzyme activity. A lower Ki value suggests a
-             strong binding of the inhibitor to the enzyme.
-    * @param inhibition_constant_unit - The units for the inhibition constant (Ki) are commonly expressed in M
-             (mol per liter) or related units.
-    * @param hill_coefficient - The Hill coefficient is a parameter used to describe cooperativity
-             in the binding of molecules to proteins. It is employed
-             in enzyme reactions, e.g. oxygen binding to hemoglobin,
-             to indicate whether there is positive (cooperative) or
-             negative (anticooperative) binding. A Hill coefficient
-             greater than 1 indicates positive cooperativity, while
-             a value less than 1 indicates negative cooperativity. A
-             value of exactly 1 indicates no cooperativity.
-    * @param enzyme_stability - The stability of enzymes is often characterized by various parameters
-             such as the enzyme's half-life under specific conditions,
-             the decline in activity over time, or the preservation
-             of catalytic activity under different environmental
+    * @param kinetics - Kinetic parameters and enzyme behavior characteristics.
+    * @param yield_and_conversion - Product yield and substrate conversion measurements.
+    * @param activity - Enzyme activity and initial reaction rate data.
+    * @param selectivity - Selectivity measurements including stereoselectivity and
+             enantioselectivity.
+    * @param thermodynamics - Thermodynamic parameters of the reaction.
+    * @param notes - Additional notes or comments about the experimental results.
+**/
+export interface ExperimentalResults extends JsonLd {
+  kinetics?: KineticResults | null;
+  yield_and_conversion?: YieldAndConversionResults | null;
+  activity?: ActivityResults | null;
+  selectivity?: SelectivityResults | null;
+  thermodynamics?: ThermodynamicResults | null;
+  notes?: string | null;
+}
+
+export const ExperimentalResultsCodec = D.lazy("ExperimentalResults", () => D.struct({
+    kinetics: D.nullable(KineticResultsCodec),
+    yield_and_conversion: D.nullable(YieldAndConversionResultsCodec),
+    activity: D.nullable(ActivityResultsCodec),
+    selectivity: D.nullable(SelectivityResultsCodec),
+    thermodynamics: D.nullable(ThermodynamicResultsCodec),
+    notes: D.nullable(D.string),
+}));
+
+
+/**
+    Kinetic parameters characterizing enzyme behavior and reaction
+    mechanisms.
+
+    * @param michaelis_constant - Michaelis constant (Km) representing the substrate concentration at
+             half-maximum reaction rate.
+    * @param maximum_reaction_rate - Maximum reaction rate (Vmax) achieved under saturating substrate
              conditions.
-    * @param special_treatment - If there are any other specific metrics, parameters, characteristics
-             or aspects related to the kinetics that are important
-             to document the results accurately and are not described
-             by the aforementioned metadata, they should be explained
-             here.
+    * @param turnover_number - Turnover number (kcat) representing the maximum number of substrate
+             molecules converted per enzyme molecule per unit time.
+    * @param catalytic_efficiency - Catalytic efficiency (kcat/Km) indicating the enzyme's effectiveness
+             at low substrate concentrations.
+    * @param dissociation_constant - Dissociation constant (Kd) for enzyme-substrate or enzyme-inhibitor
+             binding.
+    * @param inhibition - Parameters describing enzyme inhibition characteristics.
+    * @param hill_coefficient - Hill coefficient indicating cooperativity in substrate binding or
+             enzyme kinetics.
+    * @param enzyme_stability - Qualitative or quantitative description of enzyme stability under
+             reaction conditions.
+    * @param notes - Additional notes about kinetic measurements or observations.
 **/
-export interface KineticParameters extends JsonLd {
-  michaelis_constant: number;
-  michaelis_constant_unit: string;
-  maximum_reaction_rate: number;
-  maximum_reaction_rate_unit: string;
-  turnover_number: number;
-  turnover_number_unit: string;
-  catalytic_efficiency: number;
-  catalytic_efficiency_unit: string;
-  dissociation_constant: number;
-  dissociation_constant_unit: string;
-  inhibition_type: string;
-  inhibition_constant: number;
-  inhibition_constant_unit: string;
-  hill_coefficient: number;
-  enzyme_stability: string;
-  special_treatment: string;
+export interface KineticResults extends JsonLd {
+  michaelis_constant?: number | null;
+  maximum_reaction_rate?: number | null;
+  turnover_number?: number | null;
+  catalytic_efficiency?: number | null;
+  dissociation_constant?: number | null;
+  inhibition?: InhibitionParameters | null;
+  hill_coefficient?: number | null;
+  enzyme_stability?: string | null;
+  notes?: string | null;
 }
 
-export const KineticParametersCodec = D.lazy("KineticParameters", () => D.struct({
-    michaelis_constant: D.number,
-    michaelis_constant_unit: D.string,
-    maximum_reaction_rate: D.number,
-    maximum_reaction_rate_unit: D.string,
-    turnover_number: D.number,
-    turnover_number_unit: D.string,
-    catalytic_efficiency: D.number,
-    catalytic_efficiency_unit: D.string,
-    dissociation_constant: D.number,
-    dissociation_constant_unit: D.string,
-    inhibition_type: D.string,
-    inhibition_constant: D.number,
-    inhibition_constant_unit: D.string,
-    hill_coefficient: D.number,
-    enzyme_stability: D.string,
-    special_treatment: D.string,
+export const KineticResultsCodec = D.lazy("KineticResults", () => D.struct({
+    michaelis_constant: D.nullable(D.number),
+    maximum_reaction_rate: D.nullable(D.number),
+    turnover_number: D.nullable(D.number),
+    catalytic_efficiency: D.nullable(D.number),
+    dissociation_constant: D.nullable(D.number),
+    inhibition: D.nullable(InhibitionParametersCodec),
+    hill_coefficient: D.nullable(D.number),
+    enzyme_stability: D.nullable(D.string),
+    notes: D.nullable(D.string),
 }));
 
 
 /**
-    These metrics are vital for evaluating the success of a process,
-    optimizing reaction conditions, and ensuring the production
-    of high-quality products in biocatalytic applications. For a
-    comprehensive report around the technical key data of yield and
-    conversion, see literature for further information, e.g. Lies
-    _et al._3.
+    Parameters describing enzyme inhibition characteristics and
+    mechanisms.
 
-    * @param c_yield - Yield represents the amount of the desired product obtained from a
-             reaction. It is the number of synthesized molecules of
-             product per number of starting molecules. The following
-             formula can be used:
-    * @param yield_unit - The yield is typically expressed in percentages (%), reflecting
-             the ratio of the actual obtained product quantity to
-             the theoretical maximum product quantity that could be
-             obtained under ideal conditions.
-    * @param space_time_yield - Space-time yield in biocatalysis refers to the mass of product
-             obtained per unit volume of the reactor per unit time.
-             Other terms commonly used in the literature are
-    * @param space_time_yield_unit - Space-time yield is commonly expressed in g/L/h (grams per liter per
-             hour) or mol/L/h (moles per liter per hour).
-    * @param conversion - The term "conversion" refers to the percentage of substrate that
-             undergoes transformation into the desired product during
-             a reaction. It is the number of converted molecules per
-             number of starting molecules. The following formula can
-             be used:
-    * @param conversion_unit - The conversion is commonly expressed as a percentage (%) to indicate
-             the proportion of substrate converted to the desired
-             product during a specific reaction.
-    * @param special_treatment - If there are any other specific metrics, parameters, characteristics
-             or aspects related to the conversion or yield that are
-             important to document the results accurately and are not
-             described by the aforementioned attributes, they should
-             be explained here.
+    * @param inhibition_type - Type of inhibition mechanism observed.
+    * @param inhibition_constant - Inhibition constant (Ki) quantifying the strength of inhibitor
+             binding.
 **/
-export interface YieldAndConversion extends JsonLd {
-  c_yield: number;
-  yield_unit: string;
-  space_time_yield: number;
-  space_time_yield_unit: string;
-  conversion: number;
-  conversion_unit: string;
-  special_treatment: string;
+export interface InhibitionParameters extends JsonLd {
+  inhibition_type?: InhibitionType | null;
+  inhibition_constant?: number | null;
 }
 
-export const YieldAndConversionCodec = D.lazy("YieldAndConversion", () => D.struct({
-    c_yield: D.number,
-    yield_unit: D.string,
-    space_time_yield: D.number,
-    space_time_yield_unit: D.string,
-    conversion: D.number,
-    conversion_unit: D.string,
-    special_treatment: D.string,
+export const InhibitionParametersCodec = D.lazy("InhibitionParameters", () => D.struct({
+    inhibition_type: D.nullable(InhibitionTypeCodec),
+    inhibition_constant: D.nullable(D.number),
 }));
 
 
 /**
-    * @param specific_activity - The specific activity refers to the amount of product formed or
-             substrate consumed per unit of enzyme per unit of time.
-    * @param specific_activity_unit - The specific activity is typically expressed in µmol/min/mg
-             (micromoles per minute per milligram of protein).
-    * @param initial_reaction_rate - The initial reaction rate refers to the rate at which the product is
-             formed in the first 10% of the enzymatic reaction under
-             specific initial substrate concentrations and reaction
-             conditions.
-    * @param initial_reaction_rate_unit - Typically, the initial reaction rate is expressed as mol/L/min (moles
-             per liter per minute) or µmol/mL/min (micromoles per
-             milliliter per minute).
-    * @param special_treatment - If there are any other specific metrics, parameters, characteristics
-             or aspects related to the activity or initial reaction
-             rate that are important to document the results
-             accurately and are not described by the aforementioned
-             attributes, they should be explained here.
+    Product yield and substrate conversion measurements from enzymatic
+    reactions.
+
+    * @param product_yield - Product yield as percentage or fraction of theoretical maximum.
+    * @param space_time_yield - Space-time yield representing product formation rate per unit reactor
+             volume.
+    * @param conversion - Substrate conversion as percentage or fraction of initial substrate
+             consumed.
+    * @param notes - Additional notes about yield and conversion measurements.
 **/
-export interface ActivityAndInitialReactionRate extends JsonLd {
-  specific_activity: number;
-  specific_activity_unit: string;
-  initial_reaction_rate: number;
-  initial_reaction_rate_unit: string;
-  special_treatment: string;
+export interface YieldAndConversionResults extends JsonLd {
+  product_yield?: number[] | null;
+  space_time_yield?: number | null;
+  conversion?: number | null;
+  notes?: string | null;
 }
 
-export const ActivityAndInitialReactionRateCodec = D.lazy("ActivityAndInitialReactionRate", () => D.struct({
-    specific_activity: D.number,
-    specific_activity_unit: D.string,
-    initial_reaction_rate: D.number,
-    initial_reaction_rate_unit: D.string,
-    special_treatment: D.string,
+export const YieldAndConversionResultsCodec = D.lazy("YieldAndConversionResults", () => D.struct({
+    product_yield: D.array(D.number),
+    space_time_yield: D.nullable(D.number),
+    conversion: D.nullable(D.number),
+    notes: D.nullable(D.string),
 }));
 
 
 /**
-    These parameters directly assess a catalyst's precision in converting
-    specific substrates to desired products. For a comprehensive
-    report around the technical key data of the selectivity and
-    specificity, see literature for further information, e.g. Faber4,
-    Liese _et al._3, Schurig5.
+    Enzyme activity measurements and initial reaction rate data.
 
-    * @param stereoselectivity - Stereoselectivity refers to the preference of a chemical reaction to
-             produce a specific stereoisomer or a particular spatial
-             arrangement of atoms within a molecule. It describes
-             the ability of a reaction to favor the formation of
-             one stereoisomer over others or to create a specific
-             stereochemical outcome.
-    * @param enantioselectivity - Enantioselectivity, or enantiomeric ratio (E), defines the enzyme's
-             capability to preferentially catalyze the transformation
-             of one enantiomer over its mirror-image counterpart. This
-             trait highlights the enzyme's ability to favor a specific
-             enantiomer either as a product or as the preferred
-             substrate for a reaction.
-    * @param enantiomeric_excess - The enantiomeric excess (
-    * @param enantiomeric_excess_unit - The primary unit used for enantiomeric excess (
-    * @param diastereomeric_excess - The diasteriomeric excess (
-    * @param diasteriomeric_excess_unit - The primary unit used for diasteriomeric excess (
-    * @param isomeric_content - The isomeric content (
-    * @param isomeric_content_unit - The primary unit used for isomeric content (
-    * @param chemoselectivity - Chemoselectivity refers to the ability of a chemical reaction to
-             target a specific functional group or site within a
-             molecule without affecting other reactive groups present.
-             It highlights the preference of a reaction for one type
-             of chemical bond or functional group over others in
-             a molecule.
-    * @param regioselectivity - Regioselectivity refers to the preference of a reaction to occur at
-             a specific site within a molecule or compound that has
-             multiple potential reaction sites. It describes the
-             tendency of a reaction to selectively take place at a
-             particular position of the molecule, considering its
-             structural arrangement of atoms or functional groups,
-             rather than at other possible sites.
-    * @param special_treatment - If there are any other specific metrics, parameters, characteristics
-             or aspects related to the selectivity and specificity
-             that are important to document the results accurately and
-             are not described by the aforementioned attributes, they
-             should be explained here.
+    * @param specific_activity - Specific activity representing enzyme activity per unit mass of enzyme
+             protein.
+    * @param initial_reaction_rate - Initial reaction rate measured at the beginning of the reaction.
+    * @param notes - Additional notes about activity measurements.
 **/
-export interface SelectivityAndSpecificity extends JsonLd {
-  stereoselectivity: string;
-  enantioselectivity: number;
-  enantiomeric_excess: number;
-  enantiomeric_excess_unit: string;
-  diastereomeric_excess: number;
-  diasteriomeric_excess_unit: string;
-  isomeric_content: number;
-  isomeric_content_unit: string;
-  chemoselectivity: string;
-  regioselectivity: string;
-  special_treatment: string;
+export interface ActivityResults extends JsonLd {
+  specific_activity?: number | null;
+  initial_reaction_rate?: number | null;
+  notes?: string | null;
 }
 
-export const SelectivityAndSpecificityCodec = D.lazy("SelectivityAndSpecificity", () => D.struct({
-    stereoselectivity: D.string,
-    enantioselectivity: D.number,
-    enantiomeric_excess: D.number,
-    enantiomeric_excess_unit: D.string,
-    diastereomeric_excess: D.number,
-    diasteriomeric_excess_unit: D.string,
-    isomeric_content: D.number,
-    isomeric_content_unit: D.string,
-    chemoselectivity: D.string,
-    regioselectivity: D.string,
-    special_treatment: D.string,
+export const ActivityResultsCodec = D.lazy("ActivityResults", () => D.struct({
+    specific_activity: D.nullable(D.number),
+    initial_reaction_rate: D.nullable(D.number),
+    notes: D.nullable(D.string),
 }));
 
 
 /**
-    Understanding the energy dynamics and spontaneity of reactions through
-    thermodynamic parameters is essential for efficient biocatalysis.
-    For a comprehensive report around the technical key data of the
-    kinetic parameters, see literature for further information, e.g.
-    Heintz6.
+    Selectivity measurements including stereoselectivity,
+    enantioselectivity, and other selectivity parameters.
 
-    * @param gibbs_free_energy_change - The Gibbs free energy (
-    * @param enthalpy_change - The enthalpy (
-    * @param special_treatment - If there are any other specific metrics, parameters, characteristics
-             or aspects related to the thermodynamic parameters that
-             are important to document the results accurately and
-             are not described by the aforementioned attributes, they
-             should be explained here.
+    * @param stereoselectivity - Qualitative or quantitative description of stereoselectivity in the
+             reaction.
+    * @param enantioselectivity - Enantioselectivity ratio (E-value) indicating preference for one
+             enantiomer over another.
+    * @param enantiomeric_excess - Enantiomeric excess (ee) as percentage indicating optical purity of
+             the product.
+    * @param diastereomeric_excess - Diastereomeric excess (de) as percentage for reactions producing
+             diastereomers.
+    * @param isomeric_content - Content or ratio of specific isomers in the product mixture.
+    * @param chemoselectivity - Description of chemoselectivity when multiple reaction pathways are
+             possible.
+    * @param regioselectivity - Description of regioselectivity indicating preference for specific
+             reaction sites.
+    * @param notes - Additional notes about selectivity measurements.
 **/
-export interface ThermodynamicParameters extends JsonLd {
-  gibbs_free_energy_change: string;
-  enthalpy_change: string;
-  special_treatment: string;
+export interface SelectivityResults extends JsonLd {
+  stereoselectivity?: string | null;
+  enantioselectivity?: number | null;
+  enantiomeric_excess?: number | null;
+  diastereomeric_excess?: number | null;
+  isomeric_content?: number | null;
+  chemoselectivity?: string | null;
+  regioselectivity?: string | null;
+  notes?: string | null;
 }
 
-export const ThermodynamicParametersCodec = D.lazy("ThermodynamicParameters", () => D.struct({
-    gibbs_free_energy_change: D.string,
-    enthalpy_change: D.string,
-    special_treatment: D.string,
+export const SelectivityResultsCodec = D.lazy("SelectivityResults", () => D.struct({
+    stereoselectivity: D.nullable(D.string),
+    enantioselectivity: D.nullable(D.number),
+    enantiomeric_excess: D.nullable(D.number),
+    diastereomeric_excess: D.nullable(D.number),
+    isomeric_content: D.nullable(D.number),
+    chemoselectivity: D.nullable(D.string),
+    regioselectivity: D.nullable(D.string),
+    notes: D.nullable(D.string),
 }));
+
+
+/**
+    Thermodynamic parameters characterizing the energetics of the
+    enzymatic reaction.
+
+    * @param gibbs_free_energy_change - Gibbs free energy change (ΔG) for the reaction.
+    * @param enthalpy_change - Enthalpy change (ΔH) for the reaction.
+    * @param entropy_change - Entropy change (ΔS) for the reaction.
+    * @param notes - Additional notes about thermodynamic measurements.
+**/
+export interface ThermodynamicResults extends JsonLd {
+  gibbs_free_energy_change?: string | null;
+  enthalpy_change?: string | null;
+  entropy_change?: string | null;
+  notes?: string | null;
+}
+
+export const ThermodynamicResultsCodec = D.lazy("ThermodynamicResults", () => D.struct({
+    gibbs_free_energy_change: D.nullable(D.string),
+    enthalpy_change: D.nullable(D.string),
+    entropy_change: D.nullable(D.string),
+    notes: D.nullable(D.string),
+}));
+
+
+/**
+    Quantitative measurement with value and unit specification.
+
+    * @param value - Numerical value of the measurement.
+    * @param unit - Unit of measurement for the value.
+**/
+export interface Quantity extends JsonLd {
+  value?: number | null;
+  unit?: string | null;
+}
+
+export const QuantityCodec = D.lazy("Quantity", () => D.struct({
+    value: D.nullable(D.number),
+    unit: D.nullable(D.string),
+}));
+
+
+/**
+    Conditions under which materials (biocatalysts, components, etc.) are
+    stored to maintain stability and integrity.
+
+    * @param temperature - Storage temperature value.
+    * @param temperature_unit - Unit for the storage temperature (e.g., °C, K).
+    * @param storage_start - Date when storage under these conditions began or material was
+             received.
+    * @param additives - Any additives or stabilizers used during storage (e.g., glycerol,
+             stabilizers, preservatives).
+    * @param drying_method - Method used to dry the material if stored in dry form (optional,
+             primarily for biocatalysts).
+    * @param notes - Additional notes about storage conditions or requirements.
+**/
+export interface StorageConditions extends JsonLd {
+  temperature?: number | null;
+  temperature_unit?: string | null;
+  storage_start?: string | null;
+  additives?: string[] | null;
+  drying_method?: string[] | null;
+  notes?: string | null;
+}
+
+export const StorageConditionsCodec = D.lazy("StorageConditions", () => D.struct({
+    temperature: D.nullable(D.number),
+    temperature_unit: D.nullable(D.string),
+    storage_start: D.nullable(D.string),
+    additives: D.array(D.string),
+    drying_method: D.array(D.string),
+    notes: D.nullable(D.string),
+}));
+
+
+// Results Specification Enum definitions
+export enum InhibitionType {
+  COMPETITIVE = 'competitive',
+  IRREVERSIBLE = 'irreversible',
+  MIXED = 'mixed',
+  NONCOMPETITIVE = 'non_competitive',
+  OTHER = 'other',
+  UNCOMPETITIVE = 'uncompetitive',
+}
+
+export const InhibitionTypeCodec = D.union(
+  D.literal(InhibitionType.COMPETITIVE),
+  D.literal(InhibitionType.IRREVERSIBLE),
+  D.literal(InhibitionType.MIXED),
+  D.literal(InhibitionType.NONCOMPETITIVE),
+  D.literal(InhibitionType.OTHER),
+  D.literal(InhibitionType.UNCOMPETITIVE),
+);
+
+export enum FormulationType {
+  DISSOLVED = 'dissolved',
+  GAS = 'gas',
+  LIQUID = 'liquid',
+  OTHER = 'other',
+  POWDER = 'powder',
+  SOLUTION = 'solution',
+}
+
+export const FormulationTypeCodec = D.union(
+  D.literal(FormulationType.DISSOLVED),
+  D.literal(FormulationType.GAS),
+  D.literal(FormulationType.LIQUID),
+  D.literal(FormulationType.OTHER),
+  D.literal(FormulationType.POWDER),
+  D.literal(FormulationType.SOLUTION),
+);
+
+export enum PhaseType {
+  GAS = 'gas',
+  LIQUID = 'liquid',
+  MIXED = 'mixed',
+  OTHER = 'other',
+  SOLID = 'solid',
+}
+
+export const PhaseTypeCodec = D.union(
+  D.literal(PhaseType.GAS),
+  D.literal(PhaseType.LIQUID),
+  D.literal(PhaseType.MIXED),
+  D.literal(PhaseType.OTHER),
+  D.literal(PhaseType.SOLID),
+);
+
+export enum ReactorType {
+  OTHER = 'other',
+  TUBULAR_FLOW = 'tubular_flow',
+  WELL_MIXED = 'well_mixed',
+}
+
+export const ReactorTypeCodec = D.union(
+  D.literal(ReactorType.OTHER),
+  D.literal(ReactorType.TUBULAR_FLOW),
+  D.literal(ReactorType.WELL_MIXED),
+);

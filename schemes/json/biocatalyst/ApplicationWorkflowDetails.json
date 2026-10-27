@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "ApplicationWorkflowDetails",
+  "type": "object",
+  "description": "Specific workflow steps and procedures used when applying the biocatalyst.",
+  "properties": {
+    "cell_disruption_process": {
+      "title": "cell_disruption_process",
+      "type": "string",
+      "description": "Method used to disrupt cells if working with whole cell preparations."
+    },
+    "harvesting_method": {
+      "title": "harvesting_method",
+      "type": "string",
+      "description": "Method used to harvest cells or enzyme from the production system."
+    },
+    "separation_method": {
+      "title": "separation_method",
+      "type": "string",
+      "description": "Method used to separate the biocatalyst from other components."
+    },
+    "source_of_cellfree_extract": {
+      "title": "source_of_cellfree_extract",
+      "type": "string",
+      "description": "Details about the source and preparation of cell-free extracts if applicable."
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

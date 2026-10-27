@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "StirBar",
+  "type": "object",
+  "description": "Magnetic stir bar specifications for magnetic stirring systems.",
+  "properties": {
+    "shape": {
+      "title": "shape",
+      "type": "string",
+      "description": "Shape of the stir bar (e.g., cylindrical, octagonal, cross-shaped)."
+    },
+    "size": {
+      "title": "size",
+      "type": "number",
+      "description": "Length and diameter of the magnetic stir bar."
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

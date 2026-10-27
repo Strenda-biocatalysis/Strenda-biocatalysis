@@ -2,874 +2,671 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
     <!-- Roots -->
-    <xs:element name="MonoliquidSystemDescription_WMRS" type="MonoliquidSystemDescription_WMRSType"/>
-    <xs:element name="MultiphasicSystemDescription_WMRS" type="MultiphasicSystemDescription_WMRSType"/>
-    <xs:element name="LiquidPhase_WMRS" type="LiquidPhase_WMRSType"/>
-    <xs:element name="SolidPhase_WMRS" type="SolidPhase_WMRSType"/>
-    <xs:element name="GasPhase_WMRS" type="GasPhase_WMRSType"/>
-    <xs:element name="TemperatureConstant_WMRS" type="TemperatureConstant_WMRSType"/>
-    <xs:element name="EventBasedTemperatureShift_WMRS" type="EventBasedTemperatureShift_WMRSType"/>
-    <xs:element name="pHConstant_WMRS" type="pHConstant_WMRSType"/>
-    <xs:element name="EventBasedpHShift_WMRS" type="EventBasedpHShift_WMRSType"/>
-    <xs:element name="MonoliquidSystemDescription_TFCR" type="MonoliquidSystemDescription_TFCRType"/>
-    <xs:element name="MultiphasicSystemDescription_TFCR" type="MultiphasicSystemDescription_TFCRType"/>
-    <xs:element name="LiquidPhase_TFCR" type="LiquidPhase_TFCRType"/>
-    <xs:element name="SolidPhase_TFCR" type="SolidPhase_TFCRType"/>
-    <xs:element name="GasPhase_TFCR" type="GasPhase_TFCRType"/>
-    <xs:element name="TemperatureConstant_TFCR" type="TemperatureConstant_TFCRType"/>
-    <xs:element name="DynamicTemperature_TFCR" type="DynamicTemperature_TFCRType"/>
-    <xs:element name="pHConstant_TFCR" type="pHConstant_TFCRType"/>
-    <xs:element name="DynamicpH_TFCR" type="DynamicpH_TFCRType"/>
+    <xs:element name="ReactionConditions" type="ReactionConditionsType"/>
+    <xs:element name="ReactorSetup" type="ReactorSetupType"/>
+    <xs:element name="FlowConditions" type="FlowConditionsType"/>
+    <xs:element name="ReactionSystem" type="ReactionSystemType"/>
+    <xs:element name="MonoliquidSystem" type="MonoliquidSystemType"/>
+    <xs:element name="MultiphasicSystem" type="MultiphasicSystemType"/>
+    <xs:element name="Phase" type="PhaseType"/>
+    <xs:element name="TemperatureProfile" type="TemperatureProfileType"/>
+    <xs:element name="ProfilePoint" type="ProfilePointType"/>
+    <xs:element name="Gradient" type="GradientType"/>
+    <xs:element name="PHProfile" type="PHProfileType"/>
+    <xs:element name="PHPoint" type="PHPointType"/>
+    <xs:element name="PHGradient" type="PHGradientType"/>
+    <xs:element name="PHDetection" type="PHDetectionType"/>
+    <xs:element name="Quantity" type="QuantityType"/>
+    <xs:element name="StorageConditions" type="StorageConditionsType"/>
 
-    <!-- MonoliquidSystemDescription_WMRS Definition -->
-    <xs:complexType name="MonoliquidSystemDescription_WMRSType">
+    <!-- ReactionConditions Definition -->
+    <xs:complexType name="ReactionConditionsType">
+        <xs:sequence>
+            <xs:element name="reactor" type="ReactorSetupType">
+                <xs:annotation>
+                    <xs:documentation>
+                        Configuration and specifications of the reactor used for the
+                        biocatalytic reaction.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="system" type="ReactionSystemType">
+                <xs:annotation>
+                    <xs:documentation>
+                        Characterization of the reaction system as monoliquid or multiphasic.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="phases">
+                <xs:annotation>
+                    <xs:documentation>
+                        Individual phases present in the reaction system (liquid, solid, gas).
+                    </xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Phase" type="PhaseType" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="temperature" type="TemperatureProfileType">
+                <xs:annotation>
+                    <xs:documentation>
+                        Temperature conditions throughout the reaction, which can be constant,
+                        event-based, or follow a gradient.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="pH" type="PHProfileType">
+                <xs:annotation>
+                    <xs:documentation>
+                        pH conditions throughout the reaction, which can be constant, event-
+                        based, or follow a gradient.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="notes" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Additional notes or comments about the reaction conditions.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ReactorSetup Definition -->
+    <xs:complexType name="ReactorSetupType">
+        <xs:sequence>
+            <xs:element name="reactor_type" type="ReactorTypeType">
+                <xs:annotation>
+                    <xs:documentation>
+                        Type of reactor configuration used (well-mixed or tubular flow).
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="flow" type="FlowConditionsType">
+                <xs:annotation>
+                    <xs:documentation>
+                        Flow rate specifications for continuous or fed-batch operations.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="notes" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Additional notes about the reactor setup.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- FlowConditions Definition -->
+    <xs:complexType name="FlowConditionsType">
+        <xs:sequence>
+            <xs:element name="flow_rate" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation>
+                        Numerical value of the flow rate.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="flow_rate_unit" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Unit of measurement for the flow rate.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ReactionSystem Definition -->
+    <xs:complexType name="ReactionSystemType">
+        <xs:sequence>
+            <xs:element name="system_type" type="SystemTypeType">
+                <xs:annotation>
+                    <xs:documentation>
+                        Classification of the system as monoliquid or multiphasic.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="monoliquid" type="MonoliquidSystemType">
+                <xs:annotation>
+                    <xs:documentation>
+                        Specifications for single-phase liquid systems.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="multiphasic" type="MultiphasicSystemType">
+                <xs:annotation>
+                    <xs:documentation>
+                        Specifications for systems containing multiple phases.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="notes" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Additional notes about the reaction system.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- MonoliquidSystem Definition -->
+    <xs:complexType name="MonoliquidSystemType">
         <xs:sequence>
             <xs:element name="solvent_description" type="xs:string">
                 <xs:annotation>
                     <xs:documentation>
-                        The solvent used in the reaction system, e.g. a buffered aqueous solution or an organic solvent.
+                        Detailed description of the solvent or solvent mixture used.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name="ionic_strength" type="xs:float">
                 <xs:annotation>
                     <xs:documentation>
-                        Ionic strength calculated according to the dissolved ions in the solvent. The following formula can be used: $$I = \frac{1}{2} \sum
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="ionic_strength_unit" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        The unit of ionic strength is usually expressed in mol/L (moles per liter), or in mmol/L (millimoles per liter). (
+                        Ionic strength of the solution, affecting enzyme activity and
+                        stability.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name="further_additives" type="xs:string">
                 <xs:annotation>
                     <xs:documentation>
-                        Further additive like cosolvents used to increase solubility of components, e.g. DMSO.
+                        Description of any additional additives present in the system.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="special_treatment" type="xs:string">
+            <xs:element name="notes" type="xs:string">
                 <xs:annotation>
                     <xs:documentation>
-                        If there are any other specific methods, procedures, characteristics or aspects related to the monoliquid system that are important for reproducibility and are not described by the aforementioned           metadata, they should be explained here.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-        </xs:sequence>
-    </xs:complexType>
-
-    <!-- MultiphasicSystemDescription_WMRS Definition -->
-    <xs:complexType name="MultiphasicSystemDescription_WMRSType">
-        <xs:sequence>
-            <xs:element name="phases_number" type="xs:float">
-                <xs:annotation>
-                    <xs:documentation>
-                        Number of phases present in the system, if there is an aqueous and a gas phase present, the number is 2.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="special_treatment" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        If there are any other specific methods, procedures, characteristics or aspects related to the multiphasic system that are important for reproducibility and are not described by the aforementioned           metadata, they should be explained here.
+                        Additional notes about the monoliquid system.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
     </xs:complexType>
 
-    <!-- LiquidPhase_WMRS Definition -->
-    <xs:complexType name="LiquidPhase_WMRSType">
+    <!-- MultiphasicSystem Definition -->
+    <xs:complexType name="MultiphasicSystemType">
         <xs:sequence>
-            <xs:element name="liquid_type" type="xs:string">
+            <xs:element name="phases_number" type="xs:integer">
                 <xs:annotation>
                     <xs:documentation>
-                        Information about the type of liquid used, whether it is an organic solvent,an aqueous buffer or are mixture of both.
+                        Total number of distinct phases present in the system.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="liquid_amount" type="xs:float">
+            <xs:element name="notes" type="xs:string">
                 <xs:annotation>
                     <xs:documentation>
-                        Amount of the liquid added to the reaction.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="liquid_unit" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        In case of aqueous liquids, mL (milliliter) is often used as unit, in case of organic solvents, volume percentage (Vol %) or volume fraction (Vol/Vol) is utilized.
+                        Additional notes about the multiphasic system.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
     </xs:complexType>
 
-    <!-- SolidPhase_WMRS Definition -->
-    <xs:complexType name="SolidPhase_WMRSType">
+    <!-- Phase Definition -->
+    <xs:complexType name="PhaseType">
         <xs:sequence>
-            <xs:element name="solid_type" type="xs:string">
+            <xs:element name="phase_type" type="PhaseTypeType">
                 <xs:annotation>
                     <xs:documentation>
-                        Information about the type of solid used, whether it is a support material, solid catalyst, or any other solid compound.
+                        Physical state of the phase (liquid, solid, or gas).
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="solid_amount" type="xs:float">
+            <xs:element name="material_description" type="xs:string">
                 <xs:annotation>
                     <xs:documentation>
-                        Mass of the solid compound used in the reaction solution.
+                        Detailed description of the materials comprising this phase.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="solid_unit" type="xs:string">
+            <xs:element name="amount" type="xs:float">
                 <xs:annotation>
                     <xs:documentation>
-                        In the case of a solid compound, common units like grams, milligrams, or micrograms can be used.
+                        Quantity of material in this phase.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="amount_unit" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Unit of measurement for the amount.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="notes" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Additional notes about this specific phase.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
     </xs:complexType>
 
-    <!-- GasPhase_WMRS Definition -->
-    <xs:complexType name="GasPhase_WMRSType">
+    <!-- TemperatureProfile Definition -->
+    <xs:complexType name="TemperatureProfileType">
         <xs:sequence>
-            <xs:element name="gas_type" type="xs:string">
+            <xs:element name="profile_type" type="ProfileTypeType">
                 <xs:annotation>
                     <xs:documentation>
-                        Information about the type of gas used, whether it is nitrogen, carbon dioxide, argon, oxygen or other gases.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="gas_amount" type="xs:float">
-                <xs:annotation>
-                    <xs:documentation>
-                        Concentration of the gas in the gas phase.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="gas_unit" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        In the case of gases, common units are volume percentage (Vol %), volume fraction (Vol/Vol), mole percentage (Mol %) or molar fraction (Mol/Mol).
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-        </xs:sequence>
-    </xs:complexType>
-
-    <!-- TemperatureConstant_WMRS Definition -->
-    <xs:complexType name="TemperatureConstant_WMRSType">
-        <xs:sequence>
-            <xs:element name="temperature" type="xs:float">
-                <xs:annotation>
-                    <xs:documentation>
-                        Temperature during the reaction.
+                        Type of temperature profile used (constant, event-based, multipoint,
+                        or gradient).
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name="temperature_unit" type="xs:string">
                 <xs:annotation>
                     <xs:documentation>
-                        The temperature can be specified in units such as K, °C, or °F.
+                        Unit of measurement for temperature values.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="special_treatment" type="xs:string">
+            <xs:element name="constant_temperature" type="xs:float">
                 <xs:annotation>
                     <xs:documentation>
-                        If there are any other specific methods, procedures, characteristics or aspects related to the temperature that are important for reproducibility and are not described by the aforementioned                 metadata, they should be explained here.
+                        Temperature value for constant temperature profiles.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="profile_points">
+                <xs:annotation>
+                    <xs:documentation>
+                        Series of temperature points for event-based or multipoint profiles.
+                    </xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ProfilePoint" type="ProfilePointType" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="gradient" type="GradientType">
+                <xs:annotation>
+                    <xs:documentation>
+                        Gradient specifications for temperature ramp profiles.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="notes" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Additional notes about the temperature profile.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
     </xs:complexType>
 
-    <!-- EventBasedTemperatureShift_WMRS Definition -->
-    <xs:complexType name="EventBasedTemperatureShift_WMRSType">
+    <!-- ProfilePoint Definition -->
+    <xs:complexType name="ProfilePointType">
         <xs:sequence>
-            <xs:element name="temperature_unit" type="xs:string">
+            <xs:element name="value" type="xs:float">
                 <xs:annotation>
                     <xs:documentation>
-                        The temperature can be specified in units such as K, °C, or °F.
+                        Temperature value at this point.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="temperature_beginning" type="xs:float">
+            <xs:element name="time" type="xs:float">
                 <xs:annotation>
                     <xs:documentation>
-                        The initial temperature, prior to the start of the reaction, should be specified.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="temperature_after_event" type="xs:float">
-                <xs:annotation>
-                    <xs:documentation>
-                        The temperature that is present after a specific event has occurred.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="event_description" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        Information regarding the event that caused the temperature change. In the case of a fed-batch reaction protocol, this event can also be the planned adjustment of the temperature to another specific        value based on the current progress of the reaction process.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="temperature_at_XY" type="xs:float">
-                <xs:annotation>
-                    <xs:documentation>
-                        The temperature can also be measured at a variably chosen time point
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="time_at_XY" type="xs:float">
-                <xs:annotation>
-                    <xs:documentation>
-                        Specification of the exact time point
+                        Time at which this temperature is measured or set.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name="time_unit" type="xs:string">
                 <xs:annotation>
                     <xs:documentation>
-                        Common units for specifying time can be s (seconds), min (minutes) or h (hours).
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="special_treatment" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        If there are any other specific methods, procedures, characteristics or aspects related to the temperature that are important for reproducibility and are not described by the aforementioned                 metadata, they should be explained here.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-        </xs:sequence>
-    </xs:complexType>
-
-    <!-- pHConstant_WMRS Definition -->
-    <xs:complexType name="pHConstant_WMRSType">
-        <xs:sequence>
-            <xs:element name="pH_value" type="xs:float">
-                <xs:annotation>
-                    <xs:documentation>
-                        Value of the pH.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="detected_when" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        Specification of the timepoint at which the pH was measured. It includes whether the pH value was measured before, during, or after the reaction and whether all components of the reaction solution were     already present or if some were added after the measurement.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="detected_how" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        The pH value of a reaction can be determined in various ways, such as using a pH meter, pH paper, titration, electrochemical sensors, or other methods.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="temperature" type="xs:float">
-                <xs:annotation>
-                    <xs:documentation>
-                        The temperature at the time of pH measurement.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="temperature_unit" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        The temperature can be specified in units such as K, °C, or °F.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="calibration_pH_electrode" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        Usually, a pH electrode is calibrated using standard buffers at 20-25 °C. If the conditions in the reaction mixture differ from this, it should be specified. (
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="special_treatment" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        If there are any other specific methods, procedures, characteristics or aspects related to the pH value that are important for reproducibility and are not described by the aforementioned                    metadata, they should be explained here.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-        </xs:sequence>
-    </xs:complexType>
-
-    <!-- EventBasedpHShift_WMRS Definition -->
-    <xs:complexType name="EventBasedpHShift_WMRSType">
-        <xs:sequence>
-            <xs:element name="pH_beginning" type="xs:float">
-                <xs:annotation>
-                    <xs:documentation>
-                        The initial pH, prior to the start of the reaction, should be specified.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="pH_after_event" type="xs:float">
-                <xs:annotation>
-                    <xs:documentation>
-                        The pH that is present after a specific event has occurred.
+                        Unit of measurement for the time value.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name="event_description" type="xs:string">
                 <xs:annotation>
                     <xs:documentation>
-                        Information regarding the event that caused the pH change. In the case of a fed-batch reaction protocol, this event can also be the planned adjustment of the pH value to another specific value based on     the current progress of the reaction process.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="pH_at_XY" type="xs:float">
-                <xs:annotation>
-                    <xs:documentation>
-                        The pH can also be measured at a variably chosen time point
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="time_at_XY" type="xs:float">
-                <xs:annotation>
-                    <xs:documentation>
-                        Specification of the exact time point
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="time_unit" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        Common units for specifying time can be s (seconds) or min (minutes).
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="detected_when" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        Specification whether all components of the reaction solution were already present or if some were added after the measurement at the timepoint of the pH measurement.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="detected_how" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        The pH value of a reaction can be determined in various ways, such as using a pH meter, pH paper, titration, electrochemical sensors, or other methods.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="temperature" type="xs:float">
-                <xs:annotation>
-                    <xs:documentation>
-                        The temperature at the time of pH measurement.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="temperature_unit" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        The temperature can be specified in units such as K, °C, or °F.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="calibration_pH_electrode" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        Usually, a pH electrode is calibrated using standard buffers at 20-25 °C. If the conditions in the reaction mixture differ from this, it should be specified. (
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="special_treatment" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        If there are any other specific methods, procedures, characteristics or aspects related to the pH value that are important for reproducibility and are not described by the aforementioned                    metadata, they should be explained here.
+                        Description of any specific event associated with this temperature
+                        point.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
     </xs:complexType>
 
-    <!-- MonoliquidSystemDescription_TFCR Definition -->
-    <xs:complexType name="MonoliquidSystemDescription_TFCRType">
+    <!-- Gradient Definition -->
+    <xs:complexType name="GradientType">
         <xs:sequence>
-            <xs:element name="solvent_description" type="xs:string">
+            <xs:element name="start_value" type="xs:float">
                 <xs:annotation>
                     <xs:documentation>
-                        The solvent used in the reaction system, e.g. a buffered aqueous solution or an organic solvent.
+                        Initial temperature value at the beginning of the gradient.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="ionic_strength" type="xs:float">
+            <xs:element name="end_value" type="xs:float">
                 <xs:annotation>
                     <xs:documentation>
-                        Ionic strength calculated according to the dissolved ions in the solvent. The following formula can be used: $$I = \frac{1}{2} \sum
+                        Final temperature value at the end of the gradient.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="ionic_strength_unit" type="xs:string">
+            <xs:element name="length" type="xs:float">
                 <xs:annotation>
                     <xs:documentation>
-                        The unit of ionic strength is usually expressed in mol/L (moles per liter), or in mmol/L (millimoles per liter). (
+                        Duration or distance over which the gradient is applied.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="further_additives" type="xs:string">
+            <xs:element name="length_unit" type="xs:string">
                 <xs:annotation>
                     <xs:documentation>
-                        Further additive like cosolvents used to increase solubility of reactants, e.g. DMSO.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="Flow_rate" type="xs:float">
-                <xs:annotation>
-                    <xs:documentation>
-                        The flow rate must be specified to determine how fast a liquid or gas is flowing through a reactor or system.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="Flow_rate_unit" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        Common units for describing flow rate include L/min (liters per minute), mL/h (milliliters per hour), m³/h (cubic meters per hour), or other volume units per unit of time.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="special_treatment" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        If there are any other specific methods, procedures, characteristics or aspects related to the monoliquid system that are important for reproducibility and are not described by the aforementioned           metadata, they should be explained here.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-        </xs:sequence>
-    </xs:complexType>
-
-    <!-- MultiphasicSystemDescription_TFCR Definition -->
-    <xs:complexType name="MultiphasicSystemDescription_TFCRType">
-        <xs:sequence>
-            <xs:element name="phases_number" type="xs:float">
-                <xs:annotation>
-                    <xs:documentation>
-                        Number of phases present in the system, if there is an aqueous and a gas phase present, the number is 2.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="Flow_rate" type="xs:float">
-                <xs:annotation>
-                    <xs:documentation>
-                        The flow rate must be specified to determine how fast a liquid or gas is flowing through a reactor or system.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="Flow_rate_unit" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        Common units for describing flow rate include L/min (liters per minute), mL/h (milliliters per hour), m³/h (cubic meters per hour), or other volume units per unit of time.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="special_treatment" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        If there are any other specific methods, procedures, characteristics or aspects related to the multiphasic system that are important for reproducibility and are not described by the aforementioned           metadata, they should be explained here.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-        </xs:sequence>
-    </xs:complexType>
-
-    <!-- LiquidPhase_TFCR Definition -->
-    <xs:complexType name="LiquidPhase_TFCRType">
-        <xs:sequence>
-            <xs:element name="liquid_type" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        Information about the type of liquid used, whether it is an organic solvent, an aqueous buffer or a mixture of both.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="liquid_amount" type="xs:float">
-                <xs:annotation>
-                    <xs:documentation>
-                        Amount of the liquid added to the reaction.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="liquid_unit" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        In case of aqueous liquids, mL (milliliter) is often used as unit, in case of organic solvents, volume percentage (Vol %) or volume fraction (Vol/Vol) is utilized.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-        </xs:sequence>
-    </xs:complexType>
-
-    <!-- SolidPhase_TFCR Definition -->
-    <xs:complexType name="SolidPhase_TFCRType">
-        <xs:sequence>
-            <xs:element name="solid_type" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        Information about the type of solid used, whether it is a support material, solid catalyst, or any other solid compound.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="solid_amount" type="xs:float">
-                <xs:annotation>
-                    <xs:documentation>
-                        Mass of the solid used in the reaction solution.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="solid_unit" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        In the case of solids, common units like grams, milligrams, or micrograms can be used.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-        </xs:sequence>
-    </xs:complexType>
-
-    <!-- GasPhase_TFCR Definition -->
-    <xs:complexType name="GasPhase_TFCRType">
-        <xs:sequence>
-            <xs:element name="gas_type" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        Information about the type of gas used, whether it's nitrogen dioxide, argon, oxygen or other gases.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="gas_amount" type="xs:float">
-                <xs:annotation>
-                    <xs:documentation>
-                        Concentration of the gas in the gas phase.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="gas_unit" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        In the case of gases, common units are volume percentage (Vol %), volume fraction (Vol/Vol), mole percentage (Mol %) or molar fraction (Mol/Mol).
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-        </xs:sequence>
-    </xs:complexType>
-
-    <!-- TemperatureConstant_TFCR Definition -->
-    <xs:complexType name="TemperatureConstant_TFCRType">
-        <xs:sequence>
-            <xs:element name="temperature" type="xs:float">
-                <xs:annotation>
-                    <xs:documentation>
-                        Temperature during the reaction.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="temperature_unit" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        The temperature can be specified in units such as K, °C, or °F.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="special_treatment" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        If there are any other specific methods, procedures, characteristics or aspects related to the temperature that are important for reproducibility and are not described by the aforementioned                 metadata, they should be explained here.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-        </xs:sequence>
-    </xs:complexType>
-
-    <!-- DynamicTemperature_TFCR Definition -->
-    <xs:complexType name="DynamicTemperature_TFCRType">
-        <xs:sequence>
-            <xs:element name="temperature_beginning" type="xs:float">
-                <xs:annotation>
-                    <xs:documentation>
-                        The initial temperature, prior to the start of the reaction, should be specified.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="temperature_after_event" type="xs:float">
-                <xs:annotation>
-                    <xs:documentation>
-                        The temperature that is present after a specific event has occurred.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="event_description" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        Information regarding the event that caused the temperature change. In the case of a fed-batch reaction protocol, this event can also be the planned adjustment of the temperature to another specific        value based on the current progress of the reaction process.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="temperature_at_XY" type="xs:float">
-                <xs:annotation>
-                    <xs:documentation>
-                        The temperature can also be measured at a variably chosen time point
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="time_at_XY" type="xs:float">
-                <xs:annotation>
-                    <xs:documentation>
-                        Specification of the exact time point
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="time_unit" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        Common units for specifying time can be s (seconds), min (minutes) h (hours).
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="temperature_unit" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        The temperature can be specified in units such as K, °C, or °F.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="temperature_gradient_beginning" type="xs:float">
-                <xs:annotation>
-                    <xs:documentation>
-                        The initial temperature from which the temperature gradient begins. (
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="temperature_gradient_end" type="xs:float">
-                <xs:annotation>
-                    <xs:documentation>
-                        The target temperature reached after the temperature gradient is applied. (
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="gradient_length" type="xs:float">
-                <xs:annotation>
-                    <xs:documentation>
-                        The distance or time span over which the temperature gradient is applied. (
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="gradient_length_unit" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        The gradient length can be specified either as the physical distance (e.g. in meters) or as the time span (e.g. in minutes). (
+                        Unit of measurement for the gradient length (time or distance).
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name="measurement_points" type="xs:string">
                 <xs:annotation>
                     <xs:documentation>
-                        Information about the locations or time points where temperature measurements are taken to monitor the gradient. This can be important to ensure that the gradient behaves as intended.                       (
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="special_treatment" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        If there are any other specific methods, procedures, characteristics or aspects related to the temperature profile that are important for reproducibility and are not described by the aforementioned         metadata, they should be explained here.
+                        Description of how temperature is measured along the gradient.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
     </xs:complexType>
 
-    <!-- pHConstant_TFCR Definition -->
-    <xs:complexType name="pHConstant_TFCRType">
+    <!-- PHProfile Definition -->
+    <xs:complexType name="PHProfileType">
         <xs:sequence>
-            <xs:element name="pH_value" type="xs:float">
+            <xs:element name="profile_type" type="ProfileTypeType">
                 <xs:annotation>
                     <xs:documentation>
-                        The value of the pH.
+                        Type of pH profile used (constant, event-based, multipoint, or
+                        gradient).
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="detected_when" type="xs:string">
+            <xs:element name="constant_pH" type="xs:float">
                 <xs:annotation>
                     <xs:documentation>
-                        Specification of the timepoint at which the pH was measured. It includes whether the pH value was measured before, during, or after the reaction and whether all components of the reaction solution were     already present or if some were added after the measurement.
+                        pH value for constant pH profiles.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="detected_how" type="xs:string">
+            <xs:element name="profile_points">
                 <xs:annotation>
                     <xs:documentation>
-                        The pH value of a reaction can be determined in various ways, such as using a pH meter, pH paper, titration, electrochemical sensors, or other methods.
+                        Series of pH points for event-based or multipoint profiles.
+                    </xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="PHPoint" type="PHPointType" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="gradient" type="PHGradientType">
+                <xs:annotation>
+                    <xs:documentation>
+                        Gradient specifications for pH ramp profiles.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="temperature" type="xs:float">
+            <xs:element name="detection" type="PHDetectionType">
                 <xs:annotation>
                     <xs:documentation>
-                        The temperature at the time of pH measurement.
+                        Methods and conditions used for pH detection and measurement.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="temperature_unit" type="xs:string">
+            <xs:element name="notes" type="xs:string">
                 <xs:annotation>
                     <xs:documentation>
-                        The temperature can be specified in units such as K, °C, or °F.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="calibration_pH_electrode" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        Usually, a pH electrode is calibrated using standard buffers at 20-25 °C. If the conditions in the reaction mixture differ from this, it should be specified. (
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="special_treatment" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        If there are any other specific methods, procedures, characteristics or aspects related to the pH value that are important for reproducibility and are not described by the aforementioned                    metadata, they should be explained here.
+                        Additional notes about the pH profile.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
     </xs:complexType>
 
-    <!-- DynamicpH_TFCR Definition -->
-    <xs:complexType name="DynamicpH_TFCRType">
+    <!-- PHPoint Definition -->
+    <xs:complexType name="PHPointType">
         <xs:sequence>
-            <xs:element name="pH_beginning" type="xs:float">
+            <xs:element name="value" type="xs:float">
                 <xs:annotation>
                     <xs:documentation>
-                        The initial pH, prior to the start of the reaction, should be specified.
+                        pH value at this point.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="pH_after_event" type="xs:float">
+            <xs:element name="time" type="xs:float">
                 <xs:annotation>
                     <xs:documentation>
-                        The pH that is present after a specific event has occurred.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="event_description" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        Information regarding the event that caused the pH change. In the case of a fed-batch reaction protocol, this event can also be the planned adjustment of the pH value to another specific value based on     the current progress of the reaction process.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="pH_at_XY" type="xs:float">
-                <xs:annotation>
-                    <xs:documentation>
-                        The pH can also be measured at a variably chosen time point
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="time_at_XY" type="xs:float">
-                <xs:annotation>
-                    <xs:documentation>
-                        Specification of the exact time point
+                        Time at which this pH is measured or set.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name="time_unit" type="xs:string">
                 <xs:annotation>
                     <xs:documentation>
-                        Common units for specifying time can be s (seconds) or min (minutes).
+                        Unit of measurement for the time value.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="detected_when" type="xs:string">
+            <xs:element name="event_description" type="xs:string">
                 <xs:annotation>
                     <xs:documentation>
-                        Specification whether all components of the reaction solution were already present or if some were added after the measurement at the timepoint of the pH measurement.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="detected_how" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        The pH value of a reaction can be determined in various ways, such as using a pH meter, pH paper, titration, electrochemical sensors, or other methods.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="temperature" type="xs:float">
-                <xs:annotation>
-                    <xs:documentation>
-                        The temperature at the time of pH measurement.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="temperature_unit" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        The temperature can be specified in units such as K, °C, or °F.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="calibration_pH_electrode" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        Usually, a pH electrode is calibrated using standard buffers at 20-25 °C. If the conditions in the reaction mixture differ from this, it should be specified. (
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="pH_gradient_beginning" type="xs:float">
-                <xs:annotation>
-                    <xs:documentation>
-                        The initial pH from which the pH gradient begins. (
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="pH_gradient_end" type="xs:float">
-                <xs:annotation>
-                    <xs:documentation>
-                        The target pH reached after the pH gradient is applied. (
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="gradient_length" type="xs:float">
-                <xs:annotation>
-                    <xs:documentation>
-                        The distance or time span over which the pH gradient is applied. (
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="gradient_length_unit" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        The gradient length can be specified either as the physical distance (e.g. in meters) or as the time span (e.g. in minutes). (
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="measurement_points" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        Information about the locations or time points where pH measurements are taken to monitor the gradient. This can be important to ensure that the gradient behaves as intended. (
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="special_treatment" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>
-                        If there are any other specific methods, procedures, characteristics or aspects related to the pH value that are important for reproducibility and are not described by the aforementioned                    metadata, they should be explained here.
+                        Description of any specific event associated with this pH point.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
     </xs:complexType>
 
+    <!-- PHGradient Definition -->
+    <xs:complexType name="PHGradientType">
+        <xs:sequence>
+            <xs:element name="start_value" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation>
+                        Initial pH value at the beginning of the gradient.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="end_value" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation>
+                        Final pH value at the end of the gradient.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="length" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation>
+                        Duration over which the pH gradient is applied.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="length_unit" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Unit of measurement for the gradient duration.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="measurement_points" type="xs:float"  minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>
+                        Measurement points along the gradient.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- PHDetection Definition -->
+    <xs:complexType name="PHDetectionType">
+        <xs:sequence>
+            <xs:element name="detected_when" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Timing or conditions under which pH is detected.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="detected_how" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Method or instrument used for pH detection.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="temperature" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation>
+                        Temperature at which pH measurements are calibrated or performed.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="temperature_unit" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Unit of measurement for the calibration temperature.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="calibration_pH_electrode" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Details about pH electrode calibration procedures and standards.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Quantity Definition -->
+    <xs:complexType name="QuantityType">
+        <xs:sequence>
+            <xs:element name="value" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation>
+                        Numerical value of the measurement.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="unit" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Unit of measurement for the value.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- StorageConditions Definition -->
+    <xs:complexType name="StorageConditionsType">
+        <xs:sequence>
+            <xs:element name="temperature" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation>
+                        Storage temperature value.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="temperature_unit" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Unit for the storage temperature (e.g., °C, K).
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="storage_start" type="xs:date">
+                <xs:annotation>
+                    <xs:documentation>
+                        Date when storage under these conditions began or material was
+                        received.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="additives" type="xs:string"  minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>
+                        Any additives or stabilizers used during storage (e.g., glycerol,
+                        stabilizers, preservatives).
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="drying_method" type="xs:string"  minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>
+                        Method used to dry the material if stored in dry form (optional,
+                        primarily for biocatalysts).
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="notes" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        Additional notes about storage conditions or requirements.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Enum SystemType Definition -->
+    <xs:simpleType name="SystemTypeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="monoliquid"/>
+            <xs:enumeration value="multiphasic"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- Enum ProfileType Definition -->
+    <xs:simpleType name="ProfileTypeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="constant"/>
+            <xs:enumeration value="event_based"/>
+            <xs:enumeration value="gradient"/>
+            <xs:enumeration value="multipoint"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- Enum FormulationType Definition -->
+    <xs:simpleType name="FormulationTypeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="dissolved"/>
+            <xs:enumeration value="gas"/>
+            <xs:enumeration value="liquid"/>
+            <xs:enumeration value="other"/>
+            <xs:enumeration value="powder"/>
+            <xs:enumeration value="solution"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- Enum PhaseType Definition -->
+    <xs:simpleType name="PhaseTypeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="gas"/>
+            <xs:enumeration value="liquid"/>
+            <xs:enumeration value="mixed"/>
+            <xs:enumeration value="other"/>
+            <xs:enumeration value="solid"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- Enum ReactorType Definition -->
+    <xs:simpleType name="ReactorTypeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="other"/>
+            <xs:enumeration value="tubular_flow"/>
+            <xs:enumeration value="well_mixed"/>
+        </xs:restriction>
+    </xs:simpleType>
 
 </xs:schema>

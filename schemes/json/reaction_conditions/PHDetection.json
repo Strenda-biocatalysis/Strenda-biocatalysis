@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "PHDetection",
+  "type": "object",
+  "description": "Specifications for pH measurement methods and calibration conditions.",
+  "properties": {
+    "calibration_pH_electrode": {
+      "title": "calibration_pH_electrode",
+      "type": "string",
+      "description": "Details about pH electrode calibration procedures and standards."
+    },
+    "detected_how": {
+      "title": "detected_how",
+      "type": "string",
+      "description": "Method or instrument used for pH detection."
+    },
+    "detected_when": {
+      "title": "detected_when",
+      "type": "string",
+      "description": "Timing or conditions under which pH is detected."
+    },
+    "temperature": {
+      "title": "temperature",
+      "type": "number",
+      "description": "Temperature at which pH measurements are calibrated or performed."
+    },
+    "temperature_unit": {
+      "title": "temperature_unit",
+      "type": "string",
+      "description": "Unit of measurement for the calibration temperature."
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

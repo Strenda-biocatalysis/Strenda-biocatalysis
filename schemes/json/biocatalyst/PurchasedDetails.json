@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "PurchasedDetails",
+  "type": "object",
+  "description": "Detailed information for commercially purchased biocatalysts.",
+  "properties": {
+    "formulation": {
+      "title": "formulation",
+      "type": "string",
+      "description": "Physical form of the purchased biocatalyst (dissolved, powder, etc.).",
+      "$ref": "#/$defs/FormulationType"
+    },
+    "purity": {
+      "title": "purity",
+      "type": "number",
+      "description": "Purity of the purchased biocatalyst as specified by the supplier, typically as a percentage."
+    },
+    "purity_specification": {
+      "title": "purity_specification",
+      "type": "string",
+      "description": "Method or specification used to determine the purity (e.g., SDS-PAGE, activity assay)."
+    },
+    "reference": {
+      "title": "reference",
+      "type": "string",
+      "description": "Product code, catalog number, or other reference identifier from the supplier."
+    }
+  },
+  "$defs": {
+    "FormulationType": {
+      "title": "FormulationType",
+      "type": "string",
+      "enum": [
+        "dissolved",
+        "gas",
+        "liquid",
+        "other",
+        "powder",
+        "solution"
+      ]
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

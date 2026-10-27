@@ -1,453 +1,506 @@
-# Biocatalyst
+---
+hide:
+    - navigation
+---
+
+# Biocatalyst Specification
 
 This page provides comprehensive information about the structure and components of the data model, including detailed descriptions of the types and their properties, information on enumerations, and an overview of the ontologies used and their associated prefixes. Below, you will find a graph that visually represents the overall structure of the data model.
 
 ??? quote "Graph"
     ``` mermaid
     flowchart TB
-        biocatalystpurchased(BiocatalystPurchased)
-        biocatalystselfproduced(BiocatalystSelfProduced)
-        purifiedbiocatalyst(PurifiedBiocatalyst)
-        crudecellextract(CrudeCellExtract)
-        wholecellbiocatalyst(WholeCellBiocatalyst)
-        secretedenzyme(SecretedEnzyme)
-        cellfreeproduction(CellFreeProduction)
-        immobilised(Immobilised)
+        biocatalyst(Biocatalyst)
+        biocatalystidentity(BiocatalystIdentity)
+        sequenceinfo(SequenceInfo)
+        biocatalystsource(BiocatalystSource)
+        purchaseddetails(PurchasedDetails)
+        selfproduceddetails(SelfProducedDetails)
+        biocatalystapplication(BiocatalystApplication)
+        concentration(Concentration)
+        activity(Activity)
+        applicationworkflowdetails(ApplicationWorkflowDetails)
+        immobilization(Immobilization)
+        quantity(Quantity)
         storageconditions(StorageConditions)
+        biocatalystsourcetype(BiocatalystSourceType)
+        biocatalystapplicationtype(BiocatalystApplicationType)
+        molecularweightunit(MolecularWeightUnit)
+        formulationtype(FormulationType)
+        phasetype(PhaseType)
+        reactortype(ReactorType)
+        biocatalyst(Biocatalyst) --> biocatalystidentity(BiocatalystIdentity)
+        biocatalyst(Biocatalyst) --> biocatalystsourcetype(BiocatalystSourceType)
+        biocatalyst(Biocatalyst) --> biocatalystsource(BiocatalystSource)
+        biocatalyst(Biocatalyst) --> biocatalystapplication(BiocatalystApplication)
+        biocatalyst(Biocatalyst) --> immobilization(Immobilization)
+        biocatalyst(Biocatalyst) --> storageconditions(StorageConditions)
+        biocatalystidentity(BiocatalystIdentity) --> molecularweightunit(MolecularWeightUnit)
+        biocatalystidentity(BiocatalystIdentity) --> sequenceinfo(SequenceInfo)
+        biocatalystsource(BiocatalystSource) --> biocatalystsourcetype(BiocatalystSourceType)
+        biocatalystsource(BiocatalystSource) --> purchaseddetails(PurchasedDetails)
+        biocatalystsource(BiocatalystSource) --> selfproduceddetails(SelfProducedDetails)
+        purchaseddetails(PurchasedDetails) --> formulationtype(FormulationType)
+        selfproduceddetails(SelfProducedDetails) --> formulationtype(FormulationType)
+        biocatalystapplication(BiocatalystApplication) --> biocatalystapplicationtype(BiocatalystApplicationType)
+        biocatalystapplication(BiocatalystApplication) --> concentration(Concentration)
+        biocatalystapplication(BiocatalystApplication) --> activity(Activity)
+        biocatalystapplication(BiocatalystApplication) --> applicationworkflowdetails(ApplicationWorkflowDetails)
+        immobilization(Immobilization) --> concentration(Concentration)
 
-        click biocatalystpurchased "#biocatalystpurchased" "Go to BiocatalystPurchased"
-        click biocatalystselfproduced "#biocatalystselfproduced" "Go to BiocatalystSelfProduced"
-        click purifiedbiocatalyst "#purifiedbiocatalyst" "Go to PurifiedBiocatalyst"
-        click crudecellextract "#crudecellextract" "Go to CrudeCellExtract"
-        click wholecellbiocatalyst "#wholecellbiocatalyst" "Go to WholeCellBiocatalyst"
-        click secretedenzyme "#secretedenzyme" "Go to SecretedEnzyme"
-        click cellfreeproduction "#cellfreeproduction" "Go to CellFreeProduction"
-        click immobilised "#immobilised" "Go to Immobilised"
+        click biocatalyst "#biocatalyst" "Go to Biocatalyst"
+        click biocatalystidentity "#biocatalystidentity" "Go to BiocatalystIdentity"
+        click sequenceinfo "#sequenceinfo" "Go to SequenceInfo"
+        click biocatalystsource "#biocatalystsource" "Go to BiocatalystSource"
+        click purchaseddetails "#purchaseddetails" "Go to PurchasedDetails"
+        click selfproduceddetails "#selfproduceddetails" "Go to SelfProducedDetails"
+        click biocatalystapplication "#biocatalystapplication" "Go to BiocatalystApplication"
+        click concentration "#concentration" "Go to Concentration"
+        click activity "#activity" "Go to Activity"
+        click applicationworkflowdetails "#applicationworkflowdetails" "Go to ApplicationWorkflowDetails"
+        click immobilization "#immobilization" "Go to Immobilization"
+        click quantity "#quantity" "Go to Quantity"
         click storageconditions "#storageconditions" "Go to StorageConditions"
+        click biocatalystsourcetype "#biocatalystsourcetype" "Go to BiocatalystSourceType"
+        click biocatalystapplicationtype "#biocatalystapplicationtype" "Go to BiocatalystApplicationType"
+        click molecularweightunit "#molecularweightunit" "Go to MolecularWeightUnit"
+        click formulationtype "#formulationtype" "Go to FormulationType"
+        click phasetype "#phasetype" "Go to PhaseType"
+        click reactortype "#reactortype" "Go to ReactorType"
     ```
 
 
 ## Types
 
 
-### BiocatalystPurchased
-Important information to characterize the biocatalyst and determine its origin.Biocatalyst self-produced
+### Biocatalyst
+A biocatalyst is an enzyme or enzyme-containing system used to catalyze biochemical reactions. This section defines the complete characterization of a biocatalyst including its identity, source, application conditions, immobilization status, and storage requirements.
 
-__name__* `string`
+__identity__* [`BiocatalystIdentity`](#biocatalystidentity)
 
-- The name of the biocatalyst can be either generic based on the catalyzed reaction, for example, 'lipase' or more specifically by describing the genus and species, such as '
-
-
-__ec_number__* `string`
-
-- Numerical classification system that categorizes enzymes based on their biochemical function and reaction mechanism, such as EC 3.1.4.12.
+- Essential identifying information about the biocatalyst including name, EC number, molecular properties, and sequence data.
 
 
-__molecular_weight__* `float`
-
-- The molecular weight (MW) refer to the sum of the atomic weights of the atoms in a molecule and therefore describes the mass of an enzyme.
-- `Minimum`: 0.0
-
-__molecular_weight_unit__* `string`
-
-- The enzyme size or molar weight is typically expressed in kDa (kilodaltons).
+__source_type__ [`BiocatalystSourceType`](#biocatalystsourcetype)
 
 
-__catalyzed_reaction__* `string`
+__source__ [`BiocatalystSource`](#biocatalystsource)
 
-- The reaction catalyzed by the biocatalyst.
-
-
-__sequence_amino_acid__* `string`
-
-- The amino acid sequence of the biocatalyst. The amino acid sequence can be represented in either a three-letter or one-letter code. For instance, "Ala-Ser-Gly" corresponds to the three-letter code, while "ASG" represents the same sequence in the one-letter code. One of the databases commonly used for storing and retrieving amino acid sequences is the UniProt database (https://www.uniprot.org/). UniProt provides extensive information on protein sequences, including their one-letter and three-letter amino acid codes, allowing researchers to access and analyze various protein sequences.
+- Information about how the biocatalyst was obtained, whether purchased commercially or produced in-house.
 
 
-__sequence_DNA__* `string`
+__application__ [`BiocatalystApplication`](#biocatalystapplication)
 
-- The DNA sequence of the biocatalyst including any tags and linkers.
-
-
-__origin_organism__* `string`
-
-- The specific species or source from which the enzyme is derived or isolated. It includes information about the genus and species of the organism. However, the cell type from which the biocatalyst is        derived could be bacterial, as well as plant, animal, or other sources. (
+- Details about how the biocatalyst is applied in the reaction, including concentration, activity, and workflow specifics.
 
 
-__supplier__* `string`
+__immobilization__ [`Immobilization`](#immobilization)
 
-- Information about the supplier from which the enzyme was purchased. If possible, a reference for the purchased biocatalyst should also be provided.
-
-
-__production_organism__* `string`
-
-- Information about the organism in which the biocatalyst was produced is crucial in the context of heterologous gene expression.
+- Information about whether and how the biocatalyst is immobilized on a support material.
 
 
-__posttranslational_modification__* `string`
+__storage__ [`StorageConditions`](#storageconditions)
 
-- Information about any chemical modifications or alterations that occur to the biocatalyst's protein structure after translation, such as phosphorylation, glycosylation, acetylation,               methylation, ubiquitination and other modifications.
-
-
-__purity__* `float`
-
-- Purity of enzymes typically expressed in percentage (%). It is usually stated as the percentage of the pure enzyme or active component relative to the total mass of the enzyme preparation.
+- Conditions under which the biocatalyst is stored to maintain its activity and stability.
 
 
-__purity_specification__* `string`
+__notes__ `string`
 
-- Description of how the purity of the biocatalyst was determined. In case of purchased enzymes, this information is often available from the product specification sheet.
-
-
-__formulation__* `string`
-
-- Depending on the formulation, the biocatalyst can exist either in a dissolved state within a solvent or as a solid powder. It defines the physical state in which the biocatalyst is used. Additional information regarding the application or formulation in the experiment should be entered in the next subcategory.
+- Additional notes or comments about the biocatalyst that don't fit in other categories.
 
 
 ------
 
-### BiocatalystSelfProduced
-Important information to characterize the biocatalyst and to describe it clearly.
+### BiocatalystIdentity
+Core identifying information and molecular characteristics of the biocatalyst enzyme.
 
 __name__* `string`
 
-- The name of the biocatalyst can be either generic based on the catalyzed reaction, for example, 'lipase' or more specifically by describing the genus and species, such as '
+- The name of the biocatalyst, which can be the trivial name, systematic name, or trade name.
 
 
-__ec_number__* `string`
+__ec_number__ `list[string]`
 
-- Numerical classification system that categorizes enzymes based on their biochemical function and reaction mechanism, such as EC 3.1.4.12.
-
-
-__molecular_weight__* `float`
-
-- The molecular weight (MW) refer to the sum of the atomic weights of the atoms in a molecule and therefore describes the mass of an enzyme.
-- `Minimum`: 0.0
-
-__molecular_weight_unit__* `string`
-
-- The enzyme size or molar weight is typically expressed in kDa (kilodaltons).
+- The Enzyme Commission (EC) number that classifies the enzyme according to the reaction it catalyzes.
 
 
-__catalyzed_reaction__* `string`
+__molecular_weight__ `float`
 
-- The reaction catalyzed by the biocatalyst.
-
-
-__sequence_amino_acid__* `string`
-
-- The amino acid sequence of the biocatalyst. The amino acid sequence can be represented in either a three-letter or one-letter code. For instance, "Ala-Ser-Gly" corresponds to the three-letter code, while "ASG" represents the same sequence in the one-letter code. One of the databases commonly used for storing and retrieving amino acid sequences is the UniProt database (https://www.uniprot.org/). UniProt provides extensive information on protein sequences, including their one-letter and three-letter amino acid codes, allowing researchers to access and analyze various protein sequences.
-
-
-__sequence_DNA__* `string`
-
-- The DNA sequence of the biocatalyst including any tags and linkers.
-
-
-__sequence_plasmid__* `string`
-
-- The DNA sequence of the plasmid used to produce the biocatalyst. The sequence can be provided in plain text or as a database ID.
-
-
-__plasmid_specifications__* `string`
-
-- All DNA sequence changes (e.g. codon optimization for
-
-
-__origin_organism__* `string`
-
-- The specific species or source from which the enzyme is derived or isolated. It includes information about the genus and species of the organism. (
-
-
-__production_organism__* `string`
-
-- Information about the organism in which the biocatalyst was produced is crucial in the context of heterologous gene expression. If the production strain was purchased, more detailed information on the manufacturer and the organism should be provided.
-
-
-__posttranslational_modification__* `string`
-
-- Information about any chemical modifications or alterations that occur to the biocatalyst's protein structure after translation, such as phosphorylation, glycosylation, acetylation,               methylation, ubiquitination and other modifications.
-
-
-__purity__* `float`
-
-- Purity of enzymes typically expressed in percentage (%). It is usually stated as the percentage of the pure enzyme or active component relative to the total mass of the enzyme preparation.
-
-
-__purity_specification__* `string`
-
-- The choice of method for the purity determination depends on the type of enzyme and the available resources and may include gel electrophoresis, HPLC, ELISA, Western blotting, etc.
-
-
-__purification_method__* `string`
-
-- The choice of purification methods is diverse and can impact the enzyme, with possible methods including chromatographic techniques, precipitation, HPLC, ultrafiltration, dialysis, salt fractionation,      etc.
-
-
-__formulation__* `string`
-
-- Depending on the formulation, the biocatalyst can exist either in a dissolved state within a solvent or as a solid powder. It defines the physical state in which the biocatalyst is used. Additional information regarding the application or formulation in the experiment should be entered in the next subcategory.
-
-
-__special_treatment__* `string`
-
-- If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
-
-
-------
-
-### PurifiedBiocatalyst
-The soluble enzyme refers to purified enzyme.Crude cell extract
-
-__concentration__* `float`
-
-- Concentration of the biocatalyst.
+- The molecular weight of the enzyme in the specified units.
 - `Minimum`: 0
 
-__concentration_unit__* `string`
+__molecular_weight_unit__ [`MolecularWeightUnit`](#molecularweightunit)
 
-- Concentration of the biocatalyst is typically expressed in g/L (grams per liter).
-
-
-__concentration_determination_method__* `string`
-
-- It is important to specify the method used for concentration determination. There are various methods available for the determination of the enzyme concentration in solution e.g., the Bradford method, Lowry method, UV absorption, activity assays, ELISA, etc.
+- The unit of measurement for the molecular weight (e.g., kDa, Da).
 
 
-__activity__* `float`
+__catalyzed_reaction__ `list[string]`
 
-- The activity of the biocatalyst can be expressed either as volumetric activity, which considers the total activity of the enzyme in the solution, or as specific activity, which takes into account the       enzyme's purity and indicates the activity of an enzyme per unit of enzyme protein or enzyme mass. If the biocatalyst has been purchased, it is advisable to look up more precise information (e.g. via an SOP)            regarding the activities specified by the manufacturer, as these may differ from the values determined by yourself (different activity assays can lead to different activity values). In addition, the loss of activity of the biocatalyst over the storage period should be taken into account.
-
-
-__activity_unit__* `string`
-
-- The enzyme's activity can be expressed either as specific activity [][][]
+- Description of the specific reaction or type of reaction catalyzed by this enzyme.
 
 
-__activity_determination_method__* `string`
+__sequences__ [`SequenceInfo`](#sequenceinfo)
 
-- Enzyme activity can be measured in various ways, including spectrophotometrically, colorimetrically, fluorometrically, assays and using biosensors, etc.
-
-
-__formulation__* `string`
-
-- Depending on the formulation, the biocatalyst can be applied dissolved in a solvent or as a dried powder. It defines the physical state in which the biocatalyst is applied in the reaction.
+- Amino acid and/or DNA sequence information for the enzyme.
 
 
-__special_treatment__* `string`
+__origin_organism__ `string`
 
-- If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
+- The organism from which the enzyme was originally derived or isolated.
+
+
+__production_organism__ `string`
+
+- The organism used to produce the enzyme (may differ from origin organism for recombinant enzymes).
+
+
+__posttranslational_modification__ `list[string]`
+
+- Any post-translational modifications present on the enzyme that may affect its activity or properties.
 
 
 ------
 
-### CrudeCellExtract
-Whole cell biocatalyst
+### SequenceInfo
+Sequence information for the biocatalyst at both the protein and nucleic acid levels.
 
-__cell_disruption_process__* `string`
+__sequence_amino_acid__ `list[string]`
 
-- Cell disruption processes and methods include various techniques such as mechanical disruption (e.g., grinding, homogenization, ultrasonication, french press), chemical disruption (e.g., detergents, enzymes), physical techniques (e.g., electroporation, high-pressure homogenization, thermal treatment) to break cell walls and release cell contents.
-
-
-__concentration__* `float`
-
-- Concentration of the biocatalyst.
-- `Minimum`: 0.0
-
-__concentration_unit__* `string`
-
-- Concentration of the biocatalyst is typically expressed in g/L (grams per liter).
+- The amino acid sequence of the enzyme in single-letter code format.
 
 
-__concentration_determination_method__* `string`
+__sequence_dna__ `list[string]`
 
-- It is important to specify the type of concentration determination. There are numerous methods available to determine protein content, yet only a few are suitable for estimating or determining the protein content of the target protein within a mixture. Some of these methods include activity assays or the Western blotting technique, which relies on prior SDS-PAGE and antibody binding for detection.
-
-
-__special_treatment__* `string`
-
-- If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
+- The DNA sequence encoding the enzyme.
 
 
 ------
 
-### WholeCellBiocatalyst
-Secreted enzyme
+### BiocatalystSource
+Information about the source and procurement of the biocatalyst.
 
-__harvesting_method__* `string`
+__source_type__* [`BiocatalystSourceType`](#biocatalystsourcetype)
 
-- In biotechnological processes, there are various methods for harvesting cells, including centrifugation, filtration, precipitation, etc.
-
-
-__concentration__* `float`
-
-- In the case of whole-cell catalysts, the cell concentration or cell mass is commonly used as a measure.
-- `Minimum`: 0.0
-
-__concentration_unit__* `string`
-
-- In case of lyophilized cells, the quantity of lyophilized cells can be specified in g (grams) or kg (kilograms). If wet cells are used, the cell concentration can be indicated in cells/mL (cells per milliliter) or cells/g (cells per gram) of wet cell weight. Other common indications of the concentration of wet cells as biocatalysts are the cell concentration in g/L (grams per liter) or OD (optical density).
+- Whether the biocatalyst was purchased from a supplier or produced in-house.
 
 
-__concentration_determination_method__* `string`
+__supplier__ `string`
 
-- Specify the method for cell number per cell weight determination (e.g., flow cytometry, weight of dry biomass, spectrophotometry).
-
-
-__formulation__* `string`
-
-- When applying a whole cell biocatalyst, there are various options. Cultivated cells can be lyophilized or used as wet cells after separation from the medium.
+- Name of the commercial supplier or source of the biocatalyst.
 
 
-__special_treatment__* `string`
+__purchased_details__ [`PurchasedDetails`](#purchaseddetails)
 
-- If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
+- Specific details relevant to commercially purchased biocatalysts.
+
+
+__self_produced_details__ [`SelfProducedDetails`](#selfproduceddetails)
+
+- Specific details relevant to biocatalysts produced in-house.
 
 
 ------
 
-### SecretedEnzyme
-Cell-free-production
+### PurchasedDetails
+Detailed information for commercially purchased biocatalysts.
 
-__separation_method__* `string`
+__reference__ `string`
 
-- There are various methods to separate the supernatant from the cells, common methods include centrifugation, filtration, sedimentation, etc.
-
-
-__concentration__* `float`
-
-- Concentration of the biocatalyst.
-- `Minimum`: 0.0
-
-__concentration_unit__* `string`
-
-- Concentration of the biocatalyst is typically expressed in g/L (grams per liter).
+- Product code, catalog number, or other reference identifier from the supplier.
 
 
-__concentration_determination_method__* `string`
+__purity__ `float`
 
-- It is important to specify the type of concentration determination. There are numerous methods available to determine protein content, yet only a few are suitable for estimating or determining the protein content of the target protein within a mixture. Some of these methods include activity assays or the Western blotting technique, which relies on prior SDS-PAGE and antibody binding for detection.
+- Purity of the purchased biocatalyst as specified by the supplier, typically as a percentage.
 
 
-__special_treatment__* `string`
+__purity_specification__ `string`
 
-- If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
+- Method or specification used to determine the purity (e.g., SDS-PAGE, activity assay).
+
+
+__formulation__ [`FormulationType`](#formulationtype)
+
+- Physical form of the purchased biocatalyst (dissolved, powder, etc.).
 
 
 ------
 
-### CellFreeProduction
-Cell-free enzyme production or gene expression refers to a process where the synthesis of the biocatalyst occurs outside of living cells. This technique involves extracting cellular components, such as ribosomes, DNA, RNA, and other necessary cellular machinery, and using them in a controlled environment (usually in vitro) to produce proteins or enzymes. For further information see, e.g. Khambhati _et al._1.
+### SelfProducedDetails
+Detailed information for biocatalysts produced in-house.
 
-__source_of_cellfree_extract__* `string`
+__sequence_plasmid__ `list[string]`
 
-- Specifiy the organism or cell type from which the cell-free extract is derived (e.g., by describing the genus and species). These could be bacterial, plant, animal, or another sources. If available, reference can be made to an appropriate database entry.
-
-
-__concentration__* `float`
-
-- Concentration of the biocatalyst.
-- `Minimum`: 0.0
-
-__concentration_unit__* `string`
-
-- Concentration of the biocatalyst is typically expressed in g/L (grams per liter).
+- Sequence of the plasmid used for enzyme expression.
 
 
-__concentration_determination_method__* `string`
+__plasmid_specifications__ `list[string]`
 
-- It is important to specify the type of concentration determination. There are numerous methods available to determine protein content, yet only a few are suitable for estimating or determining the protein content of the target protein within a mixture. Some of these methods include activity assays or the Western blotting technique, which relies on prior SDS-PAGE and antibody binding for detection.
+- Details about the plasmid construction, including vector backbone, promoter, and other relevant features.
 
 
-__special_treatment__* `string`
+__purification_method__ `list[string]`
 
-- If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
+- Method(s) used to purify the enzyme after expression.
+
+
+__purity__ `float`
+
+- Achieved purity of the self-produced biocatalyst, typically as a percentage.
+
+
+__purity_specification__ `string`
+
+- Method used to determine the purity of the self-produced enzyme.
+
+
+__formulation__ [`FormulationType`](#formulationtype)
+
+- Physical form of the self-produced biocatalyst after purification and processing.
 
 
 ------
 
-### Immobilised
+### BiocatalystApplication
+Details about how the biocatalyst is applied and used in the reaction system.
+
+__application_type__* [`BiocatalystApplicationType`](#biocatalystapplicationtype)
+
+- The form in which the biocatalyst is applied (purified enzyme, crude extract, whole cells, etc.).
 
 
-__biocatalyst__* `string`
+__concentration__ [`list[Concentration]`](#concentration)
 
-- When it comes to the immobilization method, it is also important to mention how the biocatalyst to be immobilized is present (for example, as a purified enzyme, or as a crude cell extract, etc.).
-
-
-__immobilisation_chemistry__* `string`
-
-- This aspect denotes the specific chemical methods or techniques used to attach the enzymes onto the chosen base material. Different immobilization chemistries involve various covalent or non-covalent       bonding strategies, including crosslinking, adsorption, covalent bonding, encapsulation, specific binding via (affinity)tag, or entrapment.
+- Concentration of the biocatalyst in the reaction mixture.
 
 
-__carrier_material__* `string`
+__activity__ [`list[Activity]`](#activity)
 
-- If a support material, base, or carrier was utilized, it is necessary to specify the material's name (e.g., gel, membrane, particle) along with the supplier and further product details (
-
-
-__linkers__* `string`
-
-- Linkers are chemical compounds used to establish a connection or bridge between the enzymes and the carrier material. These linkers play a vital role in stabilizing the immobilized enzymes and can           influence the efficiency and functionality of the immobilization process. They facilitate binding between the enzymes and the carrier material, promoting a stable and active biocatalyst structure. Common and            widespread linkers are spacer molecules, crosslinkers, avidin-biotin or silane coupling agents. (
+- Measured enzymatic activity of the biocatalyst under the reaction conditions.
 
 
-__immobilisation_method__* `string`
+__workflow_details__ [`ApplicationWorkflowDetails`](#applicationworkflowdetails)
 
-- Specify further details regarding the immobilisation method of the enzyme. For a comprehensive report around the technical key data of the immobilization process or method, see literature for further              information, e.g. Ansorge-Schumacher2.
-
-
-__purification_method__* `string`
-
-- The purification methods can vary depending on whether it involves whole cells or free enzymes. In the case of whole cells, methods such as centrifugation, filtration, or flow cytometry can be              employed. In the case of free enzymes, methods like cell lysis, filtration, chromatography, and precipitation, among others, may be used.
+- Specific workflow steps and methods used in applying the biocatalyst.
 
 
-__concentration__* `float`
+------
 
-- Concentration of the biocatalyst or the whole cells on the immobilised phase.
-- `Minimum`: 0.0
+### Concentration
+Quantitative information about biocatalyst concentration in the reaction.
 
-__concentration_unit__* `string`
+__value__ `float`
 
-- For immobilized enzymes, the concentration is often quantified in terms of enzyme activity per volume (e.g., units per milliliter, U/mL) or weight measurements such as milligrams or grams per liter (mg/L or g/L). When referring to immobilized cells (not the enzymes themselves), units of cells/mL (cells per milliliter) or cells/g (cells per gram) are commonly utilized.
+- Numerical value of the concentration.
+- `Minimum`: 0
+
+__unit__ `string`
+
+- Unit of measurement for the concentration (e.g., mg/mL, µM, U/mL).
 
 
-__concentration_determination_method__* `string`
+__determination_method__ `string`
 
-- Various methods are available to determine the concentration of immobilized enzymes or cells. For immobilized enzymes, methods such as protein measurement or enzymatic activity assays can be used. The protein determination can be determined on the carrier material using a BCA test or as a differential measurement using the Bradford method, $\Delta$280 or also after detachment of the enzyme from the carrier material. An activity measurement is best suited as it provides the activity per gram of immobilized material. For immobilized cells, methods like flow cytometry or biomass measurement are applicable.
+- Method used to determine or calculate the concentration.
 
 
-__special_treatment__* `string`
+------
 
-- If there are any other specific methods, procedures, characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata,       they should be explained here.
+### Activity
+Enzymatic activity measurement of the biocatalyst.
+
+__value__ `float`
+
+- Numerical value of the measured activity.
+
+
+__unit__ `string`
+
+- Unit of measurement for the activity (e.g., U/mg, µmol/min/mg).
+
+
+__determination_method__ `string`
+
+- Assay method used to measure the enzymatic activity.
+
+
+------
+
+### ApplicationWorkflowDetails
+Specific workflow steps and procedures used when applying the biocatalyst.
+
+__cell_disruption_process__ `string`
+
+- Method used to disrupt cells if working with whole cell preparations.
+
+
+__harvesting_method__ `string`
+
+- Method used to harvest cells or enzyme from the production system.
+
+
+__separation_method__ `string`
+
+- Method used to separate the biocatalyst from other components.
+
+
+__source_of_cellfree_extract__ `string`
+
+- Details about the source and preparation of cell-free extracts if applicable.
+
+
+------
+
+### Immobilization
+Information about biocatalyst immobilization on solid supports.
+
+__immobilized__* `boolean`
+
+- Whether the biocatalyst is immobilized (true) or used in free form (false).
+
+
+__biocatalyst_state__ `string`
+
+- Physical state of the biocatalyst during immobilization (e.g., purified enzyme, crude extract).
+
+
+__immobilisation_chemistry__ `list[string]`
+
+- Chemical method or mechanism used for immobilization (e.g., covalent binding, adsorption, entrapment).
+
+
+__carrier_material__ `list[string]`
+
+- Material used as the solid support for immobilization.
+
+
+__linkers__ `list[string]`
+
+- Chemical linkers or spacers used between the enzyme and carrier material.
+
+
+__immobilisation_method__ `list[string]`
+
+- Detailed procedure used for the immobilization process.
+
+
+__purification_method__ `list[string]`
+
+- Method used to purify or wash the immobilized biocatalyst.
+
+
+__loading__ [`Concentration`](#concentration)
+
+- Amount of enzyme loaded onto the carrier material.
+
+
+__notes__ `string`
+
+- Additional notes about the immobilization process or properties.
+
+
+------
+
+### Quantity
+Quantitative measurement with value and unit specification.
+
+__value__ `float`
+
+- Numerical value of the measurement.
+- `Minimum`: 0
+
+__unit__ `string`
+
+- Unit of measurement for the value.
 
 
 ------
 
 ### StorageConditions
+Conditions under which materials (biocatalysts, components, etc.) are stored to maintain stability and integrity.
+
+__temperature__ `float`
+
+- Storage temperature value.
 
 
-__temperature__* `float`
+__temperature_unit__ `string`
 
-- The temperature at which the reactant is stored.
-
-
-__temperature_unit__* `string`
-
-- The temperature can be specified in units such as K, °C, or °F.
+- Unit for the storage temperature (e.g., °C, K).
 
 
-__storage_start__* `date`
+__storage_start__ `date`
 
-- The date since the biocatalyst has been stored.
-
-
-__additives__* `string`
-
-- Additives for the storage of biocatalyst can include antioxidants, stabilizers, drying agent, or even inert gases (argon, nitrogen), among others.
+- Date when storage under these conditions began or material was received.
 
 
-__drying_method__* `string`
+__additives__ `list[string]`
 
-- For biocatalysts, various drying methods are employed (e.g., freeze-drying, also known as lyophilization, spray-drying, a method that involves atomizing a solution into small particles before drying, or vacuum drying, which removes moisture through low-pressure conditions). (
+- Any additives or stabilizers used during storage (e.g., glycerol, stabilizers, preservatives).
 
 
-__special_treatment__* `string`
+__drying_method__ `list[string]`
 
-- If there are any other specific characteristics or aspects related to the biocatalyst that are important for reproducibility and are not described by the aforementioned metadata, they should be             explained here.
+- Method used to dry the material if stored in dry form (optional, primarily for biocatalysts).
+
+
+__notes__ `string`
+
+- Additional notes about storage conditions or requirements.
+
+
+## Enumerations
+
+### BiocatalystSourceType
+
+| Alias | Value |
+|-------|-------|
+| `PURCHASED` | purchased |
+| `SELF_PRODUCED` | self_produced |
+
+### BiocatalystApplicationType
+
+| Alias | Value |
+|-------|-------|
+| `CELL_FREE` | cell_free |
+| `CRUDE_CELL_EXTRACT` | crude_cell_extract |
+| `PURIFIED` | purified |
+| `SECRETED` | secreted |
+| `WHOLE_CELL` | whole_cell |
+
+### MolecularWeightUnit
+
+| Alias | Value |
+|-------|-------|
+| `DA` | Da |
+| `KDA` | kDa |
+| `OTHER` | other |
+
+### FormulationType
+
+| Alias | Value |
+|-------|-------|
+| `DISSOLVED` | dissolved |
+| `GAS` | gas |
+| `LIQUID` | liquid |
+| `OTHER` | other |
+| `POWDER` | powder |
+| `SOLUTION` | solution |
+
+### PhaseType
+
+| Alias | Value |
+|-------|-------|
+| `GAS` | gas |
+| `LIQUID` | liquid |
+| `MIXED` | mixed |
+| `OTHER` | other |
+| `SOLID` | solid |
+
+### ReactorType
+
+| Alias | Value |
+|-------|-------|
+| `OTHER` | other |
+| `TUBULAR_FLOW` | tubular_flow |
+| `WELL_MIXED` | well_mixed |

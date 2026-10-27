@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "YieldAndConversionResults",
+  "type": "object",
+  "description": "Product yield and substrate conversion measurements from enzymatic reactions.",
+  "properties": {
+    "conversion": {
+      "title": "conversion",
+      "type": "number",
+      "description": "Substrate conversion as percentage or fraction of initial substrate consumed."
+    },
+    "notes": {
+      "title": "notes",
+      "type": "string",
+      "description": "Additional notes about yield and conversion measurements."
+    },
+    "product_yield": {
+      "title": "product_yield",
+      "type": "array",
+      "description": "Product yield as percentage or fraction of theoretical maximum.",
+      "items": {
+        "type": "number"
+      }
+    },
+    "space_time_yield": {
+      "title": "space_time_yield",
+      "type": "number",
+      "description": "Space-time yield representing product formation rate per unit reactor volume."
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

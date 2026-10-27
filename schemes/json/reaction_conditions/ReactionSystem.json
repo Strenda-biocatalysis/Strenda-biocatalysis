@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "ReactionSystem",
+  "type": "object",
+  "description": "Characterization of the reaction system based on the number and types of phases present.",
+  "properties": {
+    "monoliquid": {
+      "title": "monoliquid",
+      "type": "object",
+      "description": "Specifications for single-phase liquid systems.",
+      "$ref": "#/$defs/MonoliquidSystem"
+    },
+    "multiphasic": {
+      "title": "multiphasic",
+      "type": "object",
+      "description": "Specifications for systems containing multiple phases.",
+      "$ref": "#/$defs/MultiphasicSystem"
+    },
+    "notes": {
+      "title": "notes",
+      "type": "string",
+      "description": "Additional notes about the reaction system."
+    },
+    "system_type": {
+      "title": "system_type",
+      "type": "string",
+      "description": "Classification of the system as monoliquid or multiphasic.",
+      "$ref": "#/$defs/SystemType"
+    }
+  },
+  "$defs": {
+    "MonoliquidSystem": {
+      "title": "MonoliquidSystem",
+      "type": "object",
+      "description": "Specifications for single-phase liquid reaction systems.",
+      "properties": {
+        "further_additives": {
+          "title": "further_additives",
+          "type": "string",
+          "description": "Description of any additional additives present in the system."
+        },
+        "ionic_strength": {
+          "title": "ionic_strength",
+          "type": "number",
+          "description": "Ionic strength of the solution, affecting enzyme activity and stability."
+        },
+        "notes": {
+          "title": "notes",
+          "type": "string",
+          "description": "Additional notes about the monoliquid system."
+        },
+        "solvent_description": {
+          "title": "solvent_description",
+          "type": "string",
+          "description": "Detailed description of the solvent or solvent mixture used."
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "MultiphasicSystem": {
+      "title": "MultiphasicSystem",
+      "type": "object",
+      "description": "Specifications for reaction systems containing multiple distinct phases.",
+      "properties": {
+        "notes": {
+          "title": "notes",
+          "type": "string",
+          "description": "Additional notes about the multiphasic system."
+        },
+        "phases_number": {
+          "title": "phases_number",
+          "type": "integer",
+          "description": "Total number of distinct phases present in the system.",
+          "minimum": 0.0
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "SystemType": {
+      "title": "SystemType",
+      "type": "string",
+      "enum": [
+        "monoliquid",
+        "multiphasic"
+      ]
+    }
+  },
+  "required": [
+    "system_type"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "ReactorSpecifics",
+  "type": "object",
+  "description": "Specialized reactor configurations and operational features.",
+  "properties": {
+    "catalyst_localisation": {
+      "title": "catalyst_localisation",
+      "type": "string",
+      "description": "Method or system for localizing or immobilizing the catalyst within the reactor."
+    },
+    "gas_handling": {
+      "title": "gas_handling",
+      "type": "object",
+      "description": "Gas supply and handling system for the reactor.",
+      "$ref": "#/$defs/GasHandling"
+    },
+    "temperature_control": {
+      "title": "temperature_control",
+      "type": "string",
+      "description": "Temperature control and regulation system employed."
+    },
+    "tubing": {
+      "title": "tubing",
+      "type": "string",
+      "description": "Tubing specifications and connections used in the reactor setup."
+    }
+  },
+  "$defs": {
+    "GasHandling": {
+      "title": "GasHandling",
+      "type": "object",
+      "description": "Gas supply and handling system for reactor operations.",
+      "properties": {
+        "gas_type": {
+          "title": "gas_type",
+          "type": "string",
+          "description": "Type of gas used (e.g., nitrogen, oxygen, argon, air)."
+        },
+        "supply_method": {
+          "title": "supply_method",
+          "type": "string",
+          "description": "Method of gas supply (e.g., continuous flow, headspace purging, bubbling)."
+        },
+        "supply_rate": {
+          "title": "supply_rate",
+          "type": "number",
+          "description": "Rate of gas supply or flow into the reactor."
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "OperationMode",
+  "type": "object",
+  "description": "Specification of the operational mode and configuration for conducting biocatalytic reactions.",
+  "properties": {
+    "feeding": {
+      "title": "feeding",
+      "type": "object",
+      "description": "Strategy for feeding reactants into the system during the reaction.",
+      "$ref": "#/$defs/FeedingStrategy"
+    },
+    "mode": {
+      "title": "mode",
+      "type": "string",
+      "description": "The fundamental operation mode defining how the reaction is conducted (batch, fed-batch, continuous, or combinatorial).",
+      "$ref": "#/$defs/OperationModeType"
+    },
+    "notes": {
+      "title": "notes",
+      "type": "string",
+      "description": "Additional notes or comments about the operation mode."
+    },
+    "reactor_type": {
+      "title": "reactor_type",
+      "type": "string",
+      "description": "Type of reactor configuration used (well-mixed, tubular flow, or other).",
+      "$ref": "#/$defs/ReactorType"
+    }
+  },
+  "$defs": {
+    "FeedingStrategy": {
+      "title": "FeedingStrategy",
+      "type": "object",
+      "description": "Specification of the feeding strategy for introducing reactants during non-batch operations.",
+      "properties": {
+        "description": {
+          "title": "description",
+          "type": "string",
+          "description": "Detailed description of the feeding strategy implementation."
+        },
+        "feeding_type": {
+          "title": "feeding_type",
+          "type": "string",
+          "description": "Type of feeding approach used (none, discrete, continuous, or variable).",
+          "$ref": "#/$defs/FeedingType"
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "FeedingType": {
+      "title": "FeedingType",
+      "type": "string",
+      "enum": [
+        "continuous",
+        "discrete",
+        "none",
+        "variable"
+      ]
+    },
+    "OperationModeType": {
+      "title": "OperationModeType",
+      "type": "string",
+      "enum": [
+        "batch",
+        "combinatorial",
+        "continuous",
+        "fed_batch"
+      ]
+    },
+    "ReactorType": {
+      "title": "ReactorType",
+      "type": "string",
+      "enum": [
+        "other",
+        "tubular_flow",
+        "well_mixed"
+      ]
+    }
+  },
+  "required": [
+    "mode"
+  ],
+  "additionalProperties": false
+}

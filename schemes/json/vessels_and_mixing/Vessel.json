@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Strenda-biocatalysis/Strenda-biocatalysis",
+  "title": "Vessel",
+  "type": "object",
+  "description": "Physical container or reactor specification for enzymatic reactions.",
+  "properties": {
+    "closure": {
+      "title": "closure",
+      "type": "object",
+      "description": "Sealing and closure system for the vessel.",
+      "$ref": "#/$defs/Closure"
+    },
+    "geometry": {
+      "title": "geometry",
+      "type": "string",
+      "description": "Geometric shape and dimensions of the vessel."
+    },
+    "lot_number": {
+      "title": "lot_number",
+      "type": "string",
+      "description": "Batch or lot number for traceability."
+    },
+    "material": {
+      "title": "material",
+      "type": "string",
+      "description": "Material composition of the vessel (e.g., glass, plastic, stainless steel)."
+    },
+    "notes": {
+      "title": "notes",
+      "type": "string",
+      "description": "Additional notes about the vessel specifications."
+    },
+    "reactor_specifics": {
+      "title": "reactor_specifics",
+      "type": "object",
+      "description": "Additional reactor-specific configurations and features.",
+      "$ref": "#/$defs/ReactorSpecifics"
+    },
+    "size": {
+      "title": "size",
+      "type": "number",
+      "description": "Volume or capacity of the vessel."
+    },
+    "size_unit": {
+      "title": "size_unit",
+      "type": "string",
+      "description": "Unit of measurement for the size."
+    },
+    "supplier": {
+      "title": "supplier",
+      "type": "string",
+      "description": "Manufacturer or supplier of the vessel."
+    },
+    "vessel_type": {
+      "title": "vessel_type",
+      "type": "string",
+      "description": "Type of vessel or reactor configuration used for the reaction.",
+      "$ref": "#/$defs/VesselType"
+    }
+  },
+  "$defs": {
+    "Closure": {
+      "title": "Closure",
+      "type": "object",
+      "description": "Sealing and closure system for reaction vessels.",
+      "properties": {
+        "closure_type": {
+          "title": "closure_type",
+          "type": "string",
+          "description": "Type of closure mechanism (e.g., screw cap, septum, crimp cap)."
+        },
+        "notes": {
+          "title": "notes",
+          "type": "string",
+          "description": "Additional notes about the closure system."
+        },
+        "sealing_material": {
+          "title": "sealing_material",
+          "type": "string",
+          "description": "Material used for sealing (e.g., PTFE, silicone, rubber)."
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "GasHandling": {
+      "title": "GasHandling",
+      "type": "object",
+      "description": "Gas supply and handling system for reactor operations.",
+      "properties": {
+        "gas_type": {
+          "title": "gas_type",
+          "type": "string",
+          "description": "Type of gas used (e.g., nitrogen, oxygen, argon, air)."
+        },
+        "supply_method": {
+          "title": "supply_method",
+          "type": "string",
+          "description": "Method of gas supply (e.g., continuous flow, headspace purging, bubbling)."
+        },
+        "supply_rate": {
+          "title": "supply_rate",
+          "type": "number",
+          "description": "Rate of gas supply or flow into the reactor."
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "ReactorSpecifics": {
+      "title": "ReactorSpecifics",
+      "type": "object",
+      "description": "Specialized reactor configurations and operational features.",
+      "properties": {
+        "catalyst_localisation": {
+          "title": "catalyst_localisation",
+          "type": "string",
+          "description": "Method or system for localizing or immobilizing the catalyst within the reactor."
+        },
+        "gas_handling": {
+          "title": "gas_handling",
+          "type": "object",
+          "description": "Gas supply and handling system for the reactor.",
+          "$ref": "#/$defs/GasHandling"
+        },
+        "temperature_control": {
+          "title": "temperature_control",
+          "type": "string",
+          "description": "Temperature control and regulation system employed."
+        },
+        "tubing": {
+          "title": "tubing",
+          "type": "string",
+          "description": "Tubing specifications and connections used in the reactor setup."
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "VesselType": {
+      "title": "VesselType",
+      "type": "string",
+      "enum": [
+        "other",
+        "plate",
+        "stirred_tank",
+        "tubular_flow",
+        "vial"
+      ]
+    }
+  },
+  "required": [
+    "vessel_type"
+  ],
+  "additionalProperties": false
+}
