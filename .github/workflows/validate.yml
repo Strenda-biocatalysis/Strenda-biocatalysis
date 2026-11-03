@@ -1,0 +1,71 @@
+name: Validate Markdown model
+
+# Runs on every pull request that touches the model. If a file can't be parsed,
+# the check turns red and a comment on the PR names the file and the error.
+
+on:
+  pull_request:
+    paths:
+      - "specifications/*.md"
+      - "gen.toml"
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  validate:
+    name: Validate specifications
+    runs-on: ubuntu-latest
+    env:
+      MD_MODELS_VERSION: v0.3.0
+      NO_COLOR: "1"
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install md-models
+        run: |
+          curl -sSfL -o md-models \
+            "https://github.com/FAIRChemistry/md-models/releases/download/${MD_MODELS_VERSION}/md-models-x86_64-unknown-linux-gnu"
+          chmod +x md-models
+
+      - name: Validate each file
+        id: validate
+        run: |
+          failed=0
+          {
+            echo "## Markdown model validation"
+            echo
+          } > report.md
+          for f in specifications/*.md; do
+            if out=$(./md-models validate -i "$f" 2>&1); then
+              echo "- ✅ \`$f\`" >> report.md
+            else
+              failed=1
+              clean=$(printf '%s\n' "$out" | sed 's/\x1b\[[0-9;]*m//g')
+              {
+                echo "- ❌ \`$f\`"
+                echo
+                echo '  ```'
+                printf '%s\n' "$clean" | sed 's/^/  /'
+                echo '  ```'
+              } >> report.md
+            fi
+          done
+          cat report.md >> "$GITHUB_STEP_SUMMARY"
+          echo "failed=$failed" >> "$GITHUB_OUTPUT"
+
+      - name: Comment on the pull request if something is wrong
+        if: steps.validate.outputs.failed == '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "⚠️ **Das Markdown-Modell enthält einen Fehler / The Markdown model has an error.**"
+            echo
+            echo "Bitte die markierte Datei korrigieren und erneut speichern. Bei Fragen: @torogi94"
+            echo
+            cat report.md
+          } > comment.md
+          gh pr comment "${{ github.event.pull_request.number }}" --body-file comment.md
+          exit 1
